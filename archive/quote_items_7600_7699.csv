@@ -1,0 +1,938 @@
+quote_number,item_id,workflow_status,part_number,revision,description,type,material,process,is_fully_configured,quantity,unit_price,total_price,total_price_with_add_ons,lead_time
+7600,7044967,not_started,512-030-510-085,A,Clip Sidebody to Baggage Bay Floor V4,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7601,7044992,not_started,512-030-510-069,A,Clip Sidebody to Roof Longeron V0 LH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7602,7045013,not_started,512-030-510-070,A,Clip. Sidebody to Roof Longeron V0 RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7603,7045029,not_started,512-030-510-072,A,Clip Sidebody to Roof Longeron V1 RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7604,7045049,not_started,512-030-510-072,A,Clip Sidebody to Roof Longeron V1 RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7605,7045174,not_started,512-030-510-077,A,Clip Sidebody to Roof Longeron V4 LH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7606,7045293,not_started,512-030-550-011,A,BUMPER - AFT LOWER SLIDING DOOR,manufactured,,Historical Part Requote,False,46,0.00,0.00,0.00,50
+7607,7045318,not_started,512-030-510-078,A,Clip Sidebody to Roof Longeron V4 RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7608,7045361,not_started,512-030-510-086,A,Clip. Sidebody to Baggage Bay Floor V4,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7609,7045469,not_started,512-030-510-087,A,Clip Sidebody to Mid Lift Frame LH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7610,7045526,not_started,512-030-510-088,A,Clip Sidebody to Mid Lift Frame RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7611,7045565,not_started,512-030-610-303,-,AFT SKIN DOUBLER- LH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7612,7045585,not_started,512-030-500-119,-,BRACKET ASSY SYSTEM SUPPORT,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7613,7045618,not_started,512-061-450-105,C,FWD FRAME ASSY-SAIL FAIRING,manufactured,,Historical Part Requote,False,22,0.00,0.00,0.00,50
+7614,7045652,completed,512-030-310-032,A,UPPER LONGERON SHEAR CLIP,manufactured,Aluminum 7075-T73,SM - Piece (combo),True,40,67.82,2712.80,2712.80,50
+7615,7045700,not_started,512-062-400-115,-,HEAT SHIELD ASSY-ENGINE-RH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7616,7045824,no_quote,0040-7601,01,HANDLE ENDURA MAINFRAME,manufactured,,NQ - Not a Core Competency,False,1,0.00,0.00,0.00,5
+7616,7045824,no_quote,0040-7601,01,HANDLE ENDURA MAINFRAME,manufactured,,NQ - Not a Core Competency,False,5,0.00,0.00,0.00,5
+7616,7045824,no_quote,0040-7601,01,HANDLE ENDURA MAINFRAME,manufactured,,NQ - Not a Core Competency,False,10,0.00,0.00,0.00,5
+7616,7045824,no_quote,0040-7601,01,HANDLE ENDURA MAINFRAME,manufactured,,NQ - Not a Core Competency,False,15,0.00,0.00,0.00,5
+7616,7045824,no_quote,0040-7601,01,HANDLE ENDURA MAINFRAME,manufactured,,NQ - Not a Core Competency,False,20,0.00,0.00,0.00,5
+7617,7155700,completed,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,1,3260.00,3260.00,3260.00,80
+7619,7051127,not_started,512-062-400-113,-,HEAT SHIELD ASSY-ENGINE-LH,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7620,7051458,not_started,512-034-710-009,C,Clip Static Wick - Vertical Fin,manufactured,,Historical Part Requote,False,41,0.00,0.00,0.00,50
+7621,7051486,not_started,512-061-252-101,C,HINGE FITTING ASSY,assembled,,Historical Part Requote,False,16,0.00,0.00,0.00,50
+7622,7051533,not_started,512-030-100-521,A,BOND STRAP BRACKET ASSY,manufactured,,Historical Part Requote,False,19,0.00,0.00,0.00,50
+7623,7051600,not_started,512-034-700-237,A,STRAP BONDING ASSY - LCF,manufactured,,Historical Part Requote,False,20,0.00,0.00,0.00,50
+7624,7051765,not_started,512-030-100-231,,BRACKET ASSY,manufactured,,Historical Part Requote,False,45,0.00,0.00,0.00,50
+7625,7051835,not_started,512-030-410-227,B,,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7626,7051869,not_started,512-030-410-229,A,Outbd Baggage Floor Strap,manufactured,,Historical Part Requote,False,21,0.00,0.00,0.00,50
+7627,7051923,not_started,512-030-610-055,B,Splice,manufactured,,Historical Part Requote,False,23,0.00,0.00,0.00,50
+7628,7052024,completed,512-030-610-095,B,Splice,manufactured,Aluminum 7075-T6,MS - Mill,True,23,124.00,2852.00,2852.00,52
+7629,7052054,no_quote,512-030-440-315,-,FOAM BLOCK,manufactured,,Historical Part Requote,False,27,0.00,0.00,0.00,50
+7630,7052137,completed,512-030-510-097,-,Strap Bonding,manufactured,Aluminum 1100,SM - Piece (combo),True,21,127.00,2667.00,2667.00,46
+7631,7052504,completed,512-030-510-133,A,Strap Bonding,manufactured,Aluminum 1100,SM - Piece (combo),True,21,153.00,3213.00,3533.00,46
+7632,7052554,completed,512-030-510-137,-,Strap Bonding,manufactured,Aluminum 1100,SM - Piece (combo),True,21,83.10,1745.10,1745.10,50
+7633,7052574,completed,512-030-610-223,-,STRAP BONDING - UPR LONGERON LH,manufactured,Aluminum 1100,SM - Piece (combo),True,16,838.00,13408.00,13408.00,70
+7634,7052669,completed,512-030-100-331,C,Support Clip Assy Pedestal Storage Bin,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,40,82.20,3288.00,3288.00,48
+7635,7052732,completed,512-030-510-089,A,Clip Sidebody to Aft Lift Frame,manufactured,Aluminum 7075,SM - Piece (combo),True,21,129.00,2709.00,2709.00,60
+7636,7055205,completed,L21398P03,H,"COVER, PLATE - TRANSFER
+GEARBOX",manufactured,Cast Aluminum,MS - Mill,True,200,19.81,3962.00,3962.00,20
+7637,7055445,completed,0042-61278,02,"BULKHEAD, HX MANIFOLD, 300MM RADIANCE",assembled,CRS,SM - Assy,True,1,809.00,809.00,1709.00,70
+7637,7055445,completed,0042-61278,02,"BULKHEAD, HX MANIFOLD, 300MM RADIANCE",assembled,CRS,SM - Assy,True,2,436.00,872.00,1772.00,70
+7637,7055445,completed,0042-61278,02,"BULKHEAD, HX MANIFOLD, 300MM RADIANCE",assembled,CRS,SM - Assy,True,4,249.00,996.00,1896.00,70
+7637,7055445,completed,0042-61278,02,"BULKHEAD, HX MANIFOLD, 300MM RADIANCE",assembled,CRS,SM - Assy,True,10,137.00,1370.00,2270.00,70
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055640,not_started,0010-27197,03,"ACE ASSY, ENDURA 2, 300MM",manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055641,not_started,0020-02298,04,"RETAINER, SPHERICAL BEARING, BUFFER CASS",manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055642,not_started,0020-47183,03,BRACKET CLAMP DC CABLE RPG 300MM PVD,manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055643,not_started,0020-47233,02,"STANDOFF, PVD GROUND, 300MM ESC DT",manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055644,not_started,0020-48636,03,"BRACKET, SUPPORT 1/2 TBG APEX SIDE, RPK",manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055645,not_started,0020-63063,01,"BRACKET, E-MAG CABLES, CH BODY, 300MM EN",manufactured,,,False,50,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,1,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,5,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,10,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,15,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,25,0.00,0.00,0.00,0
+7638,7055646,not_started,0020-92149,01,"HARD STOP, LID CVD 300MM ENDURA2",manufactured,,,False,50,0.00,0.00,0.00,0
+7639,7055856,no_quote,0010-00865,01,BAKEOUT LAMP CLAMP ASSEMBLY,manufactured,,NQ - Not a Core Competency,False,520,0.00,0.00,0.00,5
+7639,7055857,no_quote,0010-94318,02,"ASSY, SHUTTER ROTATION, LINKAGE",manufactured,,NQ - Not a Core Competency,False,82,0.00,0.00,0.00,5
+7639,7055858,no_quote,0030-70084,01,"HOLDOWN RING,VIEWPORT",assembled,,NQ - Not a Core Competency,False,455,0.00,0.00,0.00,5
+7640,7056945,completed,901-375-659-501,-,"CHASSIS ASSY, WIRING INTEGRATION, LH",manufactured,,Historical Part Requote,False,91,874.00,79534.00,79534.00,80
+7640,7056947,completed,901-375-660-501,-,"CHASSIS, ASSY",manufactured,,Historical Part Requote,False,91,874.00,79534.00,79534.00,80
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,5,14353.53,71767.65,71767.65,60
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,10,12965.84,129658.40,129658.40,60
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,15,12505.31,187579.65,187579.65,60
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,20,12277.65,245553.00,245553.00,60
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,25,12133.29,303332.25,303332.25,60
+7641,7057021,not_started,0011-00844,03,"ASSY, CHAMBER CONTROL UNIT, PCxT TURBO E",assembled,,Historical Part Requote,False,30,12900.00,387000.00,387000.00,60
+7642,7057304,no_quote,70p862398-2001,001,SOCKET HEAD CAP SCREW; JDAM STRAPS,manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7643,7057323,not_started,test,,,manufactured,,,False,1,0.00,0.00,0.00,0
+7643,7057328,not_started,0010-80408,,,assembled,,,False,1,0.00,0.00,0.00,0
+7643,7081219,not_started,425-03565-010,H,"ENCLOSURE ENCLOSURE BAv INCH 8 8 CHASSIS, CHASSIS,",manufactured,Aluminum 6061-T6,MS - Mill,True,1,5840.00,5840.00,6640.00,55
+7643,7081219,not_started,425-03565-010,H,"ENCLOSURE ENCLOSURE BAv INCH 8 8 CHASSIS, CHASSIS,",manufactured,Aluminum 6061-T6,MS - Mill,True,5,1780.00,8900.00,9700.00,58
+7643,7081219,not_started,425-03565-010,H,"ENCLOSURE ENCLOSURE BAv INCH 8 8 CHASSIS, CHASSIS,",manufactured,Aluminum 6061-T6,MS - Mill,True,30,927.00,27810.00,28610.00,75
+7643,7158781,not_started,C403-01459-00,B,"STRUCTURE, RADOME FRAME, VIREO, TRANSMIT",manufactured,Aluminum 6061-T6,SM - Piece,True,1,797.00,797.00,1197.00,32
+7643,7158781,not_started,C403-01459-00,B,"STRUCTURE, RADOME FRAME, VIREO, TRANSMIT",manufactured,Aluminum 6061-T6,SM - Piece,True,11,162.00,1782.00,2182.00,33
+7643,7158781,not_started,C403-01459-00,B,"STRUCTURE, RADOME FRAME, VIREO, TRANSMIT",manufactured,Aluminum 6061-T6,SM - Piece,True,100,97.92,9792.00,9792.00,41
+7643,7159549,not_started,0042-85528,01,"BOTTOM COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,250,20.80,5200.00,5200.00,30
+7643,7159549,not_started,0042-85528,01,"BOTTOM COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,5000,15.59,77950.00,77950.00,30
+7643,7159549,not_started,0042-85528,01,"BOTTOM COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,10000,15.54,155400.00,155400.00,30
+7643,7159549,not_started,0042-85528,01,"BOTTOM COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,20000,15.51,310200.00,310200.00,30
+7643,7159563,not_started,0042-85523,01,"TOP COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,250,29.13,7282.50,7282.50,30
+7643,7159563,not_started,0042-85523,01,"TOP COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,5000,22.40,112000.00,112000.00,30
+7643,7159563,not_started,0042-85523,01,"TOP COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,10000,22.34,223400.00,223400.00,30
+7643,7159563,not_started,0042-85523,01,"TOP COVER, PCB, MFC",manufactured,CRS,SM - Piece,True,20000,22.31,446200.00,446200.00,30
+7643,7178585,not_started,6005021,D,"STRAP, BONDING",manufactured,Copper 101,SM - Piece,True,1,666.00,666.00,1266.00,51
+7643,7178585,not_started,6005021,D,"STRAP, BONDING",manufactured,Copper 101,SM - Piece,True,5,165.00,825.00,1425.00,51
+7643,7178585,not_started,6005021,D,"STRAP, BONDING",manufactured,Copper 101,SM - Piece,True,10,104.00,1040.00,1640.00,51
+7643,7178585,not_started,6005021,D,"STRAP, BONDING",manufactured,Copper 101,SM - Piece,True,50,64.74,3237.00,3237.00,52
+7644,7062239,completed,12-0301-0002,02,BEATER BAR ASSEMBLY W/O BLADES,assembled,Stainless Steel 304L,MS  - Assy,True,27,455.00,12285.00,13885.00,80
+7644,7062239,completed,12-0301-0002,02,BEATER BAR ASSEMBLY W/O BLADES,assembled,Stainless Steel 304L,MS  - Assy,True,766,381.00,291846.00,291846.00,80
+7644,7062240,completed,22-2404-0009,01,"FTG KYHOLE,1/4BARBX1/2DOLE,1 ORING",manufactured,Stainless Steel 304L,MS - Lathe,True,152,48.01,7297.52,7297.52,80
+7644,7062240,completed,22-2404-0009,01,"FTG KYHOLE,1/4BARBX1/2DOLE,1 ORING",manufactured,Stainless Steel 304L,MS - Lathe,True,488,44.83,21877.04,21877.04,80
+7644,7062241,completed,22-0566-0011,01,"FITTING,BULKHEAD,1/4 FL X 1/4 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,107,61.50,6580.50,6580.50,80
+7644,7062241,completed,22-0566-0011,01,"FITTING,BULKHEAD,1/4 FL X 1/4 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,403,56.39,22725.17,22725.17,80
+7644,7062242,completed,12-0301-0007,01,"BEATER BAR ASSY,NO BLD,SLUSH,56/77X",assembled,Stainless Steel 304L,MS  - Assy,True,10,591.00,5910.00,7610.00,80
+7644,7062242,completed,12-0301-0007,01,"BEATER BAR ASSY,NO BLD,SLUSH,56/77X",assembled,Stainless Steel 304L,MS  - Assy,True,693,410.00,284130.00,284130.00,80
+7644,7062243,completed,12-2109-0001,01,"BEATER BAR ASSY, W/O BLADES 35X,37X",assembled,Stainless Steel 304L,MS  - Assy,True,3,1070.00,3210.00,4810.00,80
+7644,7062243,completed,12-2109-0001,01,"BEATER BAR ASSY, W/O BLADES 35X,37X",assembled,Stainless Steel 304L,MS  - Assy,True,331,308.00,101948.00,101948.00,80
+7644,7062244,completed,12-3042-0003,01,"BEATER BAR, SLUSH, UPP ACT FPLATE",assembled,Stainless Steel 304L,MS  - Assy,True,7,786.00,5502.00,7102.00,80
+7644,7062244,completed,12-3042-0003,01,"BEATER BAR, SLUSH, UPP ACT FPLATE",assembled,Stainless Steel 304L,MS  - Assy,True,138,444.00,61272.00,61272.00,80
+7644,7062245,completed,22-2731-0003,D,"FITTING, H2O PMP 3/8""  ID ELBOW SS",assembled,Stainless Steel 304L,MS  - Assy,True,32,164.00,5248.00,6648.00,80
+7644,7062245,completed,22-2731-0003,D,"FITTING, H2O PMP 3/8""  ID ELBOW SS",assembled,Stainless Steel 304L,MS  - Assy,True,889,121.00,107569.00,107569.00,80
+7644,7062246,completed,22-0105-0001,02,"TEMPERATURE SENSOR BODY, 5/8""",manufactured,Copper 110,MS - Lathe,True,10,104.00,1040.00,2340.00,80
+7644,7062246,completed,22-0105-0001,02,"TEMPERATURE SENSOR BODY, 5/8""",manufactured,Copper 110,MS - Lathe,True,236,36.19,8540.84,8540.84,80
+7644,7062247,completed,22-2212-0001,02,"FITTING, ELBOW, 1/4 BARB X 1/2 DOLE",assembled,Stainless Steel 304L,MS  - Assy,True,49,133.00,6517.00,7917.00,80
+7644,7062247,completed,22-2212-0001,02,"FITTING, ELBOW, 1/4 BARB X 1/2 DOLE",assembled,Stainless Steel 304L,MS  - Assy,True,141,114.00,16074.00,16074.00,80
+7644,7062248,completed,22-0370-0001,C,"TEE, SS, 1/4 x 1/4 x 1/4, I.D.",assembled,Stainless Steel 304L,MS  - Assy,True,73,115.00,8395.00,8395.00,80
+7644,7062248,completed,22-0370-0001,C,"TEE, SS, 1/4 x 1/4 x 1/4, I.D.",assembled,Stainless Steel 304L,MS  - Assy,True,197,103.00,20291.00,20291.00,80
+7644,7062249,completed,22-2405-0011,D,"FTG, 3/8 DOUBLE ""O"" X 1/4 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,62,51.26,3178.12,3178.12,80
+7644,7062249,completed,22-2405-0011,D,"FTG, 3/8 DOUBLE ""O"" X 1/4 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,491,40.70,19983.70,19983.70,80
+7644,7062250,completed,22-0566-0012,C,"FITTING,BULKHEAD,1/4 FL X 3/8 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,16,95.56,1528.96,2328.96,80
+7644,7062250,completed,22-0566-0012,C,"FITTING,BULKHEAD,1/4 FL X 3/8 BARB",manufactured,Stainless Steel 304L,MS - Lathe,True,541,46.99,25421.59,25421.59,80
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,1,4705.00,4705.00,4705.00,70
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,5,2148.00,10740.00,10740.00,70
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,10,1836.00,18360.00,18360.00,70
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,14,1768.00,24752.00,24752.00,70
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,25,1641.00,41025.00,41025.00,80
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,50,1588.00,79400.00,79400.00,120
+7645,7062547,completed,901-005-601-105,G,"CHASSIS ASSY,BDD",manufactured,,Historical Part Requote,False,100,1568.00,156800.00,156800.00,150
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,1,249.86,249.86,249.86,60
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,5,58.60,293.00,293.00,60
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,25,20.35,508.75,508.75,60
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,50,15.57,778.50,778.50,60
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,100,13.28,1328.00,1328.00,60
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,150,12.45,1867.50,1867.50,50
+7647,7072930,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,300,11.69,3507.00,3507.00,60
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,1,0.16,0.16,0.16,40
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,5,0.16,0.80,0.80,40
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,25,0.16,4.00,4.00,40
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,50,0.16,8.00,8.00,40
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,100,0.14,14.00,14.00,40
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,150,0.14,21.00,21.00,50
+7647,7072934,not_started,0042-83799,01,"BRACKET, BLANK OFF,
+BRANCH CIRCUIT BREAKERS",manufactured,,Historical Part Requote,False,300,0.14,42.00,42.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063185,not_started,0015-21026,01,"FLEXI BUS, MODIFIED, FAB LEVEL AC",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7072969,not_started,0022-74517,01,"CU BUSBAR, NICKEL PLATED, 02 STATION",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063187,not_started,0023-23510,01,"GROUND BUSBAR, 47 POSITION, 1.0X 36.0 IN",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063188,not_started,0023-41440,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063189,not_started,0023-41442,01,"CB FULL COVER, FAB LEVEL AC, SYM3Y FALCO",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063190,not_started,0043-06222,01,"BRACKET, MOUNTING, BRANCH CBS, FAB LEVEL",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063191,not_started,0043-06226,01,"BACK PANEL, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063192,not_started,0043-06527,01,"BRACKET, MOUNTING, MCCB-FAB LEVEL AC, XT",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,1,2.77,2.77,2.77,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,5,2.77,13.85,13.85,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,25,2.77,69.25,69.25,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,50,2.77,138.50,138.50,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,100,2.77,277.00,277.00,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,150,2.77,415.50,415.50,50
+7647,7063193,not_started,0043-06619,01,"PANEL, SIDE-RH, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,300,2.77,831.00,831.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063194,not_started,0043-06620,01,"FRONT, PANEL, BRANCH CIRCUIT BREAKERS",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063195,not_started,0043-06621,01,"PANEL, FRONT, MCCB-FAB LEVEL AC, XT5",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063196,not_started,0043-06622,01,"ENCLOSURE, FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063197,not_started,0043-06624,01,"PANEL, TOP, GROMMET, FAB LEVEL AC, SYM3Y",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7647,7063198,not_started,0043-06764,01,"PANEL, FACILITY, FAB LEVEL AC BOX",assembled,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7648,7063632,completed,0090-15721,02,"COMMON EQUIPMENT RACK, 42U",manufactured,,Historical Part Requote,False,150,5892.46,883869.00,883869.00,80
+7648,7063632,completed,0090-15721,02,"COMMON EQUIPMENT RACK, 42U",manufactured,,Historical Part Requote,False,338,5892.46,1991651.48,1991651.48,50
+7648,7063632,completed,0090-15721,02,"COMMON EQUIPMENT RACK, 42U",manufactured,,Historical Part Requote,False,375,5892.46,2209672.50,2209672.50,50
+7648,7063632,completed,0090-15721,02,"COMMON EQUIPMENT RACK, 42U",manufactured,,Historical Part Requote,False,450,5892.46,2651607.00,2651607.00,50
+7648,7063632,completed,0090-15721,02,"COMMON EQUIPMENT RACK, 42U",manufactured,,Historical Part Requote,False,600,5892.46,3535476.00,3535476.00,50
+7648,7063633,completed,0090-13800,02,"ELECTROMECHANICAL ASSEMBLY, E5, COMMON R",assembled,,Historical Part Requote,False,5,5953.53,29767.65,29767.65,80
+7648,7063633,completed,0090-13800,02,"ELECTROMECHANICAL ASSEMBLY, E5, COMMON R",assembled,,Historical Part Requote,False,11,5953.53,65488.83,65488.83,50
+7648,7063633,completed,0090-13800,02,"ELECTROMECHANICAL ASSEMBLY, E5, COMMON R",assembled,,Historical Part Requote,False,13,5953.53,77395.89,77395.89,50
+7648,7063633,completed,0090-13800,02,"ELECTROMECHANICAL ASSEMBLY, E5, COMMON R",assembled,,Historical Part Requote,False,15,5953.53,89302.95,89302.95,50
+7648,7063633,completed,0090-13800,02,"ELECTROMECHANICAL ASSEMBLY, E5, COMMON R",assembled,,Historical Part Requote,False,20,5953.53,119070.60,119070.60,50
+7648,7063639,completed,0011-04628,01,"ASSEMBLY GAS PANEL ENCLOSURE, NEW",assembled,Aluminum 6061-T6,SM - Assy,True,3,7300.00,21900.00,21900.00,64
+7648,7063639,completed,0011-04628,01,"ASSEMBLY GAS PANEL ENCLOSURE, NEW",assembled,Aluminum 6061-T6,SM - Assy,True,7,7000.00,49000.00,49000.00,65
+7648,7063639,completed,0011-04628,01,"ASSEMBLY GAS PANEL ENCLOSURE, NEW",assembled,Aluminum 6061-T6,SM - Assy,True,8,6500.00,52000.00,52000.00,65
+7648,7063639,completed,0011-04628,01,"ASSEMBLY GAS PANEL ENCLOSURE, NEW",assembled,Aluminum 6061-T6,SM - Assy,True,9,6500.00,58500.00,58500.00,65
+7648,7063639,completed,0011-04628,01,"ASSEMBLY GAS PANEL ENCLOSURE, NEW",assembled,Aluminum 6061-T6,SM - Assy,True,12,6500.00,78000.00,78000.00,66
+7648,7063642,completed,0042-40462,04,,manufactured,,Historical Part Requote,False,17,515.48,8763.16,8763.16,40
+7648,7063642,completed,0042-40462,04,,manufactured,,Historical Part Requote,False,38,495.00,18810.00,18810.00,50
+7648,7063642,completed,0042-40462,04,,manufactured,,Historical Part Requote,False,43,494.00,21242.00,21242.00,50
+7648,7063642,completed,0042-40462,04,,manufactured,,Historical Part Requote,False,51,492.00,25092.00,25092.00,50
+7648,7063642,completed,0042-40462,04,,manufactured,,Historical Part Requote,False,68,490.00,33320.00,33320.00,50
+7648,7063648,completed,0011-02182,01,ASSY DIFFUSER,assembled,,Historical Part Requote,False,14,627.00,8778.00,8778.00,50
+7648,7063648,completed,0011-02182,01,ASSY DIFFUSER,assembled,,Historical Part Requote,False,32,616.00,19712.00,19712.00,50
+7648,7063648,completed,0011-02182,01,ASSY DIFFUSER,assembled,,Historical Part Requote,False,35,615.00,21525.00,21525.00,50
+7648,7063648,completed,0011-02182,01,ASSY DIFFUSER,assembled,,Historical Part Requote,False,42,612.00,25704.00,25704.00,50
+7648,7063648,completed,0011-02182,01,ASSY DIFFUSER,assembled,,Historical Part Requote,False,56,608.00,34048.00,34048.00,50
+7648,7091870,completed,0021-20383,02,"GND BUSS BAR, 1ROW, 4POS, 2.75X.625X.375",manufactured,Copper 110,MS - Mill,True,151,69.09,10432.59,10432.59,33
+7648,7091870,completed,0021-20383,02,"GND BUSS BAR, 1ROW, 4POS, 2.75X.625X.375",manufactured,Copper 110,MS - Mill,True,340,69.09,23490.60,23490.60,42
+7648,7091870,completed,0021-20383,02,"GND BUSS BAR, 1ROW, 4POS, 2.75X.625X.375",manufactured,Copper 110,MS - Mill,True,370,69.09,25563.30,25563.30,44
+7648,7091870,completed,0021-20383,02,"GND BUSS BAR, 1ROW, 4POS, 2.75X.625X.375",manufactured,Copper 110,MS - Mill,True,453,69.09,31297.77,31297.77,48
+7648,7091870,completed,0021-20383,02,"GND BUSS BAR, 1ROW, 4POS, 2.75X.625X.375",manufactured,Copper 110,MS - Mill,True,604,69.09,41730.36,41730.36,55
+7648,7089595,completed,0010-76700,01,"SUB-ASSEMBLY, ASP HINGE",assembled,Aluminum 6061-T6,MS  - Assy,True,5,1040.00,5200.00,5200.00,42
+7648,7089595,completed,0010-76700,01,"SUB-ASSEMBLY, ASP HINGE",assembled,Aluminum 6061-T6,MS  - Assy,True,11,674.00,7414.00,7414.00,42
+7648,7089595,completed,0010-76700,01,"SUB-ASSEMBLY, ASP HINGE",assembled,Aluminum 6061-T6,MS  - Assy,True,13,669.00,8697.00,8697.00,43
+7648,7089595,completed,0010-76700,01,"SUB-ASSEMBLY, ASP HINGE",assembled,Aluminum 6061-T6,MS  - Assy,True,15,661.00,9915.00,9915.00,41
+7648,7089595,completed,0010-76700,01,"SUB-ASSEMBLY, ASP HINGE",assembled,Aluminum 6061-T6,MS  - Assy,True,20,645.00,12900.00,12900.00,43
+7648,7063655,completed,0040-38032,002,BRACKET MAIN SUPPORT PRODUCER,manufactured,Aluminum 6061-T6,MS - Mill,True,12,612.00,7344.00,7344.00,46
+7648,7063655,completed,0040-38032,002,BRACKET MAIN SUPPORT PRODUCER,manufactured,Aluminum 6061-T6,MS - Mill,True,27,592.00,15984.00,15984.00,52
+7648,7063655,completed,0040-38032,002,BRACKET MAIN SUPPORT PRODUCER,manufactured,Aluminum 6061-T6,MS - Mill,True,30,585.00,17550.00,17550.00,53
+7648,7063655,completed,0040-38032,002,BRACKET MAIN SUPPORT PRODUCER,manufactured,Aluminum 6061-T6,MS - Mill,True,36,573.00,20628.00,20628.00,55
+7648,7063655,completed,0040-38032,002,BRACKET MAIN SUPPORT PRODUCER,manufactured,Aluminum 6061-T6,MS - Mill,True,48,560.00,26880.00,26880.00,60
+7648,7063657,completed,0020-86319,03,"RETAINER, SPRING BEARING",manufactured,Aluminum 6061-T6,MS - Mill,True,6,289.00,1734.00,1734.00,73
+7648,7063657,completed,0020-86319,03,"RETAINER, SPRING BEARING",manufactured,Aluminum 6061-T6,MS - Mill,True,14,220.00,3080.00,3080.00,74
+7648,7063657,completed,0020-86319,03,"RETAINER, SPRING BEARING",manufactured,Aluminum 6061-T6,MS - Mill,True,15,215.00,3225.00,3225.00,74
+7648,7063657,completed,0020-86319,03,"RETAINER, SPRING BEARING",manufactured,Aluminum 6061-T6,MS - Mill,True,18,204.00,3672.00,3672.00,74
+7648,7063657,completed,0020-86319,03,"RETAINER, SPRING BEARING",manufactured,Aluminum 6061-T6,MS - Mill,True,24,200.00,4800.00,4800.00,75
+7649,7146864,completed,0042-58867,06,"HOUSING, LOWER, MDP",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,10,274.00,2740.00,4040.00,30
+7649,7072874,completed,0023-26730,02,"BLADE RETAINER, BOOLE 1, G10",manufactured,G10,MS - Mill,True,35,96.71,3384.85,4484.85,80
+7649,7072875,completed,0023-33574,02,"STANDOFF, ULTEM 1000",manufactured,Ultem 1000,MS - Mill Turn,True,20,122.00,2440.00,4040.00,80
+7649,7072876,completed,0023-35341,03,"MOTOR - ENCODER MOUNT, BOOLE 01 MATCH",manufactured,Aluminum 6061-T6,MS - Mill Turn,True,1,1550.00,1550.00,3750.00,80
+7649,7072877,completed,0023-35608,01,"MOUNT, COVER, COUPLER, BOOLE 16",manufactured,Ultem 1000,MS - Mill Turn,True,70,331.00,23170.00,23170.00,80
+7649,7146946,completed,0042-56133,03,"CAPACITOR MOUNT, UPPER",manufactured,Aluminum 6061-T6,MS - Mill,True,35,134.00,4690.00,5690.00,80
+7649,7146949,completed,0043-00511,03,"PARTITION, MOTOR-",manufactured,Aluminum 6061-T6,MS - Mill,True,35,604.00,21140.00,23940.00,80
+7649,7072880,no_quote,0043-03841,05,HOUSING UPPER OUTPUT SENSOR BOOLE 16,assembled,,NQ - Not a Core Competency,False,10,0.00,0.00,0.00,80
+7649,7072881,completed,0023-08116,03,"PLUNGER, COAX RF CONNECTOR, N(F)",manufactured,Nylon 66,MS - Mill,True,10,177.00,1770.00,2870.00,80
+7649,7072882,completed,0023-09972,03,"MOUNTING BLOCK, INTERLOCK, RF OUT, BOOLE",manufactured,Aluminum 6061-T6,MS - Mill,True,10,333.00,3330.00,4630.00,80
+7650,7073102,in_progress,0043-07356,01,"CHASSIS, 19 RACK, 10U, TCR",assembled,,,False,1,1037.33,1037.33,1037.33,11
+7650,7073102,in_progress,0043-07356,01,"CHASSIS, 19 RACK, 10U, TCR",assembled,,,False,2,553.64,1107.28,1107.28,11
+7650,7073102,in_progress,0043-07356,01,"CHASSIS, 19 RACK, 10U, TCR",assembled,,,False,4,310.62,1242.48,1242.48,11
+7650,7073102,in_progress,0043-07356,01,"CHASSIS, 19 RACK, 10U, TCR",assembled,,,False,10,165.51,1655.10,1655.10,11
+7651,7073185,not_started,0010-26964,05,"ASSY, ENP SLIT VALVE ACTUATOR",assembled,,Historical Part Requote,False,1,0.84,0.84,0.84,50
+7651,7073185,not_started,0010-26964,05,"ASSY, ENP SLIT VALVE ACTUATOR",assembled,,Historical Part Requote,False,5,0.84,4.20,4.20,50
+7651,7073185,not_started,0010-26964,05,"ASSY, ENP SLIT VALVE ACTUATOR",assembled,,Historical Part Requote,False,10,0.84,8.40,8.40,50
+7651,7073183,not_started,0020-35764,01,"UPPER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7651,7073183,not_started,0020-35764,01,"UPPER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7651,7073183,not_started,0020-35764,01,"UPPER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7651,7073184,not_started,0020-35765,02,"LOWER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7651,7073184,not_started,0020-35765,02,"LOWER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7651,7073184,not_started,0020-35765,02,"LOWER COVER, SLIT VALVE BELLOWS",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7651,7073186,not_started,0042-65569,01,"MOUNTING BLOCK, SLIT VALVE, PLATED",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7651,7073186,not_started,0042-65569,01,"MOUNTING BLOCK, SLIT VALVE, PLATED",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7651,7073186,not_started,0042-65569,01,"MOUNTING BLOCK, SLIT VALVE, PLATED",assembled,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7652,7073388,not_started,0248-06365,03,"KIT, CENTRIS ROBOT CRANE",manufactured,,,False,1,0.00,0.00,0.00,0
+7652,7073388,not_started,0248-06365,03,"KIT, CENTRIS ROBOT CRANE",manufactured,,,False,5,0.00,0.00,0.00,0
+7652,7073388,not_started,0248-06365,03,"KIT, CENTRIS ROBOT CRANE",manufactured,,,False,10,0.00,0.00,0.00,0
+7653,7073618,no_quote,512-034-710-037,-,Skin Upper Leading Edge - Vertical Fin,manufactured,,Historical Part Requote,False,24,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,3,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,15,0.00,0.00,0.00,50
+7654,7080722,not_started,0041-36161,03,"INTEGRATION FLANGE, C101 ISO COOLING PEDESTAL, 300MM PVD",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7655,7084523,completed,512-016-005-101,-,"COVER, WEIGHT POCKET - TAIL ROTOR BLADE",manufactured,Stainless Steel 17-4,MS - Mill,True,60,81.45,4887.00,4887.00,68
+7656,7084576,not_started,130A73-3066-21,D,"HINGE HALF, RH",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7656,7084576,not_started,130A73-3066-21,D,"HINGE HALF, RH",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7656,7084576,not_started,130A73-3066-21,D,"HINGE HALF, RH",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7656,7084576,not_started,130A73-3066-21,D,"HINGE HALF, RH",manufactured,,Historical Part Requote,False,75,0.00,0.00,0.00,50
+7656,7084576,not_started,130A73-3066-21,D,"HINGE HALF, RH",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7656,7084577,not_started,130A73-3066-22,D,"HINGE HALF, LH",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7656,7084577,not_started,130A73-3066-22,D,"HINGE HALF, LH",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7656,7084577,not_started,130A73-3066-22,D,"HINGE HALF, LH",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7656,7084577,not_started,130A73-3066-22,D,"HINGE HALF, LH",manufactured,,Historical Part Requote,False,75,0.00,0.00,0.00,50
+7656,7084577,not_started,130A73-3066-22,D,"HINGE HALF, LH",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7656,7084578,not_started,130A73-3066-23,D,"HINGE HALF, LOWER RIGHT",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7656,7084578,not_started,130A73-3066-23,D,"HINGE HALF, LOWER RIGHT",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7656,7084578,not_started,130A73-3066-23,D,"HINGE HALF, LOWER RIGHT",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7656,7084578,not_started,130A73-3066-23,D,"HINGE HALF, LOWER RIGHT",manufactured,,Historical Part Requote,False,75,0.00,0.00,0.00,50
+7656,7084578,not_started,130A73-3066-23,D,"HINGE HALF, LOWER RIGHT",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7656,7084579,not_started,130A73-3066-24,D,"HINGE HALF, LOWER LEFT",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7656,7084579,not_started,130A73-3066-24,D,"HINGE HALF, LOWER LEFT",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7656,7084579,not_started,130A73-3066-24,D,"HINGE HALF, LOWER LEFT",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7656,7084579,not_started,130A73-3066-24,D,"HINGE HALF, LOWER LEFT",manufactured,,Historical Part Requote,False,75,0.00,0.00,0.00,50
+7656,7084579,not_started,130A73-3066-24,D,"HINGE HALF, LOWER LEFT",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7657,7084946,not_started,0022-23280,04,,manufactured,HRS,Historical Part Requote,False,1002,0.00,0.00,0.00,50
+7657,7084955,not_started,0040-84561,03,BRACKET CIRCUIT BREAKER TRAY ENDURA 2,assembled,CRS,SM - Assy,True,501,143.00,71643.00,71643.00,70
+7657,7084956,not_started,0040-88195,04,,assembled,,Historical Part Requote,False,501,0.00,0.00,0.00,50
+7657,7084961,not_started,0021-42053,6,,manufactured,,MS - Mill,False,10152,11.29,114616.08,114616.08,204
+7657,7084963,not_started,0040-85808,003,BRACKET REAR CBR SUPPORT CVD ENDURA2  300MM,assembled,Carbon Steel A366/1008-CR,MS  - Assy,True,693,112.45,77927.85,77927.85,85
+7657,7084902,not_started,0040-00215,,"Bracket, Gas Line 1, 300Mm Common Cvd Ch",manufactured,,,False,4473,0.00,0.00,0.00,0
+7657,7085001,not_started,0040-88649,09,"STAND, LEFT, REMOVABLE, ENDURA2, 300MM",assembled,,Historical Part Requote,False,1140,0.00,0.00,0.00,50
+7657,7085033,not_started,0040-88648,07,"STAND, RIGHT, REMOVABLE, ENDURA2, 300MM",assembled,,Historical Part Requote,False,1140,90.00,102600.00,102600.00,50
+7658,7128290,not_started,0020-48156,06,"PLATE, CHAMBER FOLKLIFT, RPG CHBR, 300MM",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7658,7128290,not_started,0020-48156,06,"PLATE, CHAMBER FOLKLIFT, RPG CHBR, 300MM",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7658,7128290,not_started,0020-48156,06,"PLATE, CHAMBER FOLKLIFT, RPG CHBR, 300MM",manufactured,,Historical Part Requote,False,65,0.00,0.00,0.00,50
+7658,7128300,not_started,0040-89653,17,,manufactured,,,False,65,0.00,0.00,0.00,0
+7659,7085870,completed,512-075-203-111,-,MRHLC CHASSIS,manufactured,,MS - Mill,False,2,5091.00,10182.00,10182.00,60
+7660,7085916,completed,512-075-203-111,-,MRHLC CHASSIS,manufactured,Aluminum 6061-T6,MS - Mill,True,1,7691.00,7691.00,7691.00,60
+7660,7085916,completed,512-075-203-111,-,MRHLC CHASSIS,manufactured,Aluminum 6061-T6,MS - Mill,True,5,4807.00,24035.00,24035.00,60
+7660,7085916,completed,512-075-203-111,-,MRHLC CHASSIS,manufactured,Aluminum 6061-T6,MS - Mill,True,10,4515.00,45150.00,45150.00,60
+7661,7085940,not_started,512-075-203-111,-,MRHLC CHASSIS,manufactured,,Historical Part Requote,False,7,0.00,0.00,0.00,50
+7662,7089026,completed,512-030-500-261,A,DRAIN PAN ASSY MAINTENANCE PLATFORM-AFT,manufactured,,Aerospace Assembly,False,11,6303.00,69333.00,72503.00,110
+7663,7086170,not_started,512-010-165-103,-,STOP ASSY FLAPPING,manufactured,,Historical Part Requote,False,35,3158.00,110530.00,110530.00,70
+7664,7086188,completed,512-040-091-101,B,HOUSING BEARING - MRGB,manufactured,Alloy Steel 4340,MS - Lathe,True,14,667.00,9338.00,11948.00,80
+7665,7086967,completed,512-034-710-261,-,STIFFENER - VERTICAL FIN,manufactured,Titanium Grade 4,SM - Piece (combo),True,30,164.00,4920.00,4920.00,60
+7666,7086993,completed,512-000-020-173,-,GCU MOUNTING BRACKET ASSY,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,13,283.00,3679.00,3679.00,60
+7667,7087050,completed,512-025-609-101,-,Bracket Assy-Temp Sensor,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,18,136.00,2448.00,2448.00,60
+7668,7087178,no_quote,512-830-600-103,C,AFT SKIN ASSY RH,manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7668,7087178,no_quote,512-830-600-103,C,AFT SKIN ASSY RH,manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7668,7087178,no_quote,512-830-600-103,C,AFT SKIN ASSY RH,manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7669,7087466,completed,512-030-500-259,C,DRAIN PAN ASSY MAINTENANCE PLATFORM - A,manufactured,,Aerospace Assembly,False,10,6421.00,64210.00,67380.00,110
+7669,7087466,completed,512-030-500-259,C,DRAIN PAN ASSY MAINTENANCE PLATFORM - A,manufactured,,Aerospace Assembly,False,20,5491.00,109820.00,112990.00,110
+7670,7088013,completed,512-030-101-009,A,ANGLE ASSY,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,80,71.40,5712.00,5712.00,55
+7671,7088219,completed,512-012-205-101,-,WASHER BENDABLE LOCK-TR,manufactured,Stainless Steel 301,SM - Piece (combo),True,16,127.00,2032.00,2032.00,50
+7672,7088254,completed,512-000-030-135,-,SUPPORT BRACKET ASSY,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,26,115.00,2990.00,2990.00,60
+7673,7088373,completed,512-030-101-487,-,Bracket Assy Support,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,95,91.81,8721.95,8721.95,60
+7673,7088373,completed,512-030-101-487,-,Bracket Assy Support,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,159,86.19,13704.21,13704.21,60
+7674,7088499,completed,512-069-419-117,-,BAFFLE-CL FIREWALL,manufactured,Stainless Steel 301 1/4 Hard,SM - Piece (combo),True,13,137.00,1781.00,1781.00,50
+7674,7088499,completed,512-069-419-117,-,BAFFLE-CL FIREWALL,manufactured,Stainless Steel 301 1/4 Hard,SM - Piece (combo),True,23,103.00,2369.00,2369.00,50
+7675,7088739,completed,512-030-530-294,B,CLIP FWD - FIREWALL RH,manufactured,Stainless Steel 17-4 PH,MS - Mill,True,13,797.00,10361.00,10361.00,67
+7676,7088770,no_quote,512-010-104-101,A,BLADE BOLT ASSY,manufactured,,NQ - Not a Core Competency,False,189,0.00,0.00,0.00,5
+7677,7098540,not_started,0023-16986,02,"SUPPORT BLOCK, CASSETTE TANK",manufactured,,Historical Part Requote,False,16,0.00,0.00,0.00,50
+7677,7098541,not_started,0042-93217,02,"SUPPORT PLATE, E84 CASSETTE TANK",assembled,,Historical Part Requote,False,4,226.71,906.84,906.84,50
+7678,7114008,completed,035423,-,CUP BLADE ACTUATING,manufactured,Aluminum 7075-T7351,MS - Mill Turn,True,80,291.00,23280.00,23280.00,70
+7679,7116972,not_started,512-030-101-502,B,Seat Rail Assy - RHS,manufactured,,Historical Part Requote,False,7,0.00,0.00,0.00,50
+7680,7119003,no_quote,512-220-502-101,C,TROLLY BASE,manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7680,7119003,no_quote,512-220-502-101,C,TROLLY BASE,manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7680,7119003,no_quote,512-220-502-101,C,TROLLY BASE,manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7681,7119047,completed,512-000-020-195,-,SUPPORT BRACKET ASSY,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,14,240.00,3360.00,3360.00,60
+7682,7120585,not_started,449-075-206-101,A,PLATE ASSEMBLY,manufactured,Aluminum 6013-T4,SM - Piece,True,11,981.00,10791.00,10791.00,60
+7682,7120586,not_started,449-075-206-103,A,PLATE ASSEMBLY,manufactured,Aluminum 6013-T4,SM - Piece,True,12,928.00,11136.00,11136.00,60
+7682,7120598,not_started,449-075-211-103,C,PLATE ASSY,manufactured,Aluminum 2024-T3,SM - Piece (combo),True,12,196.00,2352.00,2352.00,70
+7682,7120603,not_started,449-075-211-105,C,PLATE ASSY,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,12,229.00,2748.00,2748.00,70
+7682,7120604,not_started,449-075-249-103,B,PLATE ASSEMBLY,manufactured,,Aerospace Assembly,False,12,538.00,6456.00,6886.00,60
+7682,7120605,not_started,449-075-249-117,C,PLATE,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,12,641.00,7692.00,8122.00,60
+7682,7120606,not_started,449-075-355-101,-,COVER,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,24,334.00,8016.00,8446.00,60
+7682,7120613,not_started,449-075-355-102,-,COVER,manufactured,,,False,23,429.00,9867.00,9867.00,60
+7682,7120621,not_started,449-075-359-101,-,COVER,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,12,519.00,6228.00,6228.00,60
+7682,7120623,not_started,449-075-367-101,-,PLATE,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,12,644.00,7728.00,8158.00,60
+7682,7120626,not_started,449-075-368-101,B,COVER,manufactured,Aluminum 6013-T4,SM - Piece (combo),True,12,603.00,7236.00,7666.00,60
+7682,7120628,not_started,449-375-225-101,A,CHASSIS ASSEMBLY,manufactured,,,False,22,1856.00,40832.00,41552.00,70
+7682,7120638,not_started,449-375-358-101,A,CHASSIS ASSEMBLY,manufactured,,,False,12,2819.00,33828.00,34548.00,70
+7682,7120639,not_started,449-375-361-101,A,CHASSIS ASSEMBLY,manufactured,Aluminum 5052,Aerospace Assembly,True,2,3784.00,7568.00,7568.00,70
+7682,7120641,not_started,449-375-365-101,B,CHASSIS,manufactured,,,False,12,1401.00,16812.00,17532.00,70
+7683,7120885,not_started,0040-33281,06,"SLIDE ASSY CH A/B SER, PROD S, SPLIT",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7683,7120885,not_started,0040-33281,06,"SLIDE ASSY CH A/B SER, PROD S, SPLIT",assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7683,7120885,not_started,0040-33281,06,"SLIDE ASSY CH A/B SER, PROD S, SPLIT",assembled,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7683,7120885,not_started,0040-33281,06,"SLIDE ASSY CH A/B SER, PROD S, SPLIT",assembled,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7683,7120885,not_started,0040-33281,06,"SLIDE ASSY CH A/B SER, PROD S, SPLIT",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7683,7120886,not_started,0022-27078,02,"MOUNT, CLEAR WAFER SENSOR, LEFT, ENDURA",manufactured,,Historical Part Requote,False,125,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7683,7120887,not_started,0022-27079,02,"MOUNT, CLEAR WAFER SENSOR, RIGHT, ENDURA",manufactured,,Historical Part Requote,False,150,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7683,7120888,not_started,0040-54104,01,SUPPORT CENTER RPS2 LID 200MM PRODUCER,manufactured,,Historical Part Requote,False,65,0.00,0.00,0.00,50
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,1,484.00,484.00,1184.00,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,5,138.00,690.00,1390.00,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,25,68.84,1721.00,2421.00,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,50,60.20,3010.00,3010.00,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,100,56.40,5640.00,5640.00,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,150,54.79,8218.50,8218.50,70
+7685,7121056,completed,0023-41790,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,300,53.52,16056.00,16056.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,1,456.00,456.00,1156.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,5,122.00,610.00,1310.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,25,54.32,1358.00,2058.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,50,45.94,2297.00,2297.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,100,42.14,4214.00,4214.00,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,150,40.63,6094.50,6094.50,70
+7685,7121057,completed,0023-41821,01,"CB SAFETY COVER, AC BOX, 10CH UPS, FAB L",manufactured,Polycarbonate / PC (Transparent),SM - Piece,True,300,39.36,11808.00,11808.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,1,818.00,818.00,1518.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,5,181.00,905.00,1605.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,25,52.72,1318.00,2018.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,50,36.76,1838.00,2538.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,100,28.89,2889.00,2889.00,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,150,26.19,3928.50,3928.50,70
+7685,7121058,completed,0043-06846,01,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 12",assembled,Stainless Steel 304L,SM - Assy,True,300,23.57,7071.00,7071.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,1,579.00,579.00,1179.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,5,171.00,855.00,1455.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,25,90.64,2266.00,2866.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,50,80.62,4031.00,4031.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,100,76.07,7607.00,7607.00,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,150,74.17,11125.50,11125.50,70
+7685,7132419,completed,0043-06852,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,300,72.66,21798.00,21798.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,1,953.00,953.00,1853.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,5,373.00,1865.00,2765.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,25,257.00,6425.00,7325.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,50,243.00,12150.00,12150.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,100,238.00,23800.00,23800.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,150,235.00,35250.00,35250.00,70
+7685,7132496,completed,0043-06853,01,"BRACKET, MOUNTING,",manufactured,CRS,SM - Piece W/HDWE,True,300,233.00,69900.00,69900.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,1,689.00,689.00,1289.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,5,191.00,955.00,1555.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,25,91.24,2281.00,2881.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,50,78.78,3939.00,3939.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,100,73.20,7320.00,7320.00,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,150,70.91,10636.50,10636.50,70
+7685,7132501,completed,0043-06876,01,"PANEL, FRONT,NV 125",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,300,69.05,20715.00,20715.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,1,721.00,721.00,1321.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,5,206.00,1030.00,1630.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,25,103.00,2575.00,3175.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,50,90.08,4504.00,4504.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,100,84.41,8441.00,8441.00,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,150,81.85,12277.50,12277.50,70
+7685,7132511,completed,0043-06890,01,"PANEL, FRONT, EMO, FAB",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,300,79.92,23976.00,23976.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,1,798.00,798.00,1398.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,5,239.00,1195.00,1795.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,25,127.00,3175.00,3775.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,50,113.00,5650.00,5650.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,100,107.00,10700.00,10700.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,150,104.00,15600.00,15600.00,70
+7685,7121063,completed,0043-06891,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,300,102.00,30600.00,30600.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,1,605.00,605.00,1205.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,5,162.00,810.00,1410.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,25,72.24,1806.00,2406.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,50,60.70,3035.00,3635.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,100,55.00,5500.00,5500.00,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,150,53.15,7972.50,7972.50,70
+7685,7132519,completed,0043-06902,02,"PANEL, TOP, GROMMET,",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,300,51.30,15390.00,15390.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,1,1930.00,1930.00,2530.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,5,535.00,2675.00,3275.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,25,256.00,6400.00,7000.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,50,222.00,11100.00,11700.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,100,205.00,20500.00,20500.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,150,199.00,29850.00,29850.00,70
+7685,7121065,completed,0043-06904,01,"BRACKET, MOUNTING, EMO SWITCH, UPS FAB L",assembled,Steel (Galvanized),SM - Assy,True,300,194.00,58200.00,58200.00,70
+7687,7127152,not_started,512-066-025-101,A,BRACKET ASSY SCAVENGE PUMP,manufactured,,Historical Part Requote,False,88,0.00,0.00,0.00,50
+7688,7127196,not_started,512-030-600-013,A,SUB-FRAME ASSY LH FS392 - MAINTENANCE,manufactured,,Historical Part Requote,False,12,0.00,0.00,0.00,50
+7689,7127548,completed,4060-00127,-,"K1H MODULAR, MOUNTING",manufactured,,Historical Part Requote,False,1,22.59,22.59,22.59,50
+7689,7127548,completed,4060-00127,-,"K1H MODULAR, MOUNTING",manufactured,,Historical Part Requote,False,5,22.59,112.95,112.95,50
+7689,7127548,completed,4060-00127,-,"K1H MODULAR, MOUNTING",manufactured,,Historical Part Requote,False,10,22.59,225.90,225.90,50
+7690,7126992,completed,0040-49229,02,"BASE PLATE, FLOW SWITCH ASSEMBLY, 300MM",manufactured,CRS,SM - Piece W/HDWE,True,1,632.00,632.00,1232.00,60
+7690,7126992,completed,0040-49229,02,"BASE PLATE, FLOW SWITCH ASSEMBLY, 300MM",manufactured,CRS,SM - Piece W/HDWE,True,5,158.00,790.00,1390.00,60
+7690,7126992,completed,0040-49229,02,"BASE PLATE, FLOW SWITCH ASSEMBLY, 300MM",manufactured,CRS,SM - Piece W/HDWE,True,10,97.90,979.00,1579.00,60
+7690,7126992,completed,0040-49229,02,"BASE PLATE, FLOW SWITCH ASSEMBLY, 300MM",manufactured,CRS,SM - Piece W/HDWE,True,15,78.13,1171.95,1771.95,60
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,1,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,5,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,10,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,15,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,20,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,25,0.00,0.00,0.00,0
+7691,7128050,not_started,220-47259-000,003,"SHEET, 16 GA (.06 THK) (ITEM 1, ITEM 2, ITEM 3)",manufactured,,,False,30,0.00,0.00,0.00,0
+7692,7144869,not_started,512-030-101-075,-,GPU Support Assy,manufactured,,Historical Part Requote,False,11,0.00,0.00,0.00,50
+7693,7144995,not_started,512-030-101-075,-,GPU Support Assy,manufactured,,Historical Part Requote,False,11,0.00,0.00,0.00,50
+7693,7144998,not_started,512-000-030-197,-,BRACKET DISCONNECT,manufactured,,Historical Part Requote,False,11,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145350,not_started,0015-21560,01,"MODIFIED, FLEXI BUS, SUB FAB AC",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,1,738.00,738.00,1838.00,47
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,5,287.00,1435.00,2535.00,47
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,10,231.00,2310.00,3410.00,48
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,25,197.00,4925.00,6025.00,50
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,50,185.00,9250.00,9250.00,52
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,100,181.00,18100.00,18100.00,58
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,200,179.00,35800.00,35800.00,70
+7694,7145351,completed,0023-42817,01,"COVER, INSULATION, BRANCH BREAKERS",manufactured,Polycarbonate / PC (Transparent),MS - Mill,True,300,178.00,53400.00,53400.00,81
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145352,not_started,0023-43217,01,"BLANK OFF, BRANCH BRAKERS",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145353,not_started,0023-43218,01,"CB FULL COVER, SUB FAB LEVEL AC, SYM3Y F",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145354,not_started,0042-99666,01,"PANEL, FRONT, BRANCH CIRCUIT BREAKERS, S",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145355,not_started,0042-99667,01,"BRACKET, MOUNTING, BRANCH BREAKERS, SUB",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145356,not_started,0043-07784,01,"ENCLOSURE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145357,not_started,0043-07785,01,"BACK PANEL, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145358,not_started,0043-08066,01,"BRACKET, MOUNTING, MCCB-SUB FAB LEVEL AC",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145359,not_started,0043-08069,01,"PANEL, INPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145360,not_started,0043-08070,01,"PANEL, CONNECTOR, FACILITY, AC BOX, SUB",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145361,not_started,0043-08071,01,"PANEL, OUTPUT FACILITY, AC BOX, SUB FAB",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,25,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,100,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,200,0.00,0.00,0.00,50
+7694,7145362,not_started,0043-08072,01,"PANEL, RH-SIDE, SUB FAB LEVEL AC BOX",manufactured,,Historical Part Requote,False,300,0.00,0.00,0.00,50
+7695,7151343,completed,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,5,3260.00,16300.00,16300.00,80
+7695,7151343,completed,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,10,3260.00,32600.00,32600.00,80
+7695,7151343,completed,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,25,3260.00,81500.00,81500.00,80
+7695,7151343,completed,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,50,3260.00,163000.00,163000.00,80
+7696,7151427,not_started,0010-69867,01,CORROSION RESISTANT SLIT VALVE DOOR,assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7696,7151427,not_started,0010-69867,01,CORROSION RESISTANT SLIT VALVE DOOR,assembled,,Historical Part Requote,False,3,0.00,0.00,0.00,50
+7696,7151427,not_started,0010-69867,01,CORROSION RESISTANT SLIT VALVE DOOR,assembled,,Historical Part Requote,False,5,0.00,0.00,0.00,50
+7696,7151427,not_started,0010-69867,01,CORROSION RESISTANT SLIT VALVE DOOR,assembled,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,1,688.00,688.00,788.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,5,151.00,755.00,855.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,10,83.20,832.00,932.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,25,42.92,1073.00,1173.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,50,29.50,1475.00,1475.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,100,23.03,2303.00,2303.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,200,19.43,3886.00,3886.00,80
+7697,7167779,completed,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,300,18.34,5502.00,5502.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,1,781.00,781.00,981.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,5,244.00,1220.00,1420.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,10,177.00,1770.00,1970.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,25,136.00,3400.00,3600.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,50,123.00,6150.00,6150.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,100,117.00,11700.00,11700.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,200,112.00,22400.00,22400.00,80
+7697,7151526,completed,0042-37875,05,"COVER, TOP, FRONT, SYM3",manufactured,Steel (Galvanized),SM - Piece,True,300,111.00,33300.00,33300.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,1,655.00,655.00,855.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,5,177.00,885.00,1085.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,10,117.00,1170.00,1370.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,25,80.72,2018.00,2218.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,50,68.74,3437.00,3437.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,100,63.30,6330.00,6330.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,200,59.46,11892.00,11892.00,80
+7697,7151529,completed,0042-42994,03,"BRACKET, BOTTOM, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,300,58.56,17568.00,17568.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,1,667.00,667.00,867.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,5,184.00,920.00,1120.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,10,124.00,1240.00,1440.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,25,87.00,2175.00,2375.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,50,74.92,3746.00,3746.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,100,69.50,6950.00,6950.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,200,65.53,13106.00,13106.00,80
+7697,7151530,completed,0042-42995,02,"BRACKET, FRONT, DC PS",manufactured,Steel (Galvanized),SM - Piece,True,300,64.63,19389.00,19389.00,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,1,2470.09,2470.09,2670.09,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,5,1171.33,5856.65,6056.65,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,10,1005.44,10054.40,10254.40,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,25,907.46,22686.50,22886.50,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,50,868.45,43422.50,43622.50,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,100,854.08,85408.00,85408.00,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,200,850.35,170070.00,170070.00,80
+7697,7151534,completed,0042-70729,01,"ENCLOSURE, BASE, SYM3",assembled,Steel (Galvanized),SM - Assy,True,300,847.48,254244.00,254244.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,1,977.00,977.00,1177.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,5,295.00,1475.00,1675.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,10,210.00,2100.00,2300.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,25,159.00,3975.00,4175.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,50,142.00,7100.00,7100.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,100,135.00,13500.00,13500.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,200,129.00,25800.00,25800.00,80
+7697,7151537,completed,0042-88649,01,"PANEL, FRONT, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,300,127.00,38100.00,38100.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,1,871.00,871.00,1071.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,5,256.00,1280.00,1480.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,10,180.00,1800.00,2000.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,25,133.00,3325.00,3525.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,50,118.00,5900.00,5900.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,100,111.00,11100.00,11100.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,200,105.00,21000.00,21000.00,80
+7697,7151540,completed,0042-88650,01,"PANEL, CONNECTOR, RH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,300,104.00,31200.00,31200.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,1,880.00,880.00,1080.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,5,271.00,1355.00,1555.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,10,194.00,1940.00,2140.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,25,149.00,3725.00,3925.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,50,133.00,6650.00,6650.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,100,126.00,12600.00,12600.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,200,123.00,24600.00,24600.00,80
+7697,7151543,completed,0042-88651,01,"PANEL, CONNECTOR, LH,
+SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,300,121.00,36300.00,36300.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,1,794.00,794.00,994.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,5,211.00,1055.00,1255.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,10,138.00,1380.00,1580.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,25,93.76,2344.00,2544.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,50,79.14,3957.00,3957.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,100,72.47,7247.00,7247.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,200,68.73,13746.00,13746.00,80
+7697,7151546,completed,0042-88653,01,"PANEL, CONNECTOR,
+FACILITY, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,300,67.45,20235.00,20235.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,1,1480.00,1480.00,1680.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,5,596.00,2980.00,3180.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,10,484.00,4840.00,5040.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,25,416.00,10400.00,10600.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,50,394.00,19700.00,19700.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,100,386.00,38600.00,38600.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,200,380.00,76000.00,76000.00,80
+7697,7151558,completed,0042-89416,02,"CHASSIS, MOUNTING, SYM3",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,300,378.00,113400.00,113400.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,1,617.00,617.00,817.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,5,154.00,770.00,970.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,10,95.80,958.00,1158.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,25,61.00,1525.00,1725.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,50,49.42,2471.00,2471.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,100,43.98,4398.00,4398.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,200,41.08,8216.00,8216.00,80
+7697,7151560,completed,0042-89551,01,"BRACKET, BR1EAKER
+MOUNTING, SYM3",manufactured,Carbon Steel A653,SM - Piece W/HDWE,True,300,40.12,12036.00,12036.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,1,815.00,815.00,1415.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,5,287.00,1435.00,2035.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,10,221.00,2210.00,2810.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,25,182.00,4550.00,5150.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,50,169.00,8450.00,8450.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,100,163.00,16300.00,16300.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,200,160.00,32000.00,32000.00,80
+7697,7151508,completed,0043-05943,01,"COVER, TOP,REAR, SYM3, VISTARA",manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,300,159.00,47700.00,47700.00,80
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,1,1010.00,1010.00,1010.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,5,284.00,1420.00,1420.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,10,203.00,2030.00,2030.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,25,143.00,3575.00,3575.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,50,131.00,6550.00,6550.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,100,123.00,12300.00,12300.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,200,119.00,23800.00,23800.00,60
+7698,7151648,not_started,0042-60482,03,"PANEL, SIDE COVER",assembled,CRS,SM - Assy,True,300,111.00,33300.00,33300.00,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,1,249.86,249.86,249.86,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,5,58.60,293.00,293.00,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,10,34.69,346.90,346.90,50
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,25,20.35,508.75,508.75,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,50,15.57,778.50,778.50,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,100,13.28,1328.00,1328.00,60
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,200,12.09,2418.00,2418.00,50
+7698,7151649,not_started,0042-78470,03,"BRACKET ASSY, LOTO, MITSUBISHI 3P CB, 10",assembled,,Historical Part Requote,False,300,11.69,3507.00,3507.00,60
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,1,672.00,672.00,772.00,20
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,5,148.00,740.00,840.00,20
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,10,81.60,816.00,916.00,20
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,25,42.28,1057.00,1157.00,20
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,50,29.18,1459.00,1559.00,20
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,100,22.71,2271.00,2271.00,21
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,200,19.43,3886.00,3886.00,22
+7698,7151650,not_started,0042-85526,04,"CB PADLOCK BRKT ABB,SU200",assembled,Stainless Steel 304,SM - Assy,True,300,18.34,5502.00,5502.00,23
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,1,1320.00,1320.00,1320.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,5,507.00,2535.00,2535.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,10,410.00,4100.00,4100.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,25,351.00,8775.00,8775.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,50,332.00,16600.00,16600.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,100,325.00,32500.00,32500.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,200,320.00,64000.00,64000.00,60
+7698,7151651,not_started,0022-38799,03,"GROUND BUSS BAR, 36 POSITION",manufactured,Copper 110,MS - Mill,True,300,323.00,96900.00,96900.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,1,1020.00,1020.00,1020.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,5,212.00,1060.00,1060.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,10,122.00,1220.00,1220.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,25,61.72,1543.00,1543.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,50,42.36,2118.00,2118.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,100,33.85,3385.00,3385.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,200,29.47,5894.00,5894.00,60
+7698,7151660,not_started,0022-38846,03,"BRACKET, SUPPORT CROSS
+BEAM",manufactured,CRS,SM - Piece,True,300,30.09,9027.00,9027.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,1,773.00,773.00,773.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,5,172.00,860.00,860.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,10,96.50,965.00,965.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,25,54.56,1364.00,1364.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,50,41.88,2094.00,2094.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,100,35.64,3564.00,3564.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,200,32.47,6494.00,6494.00,60
+7698,7151661,not_started,0041-91882,02,"BRACKET, MOUNT, TEMP CONTROLLER",assembled,CRS,SM - Piece,True,300,25.18,7554.00,7554.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,1,646.00,646.00,646.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,5,168.00,840.00,840.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,10,108.00,1080.00,1080.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,25,71.92,1798.00,1798.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,50,59.98,2999.00,2999.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,100,54.08,5408.00,5408.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,200,51.09,10218.00,10218.00,60
+7698,7151662,not_started,0042-07295,03,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,300,41.97,12591.00,12591.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,1,1710.00,1710.00,1710.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,5,837.00,4185.00,4185.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,10,728.00,7280.00,7280.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,25,663.00,16575.00,16575.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,50,641.00,32050.00,32050.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,100,631.00,63100.00,63100.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,200,626.00,125200.00,125200.00,60
+7698,7151663,not_started,0042-07298,06,"WELDMENT, MAIN HOUSING",assembled,CRS,SM - Assy,True,300,521.00,156300.00,156300.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,1,647.00,647.00,647.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,5,168.00,840.00,840.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,10,109.00,1090.00,1090.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,25,72.28,1807.00,1807.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,50,60.30,3015.00,3015.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,100,54.41,5441.00,5441.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,200,51.42,10284.00,10284.00,60
+7698,7151665,not_started,0042-07299,04,"PANEL, REAR BLANK",assembled,CRS,SM - Assy,True,300,41.90,12570.00,12570.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,1,808.00,808.00,808.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,5,218.00,1090.00,1090.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,10,144.00,1440.00,1440.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,25,99.04,2476.00,2476.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,50,84.26,4213.00,4213.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,100,76.96,7696.00,7696.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,200,73.27,14654.00,14654.00,60
+7698,7151666,not_started,0042-07304,08,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Assy,True,300,60.17,18051.00,18051.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,1,1060.00,1060.00,1060.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,5,290.00,1450.00,1450.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,10,194.00,1940.00,1940.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,25,136.00,3400.00,3400.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,50,118.00,5900.00,5900.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,100,108.00,10800.00,10800.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,200,103.00,20600.00,20600.00,60
+7698,7151670,not_started,0042-07306,08,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,300,85.18,25554.00,25554.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,1,641.00,641.00,641.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,5,178.00,890.00,890.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,10,132.00,1320.00,1320.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,25,104.00,2600.00,2600.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,50,93.88,4694.00,4694.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,100,89.54,8954.00,8954.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,200,87.20,17440.00,17440.00,60
+7698,7151671,not_started,0042-08507,05,"PLATE, MOUNTING",assembled,CRS,SM - Piece,True,300,71.07,21321.00,21321.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,1,925.00,925.00,925.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,5,249.00,1245.00,1245.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,10,165.00,1650.00,1650.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,25,114.00,2850.00,2850.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,50,96.90,4845.00,4845.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,100,88.60,8860.00,8860.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,200,84.38,16876.00,16876.00,60
+7698,7151672,not_started,0042-08533,05,"PANEL, REAR CONNECTOR",assembled,CRS,SM - Piece,True,300,68.38,20514.00,20514.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,1,748.00,748.00,748.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,5,188.00,940.00,940.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,10,118.00,1180.00,1180.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,25,75.96,1899.00,1899.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,50,61.94,3097.00,3097.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,100,55.02,5502.00,5502.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,200,51.52,10304.00,10304.00,60
+7698,7151673,not_started,0042-15394,02,PANEL REAR CONNECTOR,assembled,CRS,SM - Assy,True,300,44.08,13224.00,13224.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,1,711.00,711.00,711.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,5,201.00,1005.00,1005.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,10,138.00,1380.00,1380.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,25,99.20,2480.00,2480.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,50,86.44,4322.00,4322.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,100,80.06,8006.00,8006.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,200,76.88,15376.00,15376.00,60
+7698,7151674,not_started,0042-77900,01,"PANEL, FRONT",manufactured,CRS,SM - Piece W/HDWE,True,300,79.11,23733.00,23733.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,1,513.00,513.00,513.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,5,116.00,580.00,580.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,10,66.40,664.00,664.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,25,36.56,914.00,914.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,50,28.28,1414.00,1414.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,100,24.19,2419.00,2419.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,200,22.17,4434.00,4434.00,60
+7698,7151676,not_started,0042-77902,01,"BRACKET, MOUNT TB",manufactured,CRS,SM - Piece W/HDWE,True,300,17.21,5163.00,5163.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,1,729.00,729.00,729.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,5,237.00,1185.00,1185.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,10,184.00,1840.00,1840.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,25,151.00,3775.00,3775.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,50,140.00,7000.00,7000.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,100,133.00,13300.00,13300.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,200,130.00,26000.00,26000.00,60
+7698,7151677,not_started,0042-77903,01,"CHASSIS, MOUNTING",manufactured,CRS,SM - Piece W/HDWE,True,300,126.00,37800.00,37800.00,60
+7699,7151777,not_started,0040-38666,07,"RF COVER, RIGHT, PRODUCER 200MM",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7699,7151777,not_started,0040-38666,07,"RF COVER, RIGHT, PRODUCER 200MM",assembled,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7699,7151777,not_started,0040-38666,07,"RF COVER, RIGHT, PRODUCER 200MM",assembled,,Historical Part Requote,False,15,0.00,0.00,0.00,50
+7699,7151777,not_started,0040-38666,07,"RF COVER, RIGHT, PRODUCER 200MM",assembled,,Historical Part Requote,False,20,0.00,0.00,0.00,50
+7699,7151777,not_started,0040-38666,07,"RF COVER, RIGHT, PRODUCER 200MM",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
+7699,7151778,not_started,0040-60523,08,"RF COVER, LEFT, PRDUCER 200MM",assembled,,Historical Part Requote,False,1,0.00,0.00,0.00,50
+7699,7151778,not_started,0040-60523,08,"RF COVER, LEFT, PRDUCER 200MM",assembled,,Historical Part Requote,False,10,0.00,0.00,0.00,50
+7699,7151778,not_started,0040-60523,08,"RF COVER, LEFT, PRDUCER 200MM",assembled,,Historical Part Requote,False,15,0.00,0.00,0.00,50
+7699,7151778,not_started,0040-60523,08,"RF COVER, LEFT, PRDUCER 200MM",assembled,,Historical Part Requote,False,20,0.00,0.00,0.00,50
+7699,7151778,not_started,0040-60523,08,"RF COVER, LEFT, PRDUCER 200MM",assembled,,Historical Part Requote,False,50,0.00,0.00,0.00,50
