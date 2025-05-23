@@ -1,5 +1,5 @@
 # Script to pull users (salespeople/estimatorsimport requests
-from utils.config_loader import config
+from scripts.utils.config_loader import config
 
 API_TOKEN = config["api_key"]
 BASE_URL = config["api_base_url"]

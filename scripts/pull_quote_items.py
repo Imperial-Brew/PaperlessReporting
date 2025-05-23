@@ -6,9 +6,9 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
-from utils.config_loader import config
-from utils.token_bucket import TokenBucket
-from utils.utils import safe_get, log_failures
+from scripts.utils.config_loader import config
+from scripts.utils.token_bucket import TokenBucket
+from scripts.utils.utils import safe_get, log_failures
 
 API_TOKEN = config["api_key"]
 BASE_URL = config["api_base_url"]
