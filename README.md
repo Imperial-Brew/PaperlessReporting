@@ -77,4 +77,4 @@ https://paperless-webhook.onrender.com/health
 
 ## License
 
-MIT 
+MIT
