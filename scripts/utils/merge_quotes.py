@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 from pathlib import Path
 
@@ -11,7 +10,9 @@ def merge_batches():
     for file in RAW_FOLDER.glob("quotes_*.csv"):
         try:
             # Force all to str and trim whitespace to normalize duplicates
-            df = pd.read_csv(file, dtype=str).apply(lambda x: x.str.strip() if x.dtype == "object" else x)
+            df = pd.read_csv(file, dtype=str).apply(
+                lambda x: x.str.strip() if x.dtype == "object" else x
+            )
             all_dfs.append(df)
         except Exception as e:
             print(f"❌ Failed to read {file.name}: {e}")
