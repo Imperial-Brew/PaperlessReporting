@@ -5,8 +5,8 @@ import time
 from pathlib import Path
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from utils.config_loader import config
-from utils.utils import safe_get
+from scripts.utils.config_loader import config
+from scripts.utils.utils import safe_get
 
 API_TOKEN = config["api_key"]
 BASE_URL = config["api_base_url"]
