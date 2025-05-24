@@ -26,6 +26,13 @@ WEBHOOK_SECRET = os.getenv(
 CSV_FILE = "data_raw/quotes_live.csv"
 ORDERS_CSV_FILE = "data_raw/orders_live.csv"
 
+# Log configuration on startup
+logger.info("=== Webhook Server Starting ===")
+logger.info(f"Webhook Secret: {WEBHOOK_SECRET[:4]}...")
+logger.info(f"API Token: {API_TOKEN[:4]}...")
+logger.info(f"API Base URL: {config.get('api_base_url', 'Not Set')}")
+logger.info("=============================")
+
 # === Helper: Write quote to CSV ===
 def update_csv(row, csv_file=CSV_FILE):
     """Update the CSV file with new data."""
@@ -107,13 +114,17 @@ def fetch_and_save_quote(quote_number, revision_number):
     """Fetch quote details from Paperless API and save to CSV."""
     url = f"{config['api_base_url']}/quotes/public/{quote_number}/{revision_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
+    logger.info(f"Fetching quote from: {url}")
+    
     response = requests.get(url, headers=headers)
+    logger.info(f"API Response Status: {response.status_code}")
 
     if response.status_code != 200:
         logger.error(
             f"❌ Failed to fetch quote {quote_number} Rev {revision_number}: "
             f"{response.status_code}"
         )
+        logger.error(f"Response content: {response.text}")
         return
 
     quote = response.json()
@@ -140,12 +151,16 @@ def fetch_and_save_order(order_number):
     """Fetch order details from Paperless API and save to CSV."""
     url = f"{config['api_base_url']}/orders/public/{order_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
+    logger.info(f"Fetching order from: {url}")
+    
     response = requests.get(url, headers=headers)
+    logger.info(f"API Response Status: {response.status_code}")
 
     if response.status_code != 200:
         logger.error(
             f"❌ Failed to fetch order {order_number}: {response.status_code}"
         )
+        logger.error(f"Response content: {response.text}")
         return
 
     order = response.json()
@@ -165,6 +180,18 @@ def fetch_and_save_order(order_number):
     update_order_csv(row)
 
 # === Webhook Event Handlers ===
+def handle_quote_created(data):
+    """Handle quote.created event."""
+    quote_number = data.get("number")
+    revision_number = data.get("revision_number")
+    if not quote_number or not revision_number:
+        logger.warning(
+            "⚠️ Missing quote_number or revision_number in created event"
+        )
+        return False
+    fetch_and_save_quote(quote_number, revision_number)
+    return True
+
 def handle_quote_status_changed(data):
     """Handle quote.status_changed event."""
     quote_number = data.get("quote_number")
@@ -211,9 +238,13 @@ def handle_order_status_changed(data):
 @app.route("/webhook", methods=["POST"])
 def webhook():
     """Handle incoming webhook requests."""
+    logger.info("=== New Webhook Request ===")
+    logger.info(f"Headers: {dict(request.headers)}")
+    logger.info(f"Args: {dict(request.args)}")
+    
     token = request.args.get("token")
     if token != WEBHOOK_SECRET:
-        logger.warning("⚠️ Invalid webhook token")
+        logger.warning(f"⚠️ Invalid webhook token. Received: {token}")
         return "Forbidden", 403
 
     try:
@@ -230,6 +261,7 @@ def webhook():
     event_data = data.get("data", {})
 
     handlers = {
+        "quote.created": handle_quote_created,
         "quote.status_changed": handle_quote_status_changed,
         "quote.sent": handle_quote_sent,
         "order.created": handle_order_created,
@@ -245,6 +277,7 @@ def webhook():
     if not success:
         return "Invalid event data", 400
 
+    logger.info("✅ Webhook processed successfully")
     return jsonify({"status": "OK"}), 200
 
 # === Health Check Endpoint ===
