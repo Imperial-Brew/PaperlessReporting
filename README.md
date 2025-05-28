@@ -1,51 +1,34 @@
-# Paperless Webhook Server
+# PaperlessReporting
 
-A webhook server for handling Paperless API events, deployed on Render.
+A Python-based tool for pulling, processing, and reporting data from the Paperless Parts API.
 
-## Features
+## What This Repository Does
 
-- Secure webhook endpoint with signature verification
-- Event-based handler system
-- Health check endpoint
-- Comprehensive logging
-- Automatic deployment on Render
+- Python scripts under `scripts/` pull data (quotes, orders, quote_items, etc.) from the PaperlessParts API
+- Utilities in `scripts/utils/` merge batches of CSVs into cleaned outputs
+- A GitHub Actions CI pipeline (`.github/workflows/ci.yml`) lints, tests, and builds docs
+- Data lands in `data_raw/` then is consolidated in `data_cleaned/`
 
-## Environment Variables
+## Key Scripts
 
-The following environment variables need to be set in your Render dashboard:
+- `scripts/pull_quotes.py`, `pull_orders.py`, `pull_quote_items.py`  
+  → each uses the same API-Token header, paginates/rate-limits, writes CSVs under `data_raw/`
+- `scripts/utils/merge_*.py`  
+  → read all `*_*.csv` in `data_raw/…`, drop duplicates, output a single `data_cleaned/*.csv`
+- `scripts/utils/token_bucket.py`  
+  → simple rate-limiter used by the pull scripts
 
-- `WEBHOOK_SECRET`: Secret key for validating webhook signatures
-- `API_KEY`: Your Paperless API key
-- `API_BASE_URL`: Base URL for the Paperless API
+## Environment & Configuration
 
-## Webhook Endpoint
+- `config.json` holds `{ "api_key": "...", "api_base_url": "https://api.paperlessparts.com" }`
+- CI relies on Python 3.9+, pytest for tests, flake8 for linting
 
-The webhook endpoint is available at:
-```
-https://paperless-webhook.onrender.com/webhook
-```
+## Workflow
 
-### Request Format
-
-```json
-{
-  "type": "event.type",
-  "data": {
-    // Event-specific data
-  }
-}
-```
-
-### Headers
-
-- `X-Webhook-Signature`: HMAC-SHA256 signature of the request body
-
-### Response Codes
-
-- `200`: Event handled successfully
-- `400`: Invalid request (missing event type, unsupported event)
-- `401`: Invalid or missing signature
-- `500`: Internal server error
+1. `git pull` latest  
+2. `python scripts/pull_quotes.py` (etc.) to regenerate raw CSVs  
+3. `python scripts/utils/merge_all_batches.py` to consolidate  
+4. Commit CSVs, push → CI runs and validates formatting + simple smoke tests
 
 ## Development
 
@@ -57,22 +40,6 @@ pip install -r requirements.txt
 2. Run tests:
 ```bash
 python -m pytest tests/
-```
-
-3. Start the server locally:
-```bash
-python scripts/webhook_server.py
-```
-
-## Deployment
-
-The server is automatically deployed to Render when changes are pushed to the main branch.
-
-## Health Check
-
-The health check endpoint is available at:
-```
-https://paperless-webhook.onrender.com/health
 ```
 
 ## License

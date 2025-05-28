@@ -1,121 +1,148 @@
-import asyncio
-import aiohttp
-import csv
-import logging
-from pathlib import Path
-from typing import List, Dict, Optional
-from datetime import datetime
+"""
+Asynchronous puller for order data from the API.
 
-from scripts.utils.config_loader import config
-from scripts.utils.async_token_bucket import AsyncTokenBucket
-from scripts.utils.utils import safe_get, log_failures
+This script fetches order data from the API and transforms it into a structured format,
+saving the results to a CSV file. It supports fetching a specific range of order IDs.
+"""
+
+import asyncio
+import logging
+import argparse
+from typing import Dict, Any, Optional, List, Tuple
+
+from scripts.utils.async_puller import AsyncPuller
+from scripts.utils.utils import safe_get
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
 logger = logging.getLogger(__name__)
 
-API_TOKEN = config["api_key"]
-BASE_URL = config["api_base_url"]
-HEADERS = {"Authorization": f"API-Token {API_TOKEN}"}
-
-# === ORDER RANGE TO PROCESS
-START = 520
-END = 560
-order_ids = list(range(START, END + 1))
-
-# Rate limiting
-bucket = AsyncTokenBucket(rate=1.8, capacity=5)
-
-async def fetch_order(session: aiohttp.ClientSession, order_id: int, max_retries: int = 3) -> Optional[Dict]:
+class OrdersPuller(AsyncPuller[Dict[str, Any]]):
     """
-    Fetch a single order with retry logic.
-    
-    Args:
-        session: aiohttp client session
-        order_id: ID of the order to fetch
-        max_retries: Maximum number of retry attempts
-        
-    Returns:
-        Dict containing order data or None if failed
-    """
-    delay = 1
-    for attempt in range(max_retries):
-        try:
-            async with bucket:  # This will automatically acquire a token
-                url = f"{BASE_URL}/orders/public/{order_id}"
-                async with session.get(url, headers=HEADERS, timeout=10) as response:
-                    if response.status == 200:
-                        o = await response.json()
-                        return {
-                            "order_number": o.get("number"),
-                            "quote_number": o.get("quote_number"),
-                            "quote_revision_number": o.get("quote_revision_number"),
-                            "status": o.get("status"),
-                            "created": o.get("created"),
-                            "deliver_by": o.get("deliver_by"),
-                            "ships_on": o.get("ships_on"),
-                            "payment_terms": safe_get(o, "payment_details", "payment_terms"),
-                            "purchase_order_number": safe_get(o, "payment_details", "purchase_order_number"),
-                            "salesperson_email": safe_get(o, "salesperson", "email"),
-                            "customer_name": safe_get(o, "shipping_info", "business_name")
-                        }
-                    elif response.status == 429:
-                        logger.warning(f"⏳ Rate limit hit for order {order_id}, pausing 15s")
-                        await asyncio.sleep(15)
-                    else:
-                        logger.error(f"⚠️ Failed to fetch order {order_id}: {response.status}")
-        except Exception as e:
-            logger.error(f"⚠️ Error fetching order {order_id} (attempt {attempt + 1}): {e}")
-        
-        await asyncio.sleep(delay)
-        delay *= 2
-    return None
+    Asynchronous puller for order data.
 
-async def process_orders(order_ids: List[int], output_path: str) -> None:
+    This class extends AsyncPuller to fetch order data from the API
+    and transform it into a structured format with selected fields.
+    It supports fetching a specific range of order IDs.
     """
-    Process a batch of orders concurrently.
-    
-    Args:
-        order_ids: List of order IDs to process
-        output_path: Path to write the CSV output
-    """
-    all_orders = []
-    failed = []
-    
-    async with aiohttp.ClientSession() as session:
-        tasks = [fetch_order(session, oid) for oid in order_ids]
-        results = await asyncio.gather(*tasks, return_exceptions=True)
-        
-        for oid, result in zip(order_ids, results):
-            if isinstance(result, Exception):
-                logger.error(f"❌ Order {oid} crashed: {result}")
-                failed.append(oid)
-            elif result:
-                all_orders.append(result)
-            else:
-                failed.append(oid)
-    
-    # Write to CSV
-    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-    if all_orders:
-        with open(output_path, "w", newline="", encoding="utf-8") as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=all_orders[0].keys())
-            writer.writeheader()
-            writer.writerows(all_orders)
-        logger.info(f"✅ Wrote {len(all_orders)} orders to {output_path}")
-    else:
-        logger.warning("⚠️ No orders found.")
 
-    # Log failures
-    log_failures("logs/errors/failed_orders.txt", failed)
+    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None):
+        """
+        Initialize the OrdersPuller.
+
+        Args:
+            start_id: Optional starting ID for range of orders to fetch
+            end_id: Optional ending ID for range of orders to fetch
+        """
+        super().__init__(
+            endpoint="orders/public",
+            rate=1.8,  # Requests per second
+            capacity=5,  # Maximum burst capacity
+            batch_size=20  # Process 20 orders at a time (orders have more data)
+        )
+        self.start_id = start_id
+        self.end_id = end_id
+
+    def transform_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Transform raw order data into the desired format.
+
+        Extracts and structures selected fields from the raw API response,
+        including nested payment and shipping information.
+
+        Args:
+            data: Raw order data from the API
+
+        Returns:
+            Transformed order data with selected fields
+        """
+        return {
+            "order_number": data.get("number"),
+            "quote_number": data.get("quote_number"),
+            "quote_revision_number": data.get("quote_revision_number"),
+            "status": data.get("status"),
+            "created": data.get("created"),
+            "deliver_by": data.get("deliver_by"),
+            "ships_on": data.get("ships_on"),
+            "payment_terms": safe_get(data, "payment_details", "payment_terms"),
+            "purchase_order_number": safe_get(data, "payment_details", "purchase_order_number"),
+            "salesperson_email": safe_get(data, "salesperson", "email"),
+            "customer_name": safe_get(data, "shipping_info", "business_name")
+        }
+
+    def get_output_path(self) -> str:
+        """
+        Generate the output path for the CSV file.
+
+        Returns a path based on the range of orders being fetched.
+
+        Returns:
+            Path to the output CSV file
+        """
+        if self.start_id is not None and self.end_id is not None:
+            return f"data_raw/orders/orders_{self.start_id}_{self.end_id}.csv"
+        return "data_raw/orders/orders_all.csv"
+
+    def get_item_range(self) -> Tuple[Optional[int], Optional[int]]:
+        """
+        Get the range of order IDs to process.
+
+        Returns:
+            Tuple of (start_id, end_id), where None means no limit
+        """
+        return self.start_id, self.end_id
+
+    async def get_all_item_ids(self) -> List[int]:
+        """
+        Get all order IDs to process when no range is specified.
+
+        This implementation uses pagination to fetch all order IDs from the API.
+
+        Returns:
+            List of all order IDs to process
+        """
+        # This is a placeholder implementation
+        # In a real implementation, you would fetch all order IDs from the API
+        # using pagination
+        logger.warning("Fetching all orders is not yet implemented")
+        logger.warning("Please specify a range using --start-id and --end-id")
+        return []
 
 async def main():
-    """Main entry point for the script."""
-    output_path = f"data_raw/orders/orders_{START}_{END}.csv"
-    await process_orders(order_ids, output_path)
+    """
+    Main entry point for the script.
+
+    Parses command line arguments, creates an OrdersPuller instance,
+    and runs it to fetch order data from the API.
+    """
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Fetch order data from the API")
+    parser.add_argument("--start-id", type=int, help="Starting order ID", default=520)
+    parser.add_argument("--end-id", type=int, help="Ending order ID", default=560)
+    args = parser.parse_args()
+
+    start_id = args.start_id
+    end_id = args.end_id
+
+    # Validate arguments
+    if start_id > end_id:
+        logger.error(f"Start ID ({start_id}) must be less than or equal to End ID ({end_id})")
+        return
+
+    puller = OrdersPuller(start_id, end_id)
+    logger.info(f"Starting order pull job: {start_id} to {end_id}")
+
+    try:
+        await puller.run()
+        logger.info("Order pull job completed successfully")
+    except Exception as e:
+        logger.error(f"Order pull job failed: {str(e)}")
+        raise
 
 if __name__ == "__main__":
-    asyncio.run(main()) 
+    # Configure logging at the script level
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+
+    asyncio.run(main())

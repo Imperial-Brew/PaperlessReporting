@@ -1,8 +1,9 @@
-import requests
 import csv
 import json
 import time
 from pathlib import Path
+
+import requests
 
 # Load config from config.json
 with open("config.json") as f:
@@ -28,22 +29,28 @@ def fetch_accounts():
 
 def main():
     accounts = fetch_accounts()
+
     # Test run: print first 5 accounts
     for i, acct in enumerate(accounts[:5], start=1):
         print(f"--- Account {i} ---")
         print(json.dumps(acct, indent=2))
-    # Write full list to CSV
+
+    # If nothing was fetched, bail out immediately
+    if not accounts:
+        print("⚠️ No accounts fetched.")
+        return
+
+    # Otherwise, write the CSV
     output_dir = Path("data")
     output_dir.mkdir(exist_ok=True)
     output_path = output_dir / "accounts.csv"
-    if accounts:
-        with open(output_path, "w", newline='', encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=accounts[0].keys())
-            writer.writeheader()
-            writer.writerows(accounts)
-        print(f"Wrote {len(accounts)} accounts to {output_path}")
-    else:
-        print("⚠️ No accounts fetched.")
+
+    with open(output_path, "w", newline="", encoding="utf-8") as libwriter:
+        writer = csv.DictWriter(libwriter, fieldnames=accounts[0].keys())
+        writer.writeheader()
+        writer.writerows(accounts)
+    print(f"Wrote {len(accounts)} accounts to {output_path}")
+
 
 
 if __name__ == "__main__":

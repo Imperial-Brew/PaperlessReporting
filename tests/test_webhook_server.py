@@ -1,8 +1,9 @@
 import pytest
 import json
+import aiohttp
+from aiohttp.test_utils import AioHTTPTestCase, unittest_run_loop
 import hmac
 import hashlib
-from aiohttp import web
 from scripts.webhook_server import WebhookServer
 
 @pytest.fixture
