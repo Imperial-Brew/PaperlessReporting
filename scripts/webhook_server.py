@@ -120,18 +120,23 @@ def update_order_csv(row):
     logger.info(f"✅ Order {row['order_number']} written to CSV.")
 
 # === Helper: Call Paperless API for full quote info ===
-def fetch_and_save_quote(quote_number, revision_number):
+def fetch_and_save_quote(quote_number, revision_number=None):
     """Fetch quote details from Paperless API and save to CSV."""
-    url = f"{get('api_base_url')}/quotes/public/{quote_number}?revision={revision_number}"
-    headers = {"Authorization": f"API-Token {API_TOKEN}"}
-    logger.info(f"Fetching quote from: {url}")
+    # For new quotes, try without revision first
+    if revision_number is None:
+        url = f"{get('api_base_url')}/quotes/public/{quote_number}"
+        logger.info(f"Fetching new quote without revision: {url}")
+    else:
+        url = f"{get('api_base_url')}/quotes/public/{quote_number}?revision={revision_number}"
+        logger.info(f"Fetching quote from: {url}")
 
+    headers = {"Authorization": f"API-Token {API_TOKEN}"}
     response = requests.get(url, headers=headers)
     logger.info(f"API Response Status: {response.status_code}")
 
     if response.status_code != 200:
         logger.error(
-            f"❌ Failed to fetch quote {quote_number} Rev {revision_number}: "
+            f"❌ Failed to fetch quote {quote_number} Rev {revision_number if revision_number else 'None'}: "
             f"{response.status_code}"
         )
         logger.error(f"Response content: {response.text}")
@@ -197,13 +202,14 @@ def handle_quote_created(data):
         logger.warning("⚠️ Missing quote_number in created event")
         return False
 
-    # Use a default revision number (1) if not provided
+    # For new quotes, don't use a revision number
     revision_number = data.get("revision_number")
     if revision_number is None:
-        revision_number = 1
-        logger.info(f"Using default revision number 1 for quote {quote_number}")
+        logger.info(f"New quote {quote_number} without revision, will fetch without revision parameter")
+        fetch_and_save_quote(quote_number)
+    else:
+        fetch_and_save_quote(quote_number, revision_number)
 
-    fetch_and_save_quote(quote_number, revision_number)
     return True
 
 def handle_quote_status_changed(data):
