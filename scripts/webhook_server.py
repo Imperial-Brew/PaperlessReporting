@@ -115,7 +115,7 @@ def update_order_csv(row):
 # === Helper: Call Paperless API for full quote info ===
 def fetch_and_save_quote(quote_number, revision_number):
     """Fetch quote details from Paperless API and save to CSV."""
-    url = f"{get('api_base_url')}/quotes/public/{quote_number}/{revision_number}"
+    url = f"{get('api_base_url')}/quotes/public/{quote_number}?revision={revision_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
     logger.info(f"Fetching quote from: {url}")
 
