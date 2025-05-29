@@ -1,0 +1,15 @@
+{
+"name": "Paperless Parts, Inc.",
+ "created": "2020-08-25T18:00:53+00:00",
+ "credit_line": 10000,
+ "erp_code": "PPI",
+ "id": 17,
+ "payment_terms": "Net 30",
+ "payment_terms_period": 30,
+ "phone": "6176354500",
+ "purchase_orders_enabled": true,
+ "tax_exempt": true,
+ "tax_rate": 6.25,
+ "type": "customer",
+ "url": "https://www.paperlessparts.com"
+ }
