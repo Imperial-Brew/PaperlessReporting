@@ -23,14 +23,18 @@ WEBHOOK_SECRET = os.getenv(
     "WEBHOOK_SECRET",
     get("webhook_secret", "supersecret")
 )
-# Use absolute paths to specified directory
+# Use platform-independent paths relative to project root
 from pathlib import Path
-CSV_FILE = r"F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quotes_live.csv"
-ORDERS_CSV_FILE = r"F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\orders_live.csv"
+project_root = Path(__file__).parent.parent
+CSV_FILE = str(project_root / "data_raw" / "quotes_live.csv")
+ORDERS_CSV_FILE = str(project_root / "data_raw" / "orders_live.csv")
 
 # Create data directories if they don't exist
+logger.info(f"CSV file path: {CSV_FILE}")
+logger.info(f"Orders CSV file path: {ORDERS_CSV_FILE}")
 os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
 os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
+logger.info(f"Created directories: {os.path.dirname(CSV_FILE)} and {os.path.dirname(ORDERS_CSV_FILE)}")
 
 # Log configuration on startup
 logger.info("=== Webhook Server Starting ===")
