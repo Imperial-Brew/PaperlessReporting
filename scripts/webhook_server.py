@@ -23,11 +23,10 @@ WEBHOOK_SECRET = os.getenv(
     "WEBHOOK_SECRET",
     get("webhook_secret", "supersecret")
 )
-# Use absolute paths to project root directory
+# Use absolute paths to specified directory
 from pathlib import Path
-project_root = Path(__file__).parent.parent
-CSV_FILE = str(project_root / "data_raw/quotes_live.csv")
-ORDERS_CSV_FILE = str(project_root / "data_raw/orders_live.csv")
+CSV_FILE = r"F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quotes_live.csv"
+ORDERS_CSV_FILE = r"F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\orders_live.csv"
 
 # Create data directories if they don't exist
 os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
@@ -136,7 +135,7 @@ def fetch_and_save_quote(quote_number, revision_number):
 
     quote = response.json()
     row = {
-        "quote_number": quote.get("quote_number"),
+        "quote_number": quote.get("number"),
         "revision_number": quote.get("revision_number"),
         "status": quote.get("status"),
         "created": quote.get("created"),
