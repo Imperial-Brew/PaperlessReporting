@@ -29,6 +29,10 @@ project_root = Path(__file__).parent.parent
 CSV_FILE = str(project_root / "data_raw/quotes_live.csv")
 ORDERS_CSV_FILE = str(project_root / "data_raw/orders_live.csv")
 
+# Create data directories if they don't exist
+os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
+os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
+
 # Log configuration on startup
 logger.info("=== Webhook Server Starting ===")
 logger.info(f"Webhook Secret: {WEBHOOK_SECRET[:4]}...")
@@ -294,10 +298,6 @@ def health_check():
     return jsonify({"status": "OK"}), 200
 
 if __name__ == "__main__":
-    # Create data directories if they don't exist
-    os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
-    os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
-
     # Start the server
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port) 
