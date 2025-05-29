@@ -1,44 +1,33 @@
-[notice] A new release of pip is available: 24.0 -> 25.1.1
-[notice] To update, run: pip install --upgrade pip
-==> Uploading build...
-==> Uploaded in 3.7s. Compression took 1.9s
-==> Build successful 🎉
-==> Deploying...
-==> Running 'gunicorn app:app'
-2025-05-29 21:23:48,874 - INFO - Loaded config from /opt/render/project/src/scripts/config.json
-2025-05-29 21:23:48,874 - INFO - === Webhook Server Starting ===
-2025-05-29 21:23:48,874 - INFO - Webhook Secret: supe...
-2025-05-29 21:23:48,874 - INFO - API Token: bb21...
-2025-05-29 21:23:48,874 - INFO - API Base URL: https://api.paperlessparts.com
-2025-05-29 21:23:48,874 - INFO - =============================
-[2025-05-29 21:23:48 +0000] [82] [INFO] Starting gunicorn 23.0.0
-[2025-05-29 21:23:48 +0000] [82] [INFO] Listening at: http://0.0.0.0:10000 (82)
-[2025-05-29 21:23:48 +0000] [82] [INFO] Using worker: sync
-[2025-05-29 21:23:48 +0000] [83] [INFO] Booting worker with pid: 83
-127.0.0.1 - - [29/May/2025:21:23:48 +0000] "HEAD / HTTP/1.1" 404 0 "-" "Go-http-client/1.1"
-==> Your service is live 🎉
-2025-05-29 21:25:35,136 - INFO - === New Webhook Request ===
-2025-05-29 21:25:35,137 - INFO - Headers: {'Host': 'paperlessreporting.onrender.com', 'User-Agent': 'Python/3.8 aiohttp/3.10.11', 'Content-Length': '1778', 'Accept': '*/*', 'Accept-Encoding': 'gzip, br', 'Cdn-Loop': 'cloudflare; loops=1', 'Cf-Connecting-Ip': '3.30.30.202', 'Cf-Ipcountry': 'US', 'Cf-Ray': '947910ae1c22ff1a-PDX', 'Cf-Visitor': '{"scheme":"https"}', 'Content-Type': 'application/json', 'Paperless-Parts-Signature': 't=1748553934,v1=da0c5821b2ae622824652c7aab992b88dfa4d334272ac98f97581bb1001862da', 'Render-Proxy-Ttl': '4', 'Rndr-Id': '991ae71a-8228-4d40', 'Traceparent': '00-000000000000000092a686e958cbc02d-5d5a93c7f53b7e2a-01', 'Tracestate': 'dd=s:1;t.dm:-0', 'True-Client-Ip': '3.30.30.202', 'X-Datadog-Parent-Id': '6726851480453348906', 'X-Datadog-Sampling-Priority': '1', 'X-Datadog-Tags': '_dd.p.dm=-0', 'X-Datadog-Trace-Id': '10567281912446697517', 'X-Forwarded-For': '3.30.30.202, 172.68.175.52', 'X-Forwarded-Proto': 'https', 'X-Request-Start': '1748553935136185'}
-2025-05-29 21:25:35,137 - INFO - Args: {'token': 'supersecret'}
-2025-05-29 21:25:35,137 - INFO - 📥 Webhook payload received:
-2025-05-29 21:25:35,137 - INFO - {'created': '2025-05-29T21:25:34.932745Z', 'data': {'uuid': 'b2e96f4c-03b5-439b-a238-f1ad9087486f', 'number': 7835, 'status': 'draft', 'created': '2025-05-29T21:25:34.905410Z', 'expired': False, 'due_date': '2025-06-01T21:25:34.893446Z', 'erp_code': None, 'metadata': {}, 'priority': None, 'tax_rate': '0.000', 'estimator': None, 'sent_date': None, 'contact_id': None, 'rfq_number': None, 'quote_items': [], 'quote_notes': 'Thank you for the opportunity to quote your mechanical design, machining, sheet metal and assembly requirements.  Please visit www.athenamfg.com for more company information.\n\n- Pricing based on data received            on Customer RFQ #\n- Pricing FOB our dock\n- Customers are responsible for ensuring that the properties and performance of the material selected meet the requirements of their application;\n- The estimated lead time is based on available capacity at the time of this quote. Quotes that are not executed same day are subject to change or delays. Reasonable efforts will be made to deliver within or as close to the estimate as possible, however there is no assurance that any estimated delivery date will be met.\n- In accordance with our Management System, we have reviewed the information provided with your RFQ, and believe that our offer meets the stated requirements.', 'salesperson': '7aec1bb1-13e9-414d-a1dd-d47b47e8287f', 'expired_date': '2025-06-28T21:25:34.890521Z', 'private_notes': 'File Location here.', 'revision_number': None, 'supporting_files': [], 'export_controlled': False, 'send_from_facility': '6282346e-6ab9-4834-81e7-cabba049f398', 'request_for_quote_id': None, 'digital_last_viewed_on': None, 'manual_rfq_received_date': None, 'authenticated_pdf_quote_url': None}, 'object': 'quote', 'type': 'quote.created'}
-2025-05-29 21:25:35,137 - INFO - Using default revision number 1 for quote 7835
-2025-05-29 21:25:35,137 - INFO - Fetching quote from: https://api.paperlessparts.com/quotes/public/7835/1
-2025-05-29 21:25:35,168 - INFO - API Response Status: 404
-2025-05-29 21:25:35,168 - ERROR - ❌ Failed to fetch quote 7835 Rev 1: 404
-2025-05-29 21:25:35,168 - ERROR - Response content: {"error": "Not found", "detail": "The requested resource was not found on this server.", "path": "/quotes/public/7835/1", "status_code": 404}
-2025-05-29 21:25:35,168 - INFO - ✅ Webhook processed successfully
-10.214.99.21 - - [29/May/2025:21:25:35 +0000] "POST /webhook?token=supersecret HTTP/1.1" 200 16 "-" "Python/3.8 aiohttp/3.10.11"
-2025-05-29 21:28:09,774 - INFO - === New Webhook Request ===
-2025-05-29 21:28:09,775 - INFO - Headers: {'Host': 'paperlessreporting.onrender.com', 'User-Agent': 'Python/3.8 aiohttp/3.10.11', 'Content-Length': '1994', 'Accept': '*/*', 'Accept-Encoding': 'gzip, br', 'Cdn-Loop': 'cloudflare; loops=1', 'Cf-Connecting-Ip': '15.205.80.242', 'Cf-Ipcountry': 'US', 'Cf-Ray': '94791474cd65fef1-PDX', 'Cf-Visitor': '{"scheme":"https"}', 'Content-Type': 'application/json', 'Paperless-Parts-Signature': 't=1748554089,v1=1a3a9c0de010dc4b9fd9b6ea8a09a9dae2094aa096f16aa84d14d5ecaba04011', 'Render-Proxy-Ttl': '4', 'Rndr-Id': '1e93d7fb-08e4-4feb', 'Traceparent': '00-00000000000000001f05c74fa664ba19-a05b2e765cf8e398-01', 'Tracestate': 'dd=s:1;t.dm:-0', 'True-Client-Ip': '15.205.80.242', 'X-Datadog-Parent-Id': '11554880354849973144', 'X-Datadog-Sampling-Priority': '1', 'X-Datadog-Tags': '_dd.p.dm=-0', 'X-Datadog-Trace-Id': '2235411934967282201', 'X-Forwarded-For': '15.205.80.242, 172.68.174.107', 'X-Forwarded-Proto': 'https', 'X-Request-Start': '1748554089774608'}
-2025-05-29 21:28:09,775 - INFO - Args: {'token': 'supersecret'}
-2025-05-29 21:28:09,775 - INFO - 📥 Webhook payload received:
-2025-05-29 21:28:09,775 - INFO - {'created': '2025-05-29T21:28:09.584405Z', 'data': {'uuid': '938b8c90-d486-41ec-b0b1-e0a7004f1f68', 'number': 7669, 'status': 'draft', 'created': '2025-05-29T21:28:09.521886Z', 'expired': False, 'due_date': '2025-06-01T21:28:09.513832Z', 'erp_code': None, 'metadata': {}, 'priority': None, 'tax_rate': '0.000', 'estimator': '9088ff28-2d41-44c1-bc3d-0f102ede67f5', 'sent_date': None, 'contact_id': 900659, 'rfq_number': 'BID0030546', 'quote_items': ['77e5fee9-0a35-4e0e-938e-e03607f05523'], 'quote_notes': 'Thank you for the opportunity to quote your mechanical design, machining, sheet metal and assembly requirements.  Please visit www.athenamfg.com for more company information.\n\n- Pricing based on data received 05/02/2025 on Customer RFQ #BID0030546\n- Pricing FOB our dock\n- Customers are responsible for ensuring that the properties and performance of the material selected meet the requirements of their application;\n- The estimated lead time is based on available capacity at the time of this quote. Quotes that are not executed same day are subject to change or delays. Reasonable efforts will be made to deliver within or as close to the estimate as possible, however there is no assurance that any estimated delivery date will be met.\n- In accordance with our Management System, we have reviewed the information provided with your RFQ, and believe that our offer meets the stated requirements.', 'salesperson': 'd6c92eff-8529-45b4-b788-8d2e4d9bb3e3', 'expired_date': '2025-06-28T21:28:09.511707Z', 'private_notes': 'G:\\Bell Helicopter\\20250502 - BID0030546\n\nQuote submitted in S2B portal 05/16/25', 'revision_number': 1, 'supporting_files': ['49391aea-48e2-4680-8be6-c5ea4c34007f'], 'export_controlled': True, 'send_from_facility': '6282346e-6ab9-4834-81e7-cabba049f398', 'request_for_quote_id': None, 'digital_last_viewed_on': None, 'manual_rfq_received_date': '2025-05-02T15:34:04.382000Z', 'authenticated_pdf_quote_url': None}, 'object': 'quote', 'type': 'quote.created'}
-2025-05-29 21:28:09,775 - INFO - Fetching quote from: https://api.paperlessparts.com/quotes/public/7669/1
-2025-05-29 21:28:09,800 - INFO - API Response Status: 404
-2025-05-29 21:28:09,800 - ERROR - ❌ Failed to fetch quote 7669 Rev 1: 404
-2025-05-29 21:28:09,800 - ERROR - Response content: {"error": "Not found", "detail": "The requested resource was not found on this server.", "path": "/quotes/public/7669/1", "status_code": 404}
-2025-05-29 21:28:09,801 - INFO - ✅ Webhook processed successfully
-10.214.237.50 - - [29/May/2025:21:28:09 +0000] "POST /webhook?token=supersecret HTTP/1.1" 200 16 "-" "Python/3.8 aiohttp/3.10.11"
-==> Detected service running on port 10000
-==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2025-05-29 22:00:05,279 - INFO - === New Webhook Request ===
+2025-05-29 22:00:05,279 - INFO - Headers: {'Host': 'paperlessreporting.onrender.com', 'User-Agent': 'Python/3.8 aiohttp/3.10.11', 'Content-Length': '1875', 'Accept': '*/*', 'Accept-Encoding': 'gzip, br', 'Cdn-Loop': 'cloudflare; loops=1', 'Cf-Connecting-Ip': '3.32.64.33', 'Cf-Ipcountry': 'US', 'Cf-Ray': '94794338aef6efa4-PDX', 'Cf-Visitor': '{"scheme":"https"}', 'Content-Type': 'application/json', 'Paperless-Parts-Signature': 't=1748556005,v1=fab9b69b163e6597b18859841811cabd2024f8a353dfa88269474d509865725b', 'Render-Proxy-Ttl': '4', 'Rndr-Id': '1edbf00a-2312-4d88', 'Traceparent': '00-0000000000000000e5efbf7d17570c56-ad14516814b1fdc8-01', 'Tracestate': 'dd=s:1;t.dm:-0', 'True-Client-Ip': '3.32.64.33', 'X-Datadog-Parent-Id': '12471682775561403848', 'X-Datadog-Sampling-Priority': '1', 'X-Datadog-Tags': '_dd.p.dm=-0', 'X-Datadog-Trace-Id': '16568672098102742102', 'X-Forwarded-For': '3.32.64.33, 172.68.175.37', 'X-Forwarded-Proto': 'https', 'X-Request-Start': '1748556005271651'}
+2025-05-29 22:00:05,279 - INFO - Args: {'token': 'supersecret'}
+2025-05-29 22:00:05,279 - INFO - 📥 Webhook payload received:
+2025-05-29 22:00:05,279 - INFO - {'created': '2025-05-29T22:00:04.949917Z', 'data': {'uuid': '6cbfeebf-c371-4e63-a67c-ea245c30a945', 'number': 7808, 'status': 'draft', 'created': '2025-05-29T22:00:04.919212Z', 'expired': False, 'due_date': '2025-06-01T22:00:04.912316Z', 'erp_code': None, 'metadata': {}, 'priority': None, 'tax_rate': '0.000', 'estimator': '5425218a-6230-4efe-9b7c-57b8d2635a5e', 'sent_date': None, 'contact_id': 34689, 'rfq_number': 'test', 'quote_items': ['c404d64c-06bb-4db6-99d3-96f4df6b6c1d'], 'quote_notes': 'Thank you for the opportunity to quote your mechanical design, machining, sheet metal and assembly requirements.  Please visit www.athenamfg.com for more company information.\n\n- Pricing based on data received            on Customer RFQ #\n- Pricing FOB our dock\n- Customers are responsible for ensuring that the properties and performance of the material selected meet the requirements of their application;\n- The estimated lead time is based on available capacity at the time of this quote. Quotes that are not executed same day are subject to change or delays. Reasonable efforts will be made to deliver within or as close to the estimate as possible, however there is no assurance that any estimated delivery date will be met.\n- In accordance with our Management System, we have reviewed the information provided with your RFQ, and believe that our offer meets the stated requirements.', 'salesperson': '5425218a-6230-4efe-9b7c-57b8d2635a5e', 'expired_date': '2025-06-28T22:00:04.910390Z', 'private_notes': 'File Location here.', 'revision_number': 6, 'supporting_files': [], 'export_controlled': False, 'send_from_facility': '6282346e-6ab9-4834-81e7-cabba049f398', 'request_for_quote_id': None, 'digital_last_viewed_on': None, 'manual_rfq_received_date': '2025-05-23T21:11:18.205000Z', 'authenticated_pdf_quote_url': None}, 'object': 'quote', 'type': 'quote.created'}
+2025-05-29 22:00:05,280 - INFO - Fetching quote from: https://api.paperlessparts.com/quotes/public/7808?revision=6
+2025-05-29 22:00:05,510 - INFO - API Response Status: 200
+2025-05-29 22:00:05,510 - ERROR - Exception on /webhook [POST]
+Traceback (most recent call last):
+  File "/opt/render/project/src/.venv/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/.venv/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/.venv/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/.venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/scripts/webhook_server.py", line 283, in webhook
+    success = handler(event_data)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/scripts/webhook_server.py", line 199, in handle_quote_created
+    fetch_and_save_quote(quote_number, revision_number)
+  File "/opt/render/project/src/scripts/webhook_server.py", line 150, in fetch_and_save_quote
+    update_csv(row)
+  File "/opt/render/project/src/scripts/webhook_server.py", line 69, in update_csv
+    with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/render/project/src/data_raw/quotes_live.csv'
+10.214.224.40 - - [29/May/2025:22:00:05 +0000] "POST /webhook?token=supersecret HTTP/1.1" 500 265 "-" "Python/3.8 aiohttp/3.10.11"
