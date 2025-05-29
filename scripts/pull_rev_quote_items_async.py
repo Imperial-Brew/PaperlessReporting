@@ -12,8 +12,8 @@ from typing import Dict, Any, Optional, List, Tuple
 
 import aiohttp
 
-from scripts.utils.async_puller import AsyncPuller
-from scripts.utils.utils import safe_get
+from utils.async_puller import AsyncPuller
+from utils.utils import safe_get
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -54,13 +54,13 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
             List of tuples containing (quote_number, revision_number)
         """
         url = f"{self.base_url}/quotes/public/new"
-        
+
         async with aiohttp.ClientSession() as session:
             async with session.get(url, headers=self.headers, timeout=10) as response:
                 if response.status == 200:
                     data = await response.json()
                     pairs = [(q["quote"], q["revision"]) for q in data if q["revision"] not in (None, 0)]
-                    
+
                     # Apply batch limits if specified
                     if self.batch_start is not None and self.batch_end is not None:
                         return pairs[self.batch_start:self.batch_end + 1]
@@ -141,9 +141,11 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
         Returns:
             Path to the output CSV file
         """
+        # Use absolute path to project root directory
+        project_root = Path(__file__).parent.parent
         if self.batch_start is not None and self.batch_end is not None:
-            return f"data_raw/quote_items/quote_items_revised_{self.batch_start}_{self.batch_end}.csv"
-        return "data_raw/quote_items/quote_items_revised.csv"
+            return str(project_root / f"data_raw/quote_items/quote_items_revised_{self.batch_start}_{self.batch_end}.csv")
+        return str(project_root / "data_raw/quote_items/quote_items_revised.csv")
 
     async def fetch_item(self, session: aiohttp.ClientSession, item_id: int) -> Optional[Dict[str, Any]]:
         """
@@ -162,10 +164,10 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
         if item_id >= len(self.quote_revision_pairs):
             logger.error(f"Item ID {item_id} out of range")
             return None
-            
+
         quote_number, revision = self.quote_revision_pairs[item_id]
         self.current_revision = revision  # Store for use in transform_data
-        
+
         url = f"{self.base_url}/{self.endpoint}/{quote_number}?revision={revision}"
         delay = 1  # Initial delay for exponential backoff
 
@@ -228,7 +230,7 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
                         all_items.extend(quote_items)
                         # Count the quote as processed if we successfully extracted its items
                         self.processed_count += 1
-                        
+
                         if item_id < len(self.quote_revision_pairs):
                             quote_number, revision = self.quote_revision_pairs[item_id]
                             logger.info(f"Extracted {len(quote_items)} items from quote {quote_number}-r{revision}")
@@ -256,12 +258,12 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
             return
 
         logger.info(f"Found {len(self.quote_revision_pairs)} revised quotes")
-        
+
         # Create item IDs as indices into the quote_revision_pairs list
         item_ids = list(range(len(self.quote_revision_pairs)))
-        
+
         all_items = []
-        
+
         # Process in batches
         for i in range(0, len(item_ids), self.batch_size):
             batch = item_ids[i:i + self.batch_size]
@@ -290,7 +292,9 @@ class RevQuoteItemsPuller(AsyncPuller[List[Dict[str, Any]]]):
             # Convert failed indices back to quote-revision pairs for logging
             failed_pairs = [f"{self.quote_revision_pairs[idx][0]}-{self.quote_revision_pairs[idx][1]}" 
                            for idx in self.failed_ids if idx < len(self.quote_revision_pairs)]
-            log_path = "logs/errors/failed_revised_quote_items.txt"
+            # Use absolute path to project root directory
+            project_root = Path(__file__).parent.parent
+            log_path = str(project_root / "logs/errors/failed_revised_quote_items.txt")
             with open(log_path, "w") as f:
                 for pair in failed_pairs:
                     f.write(f"{pair}\n")

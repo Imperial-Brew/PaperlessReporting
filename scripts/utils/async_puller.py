@@ -15,9 +15,9 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional, TypeVar, Generic, Union, Tuple
 from abc import ABC, abstractmethod
 
-from scripts.utils.config_loader import config
-from scripts.utils.utils import log_failures
-from scripts.utils.async_token_bucket import AsyncTokenBucket
+from .config_loader import config
+from .utils import log_failures
+from .async_token_bucket import AsyncTokenBucket
 
 # Configure logging
 logging.basicConfig(
@@ -66,8 +66,8 @@ class AsyncPuller(Generic[T], ABC):
             base_url: Base URL for the API (defaults to config["api_base_url"])
             api_key: API key for authentication (defaults to config["api_key"])
         """
-        self.base_url = base_url or config["api_base_url"]
-        self.api_key = api_key or config["api_key"]
+        self.base_url = base_url or config()["api_base_url"]
+        self.api_key = api_key or config()["api_key"]
         self.endpoint = endpoint
         self.headers = {"Authorization": f"API-Token {self.api_key}"}
         self.max_retries = max_retries
@@ -148,7 +148,9 @@ class AsyncPuller(Generic[T], ABC):
             Path to the output CSV file
         """
         endpoint_name = self.endpoint.replace('/', '_')
-        return f"data_raw/{endpoint_name}/{endpoint_name}.csv"
+        # Use absolute path to project root directory
+        project_root = Path(__file__).parent.parent.parent
+        return str(project_root / f"data_raw/{endpoint_name}/{endpoint_name}.csv")
 
     def get_item_range(self) -> Tuple[Optional[int], Optional[int]]:
         """
@@ -271,7 +273,9 @@ class AsyncPuller(Generic[T], ABC):
         # Log failures
         if self.failed_ids:
             endpoint_name = self.endpoint.replace('/', '_')
-            log_failures(f"logs/errors/failed_{endpoint_name}.txt", self.failed_ids)
+            # Use absolute path to project root directory
+            project_root = Path(__file__).parent.parent.parent
+            log_failures(str(project_root / f"logs/errors/failed_{endpoint_name}.txt"), self.failed_ids)
             logger.warning(f"Failed to process {len(self.failed_ids)} items")
 
         logger.info(f"Pull complete. Processed {self.processed_count} items, "

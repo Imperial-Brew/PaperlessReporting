@@ -3,7 +3,7 @@ import requests
 import csv
 import os
 import logging
-from scripts.utils.config_loader import config
+from utils.config_loader import config
 
 # Configure logging
 logging.basicConfig(
@@ -23,8 +23,11 @@ WEBHOOK_SECRET = os.getenv(
     "WEBHOOK_SECRET",
     config.get("webhook_secret", "supersecret")
 )
-CSV_FILE = "data_raw/quotes_live.csv"
-ORDERS_CSV_FILE = "data_raw/orders_live.csv"
+# Use absolute paths to project root directory
+from pathlib import Path
+project_root = Path(__file__).parent.parent
+CSV_FILE = str(project_root / "data_raw/quotes_live.csv")
+ORDERS_CSV_FILE = str(project_root / "data_raw/orders_live.csv")
 
 # Log configuration on startup
 logger.info("=== Webhook Server Starting ===")
@@ -115,7 +118,7 @@ def fetch_and_save_quote(quote_number, revision_number):
     url = f"{config['api_base_url']}/quotes/public/{quote_number}/{revision_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
     logger.info(f"Fetching quote from: {url}")
-    
+
     response = requests.get(url, headers=headers)
     logger.info(f"API Response Status: {response.status_code}")
 
@@ -152,7 +155,7 @@ def fetch_and_save_order(order_number):
     url = f"{config['api_base_url']}/orders/public/{order_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
     logger.info(f"Fetching order from: {url}")
-    
+
     response = requests.get(url, headers=headers)
     logger.info(f"API Response Status: {response.status_code}")
 
@@ -183,12 +186,16 @@ def fetch_and_save_order(order_number):
 def handle_quote_created(data):
     """Handle quote.created event."""
     quote_number = data.get("number")
-    revision_number = data.get("revision_number")
-    if not quote_number or not revision_number:
-        logger.warning(
-            "⚠️ Missing quote_number or revision_number in created event"
-        )
+    if not quote_number:
+        logger.warning("⚠️ Missing quote_number in created event")
         return False
+
+    # Use a default revision number (1) if not provided
+    revision_number = data.get("revision_number")
+    if revision_number is None:
+        revision_number = 1
+        logger.info(f"Using default revision number 1 for quote {quote_number}")
+
     fetch_and_save_quote(quote_number, revision_number)
     return True
 
@@ -241,7 +248,7 @@ def webhook():
     logger.info("=== New Webhook Request ===")
     logger.info(f"Headers: {dict(request.headers)}")
     logger.info(f"Args: {dict(request.args)}")
-    
+
     token = request.args.get("token")
     if token != WEBHOOK_SECRET:
         logger.warning(f"⚠️ Invalid webhook token. Received: {token}")
@@ -290,7 +297,7 @@ if __name__ == "__main__":
     # Create data directories if they don't exist
     os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
     os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
-    
+
     # Start the server
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port) 

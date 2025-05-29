@@ -10,8 +10,8 @@ import logging
 import argparse
 from typing import Dict, Any, Optional, List, Tuple
 
-from scripts.utils.async_puller import AsyncPuller
-from scripts.utils.utils import safe_get
+from utils.async_puller import AsyncPuller
+from utils.utils import safe_get
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -78,9 +78,11 @@ class OrdersPuller(AsyncPuller[Dict[str, Any]]):
         Returns:
             Path to the output CSV file
         """
+        # Use absolute path to project root directory
+        project_root = Path(__file__).parent.parent
         if self.start_id is not None and self.end_id is not None:
-            return f"data_raw/orders/orders_{self.start_id}_{self.end_id}.csv"
-        return "data_raw/orders/orders_all.csv"
+            return str(project_root / f"data_raw/orders/orders_{self.start_id}_{self.end_id}.csv")
+        return str(project_root / "data_raw/orders/orders_all.csv")
 
     def get_item_range(self) -> Tuple[Optional[int], Optional[int]]:
         """

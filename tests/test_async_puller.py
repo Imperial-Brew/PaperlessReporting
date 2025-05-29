@@ -1,6 +1,6 @@
 import pytest
 import asyncio
-from unittest.mock import patch, AsyncMock
+from unittest.mock import patch, AsyncMock, mock_open
 from typing import Dict, Any
 
 from scripts.utils.async_puller import AsyncPuller
@@ -58,12 +58,12 @@ async def test_process_items(puller, mock_session):
         context_manager, _ = make_aiohttp_context_manager(200, {"id": 1, "name": "test"})
         return context_manager
     mock_session.get.side_effect = get_side_effect
-    
+
     # Patch aiohttp.ClientSession to return a context manager whose __aenter__ returns mock_session
     mock_client_session_cm = AsyncMock()
     mock_client_session_cm.__aenter__.return_value = mock_session
     mock_client_session_cm.__aexit__.return_value = None
-    
+
     with patch("aiohttp.ClientSession", return_value=mock_client_session_cm):
         await puller.process_items([1, 2, 3], "test.csv")
         assert mock_session.get.call_count == 3
@@ -81,12 +81,12 @@ async def test_fetch_all_paginated(puller, mock_session):
         response.json = AsyncMock(side_effect=mock_json)
         return context_manager
     mock_session.get.side_effect = get_side_effect
-    
+
     # Patch aiohttp.ClientSession to return a context manager whose __aenter__ returns mock_session
     mock_client_session_cm = AsyncMock()
     mock_client_session_cm.__aenter__.return_value = mock_session
     mock_client_session_cm.__aexit__.return_value = None
-    
+
     with patch("aiohttp.ClientSession", return_value=mock_client_session_cm):
         items = []
         async for item in puller.fetch_all_paginated(mock_session):
@@ -102,4 +102,64 @@ async def test_token_bucket():
     assert await bucket.acquire()
     assert not await bucket.acquire(timeout=0.1)
     await asyncio.sleep(1.1)
-    assert await bucket.acquire() 
+    assert await bucket.acquire()
+
+@pytest.mark.asyncio
+async def test_process_items_with_failures(puller, mock_session):
+    """Test handling of failed items."""
+    # Create responses with a mix of success and failure
+    responses = [
+        make_aiohttp_context_manager(200, {"id": 1, "name": "test1"})[0],
+        make_aiohttp_context_manager(500)[0],  # Error response
+        make_aiohttp_context_manager(200, {"id": 3, "name": "test3"})[0]
+    ]
+
+    mock_session.get.side_effect = responses
+
+    mock_client_session_cm = AsyncMock()
+    mock_client_session_cm.__aenter__.return_value = mock_session
+    mock_client_session_cm.__aexit__.return_value = None
+
+    with patch("aiohttp.ClientSession", return_value=mock_client_session_cm):
+        with patch("builtins.open", mock_open()) as mock_file:
+            await puller.process_items([1, 2, 3], "test.csv")
+            # Verify only successful items were processed
+            assert mock_session.get.call_count == 3
+
+@pytest.mark.asyncio
+async def test_retry_mechanism(puller, mock_session):
+    """Test the retry mechanism for rate-limited requests."""
+    # Create responses that simulate rate limiting followed by success
+    responses = [
+        make_aiohttp_context_manager(429)[0],  # Rate limited
+        make_aiohttp_context_manager(200, {"id": 1, "name": "test1"})[0]  # Success on retry
+    ]
+
+    mock_session.get.side_effect = responses
+
+    # Mock sleep to avoid actual waiting
+    with patch("asyncio.sleep", return_value=None):
+        result = await puller.fetch_item_with_retries(mock_session, 1, max_retries=1)
+        assert result == {"id": 1, "name": "test1"}
+        assert mock_session.get.call_count == 2
+
+@pytest.mark.asyncio
+async def test_fetch_all_with_errors(puller, mock_session):
+    """Test fetching all items with some errors."""
+    # Create a mix of successful and error responses
+    responses = [
+        make_aiohttp_context_manager(200, {"id": 1, "name": "test1"})[0],
+        make_aiohttp_context_manager(500)[0],  # Error
+        make_aiohttp_context_manager(200, {"id": 3, "name": "test3"})[0]
+    ]
+
+    mock_session.get.side_effect = responses
+
+    items = []
+    async for item in puller.fetch_all(mock_session, [1, 2, 3]):
+        if item:  # Only successful items are yielded
+            items.append(item)
+
+    assert len(items) == 2
+    assert items[0] == {"id": 1, "name": "test1"}
+    assert items[1] == {"id": 3, "name": "test3"}

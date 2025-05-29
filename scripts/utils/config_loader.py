@@ -13,7 +13,7 @@ class ConfigurationError(Exception):
 
 class ConfigLoader:
     """Configuration loader class with support for defaults and validation."""
-    
+
     def __init__(
         self,
         config_path: Union[str, Path] = "config.json",
@@ -29,13 +29,13 @@ class ConfigLoader:
     def load_config(self, reload: bool = False) -> Dict[str, Any]:
         """
         Load configuration from a JSON file with caching support.
-        
+
         Args:
             reload: Force reload configuration from disk
-            
+
         Returns:
             dict: Merged configuration data (file config + defaults)
-            
+
         Raises:
             ConfigurationError: If config loading fails or validation fails
         """
@@ -45,7 +45,7 @@ class ConfigLoader:
         # Get the scripts directory
         scripts_dir = Path(__file__).parent.parent
         config_file = scripts_dir / self.config_path
-        
+
         try:
             with open(config_file) as f:
                 file_config = json.load(f)
@@ -54,29 +54,43 @@ class ConfigLoader:
             file_config = {}
         except json.JSONDecodeError as e:
             raise ConfigurationError(f"Invalid JSON in config file: {e}")
-        
+
         # Merge with defaults
         self._config = {**self.default_config, **file_config}
-        
+
         # Validate required fields
-        missing_fields = [field for field in self.required_fields 
-                         if field not in self._config]
+        missing_fields = []
+        for field in self.required_fields:
+            if '.' in field:
+                # Handle nested fields with dot notation
+                parts = field.split('.')
+                current = self._config
+                for part in parts:
+                    if not isinstance(current, dict) or part not in current:
+                        missing_fields.append(field)
+                        break
+                    current = current[part]
+            else:
+                # Handle top-level fields
+                if field not in self._config:
+                    missing_fields.append(field)
+
         if missing_fields:
             raise ConfigurationError(
                 f"Missing required configuration fields: {', '.join(missing_fields)}"
             )
-            
+
         logger.info(f"Loaded config from {config_file}")
         return self._config
 
     def get(self, key: str, default: Any = None) -> Any:
         """
         Safely get a configuration value.
-        
+
         Args:
             key: Configuration key to retrieve
             default: Default value if key doesn't exist
-            
+
         Returns:
             Configuration value or default
         """
@@ -114,3 +128,8 @@ config_loader = ConfigLoader(
 # Provide a simple interface for importing
 get_config = config_loader.load_config
 get = config_loader.get
+
+
+def config():
+    """Return the configuration dictionary for backward compatibility."""
+    return config_loader.load_config()

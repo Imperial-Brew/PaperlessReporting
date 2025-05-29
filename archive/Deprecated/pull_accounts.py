@@ -6,7 +6,7 @@ from pathlib import Path
 import requests
 
 # Load config from config.json
-with open("config.json") as f:
+with open("../../scripts/config.json") as f:
     config = json.load(f)
 
 API_TOKEN = config["api_key"]

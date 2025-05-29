@@ -39,8 +39,37 @@ pip install -r requirements.txt
 
 2. Run tests:
 ```bash
-python -m pytest tests/
+# Run all tests
+pytest
+
+# Run with coverage reporting
+pytest --cov=scripts
+
+# Run specific test file
+pytest tests/test_pull_users.py
+
+# Run specific test
+pytest tests/test_pull_users.py::test_fetch_users
 ```
+
+## Testing
+
+The project includes a comprehensive test suite:
+
+- **Unit Tests**: Test individual components in isolation
+  - Tests for data pulling scripts (users, accounts, etc.)
+  - Tests for configuration loading
+  - Tests for async utilities
+  - Tests for webhook server
+
+- **Integration Tests**: Test the interaction between components
+  - End-to-end tests for data pulling and CSV generation
+
+- **Coverage Reporting**: Identify untested code areas
+  - HTML reports generated in `htmlcov/` directory
+  - Terminal summary displayed after test runs
+
+See `tests/README.md` for detailed testing documentation.
 
 ## License
 
