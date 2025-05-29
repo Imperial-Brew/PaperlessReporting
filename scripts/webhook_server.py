@@ -3,7 +3,7 @@ import requests
 import csv
 import os
 import logging
-from utils.config_loader import config
+from scripts.utils.config_loader import config
 
 # Configure logging
 logging.basicConfig(
