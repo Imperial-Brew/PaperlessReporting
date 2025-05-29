@@ -3,7 +3,7 @@ import requests
 import csv
 import os
 import logging
-from scripts.utils.config_loader import config
+from scripts.utils.config_loader import get
 
 # Configure logging
 logging.basicConfig(
@@ -17,11 +17,11 @@ app = Flask(__name__)
 # === Configuration ===
 API_TOKEN = os.getenv(
     "PAPERLESS_API_TOKEN",
-    config.get("api_key", "SET_ME")
+    get("api_key", "SET_ME")
 )
 WEBHOOK_SECRET = os.getenv(
     "WEBHOOK_SECRET",
-    config.get("webhook_secret", "supersecret")
+    get("webhook_secret", "supersecret")
 )
 # Use absolute paths to project root directory
 from pathlib import Path
@@ -33,7 +33,7 @@ ORDERS_CSV_FILE = str(project_root / "data_raw/orders_live.csv")
 logger.info("=== Webhook Server Starting ===")
 logger.info(f"Webhook Secret: {WEBHOOK_SECRET[:4]}...")
 logger.info(f"API Token: {API_TOKEN[:4]}...")
-logger.info(f"API Base URL: {config.get('api_base_url', 'Not Set')}")
+logger.info(f"API Base URL: {get('api_base_url', 'Not Set')}")
 logger.info("=============================")
 
 # === Helper: Write quote to CSV ===
@@ -115,7 +115,7 @@ def update_order_csv(row):
 # === Helper: Call Paperless API for full quote info ===
 def fetch_and_save_quote(quote_number, revision_number):
     """Fetch quote details from Paperless API and save to CSV."""
-    url = f"{config['api_base_url']}/quotes/public/{quote_number}/{revision_number}"
+    url = f"{get('api_base_url')}/quotes/public/{quote_number}/{revision_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
     logger.info(f"Fetching quote from: {url}")
 
@@ -152,7 +152,7 @@ def fetch_and_save_quote(quote_number, revision_number):
 # === Helper: Call Paperless API for full order info ===
 def fetch_and_save_order(order_number):
     """Fetch order details from Paperless API and save to CSV."""
-    url = f"{config['api_base_url']}/orders/public/{order_number}"
+    url = f"{get('api_base_url')}/orders/public/{order_number}"
     headers = {"Authorization": f"API-Token {API_TOKEN}"}
     logger.info(f"Fetching order from: {url}")
 
