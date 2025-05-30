@@ -1,8 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 import requests
 import csv
 import os
 import logging
+import hmac
+import hashlib
+import json
 from scripts.utils.config_loader import get
 from scripts.utils.s3_helpers import upload_to_s3
 
@@ -13,7 +16,125 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+class WebhookServer:
+    """
+    Webhook server class that handles incoming webhook events.
+    This class is used by the tests in test_webhook_server.py.
+    """
+
+    def __init__(self, webhook_secret=None):
+        """Initialize the webhook server with the given secret."""
+        self.app = Flask(__name__)
+        self.webhook_secret = webhook_secret or os.getenv(
+            "WEBHOOK_SECRET",
+            get("webhook_secret", "supersecret")
+        )
+
+        # Set up routes
+        self.app.route('/')(self.index)
+        self.app.route('/health')(self.health)
+        self.app.route('/webhook', methods=['POST'])(self.webhook)
+
+        # Event handlers
+        self.app.config['event_handlers'] = {}
+
+    def index(self):
+        """Root endpoint that returns basic information about the API."""
+        return jsonify({
+            "name": "Paperless Parts Webhook Server",
+            "version": "1.0.0",
+            "endpoints": ["/", "/health", "/webhook"]
+        })
+
+    def health(self):
+        """Health check endpoint for monitoring."""
+        return "OK"
+
+    def webhook(self):
+        """
+        Webhook endpoint that processes events from Paperless Parts.
+        Supports authentication via token parameter or X-Webhook-Signature header.
+        """
+        logger.info("=== New Webhook Request ===")
+
+        # Authentication - support both methods
+        is_authenticated = False
+
+        # Method 1: Check token parameter (URL query parameter)
+        token = request.args.get('token')
+        if token == self.webhook_secret:
+            is_authenticated = True
+            logger.info("✅ Authenticated via token parameter")
+
+        # Method 2: Check X-Webhook-Signature header
+        signature = request.headers.get('X-Webhook-Signature')
+        if signature and not is_authenticated:
+            # Verify the signature
+            if request.data:
+                expected_signature = hmac.new(
+                    self.webhook_secret.encode(),
+                    request.data,
+                    hashlib.sha256
+                ).hexdigest()
+
+                if signature == expected_signature:
+                    is_authenticated = True
+                    logger.info("✅ Authenticated via X-Webhook-Signature header")
+
+        # If not authenticated by either method, return 401
+        if not is_authenticated:
+            logger.warning(f"⚠️ Authentication failed. Token: {token}, Signature: {signature}")
+            return Response("Unauthorized", status=401)
+
+        # Parse the request body
+        try:
+            if not request.data:
+                logger.warning("⚠️ Empty request body")
+                return Response("Empty request body", status=400)
+
+            data = request.json
+            if not data:
+                logger.warning("⚠️ Invalid JSON in request body")
+                return Response("Invalid JSON", status=400)
+
+            # Check for event type
+            event_type = data.get('type')
+            if not event_type:
+                logger.warning("⚠️ Missing event type in webhook payload")
+                return Response("Missing event type", status=400)
+
+            logger.info(f"📥 Received webhook event: {event_type}")
+
+            # Check if we have a handler for this event type
+            event_handlers = self.app.config.get('event_handlers', {})
+            if event_type in event_handlers:
+                # Use the registered handler
+                try:
+                    handler = event_handlers[event_type]
+                    handler(data)
+                    return Response("OK", status=200)
+                except Exception as e:
+                    logger.error(f"❌ Error in event handler: {str(e)}")
+                    return Response("Internal server error", status=500)
+
+            # Handle different event types with default handlers
+            if event_type == 'quote.status_changed':
+                handle_quote_status_changed(data.get('data', {}))
+            elif event_type == 'order.status_changed':
+                handle_order_status_changed(data.get('data', {}))
+            else:
+                logger.warning(f"⚠️ Unsupported event type: {event_type}")
+                return Response("Unsupported event type", status=400)
+
+            return Response("OK", status=200)
+
+        except Exception as e:
+            logger.error(f"❌ Error processing webhook: {str(e)}")
+            return Response("Internal server error", status=500)
+
+# Create the Flask application and webhook server instance
 app = Flask(__name__)
+webhook_server = WebhookServer()
 
 # === Configuration ===
 API_TOKEN = os.getenv(
@@ -195,7 +316,86 @@ def update_order_csv(row):
     # Upload to S3
     upload_to_s3(ORDERS_CSV_FILE)
 
-# === Remaining handlers and routes unchanged ===
+# === Register routes from WebhookServer to the main app ===
+@app.route('/')
+def index():
+    """Root endpoint that returns basic information about the API."""
+    return webhook_server.index()
+
+@app.route('/health')
+def health():
+    """Health check endpoint for monitoring."""
+    return webhook_server.health()
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    """
+    Webhook endpoint that processes events from Paperless Parts.
+    Supports authentication via token parameter or X-Webhook-Signature header.
+    """
+    return webhook_server.webhook()
+
+def handle_quote_status_changed(data):
+    """Handle quote.status_changed events."""
+    logger.info(f"Processing quote status change: {data}")
+
+    # Extract quote data
+    quote_number = data.get('quote_number')
+    revision_number = data.get('revision_number')
+    status = data.get('status')
+
+    if not all([quote_number, revision_number, status]):
+        logger.warning(f"⚠️ Missing required fields in quote data: {data}")
+        return
+
+    # Update CSV with quote data
+    row = {
+        "quote_number": quote_number,
+        "revision_number": revision_number,
+        "status": status,
+        "created": data.get('created', ''),
+        "due_date": data.get('due_date', ''),
+        "rfq_number": data.get('rfq_number', ''),
+        "priority": data.get('priority', ''),
+        "private_notes": data.get('private_notes', ''),
+        "contact_name": data.get('contact_name', ''),
+        "contact_email": data.get('contact_email', ''),
+        "customer_name": data.get('customer_name', ''),
+        "estimator_email": data.get('estimator_email', ''),
+        "salesperson_email": data.get('salesperson_email', '')
+    }
+
+    update_csv(row)
+
+def handle_order_status_changed(data):
+    """Handle order.status_changed events."""
+    logger.info(f"Processing order status change: {data}")
+
+    # Extract order data
+    order_number = data.get('order_number')
+    status = data.get('status')
+
+    if not all([order_number, status]):
+        logger.warning(f"⚠️ Missing required fields in order data: {data}")
+        return
+
+    # Update CSV with order data
+    row = {
+        "order_number": order_number,
+        "status": status,
+        "created": data.get('created', ''),
+        "due_date": data.get('due_date', ''),
+        "quote_number": data.get('quote_number', ''),
+        "quote_revision": data.get('quote_revision', ''),
+        "customer_name": data.get('customer_name', ''),
+        "contact_name": data.get('contact_name', ''),
+        "contact_email": data.get('contact_email', ''),
+        "salesperson_email": data.get('salesperson_email', '')
+    }
+
+    update_order_csv(row)
+
+# Log available routes
 for rule in app.url_map.iter_rules():
     logger.info(f"Route: {rule} -> methods {rule.methods}")
 

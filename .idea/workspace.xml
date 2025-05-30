@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="render.yaml update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/s3_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/s3_helpers.py" afterDir="false" />
-    </list>
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="render.yaml update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +97,7 @@
       <workItem from="1748387487720" duration="4700000" />
       <workItem from="1748392674680" duration="27723000" />
       <workItem from="1748524294666" duration="22610000" />
-      <workItem from="1748561943197" duration="22548000" />
+      <workItem from="1748561943197" duration="22872000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -319,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748646752857</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="render.yaml update">
+      <option name="closed" value="true" />
+      <created>1748648470928</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748648470928</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

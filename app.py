@@ -1,11 +1,26 @@
 from flask import Flask
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Create the Flask application
 app = Flask(__name__)
 
-# Import webhook routes so they register on this app
-import scripts.webhook_server  # noqa: F401
+# Import routes from webhook_server
+from scripts.webhook_server import webhook_server
+
+# Register routes from webhook_server
+app.add_url_rule('/', 'index', webhook_server.index)
+app.add_url_rule('/health', 'health', webhook_server.health)
+app.add_url_rule('/webhook', 'webhook', webhook_server.webhook, methods=['POST'])
+
+logger.info("Registered routes from webhook_server")
 
 # Expose 'app' for WSGI servers like gunicorn
 __all__ = ["app"]
