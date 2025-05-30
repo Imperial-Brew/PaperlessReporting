@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="add s3 helpers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <workItem from="1748387487720" duration="4700000" />
       <workItem from="1748392674680" duration="27723000" />
       <workItem from="1748524294666" duration="22610000" />
-      <workItem from="1748561943197" duration="19189000" />
+      <workItem from="1748561943197" duration="20443000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -285,7 +286,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748643738006</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add s3 helpers">
+      <option name="closed" value="true" />
+      <created>1748644970979</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748644970979</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add s3 helpers">
+      <option name="closed" value="true" />
+      <created>1748645316622</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748645316622</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
