@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="add boto3">
-      <change afterPath="$PROJECT_DIR$/scripts/utils/s3_helpers.py" afterDir="false" />
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="add s3 helpers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/webhook_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/webhook_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +99,7 @@
       <workItem from="1748387487720" duration="4700000" />
       <workItem from="1748392674680" duration="27723000" />
       <workItem from="1748524294666" duration="22610000" />
-      <workItem from="1748561943197" duration="16490000" />
+      <workItem from="1748561943197" duration="18378000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -263,7 +261,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748640705306</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add s3 helpers">
+      <option name="closed" value="true" />
+      <created>1748641786796</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748641786796</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add s3 helpers">
+      <option name="closed" value="true" />
+      <created>1748642314784</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748642314784</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +290,8 @@
     <MESSAGE value="webhook update #5" />
     <MESSAGE value="webhook update #6" />
     <MESSAGE value="add boto3" />
-    <option name="LAST_COMMIT_MESSAGE" value="add boto3" />
+    <MESSAGE value="add s3 helpers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add s3 helpers" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PaperlessReporting$pull_quotes_async.coverage" NAME="pull_quotes_async Coverage Results" MODIFIED="1748549667024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />

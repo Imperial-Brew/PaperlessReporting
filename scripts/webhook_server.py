@@ -4,7 +4,7 @@ import csv
 import os
 import logging
 from scripts.utils.config_loader import get
-from utils.s3_helpers import upload_to_s3
+from scripts.utils.s3_helpers import upload_to_s3
 
 # Configure logging
 logging.basicConfig(
