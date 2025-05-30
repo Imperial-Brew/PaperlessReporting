@@ -300,14 +300,15 @@ def handle_quote_created(data):
 def handle_quote_status_changed(data):
     """Handle quote.status_changed event."""
     quote_number = data.get("quote_number")
-    if not quote_number:
-        logger.warning("⚠️ Missing quote_number in status_changed event")
-        return False
 
     # Check if we have a number field instead of quote_number
     if not quote_number and "number" in data:
         quote_number = data.get("number")
         logger.info(f"Using 'number' field instead of 'quote_number': {quote_number}")
+
+    if not quote_number:
+        logger.warning("⚠️ Missing quote_number in status_changed event")
+        return False
 
     # Handle missing revision_number
     revision_number = data.get("revision_number")
@@ -322,15 +323,15 @@ def handle_quote_status_changed(data):
 def handle_quote_sent(data):
     """Handle quote.sent event."""
     quote_number = data.get("quote_number")
+
+    # Check if we have a number field instead of quote_number
+    if not quote_number and "number" in data:
+        quote_number = data.get("number")
+        logger.info(f"Using 'number' field instead of 'quote_number': {quote_number}")
+
     if not quote_number:
         logger.warning("⚠️ Missing quote_number in sent event")
-
-        # Check if we have a number field instead of quote_number
-        if "number" in data:
-            quote_number = data.get("number")
-            logger.info(f"Using 'number' field instead of 'quote_number': {quote_number}")
-        else:
-            return False
+        return False
 
     # Handle missing revision_number
     revision_number = data.get("revision_number")
