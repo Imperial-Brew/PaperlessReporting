@@ -51,38 +51,71 @@ except Exception as e:
     logger.info(f"Using current working directory as project root: {project_root}")
 
 # Define CSV file paths
-CSV_FILE = str(project_root / "data_raw" / "quotes_live.csv")
-ORDERS_CSV_FILE = str(project_root / "data_raw" / "orders_live.csv")
+logger.info(f"Project root before path construction: {project_root}")
+logger.info(f"Project root type: {type(project_root)}")
+
+# Ensure project_root is a valid Path object
+if not isinstance(project_root, Path):
+    logger.warning(f"project_root is not a Path object, converting from {type(project_root)}")
+    project_root = Path(str(project_root))
+
+# Construct paths using os.path.join for maximum compatibility
+data_raw_dir = os.path.join(str(project_root), "data_raw")
+CSV_FILE = os.path.join(data_raw_dir, "quotes_live.csv")
+ORDERS_CSV_FILE = os.path.join(data_raw_dir, "orders_live.csv")
 
 # Create data directories if they don't exist
+logger.info(f"Data raw directory: {data_raw_dir}")
 logger.info(f"CSV file path: {CSV_FILE}")
 logger.info(f"Orders CSV file path: {ORDERS_CSV_FILE}")
 
 # Add additional error handling for directory creation
 try:
+    # Get directory paths
     csv_dir = os.path.dirname(CSV_FILE)
     orders_dir = os.path.dirname(ORDERS_CSV_FILE)
 
+    logger.info(f"CSV directory path: {csv_dir}")
+    logger.info(f"Orders directory path: {orders_dir}")
+
     # Check if directory paths are valid
-    if not csv_dir:
+    if not csv_dir or csv_dir == "":
         logger.warning(f"CSV directory path is empty, using current directory")
         csv_dir = "."
         CSV_FILE = os.path.join(csv_dir, "quotes_live.csv")
+        logger.info(f"Updated CSV file path: {CSV_FILE}")
 
-    if not orders_dir:
+    if not orders_dir or orders_dir == "":
         logger.warning(f"Orders directory path is empty, using current directory")
         orders_dir = "."
         ORDERS_CSV_FILE = os.path.join(orders_dir, "orders_live.csv")
+        logger.info(f"Updated Orders CSV file path: {ORDERS_CSV_FILE}")
 
-    # Create directories
-    os.makedirs(csv_dir, exist_ok=True)
-    logger.info(f"Created directory: {csv_dir}")
+    # Create directories with explicit error handling
+    try:
+        if csv_dir and csv_dir != "":
+            os.makedirs(csv_dir, exist_ok=True)
+            logger.info(f"Created directory: {csv_dir}")
+        else:
+            logger.warning("Skipping creation of CSV directory as path is empty")
+    except Exception as csv_dir_error:
+        logger.error(f"Error creating CSV directory: {str(csv_dir_error)}")
+        CSV_FILE = "quotes_live.csv"
+        logger.info(f"Falling back to current directory for CSV file: {CSV_FILE}")
 
-    os.makedirs(orders_dir, exist_ok=True)
-    logger.info(f"Created directory: {orders_dir}")
+    try:
+        if orders_dir and orders_dir != "":
+            os.makedirs(orders_dir, exist_ok=True)
+            logger.info(f"Created directory: {orders_dir}")
+        else:
+            logger.warning("Skipping creation of Orders directory as path is empty")
+    except Exception as orders_dir_error:
+        logger.error(f"Error creating Orders directory: {str(orders_dir_error)}")
+        ORDERS_CSV_FILE = "orders_live.csv"
+        logger.info(f"Falling back to current directory for Orders CSV file: {ORDERS_CSV_FILE}")
 
 except Exception as e:
-    logger.error(f"Error creating directories: {str(e)}")
+    logger.error(f"Error in directory setup: {str(e)}")
     # Fall back to using current directory
     CSV_FILE = "quotes_live.csv"
     ORDERS_CSV_FILE = "orders_live.csv"
