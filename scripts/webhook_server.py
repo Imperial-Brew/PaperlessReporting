@@ -196,6 +196,8 @@ def update_order_csv(row):
     upload_to_s3(ORDERS_CSV_FILE)
 
 # === Remaining handlers and routes unchanged ===
+for rule in app.url_map.iter_rules():
+    logger.info(f"Route: {rule} -> methods {rule.methods}")
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
