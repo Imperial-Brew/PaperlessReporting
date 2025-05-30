@@ -3,5 +3,11 @@
   "api_key": "bb2166a05a6aba9341734580af5b901677daa7c2",
   "logging": {
     "level": "INFO"
+  },
+  "s3": {
+    "bucket_name": "your-s3-bucket-name",
+    "region": "us-west-2",
+    "access_key_id": "",
+    "secret_access_key": ""
   }
 }
