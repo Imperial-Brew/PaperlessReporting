@@ -25,16 +25,68 @@ WEBHOOK_SECRET = os.getenv(
 )
 # Use platform-independent paths relative to project root
 from pathlib import Path
-project_root = Path(__file__).parent.parent
+import sys
+
+# Determine project root directory
+try:
+    # First try using __file__ to get the script's directory
+    project_root = Path(__file__).parent.parent
+    logger.info(f"Script directory: {Path(__file__).parent}")
+    logger.info(f"Calculated project root: {project_root}")
+
+    # Verify that data_raw directory exists or can be created
+    data_dir = project_root / "data_raw"
+    logger.info(f"Checking if data directory exists: {data_dir}")
+
+    if not data_dir.exists() and not data_dir.parent.exists():
+        # If not, fall back to current working directory
+        project_root = Path.cwd()
+        logger.info(f"Using current working directory as project root: {project_root}")
+    else:
+        logger.info(f"Using script location as project root: {project_root}")
+except Exception as e:
+    # If __file__ is not available or any other error occurs, use current working directory
+    logger.error(f"Error determining project root: {str(e)}")
+    project_root = Path.cwd()
+    logger.info(f"Using current working directory as project root: {project_root}")
+
+# Define CSV file paths
 CSV_FILE = str(project_root / "data_raw" / "quotes_live.csv")
 ORDERS_CSV_FILE = str(project_root / "data_raw" / "orders_live.csv")
 
 # Create data directories if they don't exist
 logger.info(f"CSV file path: {CSV_FILE}")
 logger.info(f"Orders CSV file path: {ORDERS_CSV_FILE}")
-os.makedirs(os.path.dirname(CSV_FILE), exist_ok=True)
-os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
-logger.info(f"Created directories: {os.path.dirname(CSV_FILE)} and {os.path.dirname(ORDERS_CSV_FILE)}")
+
+# Add additional error handling for directory creation
+try:
+    csv_dir = os.path.dirname(CSV_FILE)
+    orders_dir = os.path.dirname(ORDERS_CSV_FILE)
+
+    # Check if directory paths are valid
+    if not csv_dir:
+        logger.warning(f"CSV directory path is empty, using current directory")
+        csv_dir = "."
+        CSV_FILE = os.path.join(csv_dir, "quotes_live.csv")
+
+    if not orders_dir:
+        logger.warning(f"Orders directory path is empty, using current directory")
+        orders_dir = "."
+        ORDERS_CSV_FILE = os.path.join(orders_dir, "orders_live.csv")
+
+    # Create directories
+    os.makedirs(csv_dir, exist_ok=True)
+    logger.info(f"Created directory: {csv_dir}")
+
+    os.makedirs(orders_dir, exist_ok=True)
+    logger.info(f"Created directory: {orders_dir}")
+
+except Exception as e:
+    logger.error(f"Error creating directories: {str(e)}")
+    # Fall back to using current directory
+    CSV_FILE = "quotes_live.csv"
+    ORDERS_CSV_FILE = "orders_live.csv"
+    logger.info(f"Falling back to current directory for CSV files: {CSV_FILE} and {ORDERS_CSV_FILE}")
 
 # Log configuration on startup
 logger.info("=== Webhook Server Starting ===")
