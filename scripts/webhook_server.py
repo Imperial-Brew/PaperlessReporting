@@ -28,7 +28,7 @@ WEBHOOK_SECRET = os.getenv(
 from pathlib import Path
 import sys
 
-# Determine the project root directory
+# Determine project root directory
 try:
     project_root = Path(__file__).parent.parent
     logger.info(f"Script directory: {Path(__file__).parent}")
