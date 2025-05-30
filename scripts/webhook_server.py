@@ -300,25 +300,46 @@ def handle_quote_created(data):
 def handle_quote_status_changed(data):
     """Handle quote.status_changed event."""
     quote_number = data.get("quote_number")
-    revision_number = data.get("revision_number")
-    if not quote_number or not revision_number:
-        logger.warning(
-            "⚠️ Missing quote_number or revision_number in status_changed event"
-        )
+    if not quote_number:
+        logger.warning("⚠️ Missing quote_number in status_changed event")
         return False
-    fetch_and_save_quote(quote_number, revision_number)
+
+    # Check if we have a number field instead of quote_number
+    if not quote_number and "number" in data:
+        quote_number = data.get("number")
+        logger.info(f"Using 'number' field instead of 'quote_number': {quote_number}")
+
+    # Handle missing revision_number
+    revision_number = data.get("revision_number")
+    if revision_number is None:
+        logger.info(f"Quote {quote_number} status changed without revision, will fetch without revision parameter")
+        fetch_and_save_quote(quote_number)
+    else:
+        fetch_and_save_quote(quote_number, revision_number)
+
     return True
 
 def handle_quote_sent(data):
     """Handle quote.sent event."""
     quote_number = data.get("quote_number")
+    if not quote_number:
+        logger.warning("⚠️ Missing quote_number in sent event")
+
+        # Check if we have a number field instead of quote_number
+        if "number" in data:
+            quote_number = data.get("number")
+            logger.info(f"Using 'number' field instead of 'quote_number': {quote_number}")
+        else:
+            return False
+
+    # Handle missing revision_number
     revision_number = data.get("revision_number")
-    if not quote_number or not revision_number:
-        logger.warning(
-            "⚠️ Missing quote_number or revision_number in sent event"
-        )
-        return False
-    fetch_and_save_quote(quote_number, revision_number)
+    if revision_number is None:
+        logger.info(f"Quote {quote_number} sent without revision, will fetch without revision parameter")
+        fetch_and_save_quote(quote_number)
+    else:
+        fetch_and_save_quote(quote_number, revision_number)
+
     return True
 
 def handle_order_created(data):
@@ -364,6 +385,10 @@ def webhook():
 
     event_type = data.get("type")
     event_data = data.get("data", {})
+
+    # Log event type and available fields for debugging
+    logger.info(f"Event type: {event_type}")
+    logger.info(f"Event data keys: {list(event_data.keys()) if event_data else 'No data'}")
 
     handlers = {
         "quote.created": handle_quote_created,
