@@ -5,9 +5,9 @@
     "level": "INFO"
   },
   "s3": {
-    "bucket_name": "your-s3-bucket-name",
+    "bucket_name": "paperless-webhook-data",
     "region": "us-west-2",
-    "access_key_id": "",
-    "secret_access_key": ""
+    "access_key_id": "REPLACE_WITH_YOUR_ACCESS_KEY",
+    "secret_access_key": "REPLACE_WITH_YOUR_SECRET_KEY"
   }
 }
