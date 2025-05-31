@@ -8,6 +8,7 @@ import hashlib
 import json
 from scripts.utils.config_loader import get
 from scripts.utils.s3_helpers import upload_to_s3
+from scripts.utils.utils import safe_get
 
 # Configure logging
 logging.basicConfig(
@@ -351,11 +352,12 @@ def handle_quote_status_changed(data):
         "rfq_number": data.get('rfq_number', ''),
         "priority": data.get('priority', ''),
         "private_notes": data.get('private_notes', ''),
-        "contact_name": data.get('contact_name', ''),
-        "contact_email": data.get('contact_email', ''),
-        "customer_name": data.get('customer_name', ''),
-        "estimator_email": data.get('estimator_email', ''),
-        "salesperson_email": data.get('salesperson_email', '')
+        "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
+                safe_get(data, "contact", "last_name") or ""),
+        "contact_email": safe_get(data, "contact", "email"),
+        "customer_name": safe_get(data, "contact", "account", "name"),
+        "estimator_email": safe_get(data, "estimator", "email"),
+        "salesperson_email": safe_get(data, "salesperson", "email")
     }
 
     update_csv(row)
@@ -380,10 +382,11 @@ def handle_order_status_changed(data):
         "due_date": data.get('due_date', ''),
         "quote_number": data.get('quote_number', ''),
         "quote_revision": data.get('quote_revision', ''),
-        "customer_name": data.get('customer_name', ''),
-        "contact_name": data.get('contact_name', ''),
-        "contact_email": data.get('contact_email', ''),
-        "salesperson_email": data.get('salesperson_email', '')
+        "customer_name": safe_get(data, "contact", "account", "name"),
+        "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
+                safe_get(data, "contact", "last_name") or ""),
+        "contact_email": safe_get(data, "contact", "email"),
+        "salesperson_email": safe_get(data, "salesperson", "email")
     }
 
     update_order_csv(row)
