@@ -8,7 +8,7 @@ import hashlib
 import json
 from scripts.utils.config_loader import get
 from scripts.utils.s3_helpers import upload_to_s3
-from utils.utils import safe_get
+from scripts.utils.utils import safe_get
 
 # Configure logging
 logging.basicConfig(
