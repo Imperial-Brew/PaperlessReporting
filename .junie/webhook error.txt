@@ -1,36 +1,40 @@
 ==> Deploying...
-2025-05-30 15:34:00,294 - INFO - Orders CSV file path: /opt/render/project/src/data_raw/orders_live.csv
-2025-05-30 15:34:00,294 - INFO - CSV directory path: /opt/render/project/src/data_raw
-2025-05-30 15:34:00,294 - INFO - Orders directory path: /opt/render/project/src/data_raw
-2025-05-30 15:34:00,294 - INFO - Created directory: /opt/render/project/src/data_raw
-2025-05-30 15:34:00,294 - INFO - Created directory: /opt/render/project/src/data_raw
-2025-05-30 15:34:00,294 - INFO - === Webhook Server Starting ===
-2025-05-30 15:34:00,294 - INFO - Webhook Secret: supe...
-2025-05-30 15:34:00,294 - INFO - API Token: bb21...
-2025-05-30 15:34:00,294 - INFO - API Base URL: https://api.paperlessparts.com
-2025-05-30 15:34:00,294 - INFO - =============================
-[2025-05-30 15:34:00 +0000] [84] [INFO] Starting gunicorn 23.0.0
-[2025-05-30 15:34:00 +0000] [84] [INFO] Listening at: http://0.0.0.0:10000 (84)
-[2025-05-30 15:34:00 +0000] [84] [INFO] Using worker: sync
-[2025-05-30 15:34:00 +0000] [85] [INFO] Booting worker with pid: 85
-127.0.0.1 - - [30/May/2025:15:34:00 +0000] "HEAD / HTTP/1.1" 404 0 "-" "Go-http-client/1.1"
-     ==> Your service is live 🎉
-     [GET]404paperlessreporting.onrender.com/clientIP="34.82.242.193" requestID="d7d2a411-7b64-4dfc" responseTimeMS=4 responseBytes=352 userAgent="Go-http-client/2.0"
-10.214.93.108 - - [30/May/2025:15:34:04 +0000] "GET / HTTP/1.1" 404 207 "-" "Go-http-client/2.0"
-[2025-05-30 15:35:03 +0000] [86] [INFO] Handling signal: term
-[2025-05-30 15:35:03 +0000] [87] [INFO] Worker exiting (pid: 87)
-[2025-05-30 15:35:03 +0000] [86] [INFO] Shutting down: Master
-     ==> Detected service running on port 10000
-     ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-     [POST]403paperlessreporting.onrender.com/webhookclientIP="67.212.21.130" requestID="b61394d0-2c31-4cfc" responseTimeMS=6 responseBytes=216 userAgent="curl/8.9.1"
-2025-05-30 15:55:44,696 - INFO - === New Webhook Request ===
-2025-05-30 15:55:44,696 - INFO - Headers: {'Host': 'paperlessreporting.onrender.com', 'User-Agent': 'curl/8.9.1', 'Content-Length': '0', 'Accept': '*/*', 'Accept-Encoding': 'gzip, br', 'Cdn-Loop': 'cloudflare; loops=1', 'Cf-Connecting-Ip': '67.212.21.130', 'Cf-Ipcountry': 'US', 'Cf-Ray': '947f6ae3e88ae946-PDX', 'Cf-Visitor': '{"scheme":"https"}', 'Render-Proxy-Ttl': '4', 'Rndr-Id': 'b61394d0-2c31-4cfc', 'True-Client-Ip': '67.212.21.130', 'X-Forwarded-For': '67.212.21.130, 172.68.174.7', 'X-Forwarded-Proto': 'https', 'X-Request-Start': '1748620544694583'}
-2025-05-30 15:55:44,697 - INFO - Args: {}
-2025-05-30 15:55:44,697 - WARNING - ⚠️ Invalid webhook token. Received: None
-10.214.15.234 - - [30/May/2025:15:55:44 +0000] "POST /webhook HTTP/1.1" 403 9 "-" "curl/8.9.1"
-     [POST]403paperlessreporting.onrender.com/webhookclientIP="67.212.21.130" requestID="b2b68f06-23db-4b08" responseTimeMS=5 responseBytes=216 userAgent="curl/8.9.1"
-2025-05-30 15:56:19,255 - INFO - === New Webhook Request ===
-2025-05-30 15:56:19,255 - INFO - Headers: {'Host': 'paperlessreporting.onrender.com', 'User-Agent': 'curl/8.9.1', 'Content-Length': '0', 'Accept': '*/*', 'Accept-Encoding': 'gzip, br', 'Cdn-Loop': 'cloudflare; loops=1', 'Cf-Connecting-Ip': '67.212.21.130', 'Cf-Ipcountry': 'US', 'Cf-Ray': '947f6bbbed7f6b3f-PDX', 'Cf-Visitor': '{"scheme":"https"}', 'Render-Proxy-Ttl': '4', 'Rndr-Id': 'b2b68f06-23db-4b08', 'True-Client-Ip': '67.212.21.130', 'X-Forwarded-For': '67.212.21.130, 172.68.175.23', 'X-Forwarded-Proto': 'https', 'X-Request-Start': '1748620579251635'}
-2025-05-30 15:56:19,256 - INFO - Args: {}
-2025-05-30 15:56:19,256 - WARNING - ⚠️ Invalid webhook token. Received: None
-10.214.221.241 - - [30/May/2025:15:56:19 +0000] "POST /webhook HTTP/1.1" 403 9 "-" "curl/8.9.1"
+==> Running 'gunicorn app:app'
+2025-05-31 01:12:24,935 - INFO - Loaded config from /opt/render/project/src/scripts/config.json
+2025-05-31 01:12:27,174 - INFO - Script directory: /opt/render/project/src/scripts
+2025-05-31 01:12:27,174 - INFO - Calculated project root: /opt/render/project/src
+2025-05-31 01:12:27,174 - INFO - Checking if data directory exists: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,174 - INFO - Using script location as project root: /opt/render/project/src
+2025-05-31 01:12:27,174 - INFO - Project root before path construction: /opt/render/project/src
+2025-05-31 01:12:27,174 - INFO - Project root type: <class 'pathlib.PosixPath'>
+2025-05-31 01:12:27,174 - INFO - Data raw directory: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,174 - INFO - CSV file path: /opt/render/project/src/data_raw/quotes_live.csv
+2025-05-31 01:12:27,174 - INFO - Orders CSV file path: /opt/render/project/src/data_raw/orders_live.csv
+2025-05-31 01:12:27,174 - INFO - CSV directory path: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,174 - INFO - Orders directory path: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,182 - INFO - Created directory: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,182 - INFO - Created directory: /opt/render/project/src/data_raw
+2025-05-31 01:12:27,182 - INFO - === Webhook Server Starting ===
+2025-05-31 01:12:27,182 - INFO - Webhook Secret: supe...
+2025-05-31 01:12:27,182 - INFO - API Token: bb21...
+2025-05-31 01:12:27,182 - INFO - API Base URL: https://api.paperlessparts.com
+2025-05-31 01:12:27,182 - INFO - =============================
+2025-05-31 01:12:27,183 - INFO - Route: /static/<path:filename> -> methods {'GET', 'OPTIONS', 'HEAD'}
+2025-05-31 01:12:27,183 - INFO - Route: / -> methods {'GET', 'OPTIONS', 'HEAD'}
+2025-05-31 01:12:27,184 - INFO - Route: /health -> methods {'GET', 'OPTIONS', 'HEAD'}
+2025-05-31 01:12:27,184 - INFO - Route: /webhook -> methods {'OPTIONS', 'POST'}
+2025-05-31 01:12:27,184 - INFO - Registered routes from webhook_server
+[2025-05-31 01:12:27 +0000] [65] [INFO] Starting gunicorn 23.0.0
+[2025-05-31 01:12:27 +0000] [65] [INFO] Listening at: http://0.0.0.0:10000 (65)
+[2025-05-31 01:12:27 +0000] [65] [INFO] Using worker: sync
+[2025-05-31 01:12:27 +0000] [89] [INFO] Booting worker with pid: 89
+127.0.0.1 - - [31/May/2025:01:12:27 +0000] "HEAD / HTTP/1.1" 200 0 "-" "Go-http-client/1.1"
+==> Your service is live 🎉
+2025-05-31 01:13:17,594 - INFO - === New Webhook Request ===
+2025-05-31 01:13:17,594 - INFO - ✅ Authenticated via token parameter
+2025-05-31 01:13:17,595 - INFO - 📥 Received webhook event: quote.status_changed
+2025-05-31 01:13:17,595 - INFO - Processing quote status change: {'uuid': '5b7b3dd1-db03-4001-874a-218d816fb7ca', 'number': 7753, 'status': 'outstanding', 'created': '2025-05-20T13:00:19.595313Z', 'expired': False, 'due_date': '2025-05-28T17:00:00.000000Z', 'erp_code': None, 'metadata': {}, 'priority': 9, 'tax_rate': '0.000', 'estimator': '9088ff28-2d41-44c1-bc3d-0f102ede67f5', 'sent_date': '2025-05-30T20:43:54.678639Z', 'contact_id': 788671, 'rfq_number': 'BID0030878', 'quote_items': ['601cb179-97cb-49bc-9558-a6691ff49bbb'], 'quote_notes': 'Thank you for the opportunity to quote your mechanical design, machining, sheet metal and assembly requirements.  Please visit www.athenamfg.com for more company information.\n\n- Pricing based on data received 05/16/2025 on Customer RFQ #BID0030878\n- Pricing FOB our dock\n- Customers are responsible for ensuring that the properties and performance of the material selected meet the requirements of their application;\n- The estimated lead time is based on available capacity at the time of this quote. Quotes that are not executed same day are subject to change or delays. Reasonable efforts will be made to deliver within or as close to the estimate as possible, however there is no assurance that any estimated delivery date will be met.\n- In accordance with our Management System, we have reviewed the information provided with your RFQ, and believe that our offer meets the stated requirements.', 'salesperson': 'd6c92eff-8529-45b4-b788-8d2e4d9bb3e3', 'expired_date': '2025-06-19T13:00:19.579368Z', 'private_notes': 'G:\\Bell Helicopter\\20250516 - BID0030878', 'revision_number': None, 'supporting_files': [], 'export_controlled': True, 'send_from_facility': '6282346e-6ab9-4834-81e7-cabba049f398', 'request_for_quote_id': None, 'digital_last_viewed_on': None, 'manual_rfq_received_date': '2025-05-16T13:00:38.861000Z', 'authenticated_pdf_quote_url': 'https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/cb1cae17-d817-4d30-8d0e-d02455a7b156/Quote7753.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=1XBNz59lDjOfLmRfmx6eS2MszCE%3D&Expires=1749069835'}
+2025-05-31 01:13:17,595 - WARNING - ⚠️ Missing required fields in quote data: {'uuid': '5b7b3dd1-db03-4001-874a-218d816fb7ca', 'number': 7753, 'status': 'outstanding', 'created': '2025-05-20T13:00:19.595313Z', 'expired': False, 'due_date': '2025-05-28T17:00:00.000000Z', 'erp_code': None, 'metadata': {}, 'priority': 9, 'tax_rate': '0.000', 'estimator': '9088ff28-2d41-44c1-bc3d-0f102ede67f5', 'sent_date': '2025-05-30T20:43:54.678639Z', 'contact_id': 788671, 'rfq_number': 'BID0030878', 'quote_items': ['601cb179-97cb-49bc-9558-a6691ff49bbb'], 'quote_notes': 'Thank you for the opportunity to quote your mechanical design, machining, sheet metal and assembly requirements.  Please visit www.athenamfg.com for more company information.\n\n- Pricing based on data received 05/16/2025 on Customer RFQ #BID0030878\n- Pricing FOB our dock\n- Customers are responsible for ensuring that the properties and performance of the material selected meet the requirements of their application;\n- The estimated lead time is based on available capacity at the time of this quote. Quotes that are not executed same day are subject to change or delays. Reasonable efforts will be made to deliver within or as close to the estimate as possible, however there is no assurance that any estimated delivery date will be met.\n- In accordance with our Management System, we have reviewed the information provided with your RFQ, and believe that our offer meets the stated requirements.', 'salesperson': 'd6c92eff-8529-45b4-b788-8d2e4d9bb3e3', 'expired_date': '2025-06-19T13:00:19.579368Z', 'private_notes': 'G:\\Bell Helicopter\\20250516 - BID0030878', 'revision_number': None, 'supporting_files': [], 'export_controlled': True, 'send_from_facility': '6282346e-6ab9-4834-81e7-cabba049f398', 'request_for_quote_id': None, 'digital_last_viewed_on': None, 'manual_rfq_received_date': '2025-05-16T13:00:38.861000Z', 'authenticated_pdf_quote_url': 'https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/cb1cae17-d817-4d30-8d0e-d02455a7b156/Quote7753.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=1XBNz59lDjOfLmRfmx6eS2MszCE%3D&Expires=1749069835'}
+10.214.212.242 - - [31/May/2025:01:13:17 +0000] "POST /webhook?token=supersecret HTTP/1.1" 200 2 "-" "Python/3.8 aiohttp/3.10.11"
+==> Detected service running on port 10000
+==> Docs on specifying a port: https://render.com/docs/web-services#port-binding

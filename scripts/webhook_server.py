@@ -22,21 +22,17 @@ class WebhookServer:
     This class is used by the tests in test_webhook_server.py.
     """
 
-    def __init__(self, webhook_secret=None):
+    def __init__(self, webhook_secret=None, app=None):
         """Initialize the webhook server with the given secret."""
-        self.app = Flask(__name__)
+        self.app = app
         self.webhook_secret = webhook_secret or os.getenv(
             "WEBHOOK_SECRET",
             get("webhook_secret", "supersecret")
         )
 
-        # Set up routes
-        self.app.route('/')(self.index)
-        self.app.route('/health')(self.health)
-        self.app.route('/webhook', methods=['POST'])(self.webhook)
-
         # Event handlers
-        self.app.config['event_handlers'] = {}
+        if self.app:
+            self.app.config['event_handlers'] = {}
 
     def index(self):
         """Root endpoint that returns basic information about the API."""
@@ -56,6 +52,8 @@ class WebhookServer:
         Supports authentication via token parameter or X-Webhook-Signature header.
         """
         logger.info("=== New Webhook Request ===")
+        logger.info(f"Headers: {dict(request.headers)}")
+        logger.info(f"Args: {dict(request.args)}")
 
         # Authentication - support both methods
         is_authenticated = False
@@ -83,7 +81,7 @@ class WebhookServer:
 
         # If not authenticated by either method, return 401
         if not is_authenticated:
-            logger.warning(f"⚠️ Authentication failed. Token: {token}, Signature: {signature}")
+            logger.warning(f"⚠️ Invalid webhook token. Received: {token}")
             return Response("Unauthorized", status=401)
 
         # Parse the request body
@@ -106,7 +104,10 @@ class WebhookServer:
             logger.info(f"📥 Received webhook event: {event_type}")
 
             # Check if we have a handler for this event type
-            event_handlers = self.app.config.get('event_handlers', {})
+            event_handlers = {}
+            if self.app:
+                event_handlers = self.app.config.get('event_handlers', {})
+
             if event_type in event_handlers:
                 # Use the registered handler
                 try:
@@ -120,6 +121,10 @@ class WebhookServer:
             # Handle different event types with default handlers
             if event_type == 'quote.status_changed':
                 handle_quote_status_changed(data.get('data', {}))
+            elif event_type == 'quote.created':
+                # Handle quote.created events the same way as quote.status_changed
+                logger.info(f"Processing quote creation: {data}")
+                handle_quote_status_changed(data.get('data', {}))
             elif event_type == 'order.status_changed':
                 handle_order_status_changed(data.get('data', {}))
             else:
@@ -132,8 +137,8 @@ class WebhookServer:
             logger.error(f"❌ Error processing webhook: {str(e)}")
             return Response("Internal server error", status=500)
 
-# Create the Flask application and webhook server instance
-app = Flask(__name__)
+# Create the webhook server instance without a Flask app
+# The Flask app will be created in app.py and passed to the webhook server
 webhook_server = WebhookServer()
 
 # === Configuration ===

@@ -12,13 +12,19 @@ logger = logging.getLogger(__name__)
 # Create the Flask application
 app = Flask(__name__)
 
-# Import routes from webhook_server
+# Import WebhookServer class and initialize it with our Flask app
 from scripts.webhook_server import webhook_server
+
+# Set the Flask app for the webhook server
+webhook_server.app = app
 
 # Register routes from webhook_server
 app.add_url_rule('/', 'index', webhook_server.index)
 app.add_url_rule('/health', 'health', webhook_server.health)
 app.add_url_rule('/webhook', 'webhook', webhook_server.webhook, methods=['POST'])
+
+# Initialize event handlers
+app.config['event_handlers'] = {}
 
 logger.info("Registered routes from webhook_server")
 
