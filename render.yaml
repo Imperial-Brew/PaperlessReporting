@@ -12,5 +12,13 @@ services:
         sync: false
       - key: API_BASE_URL
         sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: S3_BUCKET_NAME
+        sync: false
+      - key: AWS_DEFAULT_REGION
+        sync: false
     autoDeploy: true
     plan: free

@@ -11,12 +11,27 @@ logger = logging.getLogger(__name__)
 _bucket = os.getenv("S3_BUCKET_NAME", get("s3", {}).get("bucket_name"))
 _region = os.getenv("AWS_DEFAULT_REGION", get("s3", {}).get("region", "us-west-2"))
 
-# Get AWS credentials with fallbacks
-_aws_access_key = os.getenv("AWS_ACCESS_KEY_ID", get("s3", {}).get("access_key_id"))
-_aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY", get("s3", {}).get("secret_access_key"))
+# Get AWS credentials with fallbacks - check multiple environment variable names for compatibility
+_aws_access_key = os.getenv("AWS_ACCESS_KEY_ID") or os.getenv("AWS_access_key") or os.getenv("aws_access_key_id") or get("s3", {}).get("access_key_id")
+_aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY") or os.getenv("AWS_Secret_access_key") or os.getenv("aws_secret_access_key") or get("s3", {}).get("secret_access_key")
+
+# Log credential information (safely)
+if _aws_access_key:
+    logger.info(f"Using AWS access key: {_aws_access_key[:4]}{'*' * 16}")
+else:
+    logger.warning("AWS access key not found in environment variables or config")
+
+if _aws_secret_key:
+    logger.info(f"Using AWS secret key: {'*' * 20}")
+else:
+    logger.warning("AWS secret key not found in environment variables or config")
+
+logger.info(f"Using S3 bucket: {_bucket}")
+logger.info(f"Using AWS region: {_region}")
 
 # Initialize S3 client with credentials if available
 if _aws_access_key and _aws_secret_key:
+    logger.info("Initializing S3 client with explicit credentials")
     _s3 = boto3.client(
         "s3",
         region_name=_region,
@@ -25,6 +40,7 @@ if _aws_access_key and _aws_secret_key:
     )
 else:
     # Fall back to environment variables or AWS configuration files
+    logger.warning("No explicit credentials found, falling back to boto3 default credential chain")
     _s3 = boto3.client("s3", region_name=_region)
 
 def upload_to_s3(local_path: str) -> bool:
