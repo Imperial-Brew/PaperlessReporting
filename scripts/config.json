@@ -6,8 +6,8 @@
   },
   "s3": {
     "bucket_name": "athena-paperless-csvs",
-    "region": "us-west-2",
-    "access_key_id": "AKIA5D57GAZB4CX3BSIJ",
-    "secret_access_key": "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"
+    "region": "us-east-2",
+    "access_key_id": "AKIA5D57GAZB3JEZOKTF",
+    "secret_access_key": "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"
   }
 }
