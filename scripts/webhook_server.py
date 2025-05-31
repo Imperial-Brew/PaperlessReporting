@@ -127,6 +127,10 @@ class WebhookServer:
                 handle_quote_status_changed(data.get('data', {}))
             elif event_type == 'order.status_changed':
                 handle_order_status_changed(data.get('data', {}))
+            elif event_type == 'order.created':
+                # Handle order.created events the same way as order.status_changed
+                logger.info(f"Processing order creation: {data}")
+                handle_order_status_changed(data.get('data', {}))
             else:
                 logger.warning(f"⚠️ Unsupported event type: {event_type}")
                 return Response("Unsupported event type", status=400)

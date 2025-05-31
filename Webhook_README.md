@@ -31,6 +31,7 @@ The webhook server currently supports the following event types:
 
 - **quote.created** - Triggered when a new quote is created
 - **quote.status_changed** - Triggered when a quote's status changes
+- **order.created** - Triggered when a new order is created
 - **order.status_changed** - Triggered when an order's status changes
 
 ## Configuration
