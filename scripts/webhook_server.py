@@ -329,11 +329,11 @@ def update_order_csv(row):
 # Note: Routes are registered in app.py
 
 def handle_quote_status_changed(data):
-    """Handle quote.status_changed events."""
+    """Handle quote.status_changed and quote.created events."""
     logger.info(f"Processing quote status change: {data}")
 
-    # Extract quote data
-    quote_number = data.get('quote_number')
+    # Extract quote data - handle both quote.status_changed and quote.created formats
+    quote_number = data.get('quote_number') or str(data.get('number', ''))
     revision_number = data.get('revision_number')
     status = data.get('status')
 
