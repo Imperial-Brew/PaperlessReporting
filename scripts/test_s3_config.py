@@ -15,10 +15,21 @@ def test_s3_config():
     logger.info("=== Testing S3 Configuration ===")
     
     # Get S3 configuration
-    bucket_name = os.getenv("S3_BUCKET_NAME", get("s3", {}).get("bucket_name"))
-    region = os.getenv("AWS_DEFAULT_REGION", get("s3", {}).get("region", "us-west-2"))
-    access_key = os.getenv("AWS_ACCESS_KEY_ID", get("s3", {}).get("access_key_id"))
-    secret_key = os.getenv("AWS_SECRET_ACCESS_KEY", get("s3", {}).get("secret_access_key"))
+    bucket_name = os.getenv("S3_BUCKET_NAME")
+    if not bucket_name:
+        bucket_name = get("s3", {}).get("bucket_name")
+    
+    region = os.getenv("AWS_DEFAULT_REGION")
+    if not region:
+        region = get("s3", {}).get("region", "us-west-2")
+    
+    access_key = os.getenv("AWS_ACCESS_KEY_ID")
+    if not access_key:
+        access_key = get("s3", {}).get("access_key_id")
+    
+    secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+    if not secret_key:
+        secret_key = get("s3", {}).get("secret_access_key")
     
     logger.info(f"S3 Bucket: {bucket_name}")
     logger.info(f"S3 Region: {region}")
