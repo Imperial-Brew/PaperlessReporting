@@ -2,20 +2,21 @@ from flask import Flask, request, jsonify, Response
 import requests
 import csv
 import os
-import logging
 import hmac
 import hashlib
 import json
+import traceback
 from scripts.utils.config_loader import get
 from scripts.utils.s3_helpers import upload_to_s3
 from scripts.utils.utils import safe_get
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+from scripts.utils.logging_config import get_logger, with_correlation_id, LogContext
+from scripts.utils.exceptions import (
+    WebhookError, WebhookAuthenticationError, WebhookValidationError,
+    S3Error, S3UploadError, DataProcessingError
 )
-logger = logging.getLogger(__name__)
+
+# Get logger for this module
+logger = get_logger(__name__)
 
 class WebhookServer:
     """
@@ -47,15 +48,56 @@ class WebhookServer:
         """Health check endpoint for monitoring."""
         return "OK"
 
+    @with_correlation_id
     def webhook(self):
         """
         Webhook endpoint that processes events from Paperless Parts.
         Supports authentication via token parameter or X-Webhook-Signature header.
         """
-        logger.info("=== New Webhook Request ===")
-        logger.info(f"Headers: {dict(request.headers)}")
-        logger.info(f"Args: {dict(request.args)}")
+        # Create a context with webhook-specific information
+        with LogContext(endpoint="webhook"):
+            logger.info("=== New Webhook Request ===")
+            logger.debug(f"Headers: {dict(request.headers)}")
+            logger.debug(f"Args: {dict(request.args)}")
 
+            try:
+                # Authenticate the request
+                self._authenticate_webhook()
+
+                # Parse and validate the request body
+                data = self._parse_webhook_payload()
+
+                # Process the webhook event
+                return self._process_webhook_event(data)
+
+            except WebhookAuthenticationError as e:
+                logger.warning(f"Authentication failed: {e.message}", extra={"details": e.details})
+                return Response("Unauthorized", status=401)
+
+            except WebhookValidationError as e:
+                logger.warning(f"Validation failed: {e.message}", extra={"details": e.details})
+                return Response(e.message, status=400)
+
+            except WebhookError as e:
+                logger.error(f"Webhook processing error: {e.message}", extra={"details": e.details})
+                return Response("Error processing webhook", status=500)
+
+            except Exception as e:
+                # Catch any unexpected exceptions
+                error_details = {
+                    "exception_type": type(e).__name__,
+                    "traceback": traceback.format_exc()
+                }
+                logger.error(f"Unexpected error processing webhook: {str(e)}", extra={"details": error_details})
+                return Response("Internal server error", status=500)
+
+    def _authenticate_webhook(self):
+        """
+        Authenticate the webhook request using token or signature.
+
+        Raises:
+            WebhookAuthenticationError: If authentication fails
+        """
         # Authentication - support both methods
         is_authenticated = False
 
@@ -80,30 +122,60 @@ class WebhookServer:
                     is_authenticated = True
                     logger.info("✅ Authenticated via X-Webhook-Signature header")
 
-        # If not authenticated by either method, return 401
+        # If not authenticated by either method, raise exception
         if not is_authenticated:
-            logger.warning(f"⚠️ Invalid webhook token. Received: {token}")
-            return Response("Unauthorized", status=401)
+            details = {
+                "received_token": token[:4] + "..." if token else None,
+                "has_signature": bool(signature)
+            }
+            raise WebhookAuthenticationError("Invalid webhook authentication", details=details)
 
-        # Parse the request body
+    def _parse_webhook_payload(self):
+        """
+        Parse and validate the webhook payload.
+
+        Returns:
+            dict: The parsed webhook data
+
+        Raises:
+            WebhookValidationError: If the payload is invalid
+        """
+        if not request.data:
+            raise WebhookValidationError("Empty request body")
+
         try:
-            if not request.data:
-                logger.warning("⚠️ Empty request body")
-                return Response("Empty request body", status=400)
-
             data = request.json
-            if not data:
-                logger.warning("⚠️ Invalid JSON in request body")
-                return Response("Invalid JSON", status=400)
+        except Exception as e:
+            raise WebhookValidationError(f"Invalid JSON in request body: {str(e)}")
 
-            # Check for event type
-            event_type = data.get('type')
-            if not event_type:
-                logger.warning("⚠️ Missing event type in webhook payload")
-                return Response("Missing event type", status=400)
+        if not data:
+            raise WebhookValidationError("Empty JSON payload")
 
-            logger.info(f"📥 Received webhook event: {event_type}")
+        # Check for event type
+        event_type = data.get('type')
+        if not event_type:
+            raise WebhookValidationError("Missing event type in webhook payload")
 
+        logger.info(f"📥 Received webhook event: {event_type}")
+        return data
+
+    def _process_webhook_event(self, data):
+        """
+        Process the webhook event based on its type.
+
+        Args:
+            data: The parsed webhook data
+
+        Returns:
+            Response: HTTP response
+
+        Raises:
+            WebhookError: If processing fails
+        """
+        event_type = data.get('type')
+
+        # Add event type to logging context
+        with LogContext(event_type=event_type):
             # Check if we have a handler for this event type
             event_handlers = {}
             if self.app:
@@ -116,31 +188,43 @@ class WebhookServer:
                     handler(data)
                     return Response("OK", status=200)
                 except Exception as e:
-                    logger.error(f"❌ Error in event handler: {str(e)}")
-                    return Response("Internal server error", status=500)
+                    error_details = {
+                        "exception": str(e),
+                        "traceback": traceback.format_exc()
+                    }
+                    raise WebhookError(f"Error in event handler: {str(e)}", details=error_details)
 
             # Handle different event types with default handlers
-            if event_type == 'quote.status_changed':
-                handle_quote_status_changed(data.get('data', {}))
-            elif event_type == 'quote.created':
-                # Handle quote.created events the same way as quote.status_changed
-                logger.info(f"Processing quote creation: {data}")
-                handle_quote_status_changed(data.get('data', {}))
-            elif event_type == 'order.status_changed':
-                handle_order_status_changed(data.get('data', {}))
-            elif event_type == 'order.created':
-                # Handle order.created events the same way as order.status_changed
-                logger.info(f"Processing order creation: {data}")
-                handle_order_status_changed(data.get('data', {}))
-            else:
-                logger.warning(f"⚠️ Unsupported event type: {event_type}")
-                return Response("Unsupported event type", status=400)
+            try:
+                if event_type == 'quote.status_changed':
+                    handle_quote_status_changed(data.get('data', {}))
+                elif event_type == 'quote.created':
+                    # Handle quote.created events the same way as quote.status_changed
+                    logger.info(f"Processing quote creation: {data}")
+                    handle_quote_status_changed(data.get('data', {}))
+                elif event_type == 'order.status_changed':
+                    handle_order_status_changed(data.get('data', {}))
+                elif event_type == 'order.created':
+                    # Handle order.created events the same way as order.status_changed
+                    logger.info(f"Processing order creation: {data}")
+                    handle_order_status_changed(data.get('data', {}))
+                else:
+                    raise WebhookValidationError(f"Unsupported event type: {event_type}")
 
-            return Response("OK", status=200)
+                return Response("OK", status=200)
 
-        except Exception as e:
-            logger.error(f"❌ Error processing webhook: {str(e)}")
-            return Response("Internal server error", status=500)
+            except WebhookValidationError:
+                # Re-raise validation errors
+                raise
+            except Exception as e:
+                # Wrap other exceptions in WebhookError
+                error_details = {
+                    "exception": str(e),
+                    "traceback": traceback.format_exc(),
+                    "event_type": event_type,
+                    "data": data
+                }
+                raise WebhookError(f"Error processing webhook event: {str(e)}", details=error_details)
 
 # Create the webhook server instance without a Flask app
 # The Flask app will be created in app.py and passed to the webhook server
@@ -247,149 +331,337 @@ logger.info(f"API Base URL: {get('api_base_url', 'Not Set')}")
 logger.info("=============================")
 
 # === Helper: Write quote to CSV ===
+@with_correlation_id
 def update_csv(row, csv_file=CSV_FILE):
-    """Update the CSV file with new data and upload to S3."""
-    file_exists = os.path.isfile(csv_file)
-    fieldnames = [
-        "quote_number",
-        "revision_number",
-        "status",
-        "created",
-        "due_date",
-        "rfq_number",
-        "priority",
-        "private_notes",
-        "contact_name",
-        "contact_email",
-        "customer_name",
-        "estimator_email",
-        "salesperson_email"
-    ]
+    """
+    Update the CSV file with new data and upload to S3.
 
-    existing = []
-    if file_exists:
-        with open(csv_file, newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            existing = [
-                r for r in reader
-                if r["quote_number"] != row["quote_number"]
-                or r["revision_number"] != row["revision_number"]
+    Args:
+        row: Quote data to write
+        csv_file: Path to the CSV file
+
+    Raises:
+        DataProcessingError: If there's an error processing the data
+        S3UploadError: If there's an error uploading to S3
+    """
+    try:
+        # Add context information to logs
+        with LogContext(operation="update_csv", quote_number=row.get("quote_number"), revision=row.get("revision_number")):
+            fieldnames = [
+                "quote_number",
+                "revision_number",
+                "status",
+                "created",
+                "due_date",
+                "rfq_number",
+                "priority",
+                "private_notes",
+                "contact_name",
+                "contact_email",
+                "customer_name",
+                "estimator_email",
+                "salesperson_email"
             ]
 
-    with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for r in existing:
-            writer.writerow(r)
-        writer.writerow(row)
+            # Validate required fields
+            for field in ["quote_number", "revision_number"]:
+                if not row.get(field):
+                    raise DataProcessingError(f"Missing required field: {field}", details={"row": row})
 
-    logger.info(
-        f"✅ Quote {row['quote_number']} Rev {row['revision_number']} written to CSV."
-    )
-    # Upload to S3
-    upload_to_s3(csv_file)
+            # Read existing data
+            existing = []
+            try:
+                if os.path.isfile(csv_file):
+                    with open(csv_file, newline='', encoding='utf-8') as f:
+                        reader = csv.DictReader(f)
+                        existing = [
+                            r for r in reader
+                            if r["quote_number"] != row["quote_number"]
+                            or r["revision_number"] != row["revision_number"]
+                        ]
+                    logger.debug(f"Read {len(existing)} existing quotes from {csv_file}")
+            except Exception as e:
+                raise DataProcessingError(f"Error reading existing quotes: {str(e)}", 
+                                         details={"file": csv_file, "exception": str(e)})
+
+            # Write updated data
+            try:
+                # Ensure directory exists
+                os.makedirs(os.path.dirname(csv_file), exist_ok=True)
+
+                with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    for r in existing:
+                        writer.writerow(r)
+                    writer.writerow(row)
+
+                logger.info(
+                    f"✅ Quote {row['quote_number']} Rev {row['revision_number']} written to CSV."
+                )
+            except Exception as e:
+                raise DataProcessingError(f"Error writing quote to CSV: {str(e)}", 
+                                         details={"file": csv_file, "row": row, "exception": str(e)})
+
+            # Upload to S3
+            try:
+                upload_to_s3(csv_file)
+            except Exception as e:
+                raise S3UploadError(f"Error uploading quote CSV to S3: {str(e)}", 
+                                   details={"file": csv_file, "exception": str(e)})
+
+    except (DataProcessingError, S3UploadError):
+        # Re-raise these exceptions to be handled by the caller
+        raise
+    except Exception as e:
+        # Catch any unexpected exceptions and wrap them
+        error_details = {
+            "exception_type": type(e).__name__,
+            "traceback": traceback.format_exc(),
+            "file": csv_file,
+            "row": row
+        }
+        raise DataProcessingError(f"Unexpected error updating quote CSV: {str(e)}", details=error_details)
 
 # === Helper: Write order to CSV ===
+@with_correlation_id
 def update_order_csv(row):
-    """Update the orders CSV file with new data and upload to S3."""
-    file_exists = os.path.isfile(ORDERS_CSV_FILE)
-    fieldnames = [
-        "order_number",
-        "status",
-        "created",
-        "due_date",
-        "quote_number",
-        "quote_revision",
-        "customer_name",
-        "contact_name",
-        "contact_email",
-        "salesperson_email"
-    ]
+    """
+    Update the orders CSV file with new data and upload to S3.
 
-    existing = []
-    if file_exists:
-        with open(ORDERS_CSV_FILE, newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            existing = [
-                r for r in reader
-                if r["order_number"] != row["order_number"]
+    Args:
+        row: Order data to write
+
+    Raises:
+        DataProcessingError: If there's an error processing the data
+        S3UploadError: If there's an error uploading to S3
+    """
+    try:
+        # Add context information to logs
+        with LogContext(operation="update_order_csv", order_number=row.get("order_number")):
+            fieldnames = [
+                "order_number",
+                "status",
+                "created",
+                "due_date",
+                "quote_number",
+                "quote_revision",
+                "customer_name",
+                "contact_name",
+                "contact_email",
+                "salesperson_email"
             ]
 
-    with open(ORDERS_CSV_FILE, mode='w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for r in existing:
-            writer.writerow(r)
-        writer.writerow(row)
+            # Validate required fields
+            if not row.get("order_number"):
+                raise DataProcessingError("Missing required field: order_number", details={"row": row})
 
-    logger.info(f"✅ Order {row['order_number']} written to CSV.")
-    # Upload to S3
-    upload_to_s3(ORDERS_CSV_FILE)
+            # Read existing data
+            existing = []
+            try:
+                if os.path.isfile(ORDERS_CSV_FILE):
+                    with open(ORDERS_CSV_FILE, newline='', encoding='utf-8') as f:
+                        reader = csv.DictReader(f)
+                        existing = [
+                            r for r in reader
+                            if r["order_number"] != row["order_number"]
+                        ]
+                    logger.debug(f"Read {len(existing)} existing orders from {ORDERS_CSV_FILE}")
+            except Exception as e:
+                raise DataProcessingError(f"Error reading existing orders: {str(e)}", 
+                                         details={"file": ORDERS_CSV_FILE, "exception": str(e)})
+
+            # Write updated data
+            try:
+                # Ensure directory exists
+                os.makedirs(os.path.dirname(ORDERS_CSV_FILE), exist_ok=True)
+
+                with open(ORDERS_CSV_FILE, mode='w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    for r in existing:
+                        writer.writerow(r)
+                    writer.writerow(row)
+
+                logger.info(f"✅ Order {row['order_number']} written to CSV.")
+            except Exception as e:
+                raise DataProcessingError(f"Error writing order to CSV: {str(e)}", 
+                                         details={"file": ORDERS_CSV_FILE, "row": row, "exception": str(e)})
+
+            # Upload to S3
+            try:
+                upload_to_s3(ORDERS_CSV_FILE)
+            except Exception as e:
+                raise S3UploadError(f"Error uploading order CSV to S3: {str(e)}", 
+                                   details={"file": ORDERS_CSV_FILE, "exception": str(e)})
+
+    except (DataProcessingError, S3UploadError):
+        # Re-raise these exceptions to be handled by the caller
+        raise
+    except Exception as e:
+        # Catch any unexpected exceptions and wrap them
+        error_details = {
+            "exception_type": type(e).__name__,
+            "traceback": traceback.format_exc(),
+            "file": ORDERS_CSV_FILE,
+            "row": row
+        }
+        raise DataProcessingError(f"Unexpected error updating order CSV: {str(e)}", details=error_details)
 
 # === Handler functions for WebhookServer ===
 # Note: Routes are registered in app.py
 
+@with_correlation_id
 def handle_quote_status_changed(data):
-    """Handle quote.status_changed and quote.created events."""
-    logger.info(f"Processing quote status change: {data}")
+    """
+    Handle quote.status_changed and quote.created events.
 
-    # Extract quote data - handle both quote.status_changed and quote.created formats
-    quote_number = data.get('quote_number') or str(data.get('number', ''))
-    revision_number = data.get('revision_number')
-    status = data.get('status')
+    Args:
+        data: Quote data from the webhook payload
 
-    if not all([quote_number, revision_number, status]):
-        logger.warning(f"⚠️ Missing required fields in quote data: {data}")
-        return
+    Raises:
+        WebhookValidationError: If required fields are missing
+        DataProcessingError: If there's an error processing the data
+        S3UploadError: If there's an error uploading to S3
+    """
+    try:
+        # Add context information to logs
+        with LogContext(handler="handle_quote_status_changed"):
+            logger.info(f"Processing quote status change")
+            logger.debug(f"Quote data: {data}")
 
-    # Update CSV with quote data
-    row = {
-        "quote_number": quote_number,
-        "revision_number": revision_number,
-        "status": status,
-        "created": data.get('created', ''),
-        "due_date": data.get('due_date', ''),
-        "rfq_number": data.get('rfq_number', ''),
-        "priority": data.get('priority', ''),
-        "private_notes": data.get('private_notes', ''),
-        "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
-                safe_get(data, "contact", "last_name") or ""),
-        "contact_email": safe_get(data, "contact", "email"),
-        "customer_name": safe_get(data, "contact", "account", "name"),
-        "estimator_email": safe_get(data, "estimator", "email"),
-        "salesperson_email": safe_get(data, "salesperson", "email")
-    }
+            # Extract quote data - handle both quote.status_changed and quote.created formats
+            quote_number = data.get('quote_number') or str(data.get('number', ''))
+            revision_number = data.get('revision_number')
+            status = data.get('status')
 
-    update_csv(row)
+            # Validate required fields
+            missing_fields = []
+            if not quote_number:
+                missing_fields.append("quote_number/number")
+            if not revision_number:
+                missing_fields.append("revision_number")
+            if not status:
+                missing_fields.append("status")
 
+            if missing_fields:
+                error_msg = f"Missing required fields in quote data: {', '.join(missing_fields)}"
+                logger.warning(f"⚠️ {error_msg}")
+                raise WebhookValidationError(error_msg, details={
+                    "missing_fields": missing_fields,
+                    "data": data
+                })
+
+            # Update CSV with quote data
+            row = {
+                "quote_number": quote_number,
+                "revision_number": revision_number,
+                "status": status,
+                "created": data.get('created', ''),
+                "due_date": data.get('due_date', ''),
+                "rfq_number": data.get('rfq_number', ''),
+                "priority": data.get('priority', ''),
+                "private_notes": data.get('private_notes', ''),
+                "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
+                        safe_get(data, "contact", "last_name") or ""),
+                "contact_email": safe_get(data, "contact", "email"),
+                "customer_name": safe_get(data, "contact", "account", "name"),
+                "estimator_email": safe_get(data, "estimator", "email"),
+                "salesperson_email": safe_get(data, "salesperson", "email")
+            }
+
+            # Log the extracted data
+            logger.debug(f"Extracted quote data: {row}")
+
+            # Update CSV and upload to S3
+            update_csv(row)
+
+            logger.info(f"Successfully processed quote {quote_number} revision {revision_number}")
+
+    except (WebhookValidationError, DataProcessingError, S3UploadError):
+        # Re-raise these exceptions to be handled by the caller
+        raise
+    except Exception as e:
+        # Catch any unexpected exceptions and wrap them
+        error_details = {
+            "exception_type": type(e).__name__,
+            "traceback": traceback.format_exc(),
+            "data": data
+        }
+        raise WebhookError(f"Unexpected error handling quote status change: {str(e)}", details=error_details)
+
+@with_correlation_id
 def handle_order_status_changed(data):
-    """Handle order.status_changed events."""
-    logger.info(f"Processing order status change: {data}")
+    """
+    Handle order.status_changed and order.created events.
 
-    # Extract order data
-    order_number = data.get('order_number')
-    status = data.get('status')
+    Args:
+        data: Order data from the webhook payload
 
-    if not all([order_number, status]):
-        logger.warning(f"⚠️ Missing required fields in order data: {data}")
-        return
+    Raises:
+        WebhookValidationError: If required fields are missing
+        DataProcessingError: If there's an error processing the data
+        S3UploadError: If there's an error uploading to S3
+    """
+    try:
+        # Add context information to logs
+        with LogContext(handler="handle_order_status_changed"):
+            logger.info(f"Processing order status change")
+            logger.debug(f"Order data: {data}")
 
-    # Update CSV with order data
-    row = {
-        "order_number": order_number,
-        "status": status,
-        "created": data.get('created', ''),
-        "due_date": data.get('due_date', ''),
-        "quote_number": data.get('quote_number', ''),
-        "quote_revision": data.get('quote_revision', ''),
-        "customer_name": safe_get(data, "contact", "account", "name"),
-        "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
-                safe_get(data, "contact", "last_name") or ""),
-        "contact_email": safe_get(data, "contact", "email"),
-        "salesperson_email": safe_get(data, "salesperson", "email")
-    }
+            # Extract order data
+            order_number = data.get('order_number')
+            status = data.get('status')
 
-    update_order_csv(row)
+            # Validate required fields
+            missing_fields = []
+            if not order_number:
+                missing_fields.append("order_number")
+            if not status:
+                missing_fields.append("status")
+
+            if missing_fields:
+                error_msg = f"Missing required fields in order data: {', '.join(missing_fields)}"
+                logger.warning(f"⚠️ {error_msg}")
+                raise WebhookValidationError(error_msg, details={
+                    "missing_fields": missing_fields,
+                    "data": data
+                })
+
+            # Update CSV with order data
+            row = {
+                "order_number": order_number,
+                "status": status,
+                "created": data.get('created', ''),
+                "due_date": data.get('due_date', ''),
+                "quote_number": data.get('quote_number', ''),
+                "quote_revision": data.get('quote_revision', ''),
+                "customer_name": safe_get(data, "contact", "account", "name"),
+                "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
+                        safe_get(data, "contact", "last_name") or ""),
+                "contact_email": safe_get(data, "contact", "email"),
+                "salesperson_email": safe_get(data, "salesperson", "email")
+            }
+
+            # Log the extracted data
+            logger.debug(f"Extracted order data: {row}")
+
+            # Update CSV and upload to S3
+            update_order_csv(row)
+
+            logger.info(f"Successfully processed order {order_number}")
+
+    except (WebhookValidationError, DataProcessingError, S3UploadError):
+        # Re-raise these exceptions to be handled by the caller
+        raise
+    except Exception as e:
+        # Catch any unexpected exceptions and wrap them
+        error_details = {
+            "exception_type": type(e).__name__,
+            "traceback": traceback.format_exc(),
+            "data": data
+        }
+        raise WebhookError(f"Unexpected error handling order status change: {str(e)}", details=error_details)
 
 # Routes are logged in app.py
 

@@ -87,7 +87,7 @@ def upload_to_s3(local_path: str) -> bool:
     """
     # Validate bucket name
     if not _bucket:
-        logger.error("S3 bucket name not configured. Set S3_BUCKET_NAME environment variable or add s3.bucket_name to config.json")
+        logger.error("S3 bucket name not configured. Set S3_BUCKET_NAME environment variable")
         return False
 
     key = f"paperless/{os.path.basename(local_path)}"
@@ -96,7 +96,7 @@ def upload_to_s3(local_path: str) -> bool:
         logger.info(f"✔ Uploaded {local_path} to s3://{_bucket}/{key}")
         return True
     except NoCredentialsError:
-        logger.error("AWS credentials not found. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables or add s3.access_key_id and s3.secret_access_key to config.json")
+        logger.error("AWS credentials not found. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables")
         return False
     except ClientError as e:
         error_code = e.response.get('Error', {}).get('Code', 'Unknown')

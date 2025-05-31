@@ -20,7 +20,9 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 
 ## Environment & Configuration
 
-- `config.json` holds `{ "api_key": "...", "api_base_url": "https://api.paperlessparts.com" }`
+- Environment variables are used for sensitive credentials (API keys, AWS credentials)
+- Copy `.env.example` to `.env` and fill in your values
+- `config.json` is used for non-sensitive configuration
 - CI relies on Python 3.9+, pytest for tests, flake8 for linting
 
 ## Workflow
@@ -32,12 +34,21 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 
 ## Development
 
-1. Install dependencies:
+1. Set up environment variables:
+```bash
+# Copy the example .env file
+cp .env.example .env
+
+# Edit .env with your credentials
+# DO NOT commit your .env file to version control
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run tests:
+3. Run tests:
 ```bash
 # Run all tests
 pytest

@@ -8,9 +8,10 @@ It supports fetching a specific range of quote IDs and includes revised quotes.
 """
 
 import asyncio
-import logging
 import argparse
 import csv
+import os
+import traceback
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
 
@@ -18,9 +19,13 @@ import aiohttp
 
 from utils.async_puller import AsyncPuller
 from utils.utils import safe_get
+from utils.logging_config import configure_logging, get_logger, with_correlation_id, LogContext
+from utils.exceptions import (
+    APIError, RateLimitError, DataProcessingError, PaperlessError
+)
 
-# Configure logging
-logger = logging.getLogger(__name__)
+# Get logger for this module
+logger = get_logger(__name__)
 
 class QuotesPuller(AsyncPuller[Dict[str, Any]]):
     """
@@ -233,6 +238,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
                     logger.error(f"Failed to fetch quote revisions: {response.status}")
                     return []
 
+    @with_correlation_id
     async def fetch_item_with_revision(self, session: aiohttp.ClientSession, quote_number: int, revision: int) -> Optional[Dict[str, Any]]:
         """
         Fetch a single quote with its revision.
@@ -244,38 +250,118 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
 
         Returns:
             Dict containing quote data or None if failed after retries
+
+        Raises:
+            APIError: If there's an error communicating with the API
+            RateLimitError: If the API rate limit is exceeded
         """
-        self.current_revision = revision  # Store for use in transform_data
+        # Add context information to logs
+        with LogContext(operation="fetch_quote", quote_number=quote_number, revision=revision):
+            self.current_revision = revision  # Store for use in transform_data
 
-        url = f"{self.base_url}/{self.endpoint}/{quote_number}?revision={revision}"
-        delay = 1  # Initial delay for exponential backoff
+            url = f"{self.base_url}/{self.endpoint}/{quote_number}?revision={revision}"
+            delay = 1  # Initial delay for exponential backoff
 
-        for attempt in range(self.max_retries):
-            try:
-                # Wait for rate limiting token
-                async with self.bucket:
-                    async with session.get(url, headers=self.headers, timeout=20) as response:
-                        if response.status == 200:
-                            return await response.json()
-                        elif response.status == 404:
-                            logger.warning(f"Quote {quote_number}-r{revision} not found")
-                            return None
-                        elif response.status == 429:
-                            logger.warning(f"Rate limit hit for quote {quote_number}-r{revision}, pausing")
-                            await asyncio.sleep(15)  # Longer pause for rate limiting
-                        else:
-                            logger.error(f"Error {response.status} fetching quote {quote_number}-r{revision}")
-            except asyncio.TimeoutError:
-                logger.error(f"Timeout fetching quote {quote_number}-r{revision} (attempt {attempt + 1})")
-            except Exception as e:
-                logger.error(f"Error fetching quote {quote_number}-r{revision} (attempt {attempt + 1}): {str(e)}")
+            for attempt in range(self.max_retries):
+                try:
+                    # Wait for rate limiting token
+                    async with self.bucket:
+                        logger.debug(f"Fetching quote {quote_number}-r{revision} (attempt {attempt + 1})")
+                        async with session.get(url, headers=self.headers, timeout=20) as response:
+                            if response.status == 200:
+                                data = await response.json()
+                                logger.debug(f"Successfully fetched quote {quote_number}-r{revision}")
+                                return data
+                            elif response.status == 404:
+                                logger.warning(f"Quote {quote_number}-r{revision} not found")
+                                return None
+                            elif response.status == 429:
+                                error_msg = f"Rate limit hit for quote {quote_number}-r{revision}, pausing"
+                                logger.warning(error_msg)
 
-            # Don't sleep after the last attempt
-            if attempt < self.max_retries - 1:
-                await asyncio.sleep(delay)
-                delay *= 2  # Exponential backoff
+                                # Longer pause for rate limiting
+                                await asyncio.sleep(15)
 
-        return None
+                                # If this is the last attempt, raise a RateLimitError
+                                if attempt == self.max_retries - 1:
+                                    raise RateLimitError(
+                                        error_msg,
+                                        status_code=429,
+                                        details={
+                                            "quote_number": quote_number,
+                                            "revision": revision,
+                                            "attempt": attempt + 1
+                                        }
+                                    )
+                            else:
+                                # Try to get response body for better error reporting
+                                try:
+                                    response_body = await response.text()
+                                except:
+                                    response_body = "Could not read response body"
+
+                                error_msg = f"Error {response.status} fetching quote {quote_number}-r{revision}"
+                                logger.error(error_msg)
+
+                                # If this is the last attempt, raise an APIError
+                                if attempt == self.max_retries - 1:
+                                    raise APIError(
+                                        error_msg,
+                                        status_code=response.status,
+                                        response_body=response_body,
+                                        details={
+                                            "quote_number": quote_number,
+                                            "revision": revision,
+                                            "url": url,
+                                            "attempt": attempt + 1
+                                        }
+                                    )
+                except asyncio.TimeoutError:
+                    error_msg = f"Timeout fetching quote {quote_number}-r{revision} (attempt {attempt + 1})"
+                    logger.error(error_msg)
+
+                    # If this is the last attempt, raise an APIError
+                    if attempt == self.max_retries - 1:
+                        raise APIError(
+                            error_msg,
+                            details={
+                                "quote_number": quote_number,
+                                "revision": revision,
+                                "url": url,
+                                "attempt": attempt + 1,
+                                "timeout": 20
+                            }
+                        )
+                except (APIError, RateLimitError):
+                    # Re-raise these exceptions if it's the last attempt
+                    if attempt == self.max_retries - 1:
+                        raise
+                except Exception as e:
+                    error_msg = f"Error fetching quote {quote_number}-r{revision} (attempt {attempt + 1}): {str(e)}"
+                    logger.error(error_msg, extra={"exception": str(e), "traceback": traceback.format_exc()})
+
+                    # If this is the last attempt, raise an APIError
+                    if attempt == self.max_retries - 1:
+                        raise APIError(
+                            error_msg,
+                            details={
+                                "quote_number": quote_number,
+                                "revision": revision,
+                                "url": url,
+                                "attempt": attempt + 1,
+                                "exception": str(e),
+                                "exception_type": type(e).__name__
+                            }
+                        )
+
+                # Don't sleep after the last attempt
+                if attempt < self.max_retries - 1:
+                    await asyncio.sleep(delay)
+                    delay *= 2  # Exponential backoff
+
+            # This should never be reached due to the exception raising above,
+            # but just in case, return None
+            return None
 
     async def process_revised_quotes(self) -> List[Dict[str, Any]]:
         """
@@ -404,6 +490,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         else:
             logger.warning("No quote items found in the quotes data")
 
+@with_correlation_id
 async def main():
     """
     Main entry point for the script.
@@ -411,38 +498,72 @@ async def main():
     Parses command line arguments, creates a QuotesPuller instance,
     and runs it to fetch quote and quote item data from the API.
     """
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description="Fetch quote and quote item data from the API")
-    parser.add_argument("--start-id", type=int, help="Starting quote ID", default=7500)
-    parser.add_argument("--end-id", type=int, help="Ending quote ID", default=7550)
-    parser.add_argument("--no-revisions", action="store_true", help="Exclude revised quotes")
-    args = parser.parse_args()
-
-    start_id = args.start_id
-    end_id = args.end_id
-    include_revisions = not args.no_revisions
-
-    # Validate arguments
-    if start_id > end_id:
-        logger.error(f"Start ID ({start_id}) must be less than or equal to End ID ({end_id})")
-        return
-
-    # Fetch quotes and extract quote items
-    quotes_puller = QuotesPuller(start_id, end_id, include_revisions)
-    logger.info(f"Starting quote pull job: {start_id} to {end_id}, include_revisions={include_revisions}")
-
     try:
-        await quotes_puller.run()
-        logger.info("Quote pull job completed successfully")
+        # Parse command line arguments
+        parser = argparse.ArgumentParser(description="Fetch quote and quote item data from the API")
+        parser.add_argument("--start-id", type=int, help="Starting quote ID", default=7500)
+        parser.add_argument("--end-id", type=int, help="Ending quote ID", default=7550)
+        parser.add_argument("--no-revisions", action="store_true", help="Exclude revised quotes")
+        parser.add_argument("--log-level", type=str, choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+                           help="Logging level", default=os.getenv("LOG_LEVEL", "INFO"))
+        parser.add_argument("--log-file", type=str, help="Log file path", default=os.getenv("LOG_FILE"))
+        parser.add_argument("--json-logs", action="store_true", help="Output logs in JSON format")
+        args = parser.parse_args()
+
+        start_id = args.start_id
+        end_id = args.end_id
+        include_revisions = not args.no_revisions
+
+        # Add context information to logs
+        with LogContext(operation="pull_quotes", start_id=start_id, end_id=end_id, include_revisions=include_revisions):
+            # Validate arguments
+            if start_id > end_id:
+                raise ValueError(f"Start ID ({start_id}) must be less than or equal to End ID ({end_id})")
+
+            # Fetch quotes and extract quote items
+            quotes_puller = QuotesPuller(start_id, end_id, include_revisions)
+            logger.info(f"Starting quote pull job: {start_id} to {end_id}, include_revisions={include_revisions}")
+
+            try:
+                await quotes_puller.run()
+                logger.info("Quote pull job completed successfully")
+            except APIError as e:
+                logger.error(f"API error during quote pull job: {e.message}", extra={"details": e.details})
+                raise
+            except DataProcessingError as e:
+                logger.error(f"Data processing error during quote pull job: {e.message}", extra={"details": e.details})
+                raise
+            except PaperlessError as e:
+                logger.error(f"Error during quote pull job: {e.message}", extra={"details": e.details})
+                raise
+            except Exception as e:
+                # Catch any unexpected exceptions
+                error_details = {
+                    "exception_type": type(e).__name__,
+                    "traceback": traceback.format_exc()
+                }
+                logger.error(f"Unexpected error during quote pull job: {str(e)}", extra={"details": error_details})
+                raise
     except Exception as e:
-        logger.error(f"Quote pull job failed: {str(e)}")
+        # Log any exceptions that weren't caught earlier
+        if not isinstance(e, PaperlessError):
+            logger.error(f"Unhandled exception: {str(e)}", extra={"traceback": traceback.format_exc()})
+        # Re-raise to ensure non-zero exit code
         raise
 
 if __name__ == "__main__":
-    # Configure logging at the script level
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    # Configure centralized logging
+    configure_logging(
+        level=os.getenv("LOG_LEVEL", "INFO"),
+        use_json=os.getenv("LOG_FORMAT", "").lower() == "json",
+        log_file=os.getenv("LOG_FILE")
     )
 
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.info("Quote pull job interrupted by user")
+    except Exception:
+        # Exception details already logged in main()
+        import sys
+        sys.exit(1)
