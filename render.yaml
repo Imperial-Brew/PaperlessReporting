@@ -3,11 +3,7 @@ services:
     name: paperless-webhook
     env: python
     buildCommand: pip install -r requirements.txt
-<<<<<<< HEAD
     start_command: gunicorn app:app
-=======
-    start_command: gunicorn scripts.webhook_server:app
->>>>>>> 3928e3a84f03b73aaa4ffb5fa8570a7bf416420d
     healthCheckPath: /health
     envVars:
       - key: PAPERLESS_API_TOKEN
@@ -17,8 +13,4 @@ services:
       - key: API_BASE_URL
         sync: false
     autoDeploy: true
-<<<<<<< HEAD
     plan: free
-=======
-    plan: free 
->>>>>>> 3928e3a84f03b73aaa4ffb5fa8570a7bf416420d

@@ -325,24 +325,8 @@ def update_order_csv(row):
     # Upload to S3
     upload_to_s3(ORDERS_CSV_FILE)
 
-# === Register routes from WebhookServer to the main app ===
-@app.route('/')
-def index():
-    """Root endpoint that returns basic information about the API."""
-    return webhook_server.index()
-
-@app.route('/health')
-def health():
-    """Health check endpoint for monitoring."""
-    return webhook_server.health()
-
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    """
-    Webhook endpoint that processes events from Paperless Parts.
-    Supports authentication via token parameter or X-Webhook-Signature header.
-    """
-    return webhook_server.webhook()
+# === Handler functions for WebhookServer ===
+# Note: Routes are registered in app.py
 
 def handle_quote_status_changed(data):
     """Handle quote.status_changed events."""
@@ -404,10 +388,21 @@ def handle_order_status_changed(data):
 
     update_order_csv(row)
 
-# Log available routes
-for rule in app.url_map.iter_rules():
-    logger.info(f"Route: {rule} -> methods {rule.methods}")
+# Routes are logged in app.py
 
 if __name__ == "__main__":
+    # Create a Flask app if running this file directly
+    from flask import Flask
+    app = Flask(__name__)
+
+    # Register routes
+    app.add_url_rule('/', 'index', webhook_server.index)
+    app.add_url_rule('/health', 'health', webhook_server.health)
+    app.add_url_rule('/webhook', 'webhook', webhook_server.webhook, methods=['POST'])
+
+    # Set the app for the webhook server
+    webhook_server.app = app
+
+    # Run the app
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
