@@ -1,0 +1,52 @@
+{
+  "quote_number": "Q12345",
+  "revision_number": 1,
+  "status": "sent",
+  "created": "2023-01-01T12:00:00Z",
+  "due_date": "2023-01-15T12:00:00Z",
+  "contact": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "account": {
+      "name": "Example Company"
+    }
+  },
+  "estimator": {
+    "email": "estimator@example.com"
+  },
+  "salesperson": {
+    "email": "sales@example.com"
+  },
+  "quote_items": [
+    {
+      "id": 1,
+      "workflow_status": "pending",
+      "export_controlled": false,
+      "components": [
+        {
+          "is_root_component": true,
+          "part_number": "PART-001",
+          "revision": "A",
+          "description": "Sample Part",
+          "type": "machined",
+          "material": {
+            "name": "Aluminum 6061"
+          },
+          "process": {
+            "name": "CNC Machining"
+          },
+          "quantities": [
+            {
+              "quantity": 10,
+              "unit_price": 25.5,
+              "total_price": 255.0,
+              "total_price_with_required_add_ons": 275.0,
+              "lead_time": "2 weeks"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,31 +1,8 @@
-# Logging and Error Handling Improvements
-
-This document describes the improvements made to logging and error handling in the PaperlessReporting application.
+# Logging and Error Handling
 
 ## Overview
 
-The following improvements have been made:
-
-1. **Centralized Logging Configuration**
-   - Consistent logging format across the application
-   - Support for different log levels
-   - Support for correlation IDs to track requests
-   - JSON formatting for structured logging
-
-2. **Custom Exception Hierarchy**
-   - Base `PaperlessError` class for all application-specific errors
-   - Specialized exceptions for different types of errors (API, webhook, S3, etc.)
-   - Support for detailed error information to aid in debugging
-
-3. **Improved Error Handling**
-   - More granular error handling with specific exception types
-   - Better error messages with context information
-   - Proper exception propagation and handling
-
-4. **Request Tracking**
-   - Correlation IDs to track requests across components
-   - Context information added to log records
-   - Middleware to set correlation IDs for HTTP requests
+This document describes the logging and error handling system in the PaperlessReporting application.
 
 ## Centralized Logging Configuration
 

@@ -3,10 +3,11 @@ import logging
 import sys
 from pathlib import Path
 
-# Add the parent directory to sys.path to allow imports from scripts.utils
-parent_dir = str(Path(__file__).parent.parent)
-if parent_dir not in sys.path:
-    sys.path.append(parent_dir)
+# Add the project root directory to sys.path to allow imports from scripts.utils
+# Since this file is now in the tests/ directory, we need to go up one level to get to the project root
+project_root = str(Path(__file__).parent.parent)
+if project_root not in sys.path:
+    sys.path.append(project_root)
 
 from scripts.utils.s3_helpers import upload_to_s3
 from scripts.utils.config_loader import get

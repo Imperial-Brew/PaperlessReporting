@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from utils.config_loader import config
+from scripts.utils.config_loader import config
 
 # Configuration
 WEBHOOK_URL = "https://paperlessreporting.onrender.com/webhook"

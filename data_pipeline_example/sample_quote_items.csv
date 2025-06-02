@@ -1,0 +1,2 @@
+quote_number,quote_revision,item_id,workflow_status,part_number,revision,description,type,material,process,is_fully_configured,part_uuid,export_controlled,quantity,unit_price,total_price,total_price_with_add_ons,lead_time
+Q12345,1,1,pending,PART-001,A,Sample Part,machined,Aluminum 6061,CNC Machining,True,,False,10,25.5,255.0,275.0,2 weeks

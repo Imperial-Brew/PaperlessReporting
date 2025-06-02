@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from utils.config_loader import config
+from scripts.utils.config_loader import config
 
 # Configuration
 WEBHOOK_URL = "http://localhost:5000/webhook"  # Use local server for testing

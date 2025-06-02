@@ -1,0 +1,2 @@
+quote_number,revision_number,status,created,due_date,sent_date,expired_date,expired,rfq_number,priority,private_notes,authenticated_pdf_quote_url,contact_name,contact_email,customer_name,estimator_email,salesperson_email
+Q12345,1,sent,2023-01-01T12:00:00Z,2023-01-15T12:00:00Z,,,False,,,,,John Doe,john.doe@example.com,Example Company,estimator@example.com,sales@example.com

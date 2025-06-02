@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from utils.config_loader import config
+from scripts.utils.config_loader import config
 
 # Configuration
 WEBHOOK_URL = "https://paperlessreporting.onrender.com/webhook"
@@ -39,4 +39,4 @@ def test_webhook():
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    test_webhook() 
+    test_webhook()

@@ -8,6 +8,7 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 - Utilities in `scripts/utils/` merge batches of CSVs into cleaned outputs
 - A GitHub Actions CI pipeline (`.github/workflows/ci.yml`) lints, tests, and builds docs
 - Data lands in `data_raw/` then is consolidated in `data_cleaned/`
+- Webhook server receives and processes events from Paperless Parts
 
 ## Key Scripts
 
@@ -17,6 +18,8 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
   → read all `*_*.csv` in `data_raw/…`, drop duplicates, output a single `data_cleaned/*.csv`
 - `scripts/utils/token_bucket.py`  
   → simple rate-limiter used by the pull scripts
+- `scripts/webhook_server.py`
+  → receives and processes webhook events from Paperless Parts
 
 ## Environment & Configuration
 
@@ -63,6 +66,16 @@ pytest tests/test_pull_users.py
 pytest tests/test_pull_users.py::test_fetch_users
 ```
 
+## Documentation
+
+The project includes comprehensive documentation:
+
+- **[Webhook Server](docs/webhook.md)**: Documentation for the webhook server, including setup, configuration, and supported events
+- **[S3 Configuration](docs/s3_configuration.md)**: Guide for setting up and configuring AWS S3 integration
+- **[Testing](docs/testing.md)**: Detailed information about testing, including how to run tests and coverage reporting
+- **[Logging and Error Handling](docs/logging.md)**: Information about the logging and error handling system
+- **[Changelog](CHANGELOG.md)**: Record of all notable changes to the project
+
 ## Testing
 
 The project includes a comprehensive test suite:
@@ -75,12 +88,9 @@ The project includes a comprehensive test suite:
 
 - **Integration Tests**: Test the interaction between components
   - End-to-end tests for data pulling and CSV generation
+  - Tests for webhook event handling
 
-- **Coverage Reporting**: Identify untested code areas
-  - HTML reports generated in `htmlcov/` directory
-  - Terminal summary displayed after test runs
-
-See `tests/README.md` for detailed testing documentation.
+See [Testing Documentation](docs/testing.md) for more details.
 
 ## License
 
