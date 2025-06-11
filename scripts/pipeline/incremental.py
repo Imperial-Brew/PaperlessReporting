@@ -96,7 +96,7 @@ class IncrementalDataAcquisitionStage(PaperlessPartsDataAcquisitionStage):
             self.record_metric("state_saved", False)
             self.record_metric("state_save_error", str(e))
     
-    async def acquire(self, _: None) -> List[Dict[str, Any]]:
+    async def acquire(self) -> List[Dict[str, Any]]:
         """
         Fetch only new or changed quotes from the Paperless Parts API.
         

@@ -348,7 +348,7 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
         return results
 
 
-class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[None, List[Dict[str, Any]]]):
+class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
     """
     Data acquisition stage for fetching quotes from the Paperless Parts API.
     """
@@ -360,7 +360,7 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[None, List[Dict[st
         self.end_id = end_id
         self.include_revisions = include_revisions
 
-    async def acquire(self, _: None) -> List[Dict[str, Any]]:
+    async def acquire(self) -> List[Dict[str, Any]]:
         """
         Fetch quotes from the Paperless Parts API.
 
