@@ -8,9 +8,10 @@ and executes them in sequence.
 import asyncio
 import time
 import logging
+from abc import ABC
 from typing import Any, Dict, List, Optional, Union, TypeVar, Generic, Callable
 
-from scripts.pipeline.base import PipelineStage
+from scripts.pipeline.base import PipelineStage, TransformationStage, ValidationStage
 from scripts.pipeline.exceptions import PipelineError, PipelineConfigurationError
 from scripts.utils.logging_config import get_logger, LogContext
 
@@ -21,6 +22,59 @@ logger = get_logger(__name__)
 T = TypeVar('T')
 # Type variable for pipeline output
 U = TypeVar('U')
+
+
+class WrapInList(TransformationStage[Dict[str, Any], List[Dict[str, Any]]]):
+    """
+    Transformation stage that wraps a dictionary in a list.
+
+    This is used to convert a single quote dictionary into a list
+    for the CSV loader which expects a list of dictionaries.
+    """
+    def __init__(self):
+        super().__init__("wrap_in_list")
+
+    async def transform(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        return [data]
+
+
+class ValidateQuoteItems(ValidationStage[List[Dict[str, Any]]]):
+    """
+    Validation stage that validates each quote item in a list.
+    """
+    def __init__(self):
+        super().__init__("validate_quote_items")
+        from scripts.pipeline.validators import QuoteItemValidator
+        self.validator = QuoteItemValidator()
+
+    async def validate(self, data: List[Dict[str, Any]]) -> List[str]:
+        valid_items = []
+        invalid_items = []
+        errors = []
+
+        for item in data:
+            try:
+                item_errors = await self.validator.validate(item)
+                if not item_errors:
+                    valid_items.append(item)
+                else:
+                    invalid_items.append((item, item_errors))
+                    errors.extend(item_errors)
+            except Exception as e:
+                invalid_items.append((item, [str(e)]))
+                errors.append(str(e))
+
+        # Record metrics
+        self.record_metric("total_items", len(data))
+        self.record_metric("valid_items", len(valid_items))
+        self.record_metric("invalid_items", len(invalid_items))
+
+        if invalid_items:
+            logger.warning(f"Found {len(invalid_items)} invalid quote items")
+            for item, item_errors in invalid_items:
+                logger.warning(f"Invalid quote item: {item.get('item_id')} - {', '.join(item_errors)}")
+
+        return errors
 
 
 class Pipeline(Generic[T, U]):
@@ -246,13 +300,6 @@ class QuotePipeline:
         pipeline.add_stage(QuoteTransformer())
 
         # Wrap the transformed quote in a list for the CSV loader
-        class WrapInList(PipelineStage[Dict[str, Any], List[Dict[str, Any]]]):
-            def __init__(self):
-                super().__init__("wrap_in_list")
-
-            async def process(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
-                return [data]
-
         pipeline.add_stage(WrapInList())
         pipeline.add_stage(CSVLoader(output_path))
 
@@ -297,39 +344,6 @@ class QuoteItemPipeline:
             Pipeline instance
         """
         from scripts.pipeline.processors import QuoteItemTransformer
-        from scripts.pipeline.validators import QuoteItemValidator
-
-        # Create a stage that validates each quote item
-        class ValidateQuoteItems(PipelineStage[List[Dict[str, Any]], List[Dict[str, Any]]]):
-            def __init__(self):
-                super().__init__("validate_quote_items")
-                self.validator = QuoteItemValidator()
-
-            async def process(self, data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-                valid_items = []
-                invalid_items = []
-
-                for item in data:
-                    try:
-                        errors = await self.validator.validate(item)
-                        if not errors:
-                            valid_items.append(item)
-                        else:
-                            invalid_items.append((item, errors))
-                    except Exception as e:
-                        invalid_items.append((item, [str(e)]))
-
-                # Record metrics
-                self.record_metric("total_items", len(data))
-                self.record_metric("valid_items", len(valid_items))
-                self.record_metric("invalid_items", len(invalid_items))
-
-                if invalid_items:
-                    logger.warning(f"Found {len(invalid_items)} invalid quote items")
-                    for item, errors in invalid_items:
-                        logger.warning(f"Invalid quote item: {item.get('item_id')} - {', '.join(errors)}")
-
-                return valid_items
 
         pipeline = Pipeline(name)
         pipeline.add_stage(QuoteItemTransformer())

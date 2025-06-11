@@ -1,0 +1,40 @@
+"C:\Program Files\Python310\python.exe" "C:/Program Files/JetBrains/PyCharm 2025.1.1.1/plugins/python-ce/helpers/pydev/pydevd.py" --multiprocess --qt-support=auto --client 127.0.0.1 --port 62177 --file "F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\pipeline\example.py" 
+Connected to pydev debugger (build 251.26094.141)
+2025-06-11 16:26:57,541 - INFO - [-] - root - Logging configured: level=INFO, json=False, file=None
+2025-06-11 16:26:58,403 - INFO - [-] - __main__ - Saved sample quote to F:\Dustin Drab\CURSOR\PaperlessReporting\data_pipeline_example\sample_quote.json
+2025-06-11 16:26:58,404 - INFO - [-] - __main__ - Example 1: Validating a quote
+2025-06-11 16:26:58,598 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: quote_validation_pipeline
+2025-06-11 16:26:58,598 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: quote_validator (QuoteValidator)
+2025-06-11 16:26:58,601 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: quote_validator in 0.00s
+2025-06-11 16:26:58,601 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: quote_validation_pipeline in 0.00s
+2025-06-11 16:26:58,602 - INFO - [-] - __main__ - Quote validation successful
+2025-06-11 16:26:58,602 - INFO - [-] - __main__ - Validation metrics:
+2025-06-11 16:26:58,602 - INFO - [-] - __main__ -   quote_validator: {'validation_errors': 0, 'has_errors': False, 'validation_passed': True, 'success': True}
+2025-06-11 16:26:58,603 - INFO - [-] - __main__ - 
+Example 2: Transforming a quote
+2025-06-11 16:26:58,797 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: quote_transformation_pipeline
+2025-06-11 16:26:58,797 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: quote_validator (QuoteValidator)
+2025-06-11 16:26:58,799 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: quote_validator in 0.00s
+2025-06-11 16:26:58,799 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: quote_transformer (QuoteTransformer)
+2025-06-11 16:26:58,800 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: quote_transformer in 0.00s
+2025-06-11 16:26:58,800 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: quote_transformation_pipeline in 0.00s
+2025-06-11 16:26:58,800 - INFO - [-] - __main__ - Quote transformation successful
+2025-06-11 16:26:58,800 - INFO - [-] - __main__ - Transformed quote: {'quote_number': 'Q12345', 'revision_number': 1, 'status': 'sent', 'created': '2023-01-01T12:00:00Z', 'due_date': '2023-01-15T12:00:00Z', 'sent_date': '', 'expired_date': '', 'expired': False, 'rfq_number': '', 'priority': '', 'private_notes': '', 'authenticated_pdf_quote_url': '', 'contact_name': 'John Doe', 'contact_email': 'john.doe@example.com', 'customer_name': 'Example Company', 'estimator_email': 'estimator@example.com', 'salesperson_email': 'sales@example.com'}
+2025-06-11 16:26:58,800 - INFO - [-] - __main__ - 
+Example 3: Exporting a quote to CSV
+Traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python\helpers-pro\pydevd_asyncio\pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python\helpers-pro\pydevd_asyncio\pydevd_nest_asyncio.py", line 243, in run_until_complete
+    return f.result()
+  File "C:\Program Files\Python310\lib\asyncio\futures.py", line 201, in result
+    raise self._exception
+  File "C:\Program Files\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\pipeline\example.py", line 130, in process_quote_example
+    csv_pipeline = QuotePipeline.create_csv_export_pipeline(str(csv_path))
+  File "F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\pipeline\orchestrator.py", line 256, in create_csv_export_pipeline
+    pipeline.add_stage(WrapInList())
+TypeError: Can't instantiate abstract class WrapInList with abstract method process_core
+
+Process finished with exit code 1
