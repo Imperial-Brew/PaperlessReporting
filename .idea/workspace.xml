@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="NEW BRANCH - migrating to 'pipeline'">
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/s3_configuration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/testing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/webhook.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logging_and_Error_Handling.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/logging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quote_Created_Fix.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_APP_CHANGES.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_CHANGES.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_PYTEST.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/S3_Configuration_Fix.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/S3_Test_Fix.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/S3_Test_Fix_Update.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/S3_Test_Fix_Update2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Webhook_README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_order_created.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_order_created.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_quote_created.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_quote_created.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_quote_created_fix.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_quote_created_fix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_s3_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_s3_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_webhook.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_webhook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,28 +61,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.pytest in test_s3_config.py.executor": "Run",
-    "Python.pull_accounts_async.executor": "Run",
-    "Python.pull_orders_async.executor": "Run",
-    "Python.pull_quotes_async.executor": "Run",
-    "Python.testing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/data-pipeline",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "F:/Dustin Drab/CURSOR/PaperlessReporting",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.pytest in test_s3_config.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dump_one_quote_order.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_accounts_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_orders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_orders_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_quotes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_quotes_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/data-pipeline&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Dustin Drab/CURSOR/PaperlessReporting&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\utils" />
@@ -128,7 +114,9 @@
       <workItem from="1748561943197" duration="26567000" />
       <workItem from="1748696889991" duration="14895000" />
       <workItem from="1748721760660" duration="10618000" />
-      <workItem from="1748784046224" duration="4434000" />
+      <workItem from="1748784046224" duration="23486000" />
+      <workItem from="1749080521849" duration="37000" />
+      <workItem from="1749300007006" duration="4690000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -466,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748734747152</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="NEW BRANCH - migrating to 'pipeline'">
+      <option name="closed" value="true" />
+      <created>1748875067442</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1748875067442</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,10 +495,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="NEW BRANCH - migrating to 'pipeline'" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/setup_py$pull_quotes.coverage" NAME="pull_quotes Coverage Results" MODIFIED="1748909421264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
     <SUITE FILE_PATH="coverage/setup_py$pull_accounts_async.coverage" NAME="pull_accounts_async Coverage Results" MODIFIED="1748719795278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$pull_quotes_async.coverage" NAME="pull_quotes_async Coverage Results" MODIFIED="1748549667024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$pull_orders.coverage" NAME="pull_orders Coverage Results" MODIFIED="1748909437814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$testing.coverage" NAME="testing Coverage Results" MODIFIED="1748615752910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pull_orders_async.coverage" NAME="pull_orders_async Coverage Results" MODIFIED="1748727213646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pytest_in_test_s3_config_py.coverage" NAME="pytest in test_s3_config.py Coverage Results" MODIFIED="1748703348401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$dump_one_quote_order.coverage" NAME="dump_one_quote_order Coverage Results" MODIFIED="1748910762642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
   </component>
 </project>
