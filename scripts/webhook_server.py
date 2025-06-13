@@ -27,10 +27,9 @@ class WebhookServer:
     def __init__(self, webhook_secret=None, app=None):
         """Initialize the webhook server with the given secret."""
         self.app = app
-        self.webhook_secret = webhook_secret or os.getenv(
-            "WEBHOOK_SECRET",
-            get("webhook_secret", "supersecret")
-        )
+        self.webhook_secret = webhook_secret or os.getenv("WEBHOOK_SECRET")
+        if not self.webhook_secret:
+            raise ValueError("Webhook secret not provided. Set WEBHOOK_SECRET environment variable.")
 
         # Event handlers
         if self.app:
@@ -125,7 +124,7 @@ class WebhookServer:
         # If not authenticated by either method, raise exception
         if not is_authenticated:
             details = {
-                "received_token": token[:4] + "..." if token else None,
+                "has_token": bool(token),
                 "has_signature": bool(signature)
             }
             raise WebhookAuthenticationError("Invalid webhook authentication", details=details)
@@ -237,7 +236,7 @@ API_TOKEN = os.getenv(
 )
 WEBHOOK_SECRET = os.getenv(
     "WEBHOOK_SECRET",
-    get("webhook_secret", "supersecret")
+    get("webhook_secret")
 )
 # Use platform-independent paths relative to project root
 from pathlib import Path
@@ -325,8 +324,8 @@ except Exception as e:
     logger.info(f"Falling back to current directory for CSV files: {CSV_FILE} and {ORDERS_CSV_FILE}")
 
 logger.info("=== Webhook Server Starting ===")
-logger.info(f"Webhook Secret: {WEBHOOK_SECRET[:4]}...")
-logger.info(f"API Token: {API_TOKEN[:4]}...")
+logger.info("Webhook Secret: [REDACTED]")
+logger.info("API Token: [REDACTED]")
 logger.info(f"API Base URL: {get('api_base_url', 'Not Set')}")
 logger.info("=============================")
 

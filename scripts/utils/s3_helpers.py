@@ -54,12 +54,12 @@ else:
 
 # Log credential information (safely)
 if _aws_access_key:
-    logger.info(f"Using AWS access key: {_aws_access_key[:4]}{'*' * 16}")
+    logger.info("Using AWS access key: [REDACTED]")
 else:
     logger.warning("AWS access key not found in environment variables or config")
 
 if _aws_secret_key:
-    logger.info(f"Using AWS secret key: {'*' * 20}")
+    logger.info("Using AWS secret key: [REDACTED]")
 else:
     logger.warning("AWS secret key not found in environment variables or config")
 
@@ -102,7 +102,7 @@ def upload_to_s3(local_path: str) -> bool:
         error_code = e.response.get('Error', {}).get('Code', 'Unknown')
         if error_code == 'InvalidAccessKeyId':
             logger.error(f"✘ Failed to upload {local_path}: Invalid AWS Access Key ID. Please check your AWS credentials.")
-            logger.error(f"  Current Access Key ID: {_aws_access_key[:4]}{'*' * 16 if _aws_access_key else 'Not Set'}")
+            logger.error(f"  Current Access Key ID: {'[REDACTED]' if _aws_access_key else 'Not Set'}")
             logger.error(f"  Bucket: {_bucket}")
             logger.error(f"  Error details: {e}")
         elif error_code == 'NoSuchBucket':
@@ -114,7 +114,7 @@ def upload_to_s3(local_path: str) -> bool:
         return False
     except Exception as e:
         logger.error(f"✘ Unexpected error uploading {local_path}: {e}")
-        logger.error(f"  AWS Access Key ID: {_aws_access_key[:4]}{'*' * 16 if _aws_access_key else 'Not Set'}")
+        logger.error(f"  AWS Access Key ID: {'[REDACTED]' if _aws_access_key else 'Not Set'}")
         logger.error(f"  Bucket: {_bucket}")
         logger.error(f"  Region: {_region}")
         return False

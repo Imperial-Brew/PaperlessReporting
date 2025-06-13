@@ -30,6 +30,8 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 
 - Environment variables are used for sensitive credentials (API keys, AWS credentials)
 - Copy `.env.example` to `.env` and fill in your values
+  - **IMPORTANT**: Never commit your `.env` file to version control
+  - Always use environment variables for sensitive information, not hardcoded values
 - `config.json` is used for non-sensitive configuration
 - CI relies on Python 3.9+, pytest for tests, flake8 for linting
 
@@ -97,6 +99,71 @@ The project includes a comprehensive test suite:
   - Tests for webhook event handling
 
 See [Testing Documentation](docs/testing.md) for more details.
+
+## Security
+
+This project handles sensitive information such as API keys and AWS credentials. Following these security best practices is essential:
+
+### Credential Management
+
+- **Environment Variables**: All sensitive credentials should be stored in environment variables
+  - Use the `.env` file for local development only
+  - In production, set environment variables through your hosting platform
+  - Never hardcode credentials in source code
+
+- **Secrets Rotation**:
+  - Regularly rotate API keys, AWS credentials, and webhook secrets
+  - Update your `.env` file and environment variables after rotation
+
+- **Least Privilege Principle**:
+  - Use AWS IAM roles with minimal permissions required for the application
+  - Create API tokens with only the necessary scopes and permissions
+
+### Secure Development Practices
+
+- **Code Reviews**:
+  - Always review code for hardcoded credentials before merging
+  - Use the pre-commit hooks to catch accidental credential commits
+
+- **Dependency Management**:
+  - Regularly update dependencies to patch security vulnerabilities
+  - Use `pip-audit` or similar tools to check for vulnerable dependencies
+
+### Pre-commit Hooks
+
+The repository includes pre-commit hooks to prevent accidentally committing sensitive information:
+
+1. **Installation**:
+   ```bash
+   pip install pre-commit
+   pre-commit install
+   ```
+
+2. **Available Hooks**:
+   - `detect-secrets`: Scans for potential secrets in code
+   - `no-commit-to-branch`: Prevents direct commits to main/master
+   - `check-added-large-files`: Prevents committing large files
+   - `check-merge-conflict`: Checks for merge conflict strings
+
+3. **Manual Check**:
+   ```bash
+   pre-commit run --all-files
+   ```
+
+### .env File Security
+
+- **Template**: Use `.env.example` as a template with placeholder values
+- **Gitignore**: The `.env` file is included in `.gitignore` to prevent accidental commits
+- **Local Storage**: Keep your `.env` file secure on your local machine
+- **Sharing**: Never share your `.env` file with others; each developer should create their own
+
+### S3 Security
+
+- **Bucket Policies**: Ensure S3 buckets have appropriate access policies
+- **Encryption**: Enable server-side encryption for S3 buckets
+- **Access Logging**: Enable access logging for S3 buckets to track usage
+
+See [Security Documentation](docs/security.md) for more detailed information.
 
 ## Data Processing Pipeline Framework
 

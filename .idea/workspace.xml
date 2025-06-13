@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Refactor and streamline data pipeline:  &#10;- Remove deprecated scripts (`dump_one_quote_order.py`, `testing.py`)  &#10;- Introduce reusable `EntityPuller` base class for API data fetching  &#10;- Enhance configuration handling with environment variable support (`config_loader.py`)  &#10;- Add validation utilities (`validation.py`)  &#10;- Update async pullers (`pull_contacts_async.py`, `pull_accounts_async.py`) to use `EntityPuller`  &#10;- Simplify parallel processing demo with modular components">
-      <change afterPath="$PROJECT_DIR$/scripts/Examples/client_example.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/context_registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/context_usage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/order_orchestrator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/order_pipeline_findings.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/parallel_order_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/pipeline_testing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/test_context_sharing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/test_order_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/test_parallel_order_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/utils/paperless_client.py" afterDir="false" />
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Add `PipelineBuilder` with fluent interface and examples; restructure pipelines and document order processing.&#10;&#10;- Introduced `PipelineBuilder` for streamlined pipeline creation using fluent interface.&#10;- Added usage examples (`builder_example.py`) and comprehensive order pipeline documentation (`order_pipeline_review.md`).&#10;- Implemented order and order item processors with validation and transformation capabilities (`order_processors.py`).&#10;- Archived deprecated `dump_one_quote_order.py`.">
+      <change afterPath="$PROJECT_DIR$/.pre-commit-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.secrets.baseline" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/security.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pull_quotes_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_quotes_async.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/entity_puller.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/entity_puller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/Deprecated/Scripts/dump_one_quote_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/webhook_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/webhook_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +127,7 @@
       <workItem from="1749080521849" duration="37000" />
       <workItem from="1749300007006" duration="4690000" />
       <workItem from="1749673601392" duration="1501000" />
-      <workItem from="1749676338579" duration="43250000" />
+      <workItem from="1749676338579" duration="47155000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -523,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749845675424</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Add `PipelineBuilder` with fluent interface and examples; restructure pipelines and document order processing.&#10;&#10;- Introduced `PipelineBuilder` for streamlined pipeline creation using fluent interface.&#10;- Added usage examples (`builder_example.py`) and comprehensive order pipeline documentation (`order_pipeline_review.md`).&#10;- Implemented order and order item processors with validation and transformation capabilities (`order_processors.py`).&#10;- Archived deprecated `dump_one_quote_order.py`.">
+      <option name="closed" value="true" />
+      <created>1749852266193</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1749852266193</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +556,8 @@
     <MESSAGE value="bug-removal-1" />
     <MESSAGE value="Add account and contact processing pipelines with validation, transformation, and acquisition stages. Fix import paths." />
     <MESSAGE value="Refactor and streamline data pipeline:  &#10;- Remove deprecated scripts (`dump_one_quote_order.py`, `testing.py`)  &#10;- Introduce reusable `EntityPuller` base class for API data fetching  &#10;- Enhance configuration handling with environment variable support (`config_loader.py`)  &#10;- Add validation utilities (`validation.py`)  &#10;- Update async pullers (`pull_contacts_async.py`, `pull_accounts_async.py`) to use `EntityPuller`  &#10;- Simplify parallel processing demo with modular components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and streamline data pipeline:  &#10;- Remove deprecated scripts (`dump_one_quote_order.py`, `testing.py`)  &#10;- Introduce reusable `EntityPuller` base class for API data fetching  &#10;- Enhance configuration handling with environment variable support (`config_loader.py`)  &#10;- Add validation utilities (`validation.py`)  &#10;- Update async pullers (`pull_contacts_async.py`, `pull_accounts_async.py`) to use `EntityPuller`  &#10;- Simplify parallel processing demo with modular components" />
+    <MESSAGE value="Add `PipelineBuilder` with fluent interface and examples; restructure pipelines and document order processing.&#10;&#10;- Introduced `PipelineBuilder` for streamlined pipeline creation using fluent interface.&#10;- Added usage examples (`builder_example.py`) and comprehensive order pipeline documentation (`order_pipeline_review.md`).&#10;- Implemented order and order item processors with validation and transformation capabilities (`order_processors.py`).&#10;- Archived deprecated `dump_one_quote_order.py`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add `PipelineBuilder` with fluent interface and examples; restructure pipelines and document order processing.&#10;&#10;- Introduced `PipelineBuilder` for streamlined pipeline creation using fluent interface.&#10;- Added usage examples (`builder_example.py`) and comprehensive order pipeline documentation (`order_pipeline_review.md`).&#10;- Implemented order and order item processors with validation and transformation capabilities (`order_processors.py`).&#10;- Archived deprecated `dump_one_quote_order.py`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

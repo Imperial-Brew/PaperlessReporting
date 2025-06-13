@@ -1,0 +1,63 @@
+# Pre-commit configuration for PaperlessReporting
+# This file configures pre-commit hooks to prevent committing sensitive data
+# and enforce code quality standards.
+#
+# To install pre-commit:
+#   pip install pre-commit
+#   pre-commit install
+#
+# To run manually:
+#   pre-commit run --all-files
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+        args: ['--maxkb=500']
+    -   id: check-merge-conflict
+    -   id: no-commit-to-branch
+        args: ['--branch', 'main', '--branch', 'master']
+    -   id: check-case-conflict
+    -   id: mixed-line-ending
+        args: ['--fix=lf']
+
+-   repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+    -   id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: .env.example|README.md|docs/.*\.md
+
+-   repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+    -   id: flake8
+        additional_dependencies: [flake8-docstrings]
+        args: ['--max-line-length=100', '--ignore=E203,W503,D100,D104']
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+        args: ['--profile', 'black', '--line-length=100']
+
+-   repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+    -   id: python-check-blanket-noqa
+    -   id: python-no-eval
+    -   id: python-no-log-warn
+    -   id: python-use-type-annotations
+
+# Custom hook to check for .env files
+-   repo: local
+    hooks:
+    -   id: check-env-files
+        name: Check for .env files
+        entry: bash -c 'if [ -f .env ]; then echo ".env file detected. Do not commit .env files!"; exit 1; fi'
+        language: system
+        pass_filenames: false

@@ -14,3 +14,9 @@ boto3>=1.28.0
 # Optional dependencies
 # Uncomment the following line to enable test coverage reporting
 # pytest-cov>=4.1.0
+
+# Development dependencies
+pre-commit>=3.3.0
+detect-secrets>=1.4.0
+flake8>=6.0.0
+isort>=5.12.0
