@@ -84,20 +84,26 @@ class RealDataPipeline:
         # Add acquisition stage (incremental or regular)
         if incremental and INCREMENTAL_AVAILABLE:
             logger.info("Using incremental processing")
-            pipeline.add_stage(IncrementalDataAcquisitionStage(
+            acquisition_stage = IncrementalDataAcquisitionStage(
                 start_id=start_id,
                 end_id=end_id,
                 include_revisions=include_revisions,
                 state_file=state_file
-            ))
+            )
+            # Configure a longer timeout for API requests
+            acquisition_stage.configure_timeout(timeout=120.0)
+            pipeline.add_stage(acquisition_stage)
         else:
             if incremental and not INCREMENTAL_AVAILABLE:
                 logger.warning("Incremental processing requested but not available. Using regular processing.")
-            pipeline.add_stage(PaperlessPartsDataAcquisitionStage(
+            acquisition_stage = PaperlessPartsDataAcquisitionStage(
                 start_id=start_id,
                 end_id=end_id,
                 include_revisions=include_revisions
-            ))
+            )
+            # Configure a longer timeout for API requests
+            acquisition_stage.configure_timeout(timeout=120.0)
+            pipeline.add_stage(acquisition_stage)
 
         # Add validation stage with batch processing
         pipeline.add_stage(BatchProcessor(QuoteValidator()))

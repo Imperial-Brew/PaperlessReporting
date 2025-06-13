@@ -28,14 +28,22 @@ The pipeline framework is built around the following components:
    - `Pipeline`: Generic pipeline that can process any type of data
    - `QuotePipeline`: Factory for creating quote processing pipelines
    - `QuoteItemPipeline`: Factory for creating quote item processing pipelines
+   - `AccountPipeline`: Factory for creating account processing pipelines
+   - `ContactPipeline`: Factory for creating contact processing pipelines
 
 3. **Validators**: Implementations of validation stages for different data types:
    - `QuoteValidator`: Validates quote data
    - `QuoteItemValidator`: Validates quote item data
+   - `AccountValidator`: Validates account data
+   - `ContactValidator`: Validates contact data
 
 4. **Processors**: Implementations of transformation and loading stages:
    - `QuoteTransformer`: Transforms quote data
    - `QuoteItemTransformer`: Extracts and transforms quote items
+   - `AccountTransformer`: Transforms account data
+   - `ContactTransformer`: Transforms contact data
+   - `AccountsDataAcquisitionStage`: Fetches account data from the API
+   - `ContactsDataAcquisitionStage`: Fetches contact data from the API
    - `CSVLoader`: Loads data to CSV files
    - `JSONLoader`: Loads data to JSON files
 
@@ -50,20 +58,35 @@ The pipeline framework is built around the following components:
 
 ### Creating a Pipeline
 
-You can create a pipeline using the factory methods provided by `QuotePipeline` and `QuoteItemPipeline`:
+You can create a pipeline using the factory methods provided by the pipeline classes:
 
 ```python
 from scripts.pipeline.orchestrator import QuotePipeline
+from scripts.pipeline.account_contact_orchestrator import AccountPipeline, ContactPipeline
 
-# Create a pipeline for validating quotes
-validation_pipeline = QuotePipeline.create_validation_pipeline()
+# Create pipelines for quotes
+quote_validation_pipeline = QuotePipeline.create_validation_pipeline()
+quote_transformation_pipeline = QuotePipeline.create_transformation_pipeline()
+quote_csv_pipeline = QuotePipeline.create_csv_export_pipeline("quotes.csv")
 
-# Create a pipeline for transforming quotes
-transformation_pipeline = QuotePipeline.create_transformation_pipeline()
+# Create pipelines for accounts
+account_validation_pipeline = AccountPipeline.create_validation_pipeline()
+account_transformation_pipeline = AccountPipeline.create_transformation_pipeline()
+account_csv_pipeline = AccountPipeline.create_csv_export_pipeline("accounts.csv")
+account_acquisition_pipeline = AccountPipeline.create_acquisition_pipeline(
+    output_path="accounts.csv"
+)
 
-# Create a pipeline for exporting quotes to CSV
-csv_pipeline = QuotePipeline.create_csv_export_pipeline("output.csv")
+# Create pipelines for contacts
+contact_validation_pipeline = ContactPipeline.create_validation_pipeline()
+contact_transformation_pipeline = ContactPipeline.create_transformation_pipeline()
+contact_csv_pipeline = ContactPipeline.create_csv_export_pipeline("contacts.csv")
+contact_acquisition_pipeline = ContactPipeline.create_acquisition_pipeline(
+    output_path="contacts.csv"
+)
 ```
+
+> **Note**: The account and contact acquisition pipelines always perform a full pull of all accounts and contacts to ensure we catch any updates. Accounts and contacts are much smaller replies from the API, so we don't need to batch them.
 
 Or you can create a custom pipeline by adding stages manually:
 
@@ -91,7 +114,7 @@ async def process_quote(quote_data):
         # Run the pipeline
         result = await pipeline.run(quote_data)
         print("Pipeline completed successfully")
-        
+
         # Get pipeline metrics
         metrics = pipeline.get_metrics()
         print(f"Pipeline duration: {metrics['duration']:.2f}s")
@@ -112,7 +135,7 @@ try:
 except PipelineError as e:
     print(f"Pipeline error: {e.message}")
     print(f"Error details: {e.details}")
-    
+
     # Get error information from metrics
     for error in pipeline.get_metrics().get("errors", []):
         print(f"  {error['stage_name']}: {error['error_message']}")

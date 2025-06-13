@@ -146,7 +146,7 @@ class QuoteItemTransformer(TransformationStage[Dict[str, Any], List[Dict[str, An
 
                 # Create base row with common fields
                 base_item = {
-                    "quote_number": quote_number,
+                    "quote_number": str(quote_number),  # Convert to string
                     "quote_revision": revision_number,
                     "item_id": item.get("id", ""),
                     "workflow_status": item.get("workflow_status", ""),
@@ -171,11 +171,22 @@ class QuoteItemTransformer(TransformationStage[Dict[str, Any], List[Dict[str, An
                 if quantities:
                     for q in quantities:
                         item_with_quantity = base_item.copy()
+                        # Convert numeric fields to appropriate types
+                        try:
+                            unit_price = float(q.get("unit_price", 0))
+                            total_price = float(q.get("total_price", 0))
+                            total_price_with_add_ons = float(q.get("total_price_with_required_add_ons", 0))
+                        except (ValueError, TypeError):
+                            # If conversion fails, use default values
+                            unit_price = 0.0
+                            total_price = 0.0
+                            total_price_with_add_ons = 0.0
+
                         item_with_quantity.update({
                             "quantity": q.get("quantity", 0),
-                            "unit_price": q.get("unit_price", 0),
-                            "total_price": q.get("total_price", 0),
-                            "total_price_with_add_ons": q.get("total_price_with_required_add_ons", 0),
+                            "unit_price": unit_price,
+                            "total_price": total_price,
+                            "total_price_with_add_ons": total_price_with_add_ons,
                             "lead_time": q.get("lead_time", "")
                         })
                         quote_items.append(item_with_quantity)
@@ -363,9 +374,6 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
     async def acquire(self) -> List[Dict[str, Any]]:
         """
         Fetch quotes from the Paperless Parts API.
-
-        Args:
-            _: Not used (None)
 
         Returns:
             List of quote dictionaries

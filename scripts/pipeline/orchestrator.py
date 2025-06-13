@@ -37,6 +37,23 @@ class WrapInList(TransformationStage[Dict[str, Any], List[Dict[str, Any]]]):
     async def transform(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
         return [data]
 
+    async def process_core(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Transform the input data and return the result.
+
+        Args:
+            data: Input data to transform
+
+        Returns:
+            Transformed output data
+        """
+        result = await self.transform(data)
+
+        # Record metrics
+        self.record_metric("transformation_completed", True)
+
+        return result
+
 
 class ValidateQuoteItems(ValidationStage[List[Dict[str, Any]]]):
     """
@@ -75,6 +92,29 @@ class ValidateQuoteItems(ValidationStage[List[Dict[str, Any]]]):
                 logger.warning(f"Invalid quote item: {item.get('item_id')} - {', '.join(item_errors)}")
 
         return errors
+
+    async def process_core(self, data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Validate the input data and return it if valid.
+
+        Args:
+            data: Input data to validate
+
+        Returns:
+            The input data if valid
+
+        Raises:
+            ValidationError: If the data is invalid
+        """
+        errors = await self.validate(data)
+        if errors:
+            from scripts.pipeline.exceptions import ValidationError
+            raise ValidationError(f"Validation failed: {', '.join(errors)}", errors=errors, data=data)
+
+        # Record metrics
+        self.record_metric("validation_passed", True)
+
+        return data
 
 
 class Pipeline(Generic[T, U]):

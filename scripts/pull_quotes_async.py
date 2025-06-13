@@ -17,10 +17,10 @@ from typing import Dict, Any, Optional, List, Tuple
 
 import aiohttp
 
-from utils.async_puller import AsyncPuller
-from utils.utils import safe_get
-from utils.logging_config import configure_logging, get_logger, with_correlation_id, LogContext
-from utils.exceptions import (
+from scripts.utils.async_puller import AsyncPuller
+from scripts.utils.utils import safe_get
+from scripts.utils.logging_config import configure_logging, get_logger, with_correlation_id, LogContext
+from scripts.utils.exceptions import (
     APIError, RateLimitError, DataProcessingError, PaperlessError
 )
 
@@ -93,7 +93,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
 
                 # Create base row with common fields
                 base_row = {
-                    "quote_number": quote_number,
+                    "quote_number": str(quote_number),  # Convert to string
                     "quote_revision": self.current_revision,  # Will be None for regular quotes
                     "item_id": item.get("id"),
                     "workflow_status": item.get("workflow_status"),
@@ -113,11 +113,22 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
                 if quantities:
                     for q in quantities:
                         row = base_row.copy()
+                        # Convert numeric fields to appropriate types
+                        try:
+                            unit_price = float(q.get("unit_price", 0))
+                            total_price = float(q.get("total_price", 0))
+                            total_price_with_add_ons = float(q.get("total_price_with_required_add_ons", 0))
+                        except (ValueError, TypeError):
+                            # If conversion fails, use default values
+                            unit_price = 0.0
+                            total_price = 0.0
+                            total_price_with_add_ons = 0.0
+
                         row.update({
                             "quantity": q.get("quantity"),
-                            "unit_price": q.get("unit_price"),
-                            "total_price": q.get("total_price"),
-                            "total_price_with_add_ons": q.get("total_price_with_required_add_ons"),
+                            "unit_price": unit_price,
+                            "total_price": total_price,
+                            "total_price_with_add_ons": total_price_with_add_ons,
                             "lead_time": q.get("lead_time")
                         })
                         self.quote_items.append(row)
