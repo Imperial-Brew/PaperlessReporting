@@ -5,6 +5,37 @@ All notable changes to the PaperlessReporting project will be documented in this
 ## [Unreleased]
 
 ### Added
+- Parallel processing capabilities to the pipeline framework
+  - Enhanced `BatchProcessor` to support true parallel processing using asyncio
+  - Added `ParallelStage` for running multiple stages concurrently
+  - Added example script `scripts/pipeline/parallel_example.py` to demonstrate parallel processing
+- Pipeline builder pattern for simplified pipeline creation
+  - Added `PipelineBuilder` class with fluent interface for creating pipelines
+  - Added type-safe methods for adding different types of stages
+  - Added support for configuring timeouts, retries, and circuit breakers
+  - Added example script `scripts/pipeline/builder_example.py` to demonstrate the builder pattern
+- Dedicated API client for Paperless Parts
+  - Created `PaperlessPartsClient` class to encapsulate all API interactions
+  - Centralized endpoint URLs as constants within the client
+  - Added specialized methods for common endpoints (accounts, contacts, quotes, orders)
+  - Added example script `scripts/Examples/client_example.py` to demonstrate the client
+- Validation utilities for common data formats
+  - Added `scripts/utils/validation.py` with functions for validating emails, phone numbers, etc.
+
+### Changed
+- Improved credential management
+  - Removed hardcoded API keys and AWS credentials from config.json
+  - Updated config_loader.py to load credentials from environment variables
+  - Added documentation on credential management
+- Consolidated duplicate code in pull scripts
+  - Created `EntityPuller` base class for common functionality
+  - Refactored `AccountsPuller` and `ContactsPuller` to extend `EntityPuller`
+  - Standardized error handling and logging
+- Updated README.md with documentation for new features
+  - Added sections for parallel processing, pipeline builder, and API client
+  - Added examples for each new feature
+
+### Fixed
 - Consolidated documentation into a single README.md and specialized docs in the docs/ directory
 - Created CHANGELOG.md to track all changes
 - Moved all test files to the tests/ directory

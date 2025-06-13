@@ -55,6 +55,100 @@ class WrapInList(TransformationStage[Dict[str, Any], List[Dict[str, Any]]]):
         return result
 
 
+class ContextExtractor(TransformationStage[Any, Any]):
+    """
+    Transformation stage that extracts data from the context.
+
+    This stage is used to extract data that was stored in the context
+    by previous stages, allowing pipelines to share data.
+
+    Examples:
+        # Extract order items from context with no default
+        pipeline.add_stage(ContextExtractor("order_items"))
+
+        # Extract order items with an empty list as default
+        pipeline.add_stage(ContextExtractor("order_items", default=[]))
+
+        # Extract a specific value with custom error handling
+        pipeline.add_stage(ContextExtractor(
+            "customer_id", 
+            default=None,
+            raise_if_missing=False
+        ))
+    """
+    def __init__(self, context_key: str, default: Any = None, 
+                 raise_if_missing: bool = True, name: str = None):
+        """
+        Initialize the context extractor.
+
+        Args:
+            context_key: Key to extract from the context
+            default: Default value to return if the key doesn't exist
+            raise_if_missing: Whether to raise an error if the key doesn't exist
+            name: Name of the stage (defaults to "context_extractor_{context_key}")
+        """
+        if name is None:
+            name = f"context_extractor_{context_key}"
+        super().__init__(name)
+        self.context_key = context_key
+        self.default = default
+        self.raise_if_missing = raise_if_missing
+
+    async def transform(self, _: Any) -> Any:
+        """
+        Extract data from the context.
+
+        Args:
+            _: Input data (ignored)
+
+        Returns:
+            Data extracted from the context or the default value
+
+        Raises:
+            KeyError: If the context key does not exist and raise_if_missing is True
+        """
+        # Check if we should use the global context registry
+        from scripts.pipeline.context_registry import get_global_context
+
+        # First try to get from local context
+        if hasattr(self, "_context") and self.context_key in self._context:
+            data = self.get_context(self.context_key)
+            self.record_metric("context_source", "local")
+        else:
+            # Try to get from global context registry using pipeline name as namespace
+            try:
+                pipeline_name = self.get_context("pipeline_name", "default")
+                data = get_global_context(pipeline_name, self.context_key, None)
+                if data is not None:  # Found in global context
+                    self.record_metric("context_source", "global")
+                else:
+                    # Not found in either local or global context
+                    if self.raise_if_missing and self.default is None:
+                        pipeline_info = f" in pipeline '{pipeline_name}'" if pipeline_name else ""
+                        raise KeyError(
+                            f"Context key '{self.context_key}' not found in local context or "
+                            f"global registry{pipeline_info}. Available keys in local context: "
+                            f"{list(self._context.keys() if hasattr(self, '_context') else [])}"
+                        )
+                    self.record_metric("context_source", "default")
+                    data = self.default
+            except ImportError:
+                # Global context registry not available
+                if self.raise_if_missing and self.default is None and (not hasattr(self, "_context") or self.context_key not in self._context):
+                    raise KeyError(
+                        f"Context key '{self.context_key}' not found. Available keys: "
+                        f"{list(self._context.keys() if hasattr(self, '_context') else [])}"
+                    )
+                data = self.get_context(self.context_key, self.default)
+                self.record_metric("context_source", "default")
+
+        self.record_metric("context_key", self.context_key)
+        self.record_metric("data_extracted", True)
+        self.record_metric("using_default", data is self.default)
+
+        return data
+
+
 class ValidateQuoteItems(ValidationStage[List[Dict[str, Any]]]):
     """
     Validation stage that validates each quote item in a list.
@@ -183,12 +277,21 @@ class Pipeline(Generic[T, U]):
                 "errors": [],
             }
 
+            # Initialize shared context
+            shared_context = {"pipeline_name": self.name}
+
             # Process data through each stage
             current_data = data
 
             for i, stage in enumerate(self.stages):
                 stage_name = stage.name
                 stage_type = stage.__class__.__name__
+
+                # Set pipeline name in stage context
+                stage.set_context("pipeline_name", self.name)
+
+                # Update stage context with shared context
+                stage.update_context(shared_context)
 
                 # Add stage context to logs
                 with LogContext(stage=stage_name, stage_type=stage_type, stage_index=i):
@@ -199,6 +302,9 @@ class Pipeline(Generic[T, U]):
                         stage_start_time = time.time()
                         current_data = await stage.process(current_data)
                         stage_end_time = time.time()
+
+                        # Update shared context with stage context
+                        shared_context.update(stage.get_full_context())
 
                         # Record stage metrics
                         stage_duration = stage_end_time - stage_start_time

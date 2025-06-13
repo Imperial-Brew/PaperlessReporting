@@ -13,7 +13,7 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 
 ## Key Scripts
 
-- `scripts/pull_quotes.py`, `pull_orders.py`, `pull_quote_items.py`  
+- `scripts/pull_quotes.py`, `pull_orders.py`, `pull_quote_items.py`, `pull_contacts_async.py`  
   → each uses the same API-Token header, paginates/rate-limits, writes CSVs under `data_raw/`
 - `scripts/utils/merge_*.py`  
   → read all `*_*.csv` in `data_raw/…`, drop duplicates, output a single `data_cleaned/*.csv`
@@ -321,6 +321,62 @@ enrichment_result = results["enrichment"]
 For a complete example of parallel processing, see [scripts/pipeline/parallel_example.py](scripts/pipeline/parallel_example.py).
 
 See [Pipeline Framework Documentation](scripts/pipeline/README.md) for more details.
+
+## API Client
+
+The project includes a dedicated client for interacting with the Paperless Parts API:
+
+### PaperlessPartsClient
+
+The `PaperlessPartsClient` class encapsulates all API interactions, providing a clean and consistent interface for making requests to the Paperless Parts API.
+
+#### Features
+
+- **Authentication**: Automatically handles API token authentication
+- **Rate Limiting**: Built-in rate limiting using the token bucket algorithm
+- **Pagination**: Handles paginated responses automatically
+- **Error Handling**: Comprehensive error handling with retries and exponential backoff
+- **Timeout Handling**: Configurable timeouts for API requests
+- **Specialized Methods**: Dedicated methods for common endpoints (accounts, contacts, quotes, orders)
+- **Centralized Endpoints**: All API endpoint URLs are defined as constants within the client class
+
+#### Example Usage
+
+```python
+from scripts.utils.paperless_client import PaperlessPartsClient
+
+async def fetch_data():
+    # Create a client with default settings
+    client = PaperlessPartsClient()
+
+    # Fetch all accounts
+    accounts = await client.get_accounts()
+    print(f"Retrieved {len(accounts)} accounts")
+
+    # Fetch a single account by ID
+    account = await client.get_account(12345)
+
+    # Fetch all contacts
+    contacts = await client.get_contacts()
+
+    # Fetch quotes within a specific ID range
+    quotes = await client.get_quotes(start_id=7500, end_id=7550)
+
+    # Fetch items for a specific quote
+    quote_items = await client.get_quote_items(7500)
+
+    # Fetch a quote with a specific revision
+    quote_with_revision = await client.get_quote_with_revision(7500, 2)
+
+    # Fetch all quote revisions
+    quote_revisions = await client.get_quote_revisions()
+```
+
+For a complete example, see [scripts/Examples/client_example.py](scripts/Examples/client_example.py).
+
+### Integration with EntityPuller
+
+The `EntityPuller` class has been updated to use the `PaperlessPartsClient` internally, providing backward compatibility while leveraging the improved API client. This ensures that all API interactions use the same authentication, rate limiting, and endpoint URL handling.
 
 ## License
 

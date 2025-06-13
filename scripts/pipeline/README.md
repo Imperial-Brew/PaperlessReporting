@@ -10,9 +10,15 @@ The pipeline framework provides a structured approach to data processing with th
 - **Type Safety**: Generic type parameters ensure type safety between pipeline stages.
 - **Validation**: Built-in validation stages for different data types.
 - **Transformation**: Stages for transforming data between different formats.
-- **Loading**: Stages for loading data into different destinations (CSV, JSON, etc.).
+- **Loading**: Stages for loading data into different destinations (CSV, JSON, S3, etc.).
 - **Monitoring**: Metrics collection for each stage and the overall pipeline.
 - **Error Handling**: Comprehensive error handling with detailed error information.
+- **Parallel Processing**: Support for processing data in parallel using asyncio:
+  - **BatchProcessor**: Process batches of items in parallel with configurable concurrency
+  - **ParallelStage**: Run multiple stages concurrently and combine their results
+- **Pipeline Builder**: Simplified pipeline creation with a fluent interface.
+- **S3 Integration**: Support for uploading data to AWS S3.
+- **Incremental Processing**: Support for processing only new or changed data.
 
 ## Architecture
 
@@ -23,6 +29,8 @@ The pipeline framework is built around the following components:
    - `ValidationStage`: Validates data against rules
    - `TransformationStage`: Transforms data between formats
    - `LoadingStage`: Loads data into destinations
+   - `BatchProcessor`: Processes batches of items in parallel
+   - `ParallelStage`: Runs multiple stages concurrently
 
 2. **Pipeline Orchestrator**: Connects stages and executes them in sequence:
    - `Pipeline`: Generic pipeline that can process any type of data
@@ -31,23 +39,32 @@ The pipeline framework is built around the following components:
    - `AccountPipeline`: Factory for creating account processing pipelines
    - `ContactPipeline`: Factory for creating contact processing pipelines
 
-3. **Validators**: Implementations of validation stages for different data types:
+3. **Pipeline Builder**: Simplifies pipeline creation with a fluent interface:
+   - `PipelineBuilder`: Builder for creating pipelines with method chaining
+   - Provides type-safe methods for adding different types of stages
+   - Supports configuration of timeouts, retries, and circuit breakers
+
+4. **Validators**: Implementations of validation stages for different data types:
    - `QuoteValidator`: Validates quote data
    - `QuoteItemValidator`: Validates quote item data
    - `AccountValidator`: Validates account data
    - `ContactValidator`: Validates contact data
 
-4. **Processors**: Implementations of transformation and loading stages:
+5. **Processors**: Implementations of transformation and loading stages:
    - `QuoteTransformer`: Transforms quote data
    - `QuoteItemTransformer`: Extracts and transforms quote items
    - `AccountTransformer`: Transforms account data
    - `ContactTransformer`: Transforms contact data
    - `AccountsDataAcquisitionStage`: Fetches account data from the API
    - `ContactsDataAcquisitionStage`: Fetches contact data from the API
+   - `NewContactsDataAcquisitionStage`: Fetches contact data using the new async API
    - `CSVLoader`: Loads data to CSV files
    - `JSONLoader`: Loads data to JSON files
+   - `S3Loader`: Loads data to AWS S3
+   - `BatchProcessor`: Processes batches of items in parallel
+   - `ParallelStage`: Runs multiple stages concurrently
 
-5. **Exceptions**: Custom exceptions for different types of errors:
+6. **Exceptions**: Custom exceptions for different types of errors:
    - `PipelineError`: Base exception for all pipeline errors
    - `ValidationError`: For validation failures
    - `TransformationError`: For transformation failures
@@ -57,6 +74,47 @@ The pipeline framework is built around the following components:
 ## Usage
 
 ### Creating a Pipeline
+
+#### Using the PipelineBuilder (Recommended)
+
+The PipelineBuilder class implements the builder pattern for creating pipelines with a fluent interface. It simplifies the process of creating pipelines by providing methods for adding different types of stages and ensuring type safety between stages.
+
+```python
+from scripts.pipeline.builder import PipelineBuilder
+from scripts.pipeline.account_contact_processors import (
+    AccountsDataAcquisitionStage, AccountValidator, AccountTransformer
+)
+from scripts.pipeline.processors import CSVLoader
+
+# Create a pipeline using the builder pattern
+pipeline = (PipelineBuilder("account_pipeline")
+           .add_acquisition(AccountsDataAcquisitionStage())
+           .add_batch_processor(AccountValidator())
+           .add_batch_processor(AccountTransformer())
+           .add_loading(CSVLoader("data_real/accounts.csv"))
+           .build())
+
+# Configure a longer timeout for the acquisition stage
+pipeline.stages[0].configure_timeout(timeout=1200.0)
+
+# Run the pipeline
+await pipeline.run(None)  # No input needed for acquisition stage
+```
+
+The builder provides methods for adding different types of stages:
+- `add_acquisition`: Add a data acquisition stage
+- `add_validation`: Add a validation stage
+- `add_transformation`: Add a transformation stage
+- `add_loading`: Add a loading stage
+- `add_batch_processor`: Add a batch processor stage
+- `add_stage`: Add any type of stage (low-level method)
+
+It also provides methods for configuring stages:
+- `configure_timeout`: Configure the timeout for a specific stage
+- `configure_retry`: Configure retry behavior for a specific stage
+- `configure_circuit_breaker`: Configure circuit breaker behavior for a specific stage
+
+#### Using Factory Methods
 
 You can create a pipeline using the factory methods provided by the pipeline classes:
 
@@ -88,7 +146,9 @@ contact_acquisition_pipeline = ContactPipeline.create_acquisition_pipeline(
 
 > **Note**: The account and contact acquisition pipelines always perform a full pull of all accounts and contacts to ensure we catch any updates. Accounts and contacts are much smaller replies from the API, so we don't need to batch them.
 
-Or you can create a custom pipeline by adding stages manually:
+#### Creating a Custom Pipeline Manually
+
+You can create a custom pipeline by adding stages manually:
 
 ```python
 from scripts.pipeline.orchestrator import Pipeline
@@ -162,28 +222,33 @@ for stage_name, stage_metrics in metrics.get("stage_metrics", {}).items():
 
 ## Examples
 
-See the `example.py` script for complete examples of using the pipeline framework.
+The following example scripts demonstrate different aspects of the pipeline framework:
+
+- **[example.py](example.py)**: Basic example of using the pipeline framework with sample data
+- **[parallel_example.py](parallel_example.py)**: Demonstrates parallel processing capabilities
+- **[run_real_data_pipeline.py](run_real_data_pipeline.py)**: Shows how to use the pipeline with real data from the API
+- **[run_account_contact_pipeline.py](run_account_contact_pipeline.py)**: Example of fetching and processing account and contact data
 
 ## Next Steps
 
-The current implementation is a proof of concept that demonstrates the core functionality of the pipeline framework. Here are some potential next steps for expanding the framework:
+The current implementation provides a robust foundation for data processing with the pipeline framework. Here are some potential next steps for further expanding the framework:
 
-1. **Data Acquisition Stages**: Implement stages for fetching data from the Paperless Parts API and other sources.
+1. **More Validators**: Add validators for other data types (orders, users, etc.).
 
-2. **More Validators**: Add validators for other data types (orders, accounts, etc.).
+2. **More Transformers**: Add transformers for other data types and formats.
 
-3. **More Transformers**: Add transformers for other data types and formats.
+3. **Pipeline Visualization**: Add tools for visualizing pipeline execution and metrics.
 
-4. **More Loaders**: Add loaders for other destinations (databases, S3, etc.).
+4. **Enhanced Retry Mechanisms**: Expand the configurable retry mechanisms for failed stages.
 
-5. **Pipeline Visualization**: Add tools for visualizing pipeline execution and metrics.
+5. **Dead Letter Queues**: Add support for storing failed records for later processing.
 
-6. **Parallel Processing**: Add support for parallel processing of data.
+6. **Workflow Engine Integration**: Integrate with a workflow engine like Apache Airflow for more complex pipelines.
 
-7. **Retry Mechanisms**: Add configurable retry mechanisms for failed stages.
+7. **Data Lineage Tracking**: Add support for tracking the origin and transformations of data.
 
-8. **Dead Letter Queues**: Add support for storing failed records for later processing.
+8. **Real-time Processing**: Add support for processing data in real-time using streaming technologies.
 
-9. **Workflow Engine Integration**: Integrate with a workflow engine like Apache Airflow for more complex pipelines.
+9. **Machine Learning Integration**: Add support for integrating machine learning models into the pipeline.
 
-10. **Data Lineage Tracking**: Add support for tracking the origin and transformations of data.
+10. **Distributed Processing**: Expand parallel processing capabilities to support distributed processing across multiple machines.

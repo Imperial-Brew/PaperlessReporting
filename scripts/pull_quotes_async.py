@@ -234,20 +234,27 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         Returns:
             List of tuples containing (quote_number, revision_number)
         """
-        url = f"{self.base_url}/quotes/public/new"
+        # Use the PaperlessPartsClient to fetch quote revisions
+        from scripts.utils.paperless_client import PaperlessPartsClient
 
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, headers=self.headers, timeout=10) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    pairs = [(q["quote"], q["revision"]) for q in data if q["revision"] not in (None, 0)]
+        client = PaperlessPartsClient(
+            rate=self.bucket.rate,
+            capacity=self.bucket.capacity,
+            max_retries=self.max_retries
+        )
 
-                    logger.info(f"Found {len(pairs)} revised quotes")
-
-                    return pairs
-                else:
-                    logger.error(f"Failed to fetch quote revisions: {response.status}")
-                    return []
+        try:
+            data = await client.get_quote_revisions()
+            if data:
+                pairs = [(q["quote"], q["revision"]) for q in data if q["revision"] not in (None, 0)]
+                logger.info(f"Found {len(pairs)} revised quotes")
+                return pairs
+            else:
+                logger.error("Failed to fetch quote revisions")
+                return []
+        except Exception as e:
+            logger.error(f"Error fetching quote revisions: {str(e)}")
+            return []
 
     @with_correlation_id
     async def fetch_item_with_revision(self, session: aiohttp.ClientSession, quote_number: int, revision: int) -> Optional[Dict[str, Any]]:
@@ -255,7 +262,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         Fetch a single quote with its revision.
 
         Args:
-            session: aiohttp client session
+            session: aiohttp client session (not used with client, kept for backward compatibility)
             quote_number: Quote number to fetch
             revision: Revision number to fetch
 
@@ -270,109 +277,40 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         with LogContext(operation="fetch_quote", quote_number=quote_number, revision=revision):
             self.current_revision = revision  # Store for use in transform_data
 
-            url = f"{self.base_url}/{self.endpoint}/{quote_number}?revision={revision}"
-            delay = 1  # Initial delay for exponential backoff
+            # Use the PaperlessPartsClient to fetch quote with revision
+            from scripts.utils.paperless_client import PaperlessPartsClient
 
-            for attempt in range(self.max_retries):
-                try:
-                    # Wait for rate limiting token
-                    async with self.bucket:
-                        logger.debug(f"Fetching quote {quote_number}-r{revision} (attempt {attempt + 1})")
-                        async with session.get(url, headers=self.headers, timeout=20) as response:
-                            if response.status == 200:
-                                data = await response.json()
-                                logger.debug(f"Successfully fetched quote {quote_number}-r{revision}")
-                                return data
-                            elif response.status == 404:
-                                logger.warning(f"Quote {quote_number}-r{revision} not found")
-                                return None
-                            elif response.status == 429:
-                                error_msg = f"Rate limit hit for quote {quote_number}-r{revision}, pausing"
-                                logger.warning(error_msg)
+            client = PaperlessPartsClient(
+                rate=self.bucket.rate,
+                capacity=self.bucket.capacity,
+                max_retries=self.max_retries,
+                timeout=20  # Use the same timeout as before
+            )
 
-                                # Longer pause for rate limiting
-                                await asyncio.sleep(15)
+            try:
+                logger.debug(f"Fetching quote {quote_number}-r{revision}")
+                data = await client.get_quote_with_revision(quote_number, revision)
 
-                                # If this is the last attempt, raise a RateLimitError
-                                if attempt == self.max_retries - 1:
-                                    raise RateLimitError(
-                                        error_msg,
-                                        status_code=429,
-                                        details={
-                                            "quote_number": quote_number,
-                                            "revision": revision,
-                                            "attempt": attempt + 1
-                                        }
-                                    )
-                            else:
-                                # Try to get response body for better error reporting
-                                try:
-                                    response_body = await response.text()
-                                except:
-                                    response_body = "Could not read response body"
+                if data:
+                    logger.debug(f"Successfully fetched quote {quote_number}-r{revision}")
+                    return data
+                else:
+                    logger.warning(f"Quote {quote_number}-r{revision} not found")
+                    return None
+            except Exception as e:
+                error_msg = f"Error fetching quote {quote_number}-r{revision}: {str(e)}"
+                logger.error(error_msg, extra={"exception": str(e), "traceback": traceback.format_exc()})
 
-                                error_msg = f"Error {response.status} fetching quote {quote_number}-r{revision}"
-                                logger.error(error_msg)
-
-                                # If this is the last attempt, raise an APIError
-                                if attempt == self.max_retries - 1:
-                                    raise APIError(
-                                        error_msg,
-                                        status_code=response.status,
-                                        response_body=response_body,
-                                        details={
-                                            "quote_number": quote_number,
-                                            "revision": revision,
-                                            "url": url,
-                                            "attempt": attempt + 1
-                                        }
-                                    )
-                except asyncio.TimeoutError:
-                    error_msg = f"Timeout fetching quote {quote_number}-r{revision} (attempt {attempt + 1})"
-                    logger.error(error_msg)
-
-                    # If this is the last attempt, raise an APIError
-                    if attempt == self.max_retries - 1:
-                        raise APIError(
-                            error_msg,
-                            details={
-                                "quote_number": quote_number,
-                                "revision": revision,
-                                "url": url,
-                                "attempt": attempt + 1,
-                                "timeout": 20
-                            }
-                        )
-                except (APIError, RateLimitError):
-                    # Re-raise these exceptions if it's the last attempt
-                    if attempt == self.max_retries - 1:
-                        raise
-                except Exception as e:
-                    error_msg = f"Error fetching quote {quote_number}-r{revision} (attempt {attempt + 1}): {str(e)}"
-                    logger.error(error_msg, extra={"exception": str(e), "traceback": traceback.format_exc()})
-
-                    # If this is the last attempt, raise an APIError
-                    if attempt == self.max_retries - 1:
-                        raise APIError(
-                            error_msg,
-                            details={
-                                "quote_number": quote_number,
-                                "revision": revision,
-                                "url": url,
-                                "attempt": attempt + 1,
-                                "exception": str(e),
-                                "exception_type": type(e).__name__
-                            }
-                        )
-
-                # Don't sleep after the last attempt
-                if attempt < self.max_retries - 1:
-                    await asyncio.sleep(delay)
-                    delay *= 2  # Exponential backoff
-
-            # This should never be reached due to the exception raising above,
-            # but just in case, return None
-            return None
+                # Re-raise as APIError for consistent error handling
+                raise APIError(
+                    error_msg,
+                    details={
+                        "quote_number": quote_number,
+                        "revision": revision,
+                        "exception": str(e),
+                        "exception_type": type(e).__name__
+                    }
+                )
 
     async def process_revised_quotes(self) -> List[Dict[str, Any]]:
         """
