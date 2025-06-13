@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="bug-removal-1">
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/account_contact_orchestrator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/account_contact_processors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/pipeline/run_account_contact_pipeline.py" afterDir="false" />
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Add account and contact processing pipelines with validation, transformation, and acquisition stages. Fix import paths.">
+      <change afterPath="$PROJECT_DIR$/scripts/utils/entity_puller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/utils/validation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.junie/PipelineERROR.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.junie/PipelineERROR.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/incremental.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/incremental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/run_real_data_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/run_real_data_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pull_quotes_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_quotes_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/dump_one_quote_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/account_contact_orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/account_contact_orchestrator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/account_contact_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/account_contact_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/run_account_contact_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/run_account_contact_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_accounts_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_accounts_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_contacts_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_contacts_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/testing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/utils/config_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/config_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +98,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\utils" />
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\archive\Deprecated" />
@@ -128,7 +132,7 @@
       <workItem from="1749080521849" duration="37000" />
       <workItem from="1749300007006" duration="4690000" />
       <workItem from="1749673601392" duration="1501000" />
-      <workItem from="1749676338579" duration="19102000" />
+      <workItem from="1749676338579" duration="36877000" />
     </task>
     <task id="LOCAL-00001" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -498,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749681774369</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Add account and contact processing pipelines with validation, transformation, and acquisition stages. Fix import paths.">
+      <option name="closed" value="true" />
+      <created>1749820823951</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1749820823951</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +543,8 @@
     <MESSAGE value="6-11 status updates" />
     <MESSAGE value="Implement incremental processing for the data pipeline, adding state management and S3 integration" />
     <MESSAGE value="bug-removal-1" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug-removal-1" />
+    <MESSAGE value="Add account and contact processing pipelines with validation, transformation, and acquisition stages. Fix import paths." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add account and contact processing pipelines with validation, transformation, and acquisition stages. Fix import paths." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

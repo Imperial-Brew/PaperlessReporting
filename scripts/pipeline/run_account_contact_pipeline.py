@@ -48,6 +48,10 @@ async def process_account_data(
         output_path=accounts_csv_path
     )
 
+    # Configure a longer timeout for the acquisition stage
+    acquisition_stage = accounts_pipeline.stages[0]
+    acquisition_stage.configure_timeout(timeout=1200.0)  # 20 minutes timeout
+
     try:
         # Run the pipeline
         await accounts_pipeline.run(None)  # No input needed for acquisition stage
@@ -82,11 +86,15 @@ async def process_contact_data(
     # Determine output paths
     contacts_csv_path = os.path.join(output_dir, "contacts.csv")
 
-    # Create and run the contacts pipeline
-    logger.info("Processing all contacts")
-    contacts_pipeline = ContactPipeline.create_acquisition_pipeline(
+    # Create and run the contacts pipeline using the new script
+    logger.info("Processing all contacts using the new pull_contacts script")
+    contacts_pipeline = ContactPipeline.create_acquisition_pipeline_with_new_script(
         output_path=contacts_csv_path
     )
+
+    # Configure a longer timeout for the acquisition stage
+    acquisition_stage = contacts_pipeline.stages[0]
+    acquisition_stage.configure_timeout(timeout=3600.0)  # 60 minutes timeout
 
     try:
         # Run the pipeline
@@ -96,6 +104,33 @@ async def process_contact_data(
         # Print metrics
         metrics = contacts_pipeline.get_metrics()
         logger.info(f"Pipeline duration: {metrics['duration']:.2f}s")
+
+        # Display detailed validation metrics if available
+        stage_metrics = metrics.get('stage_metrics', {})
+        for stage_name, stage_data in stage_metrics.items():
+            if 'contact_validator' in stage_name:
+                validator_metrics = stage_data.get('metrics', {})
+
+                # Display validation error counts
+                total_errors = validator_metrics.get('validation_errors', 0)
+                logger.info(f"Contact validation results:")
+                logger.info(f"  Total validation errors: {total_errors}")
+
+                # Display detailed error metrics
+                missing_fields = validator_metrics.get('missing_required_field_errors', 0)
+                invalid_types = validator_metrics.get('invalid_type_errors', 0)
+                invalid_emails = validator_metrics.get('invalid_email_errors', 0)
+                invalid_phones = validator_metrics.get('invalid_phone_errors', 0)
+
+                logger.info(f"  Missing required field errors: {missing_fields}")
+                logger.info(f"  Invalid type errors: {invalid_types}")
+                logger.info(f"  Invalid email format errors: {invalid_emails}")
+                logger.info(f"  Invalid phone format errors: {invalid_phones}")
+
+                # Display fields with errors
+                error_fields = validator_metrics.get('error_fields', [])
+                if error_fields:
+                    logger.info(f"  Fields with errors: {', '.join(error_fields)}")
 
         # Log the output file path
         logger.info(f"Contacts exported to {contacts_csv_path}")

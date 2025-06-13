@@ -4,8 +4,13 @@ from pathlib import Path
 import logging
 import os
 from functools import lru_cache
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
+
+# Load environment variables from .env file
+project_root = Path(__file__).parent.parent.parent
+load_dotenv(project_root / ".env")
 
 class ConfigurationError(Exception):
     """Custom exception for configuration-related errors."""
@@ -57,6 +62,26 @@ class ConfigLoader:
 
         # Merge with defaults
         self._config = {**self.default_config, **file_config}
+
+        # Override with environment variables for sensitive credentials
+        # API credentials
+        if os.getenv("PAPERLESS_API_TOKEN"):
+            self._config["api_key"] = os.getenv("PAPERLESS_API_TOKEN")
+        if os.getenv("API_BASE_URL"):
+            self._config["api_base_url"] = os.getenv("API_BASE_URL")
+
+        # AWS S3 credentials
+        if "s3" not in self._config:
+            self._config["s3"] = {}
+
+        if os.getenv("AWS_ACCESS_KEY_ID"):
+            self._config["s3"]["access_key_id"] = os.getenv("AWS_ACCESS_KEY_ID")
+        if os.getenv("AWS_SECRET_ACCESS_KEY"):
+            self._config["s3"]["secret_access_key"] = os.getenv("AWS_SECRET_ACCESS_KEY")
+        if os.getenv("S3_BUCKET_NAME"):
+            self._config["s3"]["bucket_name"] = os.getenv("S3_BUCKET_NAME")
+        if os.getenv("AWS_DEFAULT_REGION"):
+            self._config["s3"]["region"] = os.getenv("AWS_DEFAULT_REGION")
 
         # Validate required fields
         missing_fields = []

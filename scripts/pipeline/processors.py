@@ -9,14 +9,15 @@ import csv
 import os
 import json
 import asyncio
-from typing import Any, Dict, List, Optional, Union, TypeVar, Generic
+from typing import Any, Dict, List, Optional, Union, TypeVar, Generic, Tuple
 from pathlib import Path
 from scripts.pipeline.base import PipelineStage, DataAcquisitionStage, TransformationStage, LoadingStage
-from scripts.pipeline.exceptions import TransformationError, LoadingError
+from scripts.pipeline.exceptions import TransformationError, LoadingError, PipelineError
 
 # Type variables for generic stages
 T = TypeVar('T')
 U = TypeVar('U')
+V = TypeVar('V')  # Additional type variable for ParallelStage
 
 
 class QuoteTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
@@ -314,23 +315,32 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
     Pipeline stage that processes a batch of items using another stage.
 
     This stage takes a list of items, processes each one with the provided
-    stage, and returns a list of results.
+    stage, and returns a list of results. It supports parallel processing
+    using asyncio.gather to process multiple items concurrently.
     """
 
-    def __init__(self, stage: PipelineStage[T, U], name: str = None):
+    def __init__(self, stage: PipelineStage[T, U], name: str = None, 
+                 batch_size: int = 100, max_concurrency: int = 5):
         """
         Initialize the batch processor.
 
         Args:
             stage: Stage to use for processing each item
             name: Name of the stage (defaults to f"batch_{stage.name}")
+            batch_size: Maximum number of items to process in a single batch
+            max_concurrency: Maximum number of items to process concurrently
         """
         super().__init__(name or f"batch_{stage.name}")
         self.stage = stage
+        self.configure_batch_processing(batch_size=batch_size, parallel_workers=max_concurrency)
 
     async def process_core(self, data: List[T]) -> List[U]:
         """
-        Process each item in the batch.
+        Process each item in the batch, with support for parallel processing.
+
+        This method processes items in parallel using asyncio.gather, with
+        the level of parallelism controlled by the configured batch_size and
+        parallel_workers settings.
 
         Args:
             data: List of items to process
@@ -341,22 +351,158 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
         results = []
         errors = []
 
-        for i, item in enumerate(data):
-            try:
-                result = await self.stage.process(item)
-                results.append(result)
-            except Exception as e:
-                errors.append((i, item, str(e)))
+        # Process items in batches with parallel execution
+        for i in range(0, len(data), self._batch_size):
+            batch = data[i:i + self._batch_size]
+
+            # Create tasks for parallel processing
+            tasks = []
+            for item in batch:
+                tasks.append(self.stage.process(item))
+
+            # Use asyncio.gather to run tasks in parallel
+            batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+
+            # Process results and handle exceptions
+            for j, result in enumerate(batch_results):
+                if isinstance(result, Exception):
+                    item_index = i + j
+                    errors.append((item_index, batch[j], str(result)))
+                else:
+                    results.append(result)
 
         # Record metrics
         self.record_metric("total_items", len(data))
         self.record_metric("successful_items", len(results))
         self.record_metric("failed_items", len(errors))
+        self.record_metric("batch_size", self._batch_size)
+        self.record_metric("max_concurrency", self._parallel_workers)
 
         if errors:
             self.record_metric("errors", errors)
 
         return results
+
+
+class ParallelStage(PipelineStage[T, Dict[str, Any]]):
+    """
+    Pipeline stage that runs multiple stages concurrently.
+
+    This stage takes input data and processes it through multiple stages
+    in parallel, returning a dictionary with the results from each stage.
+    Each stage is run independently, and the results are combined into
+    a dictionary with the stage names as keys.
+    """
+
+    def __init__(self, name: str = "parallel_stage"):
+        """
+        Initialize the parallel stage.
+
+        Args:
+            name: Name of the stage
+        """
+        super().__init__(name)
+        self.stages: Dict[str, PipelineStage] = {}
+        self.timeout = 60.0  # Default timeout for parallel execution
+
+    def add_stage(self, name: str, stage: PipelineStage) -> 'ParallelStage':
+        """
+        Add a stage to be run in parallel.
+
+        Args:
+            name: Name to use as the key in the results dictionary
+            stage: Pipeline stage to add
+
+        Returns:
+            The ParallelStage instance for method chaining
+        """
+        self.stages[name] = stage
+        return self
+
+    def set_timeout(self, timeout: float) -> 'ParallelStage':
+        """
+        Set the timeout for parallel execution.
+
+        Args:
+            timeout: Timeout in seconds
+
+        Returns:
+            The ParallelStage instance for method chaining
+        """
+        self.timeout = timeout
+        return self
+
+    async def process_core(self, data: T) -> Dict[str, Any]:
+        """
+        Process the input data through all stages in parallel.
+
+        Args:
+            data: Input data to process
+
+        Returns:
+            Dictionary with results from each stage, keyed by stage name
+        """
+        if not self.stages:
+            return {}
+
+        # Create tasks for each stage
+        tasks = {}
+        for name, stage in self.stages.items():
+            tasks[name] = asyncio.create_task(stage.process(data))
+
+        # Wait for all tasks to complete or timeout
+        try:
+            # Use asyncio.wait with timeout
+            done, pending = await asyncio.wait(
+                tasks.values(),
+                timeout=self.timeout,
+                return_when=asyncio.ALL_COMPLETED
+            )
+
+            # Cancel any pending tasks
+            for task in pending:
+                task.cancel()
+
+            # Collect results
+            results = {}
+            errors = []
+
+            for name, task in tasks.items():
+                if task in done:
+                    try:
+                        results[name] = task.result()
+                    except Exception as e:
+                        results[name] = None
+                        errors.append((name, str(e)))
+                else:
+                    # Task was cancelled due to timeout
+                    results[name] = None
+                    errors.append((name, "Timeout"))
+
+            # Record metrics
+            self.record_metric("total_stages", len(self.stages))
+            self.record_metric("completed_stages", len(done))
+            self.record_metric("timeout_stages", len(pending))
+            self.record_metric("error_stages", len(errors))
+
+            if errors:
+                self.record_metric("errors", errors)
+
+            return results
+
+        except asyncio.TimeoutError:
+            # This shouldn't happen with the way we're using asyncio.wait,
+            # but just in case
+            for task in tasks.values():
+                if not task.done():
+                    task.cancel()
+
+            self.record_metric("timeout", True)
+            from scripts.pipeline.exceptions import TimeoutError
+            raise TimeoutError(
+                f"Parallel execution timed out after {self.timeout}s",
+                timeout=self.timeout
+            )
 
 
 class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):

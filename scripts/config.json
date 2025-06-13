@@ -1,13 +1,13 @@
 {
   "api_base_url": "https://api.paperlessparts.com",
-  "api_key": "bb2166a05a6aba9341734580af5b901677daa7c2",
+  "api_key": "set_in_env_file",
   "logging": {
     "level": "INFO"
   },
   "s3": {
-    "bucket_name": "athena-paperless-csvs",
-    "region": "us-east-2",
-    "access_key_id": "AKIA5D57GAZB3JEZOKTF",
-    "secret_access_key": "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"
+    "bucket_name": "set_in_env_file",
+    "region": "set_in_env_file",
+    "access_key_id": "set_in_env_file",
+    "secret_access_key": "set_in_env_file"
   }
 }

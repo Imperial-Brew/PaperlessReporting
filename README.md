@@ -113,6 +113,9 @@ The project includes a modular pipeline framework for processing data from the P
 - **Error Handling**: Comprehensive error handling with detailed error information.
 - **Incremental Processing**: Support for processing only new or changed data.
 - **S3 Integration**: Support for uploading data to AWS S3.
+- **Parallel Processing**: Support for processing data in parallel using asyncio:
+  - **BatchProcessor**: Process batches of items in parallel with configurable concurrency
+  - **ParallelStage**: Run multiple stages concurrently and combine their results
 
 ### Architecture
 
@@ -130,6 +133,52 @@ The pipeline framework is built around the following components:
    - `QuoteItemPipeline`: Factory for creating quote item processing pipelines
    - `AccountPipeline`: Factory for creating account processing pipelines
    - `ContactPipeline`: Factory for creating contact processing pipelines
+
+3. **Pipeline Builder**: Simplifies pipeline creation with a fluent interface:
+   - `PipelineBuilder`: Builder for creating pipelines with method chaining
+   - Provides type-safe methods for adding different types of stages
+   - Supports configuration of timeouts, retries, and circuit breakers
+
+### Pipeline Builder
+
+The PipelineBuilder class implements the builder pattern for creating pipelines with a fluent interface. It simplifies the process of creating pipelines by providing methods for adding different types of stages and ensuring type safety between stages.
+
+#### Example Usage
+
+```python
+from scripts.pipeline.builder import PipelineBuilder
+from scripts.pipeline.account_contact_processors import (
+    AccountsDataAcquisitionStage, AccountValidator, AccountTransformer
+)
+from scripts.pipeline.processors import CSVLoader
+
+# Create a pipeline using the builder pattern
+pipeline = (PipelineBuilder("account_pipeline")
+           .add_acquisition(AccountsDataAcquisitionStage())
+           .add_batch_processor(AccountValidator())
+           .add_batch_processor(AccountTransformer())
+           .add_loading(CSVLoader("data_real/accounts.csv"))
+           .build())
+
+# Configure a longer timeout for the acquisition stage
+pipeline.stages[0].configure_timeout(timeout=1200.0)
+
+# Run the pipeline
+await pipeline.run(None)  # No input needed for acquisition stage
+```
+
+The builder provides methods for adding different types of stages:
+- `add_acquisition`: Add a data acquisition stage
+- `add_validation`: Add a validation stage
+- `add_transformation`: Add a transformation stage
+- `add_loading`: Add a loading stage
+- `add_batch_processor`: Add a batch processor stage
+- `add_stage`: Add any type of stage (low-level method)
+
+It also provides methods for configuring stages:
+- `configure_timeout`: Configure the timeout for a specific stage
+- `configure_retry`: Configure retry behavior for a specific stage
+- `configure_circuit_breaker`: Configure circuit breaker behavior for a specific stage
 
 ### Usage Examples
 
@@ -196,24 +245,80 @@ This will:
 
 ### Next Steps
 
-The current implementation is a proof of concept that demonstrates the core functionality of the pipeline framework. Future improvements include:
+The current implementation demonstrates the core functionality of the pipeline framework, including the new builder pattern for pipeline creation. Future improvements include:
 
 1. **Short-term**:
    - Integrate with existing scripts
    - Add more validators and transformers
    - Expand S3 integration
+   - Refactor factory methods to use the builder pattern
 
 2. **Medium-term**:
-   - Add retry mechanisms
+   - Enhance retry mechanisms
    - Implement dead letter queues
-   - Add parallel processing
    - Add pipeline visualization
+   - Expand parallel processing capabilities
 
 3. **Long-term**:
    - Integrate with workflow engines
    - Add data lineage tracking
    - Support real-time processing
    - Integrate machine learning capabilities
+
+### Parallel Processing
+
+The pipeline framework supports two types of parallel processing:
+
+#### BatchProcessor
+
+The BatchProcessor class processes a batch of items using another stage, with support for parallel processing using asyncio.gather. This is useful for processing large datasets in parallel.
+
+```python
+from scripts.pipeline.processors import BatchProcessor
+
+# Create a processor for individual items
+item_processor = MyItemProcessor()
+
+# Create a batch processor with parallel processing
+batch_processor = BatchProcessor(
+    stage=item_processor,
+    name="parallel_batch_processor",
+    batch_size=100,  # Process 100 items at a time
+    max_concurrency=10  # Process up to 10 items concurrently
+)
+
+# Process a list of items in parallel
+results = await batch_processor.process(items)
+```
+
+#### ParallelStage
+
+The ParallelStage class runs multiple stages concurrently and combines their results into a dictionary. This is useful for running independent operations in parallel.
+
+```python
+from scripts.pipeline.processors import ParallelStage
+
+# Create a parallel stage
+parallel_stage = ParallelStage("parallel_operations")
+
+# Add stages to be run in parallel
+parallel_stage.add_stage("validation", ValidationStage())
+parallel_stage.add_stage("transformation", TransformationStage())
+parallel_stage.add_stage("enrichment", EnrichmentStage())
+
+# Set a timeout for parallel execution
+parallel_stage.set_timeout(30.0)  # 30-second timeout
+
+# Process data through all stages in parallel
+results = await parallel_stage.process(data)
+
+# Access results from each stage
+validation_result = results["validation"]
+transformation_result = results["transformation"]
+enrichment_result = results["enrichment"]
+```
+
+For a complete example of parallel processing, see [scripts/pipeline/parallel_example.py](scripts/pipeline/parallel_example.py).
 
 See [Pipeline Framework Documentation](scripts/pipeline/README.md) for more details.
 

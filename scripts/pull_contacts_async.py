@@ -8,19 +8,18 @@ saving the results to a CSV file. It supports fetching all contacts or a specifi
 import asyncio
 import logging
 import argparse
-import aiohttp
-from typing import Dict, Any, Optional, List, Tuple
+from typing import Dict, Any, Optional
 
-from utils.async_puller import AsyncPuller
+from scripts.utils.entity_puller import EntityPuller
 
 # Configure logging
 logger = logging.getLogger(__name__)
 
-class ContactsPuller(AsyncPuller[Dict[str, Any]]):
+class ContactsPuller(EntityPuller[Dict[str, Any]]):
     """
     Asynchronous puller for contact data.
 
-    This class extends AsyncPuller to fetch contact data from the API
+    This class extends EntityPuller to fetch contact data from the API
     and transform it into a structured format with selected fields.
     It supports fetching all contacts or a specific range of contact IDs.
     """
@@ -34,13 +33,15 @@ class ContactsPuller(AsyncPuller[Dict[str, Any]]):
             end_id: Optional ending ID for range of contacts to fetch
         """
         super().__init__(
+            entity_type="contacts",
             endpoint="contacts/public",
+            start_id=start_id,
+            end_id=end_id,
             rate=1.8,  # Requests per second
             capacity=5,  # Maximum burst capacity
-            batch_size=50  # Process 50 contacts at a time
+            batch_size=20,  # Process 20 contacts at a time (reduced from 50 to avoid timeouts)
+            timeout=30  # Use a longer timeout (30 seconds instead of default)
         )
-        self.start_id = start_id
-        self.end_id = end_id
 
     def transform_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -64,75 +65,6 @@ class ContactsPuller(AsyncPuller[Dict[str, Any]]):
             "notes": data.get("notes"),
             "account_id": data.get("account_id")
         }
-
-    def get_output_path(self) -> str:
-        """
-        Generate the output path for the CSV file.
-
-        Returns a path based on whether a specific range is being fetched
-        or all contacts.
-
-        Returns:
-            Path to the output CSV file
-        """
-        # Use absolute path to project root directory
-        project_root = Path(__file__).parent.parent
-        if self.start_id is not None and self.end_id is not None:
-            return str(project_root / f"data_raw/contacts/contacts_{self.start_id}_{self.end_id}.csv")
-        return str(project_root / "data_raw/contacts/contacts_all.csv")
-
-    def get_item_range(self) -> Tuple[Optional[int], Optional[int]]:
-        """
-        Get the range of contact IDs to process.
-
-        Returns:
-            Tuple of (start_id, end_id), where None means no limit
-        """
-        return self.start_id, self.end_id
-
-    async def get_all_item_ids(self) -> List[int]:
-        """
-        Get all contact IDs to process when no range is specified.
-
-        This implementation uses pagination to fetch all contact IDs from the API.
-
-        Returns:
-            List of all contact IDs to process
-        """
-        contact_ids = []
-        url = f"{self.base_url}/{self.endpoint}"
-
-        logger.info(f"Fetching all contact IDs from {url}")
-
-        async with aiohttp.ClientSession() as session:
-            while url:
-                try:
-                    async with self.bucket:  # Respect rate limiting
-                        async with session.get(url, headers=self.headers, timeout=30) as response:
-                            if response.status != 200:
-                                logger.error(f"Error {response.status} fetching contacts list")
-                                break
-
-                            data = await response.json()
-
-                            # Extract contact IDs from the results
-                            for contact in data.get("results", []):
-                                if "id" in contact:
-                                    contact_ids.append(contact["id"])
-
-                            # Get the next page URL if available
-                            url = data.get("next")
-
-                            if url:
-                                logger.info(f"Found {len(contact_ids)} contacts so far, fetching next page...")
-                                await asyncio.sleep(0.2)  # Small delay to avoid rate limiting
-
-                except Exception as e:
-                    logger.error(f"Error fetching contacts list: {str(e)}")
-                    break
-
-        logger.info(f"Found {len(contact_ids)} contacts in total")
-        return contact_ids
 
 async def main():
     """

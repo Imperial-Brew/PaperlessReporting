@@ -210,3 +210,31 @@ class ContactPipeline:
             pipeline.add_stage(CSVLoader(output_path))
 
         return pipeline
+
+    @staticmethod
+    def create_acquisition_pipeline_with_new_script(output_path: str = None, name: str = "contact_acquisition_pipeline_new") -> Pipeline:
+        """
+        Create a pipeline for acquiring, validating, transforming, and exporting contact data using the new pull_contacts script.
+
+        This pipeline uses the new pull_contacts.py script which correctly handles pagination
+        and has been tested to successfully fetch all contacts without timing out.
+
+        Args:
+            output_path: Path to the output CSV file
+            name: Name of the pipeline
+
+        Returns:
+            Pipeline instance
+        """
+        from scripts.pipeline.account_contact_processors import NewContactsDataAcquisitionStage, ContactValidator, ContactTransformer
+        from scripts.pipeline.processors import BatchProcessor, CSVLoader
+
+        pipeline = Pipeline(name)
+        pipeline.add_stage(NewContactsDataAcquisitionStage())
+        pipeline.add_stage(BatchProcessor(ContactValidator()))
+        pipeline.add_stage(BatchProcessor(ContactTransformer()))
+
+        if output_path:
+            pipeline.add_stage(CSVLoader(output_path))
+
+        return pipeline
