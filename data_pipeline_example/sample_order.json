@@ -1,0 +1,59 @@
+{
+  "order_number": "O12345",
+  "status": "in_production",
+  "quote_number": "Q12345",
+  "quote_revision_number": 1,
+  "created": "2023-01-01T12:00:00Z",
+  "deliver_by": "2023-01-15T12:00:00Z",
+  "ships_on": "2023-01-10T12:00:00Z",
+  "payment_terms": "Net 30",
+  "purchase_order_number": "PO12345",
+  "salesperson_email": "sales@example.com",
+  "customer_name": "Example Company",
+  "order_items": [
+    {
+      "id": 1,
+      "quantity": 10,
+      "unit_price": 25.5,
+      "total_price": 255.0,
+      "description": "Sample Part",
+      "export_controlled": false,
+      "components": [
+        {
+          "is_root_component": true,
+          "part_number": "PART-001",
+          "part_uuid": "abc123",
+          "revision": "A",
+          "material": {
+            "name": "Aluminum 6061"
+          },
+          "process": {
+            "name": "CNC Machining"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "quantity": 5,
+      "unit_price": 15.75,
+      "total_price": 78.75,
+      "description": "Another Part",
+      "export_controlled": false,
+      "components": [
+        {
+          "is_root_component": true,
+          "part_number": "PART-002",
+          "part_uuid": "def456",
+          "revision": "B",
+          "material": {
+            "name": "Steel 1018"
+          },
+          "process": {
+            "name": "Laser Cutting"
+          }
+        }
+      ]
+    }
+  ]
+}

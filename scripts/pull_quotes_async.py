@@ -228,13 +228,6 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         return []
 
     async def get_all_revisions(self) -> List[Tuple[int, int]]:
-        """
-        Get all quote/revision pairs with revision > 0.
-
-        Returns:
-            List of tuples containing (quote_number, revision_number)
-        """
-        # Use the PaperlessPartsClient to fetch quote revisions
         from scripts.utils.paperless_client import PaperlessPartsClient
 
         client = PaperlessPartsClient(
@@ -246,8 +239,14 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         try:
             data = await client.get_quote_revisions()
             if data:
-                pairs = [(q["quote"], q["revision"]) for q in data if q["revision"] not in (None, 0)]
-                logger.info(f"Found {len(pairs)} revised quotes")
+                pairs = [
+                    (q["quote"], q["revision"])
+                    for q in data
+                    if q["revision"] not in (None, 0)
+                       and (self.start_id is None or q["quote"] >= self.start_id)
+                       and (self.end_id is None or q["quote"] <= self.end_id)
+                ]
+                logger.info(f"Found {len(pairs)} revised quotes in range")
                 return pairs
             else:
                 logger.error("Failed to fetch quote revisions")
@@ -360,12 +359,15 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         logger.info(f"Processed {len(all_quotes)} revised quotes in total")
         return all_quotes
 
-    async def run(self) -> None:
+    async def run(self) -> List[Dict[str, Any]]:
         """
         Run the puller to fetch and process all quotes in the specified range.
 
         This method overrides the base class run method to save both
         quotes and quote items to separate CSV files, and to include revised quotes.
+
+        Returns:
+            List of quote dictionaries
         """
         # Reset quote items list
         self.quote_items = []
@@ -438,6 +440,8 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
             logger.info(f"Saved {len(self.quote_items)} quote items to {quote_items_path}")
         else:
             logger.warning("No quote items found in the quotes data")
+
+        return all_quotes
 
 @with_correlation_id
 async def main():

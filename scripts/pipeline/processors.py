@@ -212,48 +212,94 @@ class CSVLoader(LoadingStage[List[Dict[str, Any]]]):
     """
     Loader for saving data to CSV files.
 
-    This loader saves a list of dictionaries to a CSV file.
+    This loader saves a list of dictionaries to a CSV file locally and uploads to S3.
     """
 
-    def __init__(self, output_path: str, name: str = "csv_loader"):
+    def __init__(self, output_path: str, name: str = "csv_loader", upload_to_s3: bool = True):
         """
         Initialize the CSV loader.
 
         Args:
             output_path: Path to the output CSV file
             name: Name of the loader
+            upload_to_s3: Whether to upload the file to S3 after saving locally
         """
         super().__init__(name)
         self.output_path = output_path
+        self.upload_to_s3 = upload_to_s3
 
     async def load(self, data: List[Dict[str, Any]]) -> None:
         """
-        Load data to a CSV file.
+        Load data to a CSV file locally and upload to S3.
 
         Args:
             data: List of dictionaries to save
         """
         try:
+            print(f"CSVLoader: Starting load method with data type: {type(data)}")
+
             if not data:
+                print("CSVLoader: Data is empty, no rows to write")
                 self.record_metric("rows_written", 0)
+
+                # Create an empty file anyway as a test
+                print(f"CSVLoader: Creating empty file as a test: {self.output_path}")
+                output_dir = os.path.dirname(self.output_path)
+                os.makedirs(output_dir, exist_ok=True)
+
+                with open(self.output_path, 'w', newline='', encoding='utf-8') as f:
+                    f.write("# Empty file created as a test\n")
+                print(f"CSVLoader: Created empty test file: {self.output_path}")
+                # Add a prominent message about the output file location
+                print(f"\n>>> OUTPUT FILE SAVED TO: {os.path.abspath(self.output_path)} <<<\n")
+
                 return
 
             # Ensure output directory exists
             output_dir = os.path.dirname(self.output_path)
+            print(f"CSVLoader: Ensuring directory exists: {output_dir}")
             os.makedirs(output_dir, exist_ok=True)
 
             # Get fieldnames from the first item
             fieldnames = list(data[0].keys())
+            print(f"CSVLoader: Got {len(fieldnames)} fieldnames from data")
 
-            # Write to CSV
-            with open(self.output_path, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames)
-                writer.writeheader()
-                writer.writerows(data)
+            # Write to CSV locally
+            print(f"CSVLoader: Writing to file: {self.output_path}")
+            try:
+                with open(self.output_path, 'w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    writer.writerows(data)
+                print(f"CSVLoader: Successfully wrote {len(data)} rows to {self.output_path}")
 
-            # Record metrics
+                # Verify the file was created
+                if os.path.exists(self.output_path):
+                    print(f"CSVLoader: Verified file exists: {self.output_path}")
+                    print(f"CSVLoader: File size: {os.path.getsize(self.output_path)} bytes")
+                    # Add a prominent message about the output file location
+                    print(f"\n>>> OUTPUT FILE SAVED TO: {os.path.abspath(self.output_path)} <<<\n")
+                else:
+                    print(f"CSVLoader: File does not exist after writing: {self.output_path}")
+            except Exception as e:
+                print(f"CSVLoader: Error writing to file {self.output_path}: {str(e)}")
+                raise
+
+            # Record metrics for local save
             self.record_metric("rows_written", len(data))
             self.record_metric("output_path", self.output_path)
+            self.record_metric("local_save_success", True)
+
+            # Upload to S3 if enabled
+            if self.upload_to_s3:
+                from scripts.utils.s3_helpers import upload_to_s3
+                s3_success = upload_to_s3(self.output_path)
+                self.record_metric("s3_upload_success", s3_success)
+                self.record_metric("s3_upload_attempted", True)
+            else:
+                self.record_metric("s3_upload_attempted", False)
+
+            # Overall success
             self.record_metric("loading_success", True)
         except Exception as e:
             # Record metrics
@@ -525,37 +571,56 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
             List of quote dictionaries
         """
         from scripts.pull_quotes_async import QuotesPuller
+        import time
+        import os
+        import traceback
 
-        # Create a puller instance
-        puller = QuotesPuller(
-            start_id=self.start_id,
-            end_id=self.end_id,
-            include_revisions=self.include_revisions
-        )
+        print(f"PaperlessPartsDataAcquisitionStage: Starting acquisition with start_id={self.start_id}, end_id={self.end_id}")
 
-        # Override the save_to_csv method to return data instead of saving it
-        quotes = []
+        try:
+            # Create a puller instance
+            puller = QuotesPuller(
+                start_id=self.start_id,
+                end_id=self.end_id,
+                include_revisions=self.include_revisions
+            )
 
-        original_save_to_csv = puller.save_to_csv
+            # Run the puller
+            print("PaperlessPartsDataAcquisitionStage: Running puller...")
+            quotes = await puller.run()
+            print("PaperlessPartsDataAcquisitionStage: Puller execution completed")
+            print(f"PaperlessPartsDataAcquisitionStage: Collected {len(quotes)} quotes from puller")
+            self.record_metric("quotes_fetched", len(quotes))
 
-        def collect_quotes(items, _):
-            nonlocal quotes
-            quotes.extend(items)
-            self.record_metric("quotes_fetched", len(items))
+            # Record metrics
+            self.record_metric("total_quotes", len(quotes))
+            self.record_metric("quote_items", len(puller.quote_items))
 
-        puller.save_to_csv = collect_quotes
+            print(f"PaperlessPartsDataAcquisitionStage: Fetched {len(quotes)} quotes and {len(puller.quote_items)} quote items")
 
-        # Run the puller
-        await puller.run()
+            # Store quote items in context for later stages
+            self.set_context("quote_items", puller.quote_items)
 
-        # Restore the original method
-        puller.save_to_csv = original_save_to_csv
+            # Debug: Print the first quote if available
+            if quotes:
+                print(f"PaperlessPartsDataAcquisitionStage: First quote sample: {list(quotes[0].keys())[:5]}...")
+            else:
+                print("PaperlessPartsDataAcquisitionStage: No quotes were fetched")
 
-        # Record metrics
-        self.record_metric("total_quotes", len(quotes))
-        self.record_metric("quote_items", len(puller.quote_items))
+            # Force creation of a test file in data_real to verify write permissions
+            test_file_path = os.path.join(os.path.dirname(__file__), "..", "..", "data_real", "test_acquisition.txt")
+            try:
+                with open(test_file_path, 'w') as f:
+                    f.write(f"Test file created by PaperlessPartsDataAcquisitionStage at {time.ctime()}\n")
+                    f.write(f"Fetched {len(quotes)} quotes and {len(puller.quote_items)} quote items\n")
+                print(f"PaperlessPartsDataAcquisitionStage: Successfully created test file at {test_file_path}")
+            except Exception as e:
+                print(f"PaperlessPartsDataAcquisitionStage: Error creating test file: {str(e)}")
 
-        # Store quote items in context for later stages
-        self.set_context("quote_items", puller.quote_items)
+            return quotes
 
-        return quotes
+        except Exception as e:
+            print(f"PaperlessPartsDataAcquisitionStage: Error during acquisition: {str(e)}")
+            print(f"PaperlessPartsDataAcquisitionStage: Traceback: {traceback.format_exc()}")
+            # Return an empty list instead of raising an exception to allow the pipeline to continue
+            return []

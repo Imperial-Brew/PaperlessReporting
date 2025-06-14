@@ -64,9 +64,26 @@ class PaperlessPartsClient:
             max_retries: Maximum number of retry attempts for failed requests
             timeout: Default timeout for API requests in seconds
         """
-        self.base_url = base_url or config()["api_base_url"]
-        self.api_key = api_key or config()["api_key"]
-        self.headers = {"Authorization": f"API-Token {self.api_key}"}
+        # Load configuration
+        cfg = config()
+
+        # Check if required configuration is available
+        if "api_base_url" not in cfg:
+            logger.error("Missing required configuration: api_base_url")
+            print("ERROR: Missing required configuration: api_base_url")
+        if "api_key" not in cfg:
+            logger.error("Missing required configuration: api_key")
+            print("ERROR: Missing required configuration: api_key")
+
+        self.base_url = base_url or cfg.get("api_base_url")
+        self.api_key = api_key or cfg.get("api_key")
+
+        # Log configuration (mask API key for security)
+        masked_api_key = "****" + self.api_key[-4:] if self.api_key and len(self.api_key) > 4 else "None"
+        logger.info(f"PaperlessPartsClient initialized with base_url: {self.base_url}, api_key: {masked_api_key}")
+        print(f"PaperlessPartsClient initialized with base_url: {self.base_url}, api_key: {masked_api_key}")
+
+        self.headers = {"Authorization": f"API-Token {self.api_key}"} if self.api_key else {}
         self.max_retries = max_retries
         self.timeout = timeout
 
@@ -90,41 +107,76 @@ class PaperlessPartsClient:
         Returns:
             Response data as a dictionary or None if the request failed
         """
+        if not self.base_url or not self.api_key:
+            error_msg = "Cannot make API request: "
+            if not self.base_url:
+                error_msg += "base_url is not configured. "
+            if not self.api_key:
+                error_msg += "api_key is not configured."
+            logger.error(error_msg)
+            print(f"ERROR: {error_msg}")
+            return None
+
         url = f"{self.base_url}/{endpoint}"
         request_timeout = timeout or self.timeout
         delay = 1  # Initial delay for exponential backoff
+
+        logger.info(f"Making GET request to {url} with params: {params}")
+        print(f"Making GET request to {url} with params: {params}")
 
         for attempt in range(self.max_retries):
             try:
                 # Wait for rate limiting token
                 async with self.bucket:
                     async with aiohttp.ClientSession() as session:
+                        print(f"Attempt {attempt + 1}/{self.max_retries} for {url}")
                         async with session.get(
                             url,
                             headers=self.headers,
                             params=params,
                             timeout=request_timeout
                         ) as response:
-                            if response.status == 200:
-                                return await response.json()
-                            elif response.status == 404:
+                            status = response.status
+                            print(f"Response status: {status} for {url}")
+
+                            if status == 200:
+                                data = await response.json()
+                                data_preview = str(data)[:100] + "..." if len(str(data)) > 100 else str(data)
+                                logger.info(f"Successfully fetched data from {url}: {data_preview}")
+                                print(f"Successfully fetched data from {url}")
+                                return data
+                            elif status == 404:
                                 logger.warning(f"Resource not found: {url}")
+                                print(f"WARNING: Resource not found: {url}")
                                 return None
-                            elif response.status == 429:
+                            elif status == 401:
+                                logger.error(f"Authentication failed for {url}. Check API key.")
+                                print(f"ERROR: Authentication failed for {url}. Check API key.")
+                                # Don't retry on auth failures
+                                return None
+                            elif status == 429:
                                 logger.warning(f"Rate limit hit for {url}, pausing")
+                                print(f"WARNING: Rate limit hit for {url}, pausing for 15 seconds")
                                 await asyncio.sleep(15)  # Longer pause for rate limiting
                             else:
-                                logger.error(f"Error {response.status} fetching {url}")
+                                error_text = await response.text()
+                                logger.error(f"Error {status} fetching {url}: {error_text}")
+                                print(f"ERROR: {status} fetching {url}: {error_text[:200]}")
             except asyncio.TimeoutError:
                 logger.error(f"Timeout fetching {url} (attempt {attempt + 1})")
+                print(f"ERROR: Timeout fetching {url} (attempt {attempt + 1})")
             except Exception as e:
                 logger.error(f"Error fetching {url} (attempt {attempt + 1}): {str(e)}")
+                print(f"ERROR: Error fetching {url} (attempt {attempt + 1}): {str(e)}")
 
             # Don't sleep after the last attempt
             if attempt < self.max_retries - 1:
-                await asyncio.sleep(delay)
-                delay *= 2  # Exponential backoff
+                sleep_time = delay * (2 ** attempt)  # Exponential backoff
+                print(f"Retrying in {sleep_time} seconds...")
+                await asyncio.sleep(sleep_time)
 
+        logger.error(f"Failed to fetch {url} after {self.max_retries} attempts")
+        print(f"ERROR: Failed to fetch {url} after {self.max_retries} attempts")
         return None
 
     async def get_by_id(

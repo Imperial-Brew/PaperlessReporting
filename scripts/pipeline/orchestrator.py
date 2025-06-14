@@ -447,7 +447,7 @@ class QuotePipeline:
 
         # Wrap the transformed quote in a list for the CSV loader
         pipeline.add_stage(WrapInList())
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -512,6 +512,6 @@ class QuoteItemPipeline:
         from scripts.pipeline.processors import CSVLoader
 
         pipeline = QuoteItemPipeline.create_validation_pipeline(name)
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline

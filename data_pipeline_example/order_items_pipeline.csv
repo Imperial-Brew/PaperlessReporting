@@ -1,0 +1,3 @@
+order_number,item_id,part_number,part_uuid,revision,description,quantity,unit_price,total_price,material,process,export_controlled,filename,lead_days,quote_item_id
+O12345,1,PART-001,abc123,A,Sample Part,10,25.5,255.0,Aluminum 6061,CNC Machining,False,,,
+O12345,2,PART-002,def456,B,Another Part,5,15.75,78.75,Steel 1018,Laser Cutting,False,,,

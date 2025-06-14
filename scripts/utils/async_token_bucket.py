@@ -42,3 +42,11 @@ class AsyncTokenBucket:
         Exit the async context manager.
         """
         pass  # Nothing to clean up
+
+    @property
+    def rate(self):
+        return self.bucket.rate
+
+    @property
+    def capacity(self):
+        return self.bucket.capacity

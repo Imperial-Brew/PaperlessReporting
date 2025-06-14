@@ -179,7 +179,7 @@ The project includes a modular pipeline framework for processing data from the P
 - **Monitoring**: Metrics collection for each stage and the overall pipeline.
 - **Error Handling**: Comprehensive error handling with detailed error information.
 - **Incremental Processing**: Support for processing only new or changed data.
-- **S3 Integration**: Support for uploading data to AWS S3.
+- **S3 Integration**: Support for uploading data to AWS S3. CSVs are saved both locally and to S3 by default.
 - **Parallel Processing**: Support for processing data in parallel using asyncio:
   - **BatchProcessor**: Process batches of items in parallel with configurable concurrency
   - **ParallelStage**: Run multiple stages concurrently and combine their results

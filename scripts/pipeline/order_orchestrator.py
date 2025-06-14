@@ -80,7 +80,7 @@ class OrderPipeline:
 
         # Wrap the transformed order in a list for the CSV loader
         pipeline.add_stage(WrapInList())
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -107,7 +107,7 @@ class OrderPipeline:
         pipeline.add_stage(BatchProcessor(OrderTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -130,16 +130,16 @@ class OrderPipeline:
         from scripts.pipeline.orchestrator import ContextExtractor
 
         pipeline = Pipeline(name)
-        
+
         # Extract order items from context
         pipeline.add_stage(ContextExtractor("order_items"))
-        
+
         # Validate and transform order items
         pipeline.add_stage(BatchProcessor(OrderItemValidator()))
         pipeline.add_stage(BatchProcessor(OrderItemTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -210,7 +210,7 @@ class OrderItemPipeline:
 
         # Wrap the transformed order item in a list for the CSV loader
         pipeline.add_stage(WrapInList())
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -236,6 +236,6 @@ class OrderItemPipeline:
         pipeline.add_stage(BatchProcessor(OrderItemTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline

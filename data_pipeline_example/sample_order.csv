@@ -1,0 +1,2 @@
+order_number,quote_number,quote_revision_number,status,created,deliver_by,ships_on,payment_terms,purchase_order_number,salesperson_email,customer_name
+O12345,Q12345,1,in_production,2023-01-01T12:00:00Z,2023-01-15T12:00:00Z,2023-01-10T12:00:00Z,Net 30,PO12345,sales@example.com,Example Company

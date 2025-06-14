@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Security improvements">
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Add comprehensive PowerShell test scripts for security and functionality validation&#10;&#10;- Introduce `test_webhook_auth.ps1` to validate webhook authentication mechanisms.&#10;- Add `test_s3_upload.ps1` for testing S3 upload capabilities.&#10;- Include `test_api_integration.ps1` for Paperless Parts API integration validation.&#10;- Implement `test_log_security.ps1` to ensure sensitive credentials are redacted in logs.&#10;- Create `test_error_handling.ps1` to verify error-handling with invalid credentials.&#10;- Update `.idea/workspace.xml` with task tracking adjustments.">
+      <change afterPath="$PROJECT_DIR$/read_output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_output2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pipeline/run_quotes_7900_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution_summary.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/s3_configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/s3_configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/account_contact_orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/account_contact_orchestrator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/orchestrator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/order_orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/order_orchestrator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/validators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_quotes_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_quotes_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/utils/async_token_bucket.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/async_token_bucket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/utils/paperless_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/paperless_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +78,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python tests.pytest in test_s3_config.py.executor": "Run",
+    "Python.7900.executor": "Debug",
     "Python.dump_one_quote_order.executor": "Run",
     "Python.example.executor": "Debug",
     "Python.orchestrator.executor": "Run",
@@ -68,6 +87,7 @@
     "Python.pull_orders_async.executor": "Run",
     "Python.pull_quotes.executor": "Run",
     "Python.pull_quotes_async.executor": "Run",
+    "Python.run_quotes_7900_pipeline.executor": "Run",
     "Python.run_real_data_pipeline.executor": "Debug",
     "Python.testing.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -90,6 +110,7 @@
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\pipeline" />
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\utils" />
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\archive\Deprecated" />
     </key>
@@ -120,15 +141,8 @@
       <workItem from="1749080521849" duration="37000" />
       <workItem from="1749300007006" duration="4690000" />
       <workItem from="1749673601392" duration="1501000" />
-      <workItem from="1749676338579" duration="49953000" />
-    </task>
-    <task id="LOCAL-00002" summary="First Junie Update rollout">
-      <option name="closed" value="true" />
-      <created>1748448182586</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1748448182586</updated>
+      <workItem from="1749676338579" duration="63125000" />
+      <workItem from="1749930309726" duration="7822000" />
     </task>
     <task id="LOCAL-00003" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -514,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749856882135</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Add comprehensive PowerShell test scripts for security and functionality validation&#10;&#10;- Introduce `test_webhook_auth.ps1` to validate webhook authentication mechanisms.&#10;- Add `test_s3_upload.ps1` for testing S3 upload capabilities.&#10;- Include `test_api_integration.ps1` for Paperless Parts API integration validation.&#10;- Implement `test_log_security.ps1` to ensure sensitive credentials are redacted in logs.&#10;- Create `test_error_handling.ps1` to verify error-handling with invalid credentials.&#10;- Update `.idea/workspace.xml` with task tracking adjustments.">
+      <option name="closed" value="true" />
+      <created>1749859319491</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1749859319491</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +573,8 @@
     <MESSAGE value="Refactor and streamline data pipeline:  &#10;- Remove deprecated scripts (`dump_one_quote_order.py`, `testing.py`)  &#10;- Introduce reusable `EntityPuller` base class for API data fetching  &#10;- Enhance configuration handling with environment variable support (`config_loader.py`)  &#10;- Add validation utilities (`validation.py`)  &#10;- Update async pullers (`pull_contacts_async.py`, `pull_accounts_async.py`) to use `EntityPuller`  &#10;- Simplify parallel processing demo with modular components" />
     <MESSAGE value="Add `PipelineBuilder` with fluent interface and examples; restructure pipelines and document order processing.&#10;&#10;- Introduced `PipelineBuilder` for streamlined pipeline creation using fluent interface.&#10;- Added usage examples (`builder_example.py`) and comprehensive order pipeline documentation (`order_pipeline_review.md`).&#10;- Implemented order and order item processors with validation and transformation capabilities (`order_processors.py`).&#10;- Archived deprecated `dump_one_quote_order.py`." />
     <MESSAGE value="Security improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Security improvements" />
+    <MESSAGE value="Add comprehensive PowerShell test scripts for security and functionality validation&#10;&#10;- Introduce `test_webhook_auth.ps1` to validate webhook authentication mechanisms.&#10;- Add `test_s3_upload.ps1` for testing S3 upload capabilities.&#10;- Include `test_api_integration.ps1` for Paperless Parts API integration validation.&#10;- Implement `test_log_security.ps1` to ensure sensitive credentials are redacted in logs.&#10;- Create `test_error_handling.ps1` to verify error-handling with invalid credentials.&#10;- Update `.idea/workspace.xml` with task tracking adjustments." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -565,16 +588,18 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/setup_py$pull_quotes.coverage" NAME="pull_quotes Coverage Results" MODIFIED="1748909421264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
-    <SUITE FILE_PATH="coverage/setup_py$pull_accounts_async.coverage" NAME="pull_accounts_async Coverage Results" MODIFIED="1748719795278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$7900.coverage" NAME="7900 Coverage Results" MODIFIED="1749905531948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$orchestrator.coverage" NAME="orchestrator Coverage Results" MODIFIED="1749677194015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$pull_quotes_async.coverage" NAME="pull_quotes_async Coverage Results" MODIFIED="1748549667024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pull_orders.coverage" NAME="pull_orders Coverage Results" MODIFIED="1748909437814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$testing.coverage" NAME="testing Coverage Results" MODIFIED="1748615752910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/setup_py$example.coverage" NAME="example Coverage Results" MODIFIED="1749678615004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$pull_orders_async.coverage" NAME="pull_orders_async Coverage Results" MODIFIED="1748727213646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$run_quotes_7900_pipeline.coverage" NAME="run_quotes_7900_pipeline Coverage Results" MODIFIED="1749939362981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$pytest_in_test_s3_config_py.coverage" NAME="pytest in test_s3_config.py Coverage Results" MODIFIED="1748703348401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$dump_one_quote_order.coverage" NAME="dump_one_quote_order Coverage Results" MODIFIED="1748910762642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$pull_quotes.coverage" NAME="pull_quotes Coverage Results" MODIFIED="1748909421264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
+    <SUITE FILE_PATH="coverage/setup_py$pull_accounts_async.coverage" NAME="pull_accounts_async Coverage Results" MODIFIED="1748719795278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$example.coverage" NAME="example Coverage Results" MODIFIED="1749678615004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$run_real_data_pipeline.coverage" NAME="run_real_data_pipeline Coverage Results" MODIFIED="1749777224647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
   </component>
 </project>

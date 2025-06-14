@@ -17,7 +17,7 @@ The pipeline framework provides a structured approach to data processing with th
   - **BatchProcessor**: Process batches of items in parallel with configurable concurrency
   - **ParallelStage**: Run multiple stages concurrently and combine their results
 - **Pipeline Builder**: Simplified pipeline creation with a fluent interface.
-- **S3 Integration**: Support for uploading data to AWS S3.
+- **S3 Integration**: Support for uploading data to AWS S3. CSVs are saved both locally and to S3 by default.
 - **Incremental Processing**: Support for processing only new or changed data.
 
 ## Architecture
@@ -58,7 +58,7 @@ The pipeline framework is built around the following components:
    - `AccountsDataAcquisitionStage`: Fetches account data from the API
    - `ContactsDataAcquisitionStage`: Fetches contact data from the API
    - `NewContactsDataAcquisitionStage`: Fetches contact data using the new async API
-   - `CSVLoader`: Loads data to CSV files
+   - `CSVLoader`: Loads data to CSV files locally and uploads to S3 by default
    - `JSONLoader`: Loads data to JSON files
    - `S3Loader`: Loads data to AWS S3
    - `BatchProcessor`: Processes batches of items in parallel

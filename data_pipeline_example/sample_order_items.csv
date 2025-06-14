@@ -1,0 +1,2 @@
+order_number,item_id,part_number,part_uuid,revision,description,quantity,unit_price,total_price,material,process,export_controlled,filename,lead_days,quote_item_id
+O12345,2,PART-002,def456,B,Another Part,5,15.75,78.75,Steel 1018,Laser Cutting,False,,,

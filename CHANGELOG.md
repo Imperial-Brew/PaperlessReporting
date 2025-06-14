@@ -21,6 +21,10 @@ All notable changes to the PaperlessReporting project will be documented in this
   - Added example script `scripts/Examples/client_example.py` to demonstrate the client
 - Validation utilities for common data formats
   - Added `scripts/utils/validation.py` with functions for validating emails, phone numbers, etc.
+- Enhanced CSV export functionality
+  - Updated CSVLoader to save files both locally and to S3 by default
+  - Modified all pipeline factory methods to explicitly set upload_to_s3=True
+  - Added metrics for tracking S3 upload success
 
 ### Changed
 - Improved credential management

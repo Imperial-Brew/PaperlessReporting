@@ -1,0 +1,725 @@
+quote_number,quote_revision,item_id,workflow_status,part_number,revision,description,type,material,process,is_fully_configured,part_uuid,export_controlled,quantity,unit_price,total_price,total_price_with_add_ons,lead_time
+7800,,7396552,not_started,280-035-315-101,-,,manufactured,,,False,0621a043-d32a-45c1-abe0-dd3e7704e840,True,6,0.0,0.0,0.0,0
+7800,,7269932,not_started,280-035-315-102,,"LEADING EDGE RIB, RH - STABILIZER",manufactured,,,False,c9f86166-8411-4f6d-837f-23122110b0ac,False,6,0.0,0.0,0.0,0
+7800,,7399173,not_started,,,,manufactured,,,False,a5fa6282-bf73-43f0-b183-0628b7a5c1d0,True,6,0.0,0.0,0.0,0
+7800,,7269934,not_started,280-035-316-102,,"ROOT RIB, RH - STABILIZER",manufactured,,,False,5ab08a37-94fa-4a60-a39f-7c435f35d475,False,6,0.0,0.0,0.0,0
+7800,,7404390,not_started,,,,manufactured,,MS  - Assy,False,6714a8aa-806a-4a00-b40d-6f9af7c97381,True,6,60.83,364.98,1164.98,57
+7800,,7269936,not_started,280-035-317-102,,"RIB 02, RH - FIXED FIN",manufactured,,,False,9f759aae-c872-46d5-83d0-58c99db521f7,False,6,0.0,0.0,0.0,0
+7800,,7404394,not_started,,,,manufactured,,,False,b41bd543-2ea4-4bce-9c5c-92d82c2f146e,True,6,0.0,0.0,0.0,0
+7800,,7269938,not_started,280-035-318-102,,"RIB 03, RH - FIXED FIN",manufactured,,,False,b3815e93-a270-44d8-9a89-a3b1340a5496,False,6,0.0,0.0,0.0,0
+7800,,7405137,not_started,,,,manufactured,,,False,145c8d4a-e01f-4426-8596-f98ce02413e6,True,6,0.0,0.0,0.0,0
+7800,,7269940,not_started,280-035-319-102,,"RIB 04, RH - FIXED FIN",manufactured,,,False,0b48a31e-4a8e-4912-89c8-49cfbd44f545,False,6,0.0,0.0,0.0,0
+7800,,7269941,not_started,280-035-320-101,-,"RIB 05, LH - FIXED FIN",assembled,,,False,d6c5366c-4f67-4313-8124-d793634981b2,True,6,0.0,0.0,0.0,0
+7800,,7269942,not_started,280-035-320-102,,"RIB 05, RH - FIXED FIN",manufactured,,,False,19e47ebc-1820-4e8f-9c96-678503681fa3,False,6,0.0,0.0,0.0,0
+7801,,7270767,completed,0021-31341,01,"RING, NUT SECTOR PC",manufactured,Nitronic 60,MS - Mill,True,61291d6b-22e9-47e0-a7de-1972d0175d4d,False,5,100.96,504.8,1104.8,60
+7801,,7270769,completed,0041-63094,06,"HEATER PLATE, MOW",manufactured,Aluminum 6061-T6,MS - Mill,True,fd819618-631e-462c-8e61-3a30020c1e76,False,20,105.0,2100.0,2700.0,60
+7802,,7447402,completed,E170501211,B,SUBFRAME INJECTOR CHAMBER,assembled,CRS,SM - Assy,True,0e0df09f-c5c0-4116-91b9-35e8cb7de352,False,50,1850.0,92500.0,94700.0,121
+7802,,7447402,completed,E170501211,B,SUBFRAME INJECTOR CHAMBER,assembled,CRS,SM - Assy,True,0e0df09f-c5c0-4116-91b9-35e8cb7de352,False,100,1810.0,181000.0,181000.0,163
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,1,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,5,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,10,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,40,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,100,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,200,0.0,0.0,0.0,0
+7803,,7270976,not_started,0023-44467,01,"BRACKET,MATE & LOCK CONNECTORS 208V E5AC",manufactured,,,False,133b4526-2579-43d2-ad0b-b8447a2490e0,False,400,0.0,0.0,0.0,0
+7804,,7439568,completed,0042-65067,02,"SHIELD SPRAY SHEET, DXZ GPLIS, CENTURA GP, 200MM",manufactured,CRS,SM - Piece W/HDWE,True,cff28599-8861-4d38-b666-b1ce9d56e298,False,1,777.0,777.0,1677.0,62
+7804,,7439568,completed,0042-65067,02,"SHIELD SPRAY SHEET, DXZ GPLIS, CENTURA GP, 200MM",manufactured,CRS,SM - Piece W/HDWE,True,cff28599-8861-4d38-b666-b1ce9d56e298,False,5,236.0,1180.0,2080.0,62
+7804,,7439568,completed,0042-65067,02,"SHIELD SPRAY SHEET, DXZ GPLIS, CENTURA GP, 200MM",manufactured,CRS,SM - Piece W/HDWE,True,cff28599-8861-4d38-b666-b1ce9d56e298,False,10,168.0,1680.0,2580.0,62
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,1,666.0,666.0,1266.0,63
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,3,263.0,789.0,1389.0,63
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,5,182.0,910.0,1510.0,63
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,10,122.0,1220.0,1820.0,63
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,15,101.0,1515.0,2115.0,64
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,25,84.24,2106.0,2706.0,64
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,50,72.16,3608.0,3608.0,65
+7805,,7308878,completed,0043-08571,01,"COVER, UNIFORMITY ,",manufactured,Aluminum 5052-H32,SM - Piece W/HDWE,True,71b28152-69f5-46fd-a4e0-c346396e8be4,False,100,66.71,6671.0,6671.0,68
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,1,725.0,725.0,1325.0,61
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,10,106.0,1060.0,1660.0,61
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,50,58.8,2940.0,3540.0,63
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,100,53.37,5337.0,5337.0,65
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,220,51.05,11231.0,11231.0,71
+7806,,7365957,completed,0043-09064,01,"DRIPTRAY, PULSAR GEN",manufactured,Aluminum 5052-H32,SM - Piece,True,5446c4de-81cf-40cf-9c77-eb2271d74ba8,False,2200,48.63,106986.0,106986.0,160
+7807,,7271250,no_quote,0041-25104,07,"ADAPTER, MIDDLE, 300MM ENCORE TA(N) II",assembled,,NQ - Not a Core Competency,False,1bd6c33e-5575-46ea-a03b-c30bf6347841,False,1,0.0,0.0,0.0,5
+7807,,7271250,no_quote,0041-25104,07,"ADAPTER, MIDDLE, 300MM ENCORE TA(N) II",assembled,,NQ - Not a Core Competency,False,1bd6c33e-5575-46ea-a03b-c30bf6347841,False,5,0.0,0.0,0.0,5
+7807,,7271250,no_quote,0041-25104,07,"ADAPTER, MIDDLE, 300MM ENCORE TA(N) II",assembled,,NQ - Not a Core Competency,False,1bd6c33e-5575-46ea-a03b-c30bf6347841,False,10,0.0,0.0,0.0,5
+7808,,7272736,not_started,test,,,manufactured,,,False,450eb719-1936-4831-8995-cdfa0c1502e2,False,1,0.0,0.0,0.0,0
+7809,,7281627,completed,2008M21P01,,,manufactured,,Historical Part Requote,False,f186a845-d816-4e84-85eb-111acb69663e,False,180,10.0,1800.0,1800.0,50
+7810,,7291280,completed,901-005-680-113,E,CARD BOX ASSY,manufactured,,,False,bd46b7cc-bcf7-4249-b2ad-a1febadfe71b,True,1,1803.0,1803.0,1803.0,70
+7811,,7295143,not_started,65C18537-144,004,TUBE ASSEMBLY,manufactured,,,False,f93638b1-f967-449a-8846-c9679d0305b4,True,5,0.0,0.0,0.0,0
+7811,,7295145,not_started,65C18537-684,006,"TUBE ASSEMBLY, METAL",manufactured,,,False,77c170c8-8ff8-4f04-95cb-d90e6524eed6,True,13,0.0,0.0,0.0,0
+7812,,7295509,not_started,74A170743-2003W,,"WEAR PIECE, AILERON",manufactured,,,False,bb3b2d82-fd75-47f7-a654-a2db2da7d5c2,True,6,0.0,0.0,0.0,0
+7813,,7295569,not_started,35-8220-514,J,"FAIRING,AIRCRAFT",manufactured,,,False,0a367de4-b333-4539-8b0d-9c4e55e6a1e1,True,33,0.0,0.0,0.0,0
+7814,,7296340,completed,512-069-630-001,-,BRACKET APU DECK LH,manufactured,Stainless Steel 17-4,MS - Mill,True,e4456a94-f5be-45c2-8184-1db16de9acc3,True,10,518.0,5180.0,6560.0,70
+7814,,7296340,completed,512-069-630-001,-,BRACKET APU DECK LH,manufactured,Stainless Steel 17-4,MS - Mill,True,e4456a94-f5be-45c2-8184-1db16de9acc3,True,20,405.0,8100.0,9480.0,70
+7814,,7296340,completed,512-069-630-001,-,BRACKET APU DECK LH,manufactured,Stainless Steel 17-4,MS - Mill,True,e4456a94-f5be-45c2-8184-1db16de9acc3,True,35,372.0,13020.0,14400.0,75
+7814,,7296343,completed,512-069-630-003,-,BRACKET APU DECK RH,manufactured,Stainless Steel 17-4,MS - Mill,True,1e4e28eb-7665-4569-9d94-394f6e6d7794,True,10,518.0,5180.0,5180.0,70
+7814,,7296343,completed,512-069-630-003,-,BRACKET APU DECK RH,manufactured,Stainless Steel 17-4,MS - Mill,True,1e4e28eb-7665-4569-9d94-394f6e6d7794,True,20,405.0,8100.0,8100.0,70
+7814,,7296343,completed,512-069-630-003,-,BRACKET APU DECK RH,manufactured,Stainless Steel 17-4,MS - Mill,True,1e4e28eb-7665-4569-9d94-394f6e6d7794,True,35,372.0,13020.0,13020.0,71
+7815,,7296419,not_started,512-000-020-149,-,GCU Bracket Assy,manufactured,,,False,205284b7-c83f-4fd0-8505-22456f9b4526,True,12,0.0,0.0,0.0,0
+7815,,7296420,not_started,512-000-020-151,-,GCU Bracket Assy,manufactured,,,False,d0d1d72e-1d6c-4b08-8647-c508f0b20f70,True,12,0.0,0.0,0.0,0
+7816,,7296476,completed,901-005-890-101,B,Thermal Pad,manufactured,,,False,bddd1397-e395-4f2e-abc6-e37a50e85344,True,182,20.8,3785.6,3785.6,60
+7816,,7296482,completed,901-005-890-103,B,,manufactured,,Kit - Assy,False,c4634026-2d8f-47f0-bdc0-951157d17d21,True,182,38.79,7059.78,7379.78,60
+7817,,7299035,completed,0270-19650,02,"FRAME, CATHODE TEST FIXTURE LENUS",assembled,Aluminum 6061-T6,SM - Assy,True,4618f7e3-1347-4dee-ac01-4de881cacf84,False,1,8790.0,8790.0,9590.0,57
+7817,,7299035,completed,0270-19650,02,"FRAME, CATHODE TEST FIXTURE LENUS",assembled,Aluminum 6061-T6,SM - Assy,True,4618f7e3-1347-4dee-ac01-4de881cacf84,False,2,7290.0,14580.0,15380.0,60
+7817,,7299035,completed,0270-19650,02,"FRAME, CATHODE TEST FIXTURE LENUS",assembled,Aluminum 6061-T6,SM - Assy,True,4618f7e3-1347-4dee-ac01-4de881cacf84,False,3,6790.0,20370.0,21170.0,63
+7817,,7299035,completed,0270-19650,02,"FRAME, CATHODE TEST FIXTURE LENUS",assembled,Aluminum 6061-T6,SM - Assy,True,4618f7e3-1347-4dee-ac01-4de881cacf84,False,5,6390.0,31950.0,32750.0,68
+7817,,7299035,completed,0270-19650,02,"FRAME, CATHODE TEST FIXTURE LENUS",assembled,Aluminum 6061-T6,SM - Assy,True,4618f7e3-1347-4dee-ac01-4de881cacf84,False,10,6090.0,60900.0,61700.0,82
+7818,,7299174,completed,0042-68583,01,"BRACKET ADAPTOR, DRIP PAN,DXZ GPLIS,CENTURA GP 200 MM",assembled,CRS,SM - Assy,True,c7f0a7c2-f0fc-40bb-80b9-dda9730fbdda,False,1,1560.0,1560.0,2760.0,76
+7818,,7299174,completed,0042-68583,01,"BRACKET ADAPTOR, DRIP PAN,DXZ GPLIS,CENTURA GP 200 MM",assembled,CRS,SM - Assy,True,c7f0a7c2-f0fc-40bb-80b9-dda9730fbdda,False,2,808.0,1616.0,2816.0,76
+7818,,7299174,completed,0042-68583,01,"BRACKET ADAPTOR, DRIP PAN,DXZ GPLIS,CENTURA GP 200 MM",assembled,CRS,SM - Assy,True,c7f0a7c2-f0fc-40bb-80b9-dda9730fbdda,False,3,558.0,1674.0,2874.0,76
+7818,,7299174,completed,0042-68583,01,"BRACKET ADAPTOR, DRIP PAN,DXZ GPLIS,CENTURA GP 200 MM",assembled,CRS,SM - Assy,True,c7f0a7c2-f0fc-40bb-80b9-dda9730fbdda,False,4,433.0,1732.0,2932.0,76
+7819,,7448366,completed,0040-90270,07,"LOWER MODULAR WRIST, YBT",manufactured,Aluminum 6061-T6,MS - Mill,True,86378ffd-20f0-402d-b13a-5a8a006681f4,False,1,2700.0,2700.0,4600.0,79
+7819,,7448366,completed,0040-90270,07,"LOWER MODULAR WRIST, YBT",manufactured,Aluminum 6061-T6,MS - Mill,True,86378ffd-20f0-402d-b13a-5a8a006681f4,False,5,844.0,4220.0,6120.0,80
+7819,,7448366,completed,0040-90270,07,"LOWER MODULAR WRIST, YBT",manufactured,Aluminum 6061-T6,MS - Mill,True,86378ffd-20f0-402d-b13a-5a8a006681f4,False,10,626.0,6260.0,8160.0,82
+7820,,7299629,no_quote,0020-20653,03,"BASE HEATER 8, DEGAS",manufactured,,NQ - Not a Core Competency,False,99b6ef78-d0ef-44ac-b1be-4068647de766,False,55,0.0,0.0,0.0,5
+7821,,7299760,no_quote,FIXT1419_001_CFAN_NX25,01,FIXT1419 MITSUI RISER 9X OGV,manufactured,,NQ - Not a Core Competency,False,08194922-e792-424a-9f73-575808732b09,False,1,0.0,0.0,0.0,5
+7821,,7299760,no_quote,FIXT1419_001_CFAN_NX25,01,FIXT1419 MITSUI RISER 9X OGV,manufactured,,NQ - Not a Core Competency,False,08194922-e792-424a-9f73-575808732b09,False,5,0.0,0.0,0.0,5
+7821,,7299760,no_quote,FIXT1419_001_CFAN_NX25,01,FIXT1419 MITSUI RISER 9X OGV,manufactured,,NQ - Not a Core Competency,False,08194922-e792-424a-9f73-575808732b09,False,10,0.0,0.0,0.0,5
+7822,,7300167,not_started,ATIEX00849,A,"TUNNEL, SHAFT - HP REV A (ALUMINUM TUNNEL)",assembled,,,False,5c42e177-18fc-47d7-b627-03663a2691a2,True,2,0.0,0.0,0.0,0
+7822,,7300168,not_started,ATIEX00838,A,"TUNNEL, SHAFT - HP REV A (THICK WALL STEEL)",assembled,,,False,a712f316-05d1-445d-b047-6f1ecdc6f76b,True,2,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,1,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,2,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,3,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,5,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,10,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,15,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,20,0.0,0.0,0.0,0
+7823,,7300551,not_started,0011-11806,02,"19 IN RACK, RUBICON",manufactured,,,False,beff2b26-c8d1-49f9-9010-fad28f2b69ed,False,50,0.0,0.0,0.0,0
+7823,,7448321,not_started,0011-11806,01,"19 IN RACK, RUBICON",assembled,CRS,SM - Assy,True,9daa8c07-8ccc-40eb-8a6d-f8b98a98e6bf,False,1,11300.0,11300.0,14500.0,60
+7823,,7448321,not_started,0011-11806,01,"19 IN RACK, RUBICON",assembled,CRS,SM - Assy,True,9daa8c07-8ccc-40eb-8a6d-f8b98a98e6bf,False,3,5340.0,16020.0,19220.0,60
+7823,,7448321,not_started,0011-11806,01,"19 IN RACK, RUBICON",assembled,CRS,SM - Assy,True,9daa8c07-8ccc-40eb-8a6d-f8b98a98e6bf,False,5,4040.0,20200.0,23400.0,60
+7823,,7448321,not_started,0011-11806,01,"19 IN RACK, RUBICON",assembled,CRS,SM - Assy,True,9daa8c07-8ccc-40eb-8a6d-f8b98a98e6bf,False,10,3140.0,31400.0,34600.0,60
+7823,,7448321,not_started,0011-11806,01,"19 IN RACK, RUBICON",assembled,CRS,SM - Assy,True,9daa8c07-8ccc-40eb-8a6d-f8b98a98e6bf,False,20,2640.0,52800.0,56000.0,75
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,1,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,5,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,25,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,50,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,100,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,200,0.0,0.0,0.0,50
+7824,,7300457,not_started,0015-11250,03,FLEXI BAR AC PHASE 1,manufactured,,Historical Part Requote,False,0f312f91-b4cb-437e-9ace-c9689eec0a6f,False,300,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,1,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,5,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,25,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,50,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,100,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,200,0.0,0.0,0.0,50
+7824,,7300458,not_started,0015-11251,03,FLEXI BAR AC PHASE 2,manufactured,,Historical Part Requote,False,06de5567-9dfc-47d9-b26b-15dfdc6966cf,False,300,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,1,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,5,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,25,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,50,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,100,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,200,0.0,0.0,0.0,50
+7824,,7300459,not_started,0015-11252,03,FLEXI BAR AC PHASE 3,manufactured,,Historical Part Requote,False,5483099e-7466-40ee-8978-6c20733fe59b,False,300,0.0,0.0,0.0,50
+7825,,7300622,completed,0020-15335,02,"CLAMP, WATER HOSE, CHAMBER TOP, ULTIMA+",manufactured,Aluminum 6061-T6,MS - Mill,True,14c7cc1b-2814-43b3-9ce4-25486b853487,False,3,370.0,1110.0,2710.0,75
+7825,,7300622,completed,0020-15335,02,"CLAMP, WATER HOSE, CHAMBER TOP, ULTIMA+",manufactured,Aluminum 6061-T6,MS - Mill,True,14c7cc1b-2814-43b3-9ce4-25486b853487,False,6,213.0,1278.0,2878.0,75
+7826,,7314114,not_started,280-035-331-101,-,"AFT ROOT RIB, LH - FIXED FIN",manufactured,,,False,eeb0dee5-d980-4f59-ba8c-0ae7fd71cc07,True,6,0.0,0.0,0.0,0
+7826,,7314115,not_started,280-035-331-102,-,"AFT ROOT RIB, RH - FIXED FIN",manufactured,,,False,a992ed65-879f-4ae3-9fee-e12289f7f77c,True,6,0.0,0.0,0.0,0
+7826,,7314116,not_started,280-035-332-101,-,"RIB 01, LH - FIXED FIN",assembled,,,False,97688622-1771-4e6e-973e-ac8c2fef578d,True,6,0.0,0.0,0.0,0
+7826,,7314117,not_started,280-035-332-102,-,"RIB 01, RH - FIXED FIN",manufactured,,,False,254ab322-d15f-4c2c-8c00-2401bf77ea96,True,6,0.0,0.0,0.0,0
+7827,,7314261,not_started,280-035-334-101,-,"WEB PLATE, ROOT RIB - STABILIZER",assembled,,,False,1f4a6aef-c545-4851-b635-b5b07add0af1,True,12,0.0,0.0,0.0,0
+7828,,7314520,not_started,280-035-361-101,-,"FWD RIB POST, RIB 02, LH - STABILIZER",assembled,,,False,76ed0a7d-6deb-4609-b4b7-16a4869c04e3,True,6,0.0,0.0,0.0,0
+7828,,7314521,not_started,280-035-361-102,-,"FWD RIB POST, RIB 02, RH - STABILIZER",manufactured,,,False,62cf90e1-09e5-4f99-8f05-79569579fbd6,True,6,0.0,0.0,0.0,0
+7828,,7314522,not_started,280-035-362-101,-,"FWD RIB POST, RIB 03, LH - STABILIZER",assembled,,,False,f013acbb-f500-4c8b-aca7-5ed15e07825e,True,6,0.0,0.0,0.0,0
+7828,,7314523,not_started,280-035-362-102,-,"FWD RIB POST, RIB 03, RH - STABILIZER",manufactured,,,False,48036d12-c116-4fa2-b310-aac67c82151a,True,6,0.0,0.0,0.0,0
+7828,,7314524,not_started,280-035-363-101,-,"FWD RIB POST, RIB 04, LH - STABILIZER",assembled,,,False,06ec92a7-069d-46a3-8d12-cfa41028d5d1,True,6,0.0,0.0,0.0,0
+7828,,7314525,not_started,280-035-363-102,-,"FWD RIB POST, RIB 04, RH - STABILIZER",manufactured,,,False,2014e466-424d-4f97-9550-df20f2d119fb,True,6,0.0,0.0,0.0,0
+7828,,7314526,not_started,280-035-364-101,-,"FWD RIB POST, RIB 05, LH - STABILIZER",manufactured,,,False,eeb6498a-ce98-4905-ad9e-c9388c04f00e,True,6,0.0,0.0,0.0,0
+7828,,7314527,not_started,280-035-364-102,-,"FWD RIB POST, RIB 05, RH - STABILIZER",manufactured,,,False,a3529ed2-07b5-471d-af61-81b1721ea3dd,True,6,0.0,0.0,0.0,0
+7828,,7314528,not_started,280-035-368-101,,"AFT RIB POST, RIB 04, LH - STABILIZER",assembled,,,False,47df4a64-8eb6-4ada-8b86-ccf16a94a394,True,6,0.0,0.0,0.0,0
+7828,,7314529,not_started,280-035-368-102,-,"AFT RIB POST, RIB 04, RH - STABILIZER",manufactured,,,False,28e95d08-af94-497a-b89d-6a89ff17df52,True,6,0.0,0.0,0.0,0
+7828,,7315658,not_started,280-035-384-101,-,"AFT RIB POST, RIB 01, LH - STABILIZER",assembled,,,False,679e7bb5-b2a5-487d-bf52-da91f72f1897,True,6,0.0,0.0,0.0,0
+7828,,7315659,not_started,280-035-384-102,-,"AFT RIB POST, RIB 01, RH - STABILIZER",manufactured,,,False,98a9e521-8fcc-4d6f-9f3e-ae57e3859779,True,6,0.0,0.0,0.0,0
+7828,,7315660,not_started,280-035-385-101,-,"AFT RIB POST, RIB 02, LH - STABILIZER",assembled,,,False,a53b532e-d304-4aa5-9491-9cf8a465773d,True,6,0.0,0.0,0.0,0
+7828,,7315661,not_started,280-035-385-102,-,"AFT RIB POST, RIB 02, RH - STABILIZER",manufactured,,,False,e648d325-792f-4689-b75b-3a07a8936193,True,6,0.0,0.0,0.0,0
+7828,,7315662,not_started,280-035-386-101,-,"AFT RIB POST, RIB 03, LH - STABILIZER",assembled,,,False,75c94a55-b2c0-4db5-8044-7fc5ee14c54e,True,6,0.0,0.0,0.0,0
+7828,,7315663,not_started,280-035-386-102,-,"AFT RIB POST, RIB 03, RH - STABILIZER",manufactured,,,False,3d9a4503-137c-472f-b31c-785cdb0df0bb,True,6,0.0,0.0,0.0,0
+7828,,7315664,not_started,280-035-387-101,-,"AFT RIB POST, RIB 05, LH - STABILIZER",assembled,,,False,f5959ca8-2a7b-4ede-828e-606d16c0c659,True,6,0.0,0.0,0.0,0
+7828,,7315665,not_started,280-035-387-102,-,"AFT RIB POST, RIB 05, RH - STABILIZER",manufactured,,,False,23f73188-1bba-4192-96b1-5fce2e9d15c0,True,6,0.0,0.0,0.0,0
+7828,,7315666,not_started,280-035-388-101,,SPAR SPLICE 1 - STABILIZER,assembled,,,False,7b7a4dd3-0bb3-4361-b180-ce812e0dfb15,True,6,0.0,0.0,0.0,0
+7828,,7315667,not_started,280-035-388-102,-,SPAR SPLICE 2 - STABILIZER,manufactured,,,False,48b23d3b-4613-49ac-9abf-f23a9e5f3154,True,6,0.0,0.0,0.0,0
+7829,,7314585,not_started,512-030-500-183,-,STRIKER ASSY LH AFT LWR - SLIDING DOOR,manufactured,,MS  - Assy,False,7fdf922f-c807-40b8-850b-663def012aab,True,4,2402.0,9608.0,12318.0,80
+7829,,7314585,not_started,512-030-500-183,-,STRIKER ASSY LH AFT LWR - SLIDING DOOR,manufactured,,MS  - Assy,False,7fdf922f-c807-40b8-850b-663def012aab,True,28,502.0,14056.0,14056.0,32
+7830,,7314937,not_started,280-035-351-001,-,"PANEL LDG ASSY, INBD, LH - STABILIZER",assembled,,,False,d7933ef0-4640-48b9-970b-04c1249ae72a,True,6,0.0,0.0,0.0,0
+7830,,7314938,not_started,280-035-351-002,-,"PANEL LDG ASSY, INBD, RH - STABILIZER",manufactured,,,False,5f10dd9f-1411-44a0-ad5c-5874eb89dc19,True,6,0.0,0.0,0.0,0
+7830,,7314939,not_started,280-035-352-001,-,"PANEL LDG ASSY, MID, LH - STABILIZER",manufactured,,,False,ba5f6e36-a94e-4cdc-8726-b0ff42a717b8,True,6,0.0,0.0,0.0,0
+7830,,7314940,not_started,280-035-352-002,-,"PANEL LDG ASSY, MID, RH - STABILIZER",manufactured,,,False,471ea3e7-4bbf-4b71-a1fb-3ad92143acba,True,6,0.0,0.0,0.0,0
+7830,,7314941,not_started,280-035-353-001,-,"PANEL LDG ASSY, OUTBD, LH - STABILIZER",manufactured,,,False,f4dc231e-ed8a-4916-ae2b-9818ac05fe59,True,6,0.0,0.0,0.0,0
+7830,,7314942,not_started,280-035-353-002,-,"PANEL LDG ASSY, OUTBD, RH - STABILIZER",manufactured,,,False,b0a023c8-a906-4763-85c4-f8c920985a03,True,6,0.0,0.0,0.0,0
+7831,,7315199,not_started,512-000-020-117,A,HIRF Floor Bracket,assembled,,,False,d7da5a1f-3dd4-4fdc-8b7e-fc2daabb2c1d,True,29,0.0,0.0,0.0,0
+7832,,7315367,completed,1141332-001,-,"SPACER BAR, SHORT, CP-1",manufactured,Aluminum 2024-T4,MS - Mill,True,a48cd57b-695f-4cf5-a108-54e1ad13109e,True,100,33.41,3341.0,3701.0,60
+7832,,7315367,completed,1141332-001,-,"SPACER BAR, SHORT, CP-1",manufactured,Aluminum 2024-T4,MS - Mill,True,a48cd57b-695f-4cf5-a108-54e1ad13109e,True,200,27.23,5446.0,5806.0,60
+7832,,7315367,completed,1141332-001,-,"SPACER BAR, SHORT, CP-1",manufactured,Aluminum 2024-T4,MS - Mill,True,a48cd57b-695f-4cf5-a108-54e1ad13109e,True,700,22.65,15855.0,16215.0,77
+7832,,7315374,completed,1141340-002,B,"HOUSING, CP-xx",manufactured,Aluminum 6061-T6,SM - Piece (combo),True,995be9ff-77ea-40d4-845e-b0801866dc45,True,50,65.56,3278.0,3638.0,70
+7832,,7315374,completed,1141340-002,B,"HOUSING, CP-xx",manufactured,Aluminum 6061-T6,SM - Piece (combo),True,995be9ff-77ea-40d4-845e-b0801866dc45,True,100,58.08,5808.0,6168.0,70
+7832,,7315374,completed,1141340-002,B,"HOUSING, CP-xx",manufactured,Aluminum 6061-T6,SM - Piece (combo),True,995be9ff-77ea-40d4-845e-b0801866dc45,True,350,52.32,18312.0,18672.0,70
+7833,,7315749,not_started,0020-34828,A,"ENCODER,HOME SENSOR,P-CHUCK",manufactured,Aluminum 6061-T6,SM - Piece,True,bb8047a5-0e30-4d91-851d-489db0f49aef,False,1,510.91,510.91,710.91,225
+7833,,7315749,not_started,0020-34828,A,"ENCODER,HOME SENSOR,P-CHUCK",manufactured,Aluminum 6061-T6,SM - Piece,True,bb8047a5-0e30-4d91-851d-489db0f49aef,False,5,107.16,535.8,735.8,225
+7833,,7315749,not_started,0020-34828,A,"ENCODER,HOME SENSOR,P-CHUCK",manufactured,Aluminum 6061-T6,SM - Piece,True,bb8047a5-0e30-4d91-851d-489db0f49aef,False,10,56.69,566.9,766.9,225
+7833,,7315749,not_started,0020-34828,A,"ENCODER,HOME SENSOR,P-CHUCK",manufactured,Aluminum 6061-T6,SM - Piece,True,bb8047a5-0e30-4d91-851d-489db0f49aef,False,15,43.11,646.65,846.65,225
+7834,,7315765,not_started,6259601,A,HEATSINK,manufactured,Aluminum 5052-H32,SM - Piece (combo),True,879dbca7-a409-43c3-9873-2153847580bf,True,2,153.0,306.0,306.0,50
+7834,,7315765,not_started,6259601,A,HEATSINK,manufactured,Aluminum 5052-H32,SM - Piece (combo),True,879dbca7-a409-43c3-9873-2153847580bf,True,6,120.0,720.0,720.0,50
+7834,,7315765,not_started,6259601,A,HEATSINK,manufactured,Aluminum 5052-H32,SM - Piece (combo),True,879dbca7-a409-43c3-9873-2153847580bf,True,10,74.1,741.0,741.0,52
+7834,,7315765,not_started,6259601,A,HEATSINK,manufactured,Aluminum 5052-H32,SM - Piece (combo),True,879dbca7-a409-43c3-9873-2153847580bf,True,20,45.2,904.0,904.0,53
+7834,,7315765,not_started,6259601,A,HEATSINK,manufactured,Aluminum 5052-H32,SM - Piece (combo),True,879dbca7-a409-43c3-9873-2153847580bf,True,50,27.9,1395.0,1395.0,53
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,1,1140.0,1140.0,2040.0,62
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,2,728.0,1456.0,2356.0,62
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,3,600.0,1800.0,2700.0,62
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,5,498.0,2490.0,3390.0,62
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,10,422.0,4220.0,5120.0,64
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,25,376.0,9400.0,10300.0,67
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,50,361.0,18050.0,18950.0,72
+7835,,7407246,completed,220-48018-000,A,"PLATE, MNTG, K1S C-SEAL STUDY PANEL, AMAT",manufactured,Aluminum 6061-T6,SM - Piece,True,061d2177-fd41-4952-b4a1-f0b34df67485,False,100,353.0,35300.0,35300.0,83
+7836,,7315911,not_started,280-035-396-001,-,BRACKET ASSY,assembled,,,False,d4490aec-f34d-4263-8da0-13972355d1e7,True,72,0.0,0.0,0.0,0
+7837,,7315950,completed,4022.695.41182,2A,CT MBTM RCW AMB MANIFOLD MCP 2,manufactured,Stainless Steel 316L,MS - Mill,True,c1871375-1783-4ae9-bc3e-cf2c75db118a,False,2,2730.0,5460.0,7860.0,80
+7837,,7315950,completed,4022.695.41182,2A,CT MBTM RCW AMB MANIFOLD MCP 2,manufactured,Stainless Steel 316L,MS - Mill,True,c1871375-1783-4ae9-bc3e-cf2c75db118a,False,5,1920.0,9600.0,12000.0,80
+7837,,7315950,completed,4022.695.41182,2A,CT MBTM RCW AMB MANIFOLD MCP 2,manufactured,Stainless Steel 316L,MS - Mill,True,c1871375-1783-4ae9-bc3e-cf2c75db118a,False,10,1650.0,16500.0,18900.0,80
+7838,,7316321,not_started,test,,,manufactured,,,False,450eb719-1936-4831-8995-cdfa0c1502e2,False,1,0.0,0.0,0.0,0
+7840,,7326115,completed,512-030-830-005,,"FITTING, FWD LOWER - SLIDING DOOR",manufactured,Aluminum 7050-T7451,MS - Mill,True,e2536cec-9784-45a0-82d9-aefc86fee656,True,41,863.0,35383.0,36183.0,80
+7841,,7326159,completed,0010-86666,05,"ASSEMBLY,PELTIER COOLER, DUAL POSITIONS,",assembled,,SM - Assy,False,c5bc961d-2277-4146-813d-cd8c74b67cdf,False,25,3000.0,75000.0,75000.0,80
+7841,,7327312,completed,0010-57215,09,"ASSEMBLY,PELTIER COOLER, VALENCIA",assembled,,SM - Assy,False,06855e5f-332d-4df9-aeda-ef311768f799,False,25,3000.0,75000.0,75000.0,80
+7842,,7332441,not_started,E11533140,B,"E11533140-RTD CONTROLLERS ASSY,LOAD LOCK TEMP",manufactured,,,False,b1e1f763-3160-47c1-b632-1c028e1f69bf,False,22,0.0,0.0,0.0,0
+7843,,7332523,no_quote,0040-02794,02,"V-ELECTRODE W/O IEP, DETACHABLE WITH COV",manufactured,,NQ - Not a Core Competency,False,77afc558-039b-4adb-9ad1-1627799bda73,False,19,0.0,0.0,0.0,5
+7844,,7332616,completed,0021-96593,02,"SHIPPING BRACKET, DTESC",manufactured,Stainless Steel 304/304L,SM - Piece,True,a89b4ce4-61ab-4fb8-a9e5-7b445aeb0c49,False,4,105.0,420.0,1020.0,46
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,1,3810.0,3810.0,3810.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,25,1920.0,48000.0,48000.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,50,1920.0,96000.0,96000.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,100,1920.0,192000.0,192000.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,200,1920.0,384000.0,384000.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,400,1920.0,768000.0,768000.0,50
+7845,,7332691,completed,0040-89653,09,,assembled,,Historical Part Requote,False,ae566b28-d594-42a2-b8f0-19ace73a5880,False,592,1920.0,1136640.0,1136640.0,50
+7846,,7333813,not_started,8601113-300-6,M,"COMPONENTS, BATTERY TRAY, FRONT PANEL",manufactured,,,False,d1f8b418-c2a3-4c47-9944-3ce06d88ab21,False,6,0.0,0.0,0.0,0
+7846,,7333814,not_started,8601113-306,D,"SPACER, SHOCK PIN",manufactured,,,False,86c4ab5f-7f40-4239-aeea-89ab04027f15,False,12,0.0,0.0,0.0,0
+7846,,7333815,not_started,8601113-309-2,J,"BUS BAR, BATTERY DRAWER",manufactured,,,False,0e35f371-66cb-469f-aa13-d608b1c248b4,False,12,0.0,0.0,0.0,0
+7846,,7333816,not_started,8601113-309-3,J,"BUS BAR, BATTERY DRAWER",manufactured,,,False,5e2e900b-26e3-4283-86b1-55bbb43a3055,False,12,0.0,0.0,0.0,0
+7846,,7333817,not_started,8601113-346,G,"PANEL, FRONT AC INPUT MODULE",manufactured,,,False,33f8e0ed-ccf9-4dbc-9416-ea7217fb1d2e,False,6,0.0,0.0,0.0,0
+7847,,7333985,completed,0015-07471,06,PLATE FACE GENERATOR MOUNT,manufactured,Aluminum 5052-H32,MS - Mill,True,c4aa74ce-5acb-44d4-afa5-21a92c4832b7,False,1,767.0,767.0,1567.0,61
+7847,,7333985,completed,0015-07471,06,PLATE FACE GENERATOR MOUNT,manufactured,Aluminum 5052-H32,MS - Mill,True,c4aa74ce-5acb-44d4-afa5-21a92c4832b7,False,20,86.6,1732.0,2532.0,62
+7847,,7333985,completed,0015-07471,06,PLATE FACE GENERATOR MOUNT,manufactured,Aluminum 5052-H32,MS - Mill,True,c4aa74ce-5acb-44d4-afa5-21a92c4832b7,False,50,66.86,3343.0,3343.0,64
+7847,,7333985,completed,0015-07471,06,PLATE FACE GENERATOR MOUNT,manufactured,Aluminum 5052-H32,MS - Mill,True,c4aa74ce-5acb-44d4-afa5-21a92c4832b7,False,100,59.95,5995.0,5995.0,67
+7847,,7333985,completed,0015-07471,06,PLATE FACE GENERATOR MOUNT,manufactured,Aluminum 5052-H32,MS - Mill,True,c4aa74ce-5acb-44d4-afa5-21a92c4832b7,False,200,57.51,11502.0,11502.0,72
+7848,,7334344,not_started,512-030-411-283,-,BRACKET LH,manufactured,,,False,5a7aa1c2-ccb6-43a6-a467-8c316d0e55ff,True,15,0.0,0.0,0.0,0
+7849,,7334391,not_started,512-030-100-455,A,Bracket Assy Wiper Motor LHS,manufactured,,,False,33d21129-0b5d-4815-9b3e-b5bd34925dcb,True,18,0.0,0.0,0.0,0
+7850,,7335223,not_started,280-035-446-101,-,"ACCESS PANEL LANDING, INBD 1, LH - RVTR",assembled,,,False,35687caa-335e-49ca-abdf-a7ba59713cf6,True,6,0.0,0.0,0.0,0
+7850,,7335224,not_started,280-035-446-102,-,"ACCESS PANEL LANDING, INBD 1, RH - RVTR",manufactured,,,False,2102821f-0801-4094-a38f-56e3fe357f57,True,6,0.0,0.0,0.0,0
+7850,,7335225,not_started,280-035-447-101,-,"ACCESS PANEL LANDING, INBD 2, LH - RVTR",assembled,,,False,88851ce7-f1de-4063-aca6-a9fa68a5d082,True,6,0.0,0.0,0.0,0
+7850,,7335226,not_started,280-035-447-102,-,"ACCESS PANEL LANDING, INBD 2, RH - RVTR",manufactured,,,False,4279bb92-0aed-42eb-a2fd-51e1d82a5571,True,6,0.0,0.0,0.0,0
+7850,,7335227,not_started,280-035-448-101,-,"ACCESS PANEL LANDING, MID 1, LH - RVTR",assembled,,,False,a6d10adc-50a2-43c5-a267-d2929c93aae7,True,6,0.0,0.0,0.0,0
+7850,,7335228,not_started,280-035-448-102,-,"ACCESS PANEL LANDING, MID 1, RH - RVTR",manufactured,,,False,aa5201b4-f8fa-45aa-9a98-4e06ceb45b66,True,6,0.0,0.0,0.0,0
+7850,,7335229,not_started,280-035-449-101,-,"ACCESS PANEL LANDING, MID 2, LH - RVTR",assembled,,,False,30990d60-14a8-482e-aab0-fcb5d04ab5c9,True,6,0.0,0.0,0.0,0
+7850,,7335230,not_started,280-035-449-102,-,"ACCESS PANEL LANDING, MID 2, RH - RVTR",manufactured,,,False,50e73b35-751c-4723-b4f3-0cd82c2d150f,True,6,0.0,0.0,0.0,0
+7850,,7335231,not_started,280-035-450-101,-,"ACCESS PANEL LANDING, OUTBD 1, LH - RVTR",assembled,,,False,ca4c3885-1fbf-41e4-b9b7-c8fb16507529,True,6,0.0,0.0,0.0,0
+7850,,7335232,not_started,280-035-450-102,-,"ACCESS PANEL LANDING, OUTBD 1, RH - RVTR",manufactured,,,False,48f4d263-f060-4471-a4db-19cbb4b4dba2,True,6,0.0,0.0,0.0,0
+7850,,7335233,not_started,280-035-451-101,-,"ACCESS PANEL LANDING, OUTBD 2, LH - RVTR",assembled,,,False,3249721a-8b8b-4d33-947d-91a118a7397e,True,6,0.0,0.0,0.0,0
+7850,,7335234,not_started,280-035-451-102,-,"ACCESS PANEL LANDING, OUTBD 2, RH - RVTR",manufactured,,,False,c009c9f1-6bad-4498-b0f6-8d8967299439,True,6,0.0,0.0,0.0,0
+7850,,7335235,not_started,280-035-452-101,-,"ACCESS PANEL LANDING, INBD, LH - RVTR",assembled,,,False,afd90521-f3ac-4a69-8395-651ab38c7e1e,True,6,0.0,0.0,0.0,0
+7850,,7335236,not_started,280-035-452-102,-,"ACCESS PANEL LANDING, INBD, RH - RVTR",manufactured,,,False,33ab9123-3ddf-44f1-a1c4-a8106537592c,True,6,0.0,0.0,0.0,0
+7850,,7335237,not_started,280-035-453-101,-,"ACCESS PANEL LANDING, MID, LH - RVTR",assembled,,,False,bfc6cc79-8b32-4dbe-9a19-e8565002ce30,True,6,0.0,0.0,0.0,0
+7850,,7335238,not_started,280-035-453-102,-,"ACCESS PANEL LANDING, MID, RH - RVTR",manufactured,,,False,eba8e7d1-5908-427e-9e7b-493833a04a4b,True,6,0.0,0.0,0.0,0
+7850,,7335239,not_started,280-035-454-101,-,"ACCESS PANEL LANDING, OUTBD, LH - RVTR",assembled,,,False,6a19dec8-ae4c-4dc6-91f5-4531a70fc384,True,6,0.0,0.0,0.0,0
+7850,,7335240,not_started,280-035-454-102,-,"ACCESS PANEL LANDING, OUTBD, RH - RVTR",manufactured,,,False,6f8f1ced-df82-4e3d-9157-b8d6652c5e67,True,6,0.0,0.0,0.0,0
+7851,,7350725,not_started,512-030-300-489,A,TOP PLATE ASSY,manufactured,,,False,c4bc4eed-dc7a-419e-a0f6-22b7ef70bcda,True,13,0.0,0.0,0.0,0
+7852,,7360485,not_started,512-030-500-184,-,STRIKER ASSY RH AFT LWR - SLIDING DOOR,manufactured,,,False,1f534695-6cec-4324-82bf-1318b1070077,True,28,0.0,0.0,0.0,0
+7853,,7345871,not_started,5177177,C,"CONTAINER, INTERFACE CHARGE",manufactured,,,False,8199981d-e505-4bb1-bbb5-7f02065e38f9,False,50,0.0,0.0,0.0,0
+7853,,7345871,not_started,5177177,C,"CONTAINER, INTERFACE CHARGE",manufactured,,,False,8199981d-e505-4bb1-bbb5-7f02065e38f9,False,100,0.0,0.0,0.0,0
+7853,,7345872,not_started,5177173,E,"CONTAINER, IGNITER CHARGE",manufactured,,,False,761d6406-c4de-4e60-9086-4f9913b65081,False,50,0.0,0.0,0.0,0
+7853,,7345872,not_started,5177173,E,"CONTAINER, IGNITER CHARGE",manufactured,,,False,761d6406-c4de-4e60-9086-4f9913b65081,False,100,0.0,0.0,0.0,0
+7853,,7345874,not_started,5177211,H,"HOUSING, A/F DEVICE",manufactured,,,False,5aa44e4c-10aa-48b2-b188-3034644c8b8f,False,50,0.0,0.0,0.0,0
+7853,,7345874,not_started,5177211,H,"HOUSING, A/F DEVICE",manufactured,,,False,5aa44e4c-10aa-48b2-b188-3034644c8b8f,False,100,0.0,0.0,0.0,0
+7853,,7345877,not_started,5177171,A,CLOSURE HOUSING,manufactured,,,False,efb392dd-3c4c-4808-8f31-2a422b337ecb,False,50,0.0,0.0,0.0,0
+7853,,7345877,not_started,5177171,A,CLOSURE HOUSING,manufactured,,,False,efb392dd-3c4c-4808-8f31-2a422b337ecb,False,100,0.0,0.0,0.0,0
+7854,,7346254,not_started,H860U0233310,A,SWITCH BRACKET,manufactured,,,False,5447d93a-8ee1-4585-9a6d-bce7cd179c54,True,1,0.0,0.0,0.0,0
+7854,,7346254,not_started,H860U0233310,A,SWITCH BRACKET,manufactured,,,False,5447d93a-8ee1-4585-9a6d-bce7cd179c54,True,5,0.0,0.0,0.0,0
+7854,,7346254,not_started,H860U0233310,A,SWITCH BRACKET,manufactured,,,False,5447d93a-8ee1-4585-9a6d-bce7cd179c54,True,10,0.0,0.0,0.0,0
+7855,,7350651,not_started,A0590825,01,"SLIDE BLCK, TEACH JIG, BONDR CARRIER WFR",manufactured,Stainless Steel 304,MS - Mill,True,91dbf6af-b1ba-4fe4-a795-993cc67deed7,False,1,631.0,631.0,1431.0,65
+7855,,7350651,not_started,A0590825,01,"SLIDE BLCK, TEACH JIG, BONDR CARRIER WFR",manufactured,Stainless Steel 304,MS - Mill,True,91dbf6af-b1ba-4fe4-a795-993cc67deed7,False,5,149.0,745.0,1545.0,65
+7855,,7350651,not_started,A0590825,01,"SLIDE BLCK, TEACH JIG, BONDR CARRIER WFR",manufactured,Stainless Steel 304,MS - Mill,True,91dbf6af-b1ba-4fe4-a795-993cc67deed7,False,10,88.2,882.0,1682.0,65
+7855,,7350652,not_started,A0590841,01,"LOCATING FRME, TEACH JG, BNDR CARIER WFR",manufactured,,,False,6b6b906b-29fe-4761-92a5-76842607edbf,False,1,0.0,0.0,0.0,0
+7855,,7350652,not_started,A0590841,01,"LOCATING FRME, TEACH JG, BNDR CARIER WFR",manufactured,,,False,6b6b906b-29fe-4761-92a5-76842607edbf,False,5,0.0,0.0,0.0,0
+7855,,7350652,not_started,A0590841,01,"LOCATING FRME, TEACH JG, BNDR CARIER WFR",manufactured,,,False,6b6b906b-29fe-4761-92a5-76842607edbf,False,10,0.0,0.0,0.0,0
+7855,,7350653,not_started,A0601529,01,"BLANK OFF, CABINET ASSY, METROLOGY 2.1",manufactured,,,False,6bf3095c-13f7-4d24-a874-8518ae1b186b,False,1,0.0,0.0,0.0,0
+7855,,7350653,not_started,A0601529,01,"BLANK OFF, CABINET ASSY, METROLOGY 2.1",manufactured,,,False,6bf3095c-13f7-4d24-a874-8518ae1b186b,False,5,0.0,0.0,0.0,0
+7855,,7350653,not_started,A0601529,01,"BLANK OFF, CABINET ASSY, METROLOGY 2.1",manufactured,,,False,6bf3095c-13f7-4d24-a874-8518ae1b186b,False,10,0.0,0.0,0.0,0
+7855,,7350654,not_started,A0601836,01,"ETHER CAT BRCKT,ELCTRL ASSY,METROLOGY 2.",manufactured,,,False,32c2139d-d7eb-4179-8631-2f85c8e4aa85,False,1,0.0,0.0,0.0,0
+7855,,7350654,not_started,A0601836,01,"ETHER CAT BRCKT,ELCTRL ASSY,METROLOGY 2.",manufactured,,,False,32c2139d-d7eb-4179-8631-2f85c8e4aa85,False,5,0.0,0.0,0.0,0
+7855,,7350654,not_started,A0601836,01,"ETHER CAT BRCKT,ELCTRL ASSY,METROLOGY 2.",manufactured,,,False,32c2139d-d7eb-4179-8631-2f85c8e4aa85,False,10,0.0,0.0,0.0,0
+7855,,7350655,not_started,A0601837,01,"AC CABLE BRCKT, ELCTRL ASSY, METROLOGY 2",manufactured,,,False,d5d291c6-d907-4e88-a1a2-717719ff4427,False,1,0.0,0.0,0.0,0
+7855,,7350655,not_started,A0601837,01,"AC CABLE BRCKT, ELCTRL ASSY, METROLOGY 2",manufactured,,,False,d5d291c6-d907-4e88-a1a2-717719ff4427,False,5,0.0,0.0,0.0,0
+7855,,7350655,not_started,A0601837,01,"AC CABLE BRCKT, ELCTRL ASSY, METROLOGY 2",manufactured,,,False,d5d291c6-d907-4e88-a1a2-717719ff4427,False,10,0.0,0.0,0.0,0
+7855,,7350656,not_started,A0606473,01,"COVER, RAIL, 10 CHAMBER, COAXIAL XT ROBO",manufactured,,,False,c654ce30-d7d4-4eb1-86af-c70f67da16eb,False,1,0.0,0.0,0.0,0
+7855,,7350656,not_started,A0606473,01,"COVER, RAIL, 10 CHAMBER, COAXIAL XT ROBO",manufactured,,,False,c654ce30-d7d4-4eb1-86af-c70f67da16eb,False,5,0.0,0.0,0.0,0
+7855,,7350656,not_started,A0606473,01,"COVER, RAIL, 10 CHAMBER, COAXIAL XT ROBO",manufactured,,,False,c654ce30-d7d4-4eb1-86af-c70f67da16eb,False,10,0.0,0.0,0.0,0
+7855,,7350657,not_started,A0616421,01,APEX CUP LEAD IN GAUGE 2.4MM,manufactured,,,False,70805a79-1978-4506-939d-7a9bea61502a,False,1,0.0,0.0,0.0,0
+7855,,7350657,not_started,A0616421,01,APEX CUP LEAD IN GAUGE 2.4MM,manufactured,,,False,70805a79-1978-4506-939d-7a9bea61502a,False,5,0.0,0.0,0.0,0
+7855,,7350657,not_started,A0616421,01,APEX CUP LEAD IN GAUGE 2.4MM,manufactured,,,False,70805a79-1978-4506-939d-7a9bea61502a,False,10,0.0,0.0,0.0,0
+7855,,7350658,not_started,A0618930,01,"OFFSET BLOCK, 15.5MMOBD, INTERLOCK",manufactured,,,False,db027621-b172-4251-b94f-429ada48ad4f,False,1,0.0,0.0,0.0,0
+7855,,7350658,not_started,A0618930,01,"OFFSET BLOCK, 15.5MMOBD, INTERLOCK",manufactured,,,False,db027621-b172-4251-b94f-429ada48ad4f,False,5,0.0,0.0,0.0,0
+7855,,7350658,not_started,A0618930,01,"OFFSET BLOCK, 15.5MMOBD, INTERLOCK",manufactured,,,False,db027621-b172-4251-b94f-429ada48ad4f,False,10,0.0,0.0,0.0,0
+7856,,7350799,no_quote,0042-22256,02,"I-BLOCK INSEPARABLE ASSY, 2PRS-2P-2P-2P-",assembled,,NQ - Not a Core Competency,False,d813ac19-cf98-4da7-905b-7e1cb414edb7,False,2,0.0,0.0,0.0,5
+7856,,7350800,no_quote,229C0023-01,A,KEY .125 SQ .375 LONG,manufactured,,NQ - Not a Core Competency,False,859a608f-672f-4d84-857c-9f139f6b30d0,False,3,0.0,0.0,0.0,5
+7857,,7350849,not_started,02096203-052,03,"2 PACK MANIFOLD B, 1.5"", SLEEVE VALVE",manufactured,,,False,c148fc6a-5498-4830-845a-25c3b4f6b289,True,34,0.0,0.0,0.0,0
+7857,,7350850,not_started,02096208-051,02,"2 PACK MANIFOLD B, 2"", SLEEVE VALVE",manufactured,,,False,9858f146-ea27-4485-8ea3-073db36790fc,True,8,0.0,0.0,0.0,0
+7857,,7350851,not_started,02096207-051,02,"3-PACK MANIFOLD B, 2"", SLEEVE VALVE",manufactured,,,False,012108a8-6fd8-4a20-b825-54f830f5c221,True,4,0.0,0.0,0.0,0
+7857,,7350852,not_started,02096204-001,02,"MANIFOLD A, 3"", SLEEVE VALVE",manufactured,,,False,342a311f-3aa7-48a8-858b-8cf04186958a,True,1,0.0,0.0,0.0,0
+7857,,7350853,not_started,02096204-051,02,"MANIFOLD B, 3"", SLEEVE VALVE",manufactured,,,False,54d071ab-921b-4512-991a-8cd1ef1d222e,True,3,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,25,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,50,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,100,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,200,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,500,0.0,0.0,0.0,0
+7858,,7351101,not_started,0023-20473,04,"BRACKET, FRC, CAPA ON C3",manufactured,,,False,4d757be8-d7f0-407e-865b-dae12832c688,False,1000,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,25,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,50,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,100,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,200,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,500,0.0,0.0,0.0,0
+7858,,7351102,not_started,220-48031-000,01,"FLANGE, MATERIAL ASTM A240, SST 316",manufactured,,,False,8bf5451a-bd9b-471d-bc1d-63c1e898e484,False,1000,0.0,0.0,0.0,0
+7859,,7353259,completed,02096203-052,03,"2 PACK MANIFOLD B, 1.5 "" , SLEEVE VALVE",manufactured,Stainless Steel 304L,MS - Mill Turn,True,522bc60c-4ad8-450b-9039-2edcbcb8ddd9,True,34,1470.0,49980.0,53480.0,95
+7859,,7353260,completed,02096208-051,02,"2 PACK MANIFOLD B, 2 "" , SLEEVE VALVE",manufactured,Stainless Steel 304L,MS - Mill Turn,True,8ac9dc6d-bb68-48c1-8dc1-eb84adc4c9ab,True,8,1870.0,14960.0,18460.0,74
+7859,,7353261,completed,02096207-051,02,"3-PACK MANIFOLD B, 2 "" , SLEEVE VALVE",manufactured,Stainless Steel 304L,MS - Mill Turn,True,9777c583-c32d-4726-9ade-b2be4af85a19,True,4,2550.0,10200.0,13700.0,71
+7859,,7353262,completed,02096204-001,02,"MANIFOLD A, 3 "" , SLEEVE VALVE",manufactured,Stainless Steel 304L,MS - Mill Turn,True,c7379316-2ea4-4c4d-b1c3-8e6bd25812a1,True,1,3830.0,3830.0,7330.0,65
+7859,,7353263,completed,02096204-051,02,"MANIFOLD B, 3 "" , SLEEVE VALVE",manufactured,Stainless Steel 304L,MS - Mill Turn,True,9da5ddb2-608e-4a96-b5a3-e0d2b38cd750,True,3,2330.0,6990.0,10490.0,67
+7860,,7356898,completed,01861981-051,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,ef53487a-65ee-493d-822a-cbc3143b0815,True,2,17000.0,34000.0,39600.0,120
+7860,,7356898,completed,01861981-051,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,ef53487a-65ee-493d-822a-cbc3143b0815,True,10,12200.0,122000.0,127600.0,120
+7860,,7356898,completed,01861981-051,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,ef53487a-65ee-493d-822a-cbc3143b0815,True,20,11600.0,232000.0,237600.0,120
+7860,,7356898,completed,01861981-051,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,ef53487a-65ee-493d-822a-cbc3143b0815,True,100,11200.0,1120000.0,1120000.0,120
+7860,,7356900,completed,01861981-052,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,bc0d9157-dd0d-411f-8573-8477ef924246,True,2,17000.0,34000.0,39600.0,120
+7860,,7356900,completed,01861981-052,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,bc0d9157-dd0d-411f-8573-8477ef924246,True,10,12200.0,122000.0,127600.0,120
+7860,,7356900,completed,01861981-052,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,bc0d9157-dd0d-411f-8573-8477ef924246,True,20,11600.0,232000.0,237600.0,120
+7860,,7356900,completed,01861981-052,05,"AXIAL CLEVIS OUTSIDE, PAYLOAD ATTACH",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,bc0d9157-dd0d-411f-8573-8477ef924246,True,100,11200.0,1120000.0,1120000.0,120
+7860,,7356910,completed,01861981-053,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,9f9b4c55-9167-4c66-92d7-cbb5c3c79f69,True,2,17500.0,35000.0,40600.0,120
+7860,,7356910,completed,01861981-053,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,9f9b4c55-9167-4c66-92d7-cbb5c3c79f69,True,10,12600.0,126000.0,131600.0,120
+7860,,7356910,completed,01861981-053,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,9f9b4c55-9167-4c66-92d7-cbb5c3c79f69,True,20,12000.0,240000.0,245600.0,120
+7860,,7356910,completed,01861981-053,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,9f9b4c55-9167-4c66-92d7-cbb5c3c79f69,True,100,11600.0,1160000.0,1160000.0,120
+7860,,7356913,completed,01861981-054,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,6d6c2852-0ff6-4efd-99cd-42d40a850e9c,True,2,17500.0,35000.0,40600.0,120
+7860,,7356913,completed,01861981-054,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,6d6c2852-0ff6-4efd-99cd-42d40a850e9c,True,10,12600.0,126000.0,131600.0,120
+7860,,7356913,completed,01861981-054,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,6d6c2852-0ff6-4efd-99cd-42d40a850e9c,True,20,12000.0,240000.0,245600.0,120
+7860,,7356913,completed,01861981-054,05,"AXIAL CLEVIS INSIDE, LIFT&PAYLOAD",manufactured,Stainless Steel 15-5 PH,MS - Mill,True,6d6c2852-0ff6-4efd-99cd-42d40a850e9c,True,100,11600.0,1160000.0,1160000.0,120
+7861,,7360527,not_started,512-034-710-187,-,BRACKET TEMP SENSOR MOUNT - AFT FUSE,manufactured,,,False,99cb1a6e-ff2c-485b-8953-4a3c58db3374,True,21,0.0,0.0,0.0,0
+7862,,7360600,not_started,512-000-020-065,A,PANEL-AUX DC,manufactured,,,False,ecc395e8-18aa-4a33-a356-4e33906bc6e8,True,24,0.0,0.0,0.0,0
+7863,,7360633,not_started,512-030-300-330,B,BRACKET ASSY - RH,manufactured,,,False,e82b116c-a4b8-4d04-b874-bd695f9a7901,True,15,0.0,0.0,0.0,0
+7863,,7360634,not_started,512-030-300-340,A,BRACKET ASSY - RH,manufactured,,,False,5f84b401-7711-44c0-b84b-b74947fe191c,True,15,0.0,0.0,0.0,0
+7864,,7360672,not_started,512-030-610-319,A,STRAP BONDING - LWR RH,manufactured,,,False,f032238d-3cdc-4051-9535-c05bcd5c4986,True,11,0.0,0.0,0.0,0
+7865,,7360705,not_started,512-000-020-131,-,SUPPORT BRACKET ASSY,manufactured,,Historical Part Requote,False,dd0062dd-5708-4d2a-9850-4e79f12aa227,True,13,0.0,0.0,0.0,50
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,5,0.0,0.0,0.0,5
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,10,0.0,0.0,0.0,5
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,15,0.0,0.0,0.0,5
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,20,0.0,0.0,0.0,5
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,25,0.0,0.0,0.0,5
+7866,,7362312,no_quote,0041-31370,07,"ASSY, EXHAUST, WATER COOLED, VULCAN",assembled,,NQ - Not a Core Competency,False,ee03a78f-6500-42ea-a36e-8e1991d3419e,False,30,0.0,0.0,0.0,5
+7867,,7362425,completed,0021-08163,04,BALL STUD 300MM GAS SPRING 1/2-13,manufactured,Stainless Steel 416,MS - Lathe,True,5010045f-f55f-426f-a68c-94bb40903586,False,1,1040.0,1040.0,2140.0,68
+7867,,7362425,completed,0021-08163,04,BALL STUD 300MM GAS SPRING 1/2-13,manufactured,Stainless Steel 416,MS - Lathe,True,5010045f-f55f-426f-a68c-94bb40903586,False,5,300.0,1500.0,2600.0,69
+7867,,7362425,completed,0021-08163,04,BALL STUD 300MM GAS SPRING 1/2-13,manufactured,Stainless Steel 416,MS - Lathe,True,5010045f-f55f-426f-a68c-94bb40903586,False,10,208.0,2080.0,3180.0,69
+7868,,7362511,not_started,450-075-203-101,B,CHASSIS ASSY,manufactured,,,False,c402179d-4d3d-44e4-8c26-871d6006dcab,True,10,0.0,0.0,0.0,0
+7868,,7362516,not_started,450-075-271-101,-,PLATE,manufactured,,,False,cdac1c51-d26b-4d36-9294-8cab141ff731,True,10,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,1,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,5,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,10,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,25,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,50,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,100,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,200,0.0,0.0,0.0,0
+7869,,7362650,not_started,0022-50059,02,"BLANK OFF, ROOF ACCESS PANEL, 42U GR",manufactured,,,False,35f2a993-205c-4993-b43b-ac4668262f6b,False,300,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,1,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,5,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,10,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,25,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,50,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,100,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,200,0.0,0.0,0.0,0
+7869,,7362651,not_started,0023-23085,03,"PANEL LOUVERED,BLANKOFF, 11U, BLUE",manufactured,,,False,cd5d888e-5c74-42da-b01c-d4115fa7e652,False,300,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,1,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,5,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,10,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,25,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,50,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,100,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,200,0.0,0.0,0.0,0
+7869,,7362652,not_started,0023-23092,02,"PANEL, BLANKOFF 10U, BLUE",manufactured,,,False,a0a52549-5dab-42d1-8cda-bd6b353aae00,False,300,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,1,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,5,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,10,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,25,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,50,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,100,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,200,0.0,0.0,0.0,0
+7869,,7362653,not_started,0023-24922,03,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,42034c5b-4568-47ee-86f3-213f40867b0f,False,300,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,1,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,5,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,10,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,25,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,50,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,100,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,200,0.0,0.0,0.0,0
+7869,,7362654,not_started,0042-92035,02,"DRIP TRAY, RF GEN COOLING LINES",assembled,,,False,5fb07fa1-852a-47b2-9cd9-c4da2a80183e,False,300,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,1,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,5,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,10,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,25,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,50,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,100,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,200,0.0,0.0,0.0,0
+7869,,7362655,not_started,0042-95706,04,"DOOR, REAR, LOUVERED",assembled,,,False,bd1b338b-3293-4bda-ac62-2b5a95d62745,False,300,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,1,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,5,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,10,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,25,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,50,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,100,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,200,0.0,0.0,0.0,0
+7869,,7362656,not_started,0022-47424,05,"BRACKET, MANIFOLD CLAMP",manufactured,,,False,ba91a1ab-f88d-4b90-a9cb-c3d90049bf58,False,300,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,1,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,5,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,10,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,25,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,50,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,100,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,200,0.0,0.0,0.0,0
+7869,,7362657,not_started,0022-47564,03,"BRACKET,BULK HEAD",manufactured,,,False,13597db4-2efc-4b4f-b72b-0e850b1a30fb,False,300,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,1,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,5,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,10,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,25,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,50,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,100,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,200,0.0,0.0,0.0,0
+7869,,7362658,not_started,0042-25501,03,"EMO BRACKET, 42U COMMON GEN RACK",assembled,,,False,3002444b-e909-4cbb-9ae2-33079b39ca9a,False,300,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,1,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,5,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,10,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,25,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,50,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,100,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,200,0.0,0.0,0.0,0
+7869,,7362659,not_started,0042-92044,02,"SUPPORT BRACKET, DIP TRAY,RF GEN",assembled,,,False,217b1c85-ce03-4209-a64d-0a25206cef39,False,300,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,1,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,5,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,10,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,25,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,50,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,100,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,200,0.0,0.0,0.0,0
+7869,,7362660,not_started,0042-97236,03,"MOUNTING BRACKET, 3.5KW RFG",assembled,,,False,c62bab96-4ddc-4dd5-bf02-b7ad9cea0926,False,300,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,1,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,5,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,10,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,25,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,50,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,100,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,200,0.0,0.0,0.0,0
+7869,,7362661,not_started,0042-63304,03,"DRIP TRAY, HALF RACK GEN",manufactured,,,False,64ba2b6f-998d-402d-bdc7-4c28a28eb678,False,300,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,1,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,5,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,10,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,25,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,50,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,100,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,200,0.0,0.0,0.0,0
+7869,,7362662,not_started,0022-15758,05,"OUTRIGGER, TUBE, C3oC",manufactured,,,False,153cfd05-84e6-4bdd-8e49-4fcd5713d877,False,300,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,1,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,5,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,10,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,25,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,50,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,100,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,200,0.0,0.0,0.0,0
+7869,,7362663,not_started,0015-19276,02,L-SECTION 2.5 INCH X 2.25 INCH,manufactured,,,False,c6a5fabb-32bc-4f1f-a93a-4343bac41ecf,False,300,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,1,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,5,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,10,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,25,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,50,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,100,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,200,0.0,0.0,0.0,0
+7869,,7362664,not_started,0022-46711,05,GUIDE RODS,manufactured,,,False,5d7784f2-1650-4002-aa84-a7a216598fc1,False,300,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,1,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,5,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,10,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,25,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,50,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,100,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,200,0.0,0.0,0.0,0
+7869,,7362665,not_started,0023-18763,06,"19 INCH RACK UNITS, SQUARE SLOT, 42U",manufactured,,,False,9b05760a-a65e-4b75-9c81-03bdb40f5557,False,300,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,1,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,5,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,10,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,25,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,50,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,100,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,200,0.0,0.0,0.0,0
+7869,,7362666,not_started,0023-22763,02,"LINER, SHELF, ETCH",manufactured,,,False,bfb12bcb-f70b-44a1-a530-52049c08a967,False,300,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,1,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,5,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,10,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,25,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,50,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,100,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,200,0.0,0.0,0.0,0
+7869,,7362667,not_started,0042-19421,03,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,2640a4af-8c58-4659-84c9-ce609d55e3b8,False,300,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,1,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,5,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,10,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,25,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,50,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,100,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,200,0.0,0.0,0.0,0
+7869,,7362668,not_started,0042-26342,02,FACE PLATE TURBO CNTLR/ HALF RF GEN,assembled,,,False,7f828315-4f25-494d-9244-e15d3cf0eaf7,False,300,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,1,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,5,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,10,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,25,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,50,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,100,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,200,0.0,0.0,0.0,0
+7869,,7362669,not_started,0042-65918,02,"SHELF, RFG MOUNTING BRACKET",assembled,,,False,865baccb-579b-41fb-ac42-822afa9f6bca,False,300,0.0,0.0,0.0,0
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,1,0.0,0.0,0.0,50
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,5,0.0,0.0,0.0,50
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,10,0.0,0.0,0.0,50
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,25,0.0,0.0,0.0,50
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,50,0.0,0.0,0.0,50
+7870,,7362868,not_started,0011-01809,03,"KIT, Sym3 CENTRIS SERVICE STEP",assembled,,Historical Part Requote,False,78301e17-15d7-4fdc-a311-8db97f4870f6,False,100,0.0,0.0,0.0,50
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,1,13300.0,13300.0,13300.0,95
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,5,3340.0,16700.0,16700.0,80
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,10,3340.0,33400.0,33400.0,80
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,25,3340.0,83500.0,83500.0,80
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,50,3340.0,167000.0,167000.0,80
+7870,,7362901,not_started,0011-09850,02,ASSEMBLY FRAME C3oC,assembled,CRS,SM - Assy,True,172a6936-6904-4cc3-b468-999fec062bce,False,100,3340.0,334000.0,334000.0,227
+7871,,7362963,not_started,0042-77079,07,"LID PLATE, DUAL FEED, ICP, PIONEER",assembled,,,False,0959a5a5-5c70-4e9b-b0e6-46014e87f34a,False,1,154.38,154.38,154.38,10
+7871,,7362963,not_started,0042-77079,07,"LID PLATE, DUAL FEED, ICP, PIONEER",assembled,,,False,0959a5a5-5c70-4e9b-b0e6-46014e87f34a,False,5,154.38,771.9,771.9,10
+7871,,7362963,not_started,0042-77079,07,"LID PLATE, DUAL FEED, ICP, PIONEER",assembled,,,False,0959a5a5-5c70-4e9b-b0e6-46014e87f34a,False,10,154.38,1543.8,1543.8,10
+7872,,7363186,not_started,0023-27816,01,"STOPPER PLATE , SMALLER ID, LIFT PIN, PV",manufactured,,,False,89370890-6898-499e-9891-5246f497252c,False,1,0.0,0.0,0.0,0
+7872,,7363186,not_started,0023-27816,01,"STOPPER PLATE , SMALLER ID, LIFT PIN, PV",manufactured,,,False,89370890-6898-499e-9891-5246f497252c,False,5,0.0,0.0,0.0,0
+7872,,7363186,not_started,0023-27816,01,"STOPPER PLATE , SMALLER ID, LIFT PIN, PV",manufactured,,,False,89370890-6898-499e-9891-5246f497252c,False,10,0.0,0.0,0.0,0
+7873,,7363283,not_started,901-005-601-107,G,BOX ASSY,manufactured,,,False,7407382d-a57f-4f68-8439-881d39cdbef1,True,92,0.0,0.0,0.0,0
+7873,,7363311,not_started,901-005-603-103,A,PLATE,manufactured,,,False,97daa542-ee87-4043-9747-cbb876af0dc3,True,92,0.0,0.0,0.0,0
+7873,,7363312,not_started,901-005-604-101,B,COVER,manufactured,,,False,5fbc4ffa-aa87-49e6-99e8-4c108e175b9d,True,92,0.0,0.0,0.0,0
+7874,,7372227,not_started,901-005-612-101,A,"BRACKET, CONNECTOR - CENTRAL DEICE DISTRIBUTOR",manufactured,Aluminum 7075-T651,MS - Mill,True,7d11bc31-37d2-4aa8-9184-b9f7a8d1a7c7,True,3,849.0,2547.0,2547.0,60
+7874,,7372227,not_started,901-005-612-101,A,"BRACKET, CONNECTOR - CENTRAL DEICE DISTRIBUTOR",manufactured,Aluminum 7075-T651,MS - Mill,True,7d11bc31-37d2-4aa8-9184-b9f7a8d1a7c7,True,15,301.0,4515.0,4515.0,60
+7874,,7372227,not_started,901-005-612-101,A,"BRACKET, CONNECTOR - CENTRAL DEICE DISTRIBUTOR",manufactured,Aluminum 7075-T651,MS - Mill,True,7d11bc31-37d2-4aa8-9184-b9f7a8d1a7c7,True,30,155.0,4650.0,4650.0,60
+7874,,7372227,not_started,901-005-612-101,A,"BRACKET, CONNECTOR - CENTRAL DEICE DISTRIBUTOR",manufactured,Aluminum 7075-T651,MS - Mill,True,7d11bc31-37d2-4aa8-9184-b9f7a8d1a7c7,True,45,67.4,3033.0,3033.0,63
+7874,,7372227,not_started,901-005-612-101,A,"BRACKET, CONNECTOR - CENTRAL DEICE DISTRIBUTOR",manufactured,Aluminum 7075-T651,MS - Mill,True,7d11bc31-37d2-4aa8-9184-b9f7a8d1a7c7,True,75,58.51,4388.25,4388.25,64
+7874,,7372230,not_started,901-005-676-101,A,CHASSIS ASSY,manufactured,,,False,7fd68d4b-e837-4e60-ae1d-a1656cc65c62,True,2,193.0,386.0,386.0,70
+7874,,7372230,not_started,901-005-676-101,A,CHASSIS ASSY,manufactured,,,False,7fd68d4b-e837-4e60-ae1d-a1656cc65c62,True,10,0.0,0.0,0.0,0
+7874,,7372230,not_started,901-005-676-101,A,CHASSIS ASSY,manufactured,,,False,7fd68d4b-e837-4e60-ae1d-a1656cc65c62,True,20,0.0,0.0,0.0,0
+7874,,7372230,not_started,901-005-676-101,A,CHASSIS ASSY,manufactured,,,False,7fd68d4b-e837-4e60-ae1d-a1656cc65c62,True,30,0.0,0.0,0.0,0
+7874,,7372230,not_started,901-005-676-101,A,CHASSIS ASSY,manufactured,,,False,7fd68d4b-e837-4e60-ae1d-a1656cc65c62,True,50,0.0,0.0,0.0,0
+7875,,7380714,not_started,0090-15027,05,"EQUIPMENT RACK, 24W X 34D X 78H",assembled,,,False,740c29f6-b03d-48b9-acac-b50af67fb74b,False,10,0.0,0.0,0.0,0
+7875,,7384249,not_started,0090-15027,04,"EQUIPMENT RACK, 24W X 34D X 78H",assembled,,,False,f73fbb22-cfbe-402c-a64c-afc99d577955,False,1,646.89,646.89,646.89,20
+7876,,7383572,completed,L21398P03,H,"COVER, PLATE - TRANSFER
+GEARBOX",manufactured,Aluminum 6061-T6,MS - Mill,True,7a617a24-b070-4c68-b361-a6f96e724d43,True,620,60.0,37200.0,37200.0,57
+7877,,7388976,completed,102020,B,"LEFT MOUNT, FOOT CONTROL, CART, OPTIMUS",manufactured,,Historical Part Requote,False,e7ad8085-137f-4487-8b62-ae00eea08036,False,50,104.0,5200.0,5200.0,50
+7877,,7388977,completed,102021,B,"RIGHT MOUNT, FOOT CONTROL, CART, OPTIMUS",manufactured,,Historical Part Requote,False,39c3ca62-b752-4914-a02a-e335d26a698b,False,50,104.0,5200.0,5200.0,50
+7878,,7389260,not_started,512-030-430-433,-,STRAP T FITTING - RH,manufactured,,,False,fe29b1b0-14e9-44b2-8399-494d8f95060b,True,60,0.0,0.0,0.0,0
+7879,,7389299,not_started,512-030-130-467,-,TIE DOWN RECEPTACLE,manufactured,,,False,dd6bd33e-3ff6-4706-8fdd-dee02fc021f7,True,58,0.0,0.0,0.0,0
+7880,,7389318,not_started,512-043-537-101,-,MOUNT ASSY LH UPPER-AGB,manufactured,,,False,dc3ffe99-3b45-4e39-87e0-bf1b09734923,True,13,0.0,0.0,0.0,0
+7881,,7389355,not_started,512-034-730-155,-,CLIP HANGER BEARING - TAILBOOM,manufactured,,Historical Part Requote,False,7a86d40f-b158-4df4-a743-63b75f8035f3,True,10,0.0,0.0,0.0,50
+7882,,7389403,not_started,512-060-090-101,A,Bolt Cover-Inlet Assy,manufactured,,,False,02e32c00-e01c-498d-b788-c68e4cf9a977,True,55,0.0,0.0,0.0,0
+7883,,7389440,not_started,206-033-517-009,C,JOURNAL BEARING,manufactured,,,False,c82abebf-c965-4c25-b503-1d19f7f23b93,True,2,0.0,0.0,0.0,0
+7883,,7389440,not_started,206-033-517-009,C,JOURNAL BEARING,manufactured,,,False,c82abebf-c965-4c25-b503-1d19f7f23b93,True,4,0.0,0.0,0.0,0
+7883,,7389440,not_started,206-033-517-009,C,JOURNAL BEARING,manufactured,,,False,c82abebf-c965-4c25-b503-1d19f7f23b93,True,6,0.0,0.0,0.0,0
+7883,,7389440,not_started,206-033-517-009,C,JOURNAL BEARING,manufactured,,,False,c82abebf-c965-4c25-b503-1d19f7f23b93,True,8,0.0,0.0,0.0,0
+7883,,7389440,not_started,206-033-517-009,C,JOURNAL BEARING,manufactured,,,False,c82abebf-c965-4c25-b503-1d19f7f23b93,True,10,0.0,0.0,0.0,0
+7884,,7389489,not_started,901-005-617-109,A,COVER,manufactured,,,False,c2b5e7aa-e495-493a-a43e-0d7de7553fd9,True,10,0.0,0.0,0.0,0
+7884,,7389492,not_started,901-005-619-109,-,BASEPLATE,manufactured,,,False,ac364dde-6e69-4452-b059-2af2ee9bea23,True,10,0.0,0.0,128.0,0
+7885,,7389530,not_started,901-005-618-101,-,"COVER, MOV",manufactured,,,False,659067e5-ce58-4883-9ab8-8c5f8211c1c9,True,50,0.0,0.0,0.0,0
+7885,,7389533,not_started,901-005-628-101,-,"BASEPLATE,MOV",manufactured,,,False,41739aeb-38eb-466e-9871-5e33dde34c82,True,50,0.0,0.0,0.0,0
+7886,,7389560,not_started,901-005-601-108,G,BOX ASSY,manufactured,,,False,d4ee062f-f525-4be5-8fc3-866ecbbc6ec6,True,73,0.0,0.0,0.0,0
+7886,,7389564,not_started,901-005-603-103,A,PLATE,manufactured,,,False,97daa542-ee87-4043-9747-cbb876af0dc3,True,73,0.0,0.0,0.0,0
+7886,,7389567,not_started,901-005-604-102,B,COVER,manufactured,,,False,edaf2c7e-1648-4552-a888-d3998f14629d,True,73,0.0,0.0,0.0,0
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,1,2020.0,2020.0,3420.0,78
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,5,690.0,3450.0,4850.0,79
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,10,528.0,5280.0,6680.0,80
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,15,476.0,7140.0,8540.0,81
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,25,435.0,10875.0,12275.0,84
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,50,403.0,20150.0,20150.0,89
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,90,390.0,35100.0,35100.0,98
+7887,,7424013,completed,0041-01425,03,"SPACER, TURBO CHUCK METAL GATE ALD 300MM",manufactured,Stainless Steel 304L,MS - Mill Turn,True,acd6a399-ca54-4a15-b3ff-b43cb1aa8887,False,364,380.0,138320.0,138320.0,158
+7888,,7389846,no_quote,280-047-521-101,AD,"PLUG, DRIVESHAFT - ICDS",manufactured,,,False,712625ee-fcb8-44e9-a959-8bad3d201ec9,True,50,0.0,0.0,0.0,0
+7888,,7389846,no_quote,280-047-521-101,AD,"PLUG, DRIVESHAFT - ICDS",manufactured,,,False,712625ee-fcb8-44e9-a959-8bad3d201ec9,True,100,0.0,0.0,0.0,0
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,1,2910.0,2910.0,4510.0,75
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,2,2170.0,4340.0,5940.0,75
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,4,1800.0,7200.0,8800.0,75
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,6,1680.0,10080.0,11680.0,75
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,8,1610.0,12880.0,14480.0,75
+7889,,7395333,not_started,0010-17782,03,"ASSY, TRANSPORT CART, 300MM DEGAS",assembled,CRS,SM - Assy,True,3cfccebc-bb71-45b5-ad4c-74466be21112,False,10,1580.0,15800.0,17400.0,75
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,1,1450.0,1450.0,1950.0,73
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,5,468.0,2340.0,2840.0,73
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,10,346.0,3460.0,3960.0,74
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,15,305.0,4575.0,5075.0,74
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,20,285.0,5700.0,6200.0,75
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,30,265.0,7950.0,8450.0,75
+7890,,7395461,completed,0042-78467,04,LEFT SIDE PANEL TOXIC RADIANCE NGGP MODI,assembled,,SM - Assy,False,0c71fb1c-e9c9-4e2e-be5e-4aa4f5dfbfff,False,50,248.0,12400.0,12400.0,77
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,1,573.0,573.0,1173.0,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,5,130.0,650.0,1250.0,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,10,74.5,745.0,1345.0,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,15,56.0,840.0,1440.0,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,20,46.8,936.0,1536.0,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,30,37.57,1127.1,1727.1,57
+7890,,7395462,completed,0023-02927,03,"BRACKET, NETWORK SWITCHES, 300MM RADIANC",manufactured,CRS,SM - Piece,True,3be64acd-08c2-4108-97cb-3c6e3397e729,False,50,30.16,1508.0,1508.0,57
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,1,592.0,592.0,1192.0,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,5,138.0,690.0,1290.0,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,10,80.6,806.0,1406.0,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,15,61.67,925.05,1525.05,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,20,52.2,1044.0,1644.0,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,30,42.73,1281.9,1881.9,59
+7890,,7424622,completed,0042-75865,02,"BRACKET, RADIANCE LIFT DRIVER, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,8804b561-cf0d-4e1d-bb62-48733a94f338,False,50,35.14,1757.0,1757.0,60
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,1,760.0,760.0,1360.0,68
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,5,180.0,900.0,1500.0,68
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,10,107.0,1070.0,1670.0,69
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,15,82.53,1237.95,1837.95,69
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,20,70.45,1409.0,2009.0,69
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,30,58.37,1751.1,2351.1,69
+7890,,7424759,completed,0042-78448,02,"BRACKET, DISPLAY H20 FLOW AND ECAT TERMINALS, 300MM RADIANCE",manufactured,CRS,SM - Piece W/HDWE,True,fede733a-3fec-41be-96de-9a67d896b8e5,False,50,48.56,2428.0,2428.0,70
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,1,596.0,596.0,1196.0,59
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,5,140.0,700.0,1300.0,59
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,10,82.5,825.0,1425.0,59
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,15,63.53,952.95,1552.95,59
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,20,54.0,1080.0,1680.0,59
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,30,44.43,1332.9,1932.9,60
+7890,,7424952,completed,0042-79636,03,ECAT POWER HUB BRACKET,manufactured,CRS,SM - Piece W/HDWE,True,978cf5dd-a960-401e-8c47-5701f5159701,False,50,36.84,1842.0,1842.0,60
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,1,598.0,598.0,1198.0,59
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,5,142.0,710.0,1310.0,59
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,10,84.0,840.0,1440.0,59
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,15,65.0,975.0,1575.0,59
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,20,55.45,1109.0,1709.0,59
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,30,45.9,1377.0,1977.0,60
+7890,,7425034,completed,0042-81363,03,EV MANIFOLD MOUNTING BRACKET,manufactured,Steel (Galvanized),SM - Piece W/HDWE,True,43a6c082-ade5-473e-9e95-a8918c2f4a8a,False,50,38.26,1913.0,1913.0,60
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,1,1560.0,1560.0,2660.0,76
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,5,441.0,2205.0,3305.0,77
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,10,301.0,3010.0,4110.0,78
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,15,255.0,3825.0,4925.0,78
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,20,232.0,4640.0,5740.0,79
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,30,212.0,6360.0,7460.0,81
+7890,,7425327,completed,0042-20179,03,"BRACKET ASSY MOTOR SUPPORT, ACV",manufactured,Aluminum 6061-T6,MS - Mill,True,fc68ada5-e808-4969-810d-0ba571aa3e6b,False,50,196.0,9800.0,9800.0,84
+7891,,7396016,not_started,0270-08868,06,"OUTRIGGER, LEFT REAR, 300MM E2",manufactured,,Historical Part Requote,False,314d3ff9-78c9-4219-88de-959cbd23aaf6,False,2,0.0,0.0,0.0,50
+7891,,7396017,not_started,0270-08869,06,"OUTRIGGER, RIGHT REAR, 300MM E2",manufactured,,Historical Part Requote,False,13a18cb3-615c-4857-bc0e-8e7d1a7cc380,False,2,0.0,0.0,0.0,50
+7891,,7396018,not_started,0270-08871,05,"OUTRIGGER, RIGHT FRONT, 300MM E2",assembled,,Historical Part Requote,False,4adee536-1d88-4077-85fd-0bcf070d69b5,False,2,0.0,0.0,0.0,50
+7891,,7396019,not_started,0270-08870,05,"OUTRIGGER, LEFT FRONT, 300MM E2",manufactured,,Historical Part Requote,False,877dcd68-b9e0-4ebe-9149-0a6af4e89acb,False,2,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,1,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,5,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,10,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,25,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,50,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,100,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,200,0.0,0.0,0.0,50
+7892,,7397955,not_started,0020-34832,03,"COVER, ESC H/V INTERLOCK",manufactured,,Historical Part Requote,False,0aaa5582-ab48-4c6f-8fb0-8d18a22d3e7a,False,300,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,1,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,5,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,10,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,25,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,50,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,100,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,200,0.0,0.0,0.0,50
+7892,,7397956,not_started,0022-25493,08,"INSULATOR, AC TRANSITION BLOCK, HIGH POW",manufactured,,Historical Part Requote,False,778b4a99-1516-4a79-9edf-bf7151c2c0a7,False,300,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,1,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,5,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,10,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,25,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,50,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,100,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,200,0.0,0.0,0.0,50
+7892,,7397957,not_started,0022-25494,07,"INSULATOR, HIGH VOLTAGE CLAMP, HIGH POWE",manufactured,,Historical Part Requote,False,add5b448-1a48-4782-8a24-bc28fed76208,False,300,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,1,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,5,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,10,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,25,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,50,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,100,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,200,0.0,0.0,0.0,50
+7892,,7397958,not_started,0022-25523,06,"INSULATOR, HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,fafa3124-d4d0-488b-9910-a93e03031808,False,300,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,1,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,5,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,10,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,25,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,50,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,100,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,200,0.0,0.0,0.0,50
+7892,,7397959,not_started,0022-25977,05,"HVM TERMINAL, HIGH POWER",manufactured,,Historical Part Requote,False,20c18cff-61c4-49a2-b7d2-bd019ebb3949,False,300,0.0,0.0,0.0,50
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,1,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,5,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,10,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,25,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,50,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,100,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,200,0.0,0.0,0.0,0
+7892,,7397960,not_started,0022-26077,04,"INSULATOR, 6.4 X 3 X .010 THK",manufactured,,,False,df72fa24-dcef-423a-b9ac-775303a3c2d6,False,300,0.0,0.0,0.0,0
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,1,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,5,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,10,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,25,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,50,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,100,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,200,0.0,0.0,0.0,50
+7892,,7397961,not_started,0022-30218,05,"INSULATOR, LOWER PCB, MULTIZONE, HIGH PO",manufactured,,Historical Part Requote,False,bbf5c7c8-c3c5-4c8c-9110-2f3c28c9ed3b,False,300,0.0,0.0,0.0,50
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,1,1190.0,1190.0,1290.0,51
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,5,364.0,1820.0,1920.0,51
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,10,266.0,2660.0,2760.0,52
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,25,203.0,5075.0,5175.0,54
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,50,187.0,9350.0,9450.0,58
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,100,180.0,18000.0,18000.0,66
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,200,176.0,35200.0,35200.0,81
+7892,,7398600,not_started,0041-81823,05,"COVER, INTERLOCK SWITCHES, MULTIZONE",manufactured,Aluminum 6061-T6,MS - Mill,True,8f6d931d-6c1f-4d49-a2da-acaf427bf078,False,300,174.0,52200.0,52200.0,96
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,1,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,5,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,10,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,25,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,50,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,100,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,200,0.0,0.0,0.0,50
+7892,,7397963,not_started,0041-91861,07,"HVM TERMINAL, INSULATOR, HIGH POWER",assembled,,Historical Part Requote,False,391bac54-0b6d-4b78-8e6f-46039ca65f12,False,300,0.0,0.0,0.0,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,1,9.99,9.99,9.99,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,5,9.99,49.95,49.95,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,10,9.99,99.9,99.9,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,25,9.99,249.75,249.75,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,50,9.99,499.5,499.5,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,100,9.99,999.0,999.0,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,200,9.99,1998.0,1998.0,50
+7892,,7397964,not_started,0041-96794,06,"PLATE, FILTER MOUNTING, MZ, HP, CATHODE",assembled,,Historical Part Requote,False,2ff558ed-e5f5-4466-8d4b-41cf8e2caae7,False,300,9.99,2997.0,2997.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,1,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,5,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,10,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,25,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,50,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,100,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,200,0.0,0.0,0.0,50
+7892,,7397965,not_started,0041-96795,06,"INSULATOR, UPPER PCB, HIGH POWER",assembled,,Historical Part Requote,False,e57368d0-206e-41e6-ad95-b3c0dee91d9d,False,300,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,1,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,5,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,10,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,25,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,50,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,100,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,200,0.0,0.0,0.0,50
+7892,,7397966,not_started,0041-96796,05,"HOUSING, JUNCTION BOX, SYM3X",assembled,,Historical Part Requote,False,6e2f4789-310d-4d79-8555-016989cd0438,False,300,0.0,0.0,0.0,50
+7893,,7398215,no_quote,0020-52570,02,"RETAINER, BRG, BASE ASSY LK PAD CONDITIO",manufactured,,NQ - Not a Core Competency,False,fff8c745-99cf-419f-aa5f-9d5d673e7c32,False,5,0.0,0.0,0.0,60
+7893,,7398224,no_quote,0020-54268,05,"REF PLATE, CENTERING FEOL 300MM",manufactured,,NQ - Not a Core Competency,False,05f3b374-5a8f-4cba-94a6-c2077eef24c9,False,5,0.0,0.0,0.0,5
+7893,,7398229,no_quote,0020-62849,06,"VAL SCREEN 3, TETRA II",manufactured,,NQ - Not a Core Competency,False,964842d6-326d-4b6b-bf90-5f6f3ad4ac3f,False,5,0.0,0.0,0.0,5
+7893,,7398060,no_quote,0020-52570,02,"RETAINER, BRG, BASE ASSY LK PAD CONDITIO",manufactured,,NQ - Not a Core Competency,False,e4651f64-832c-4577-b87f-baf04aafc85e,False,5,0.0,0.0,0.0,5
+7893,,7398063,no_quote,0020-82772,04,"VAL SCREEN 1, TETRA II",manufactured,,NQ - Not a Core Competency,False,5e3c094c-9caf-43e4-890c-d573f1a2f96e,False,13,0.0,0.0,0.0,5
+7893,,7398064,no_quote,0021-26841,01,"SHORT MIXING BLOCK INSERT, CHAMBER LID M",manufactured,,NQ - Not a Core Competency,False,8ce984de-ee8a-44ed-9ac3-3827d91ed8c1,False,13,0.0,0.0,0.0,5
+7893,,7398065,no_quote,0021-27153,03,"PUMPING RING, SACVD PRODUCER SE",manufactured,,NQ - Not a Core Competency,False,71be577b-e30e-4088-bc62-ae1d3d5ec7b5,False,27,0.0,0.0,0.0,5
+7893,,7398066,no_quote,0021-38786,04,"SCREW, PAN HD .190-32, HAYNES",manufactured,,NQ - Not a Core Competency,False,4ee920e2-ee68-49ee-9751-8cece4c00020,False,74,0.0,0.0,0.0,5
+7893,,7398067,no_quote,0021-88478,02,"CLAMP, MEMBRANE, EXTERNAL, 150MM PROFILE",manufactured,,NQ - Not a Core Competency,False,c87f93bc-d3de-49db-a262-0142cef7740f,False,5,0.0,0.0,0.0,5
+7893,,7398068,no_quote,0040-81043,03,"CENTERING PIN, FOUR PT LEVEL TOOL, TXZ 3",assembled,,NQ - Not a Core Competency,False,814580b1-8e51-4520-ac31-1b3fdf7cfe2b,False,5,0.0,0.0,0.0,5
+7894,,7398274,completed,117660,E,"MOUNT, SCREEN, MACHINED",manufactured,,Historical Part Requote,False,3bb69e81-6194-4b04-9fba-aad3a227ec09,False,25,235.0,5875.0,5875.0,50
+7894,,7398274,completed,117660,E,"MOUNT, SCREEN, MACHINED",manufactured,,Historical Part Requote,False,3bb69e81-6194-4b04-9fba-aad3a227ec09,False,75,228.0,17100.0,17100.0,50
+7894,,7398274,completed,117660,E,"MOUNT, SCREEN, MACHINED",manufactured,,Historical Part Requote,False,3bb69e81-6194-4b04-9fba-aad3a227ec09,False,92,227.0,20884.0,20884.0,50
+7894,,7398274,completed,117660,E,"MOUNT, SCREEN, MACHINED",manufactured,,Historical Part Requote,False,3bb69e81-6194-4b04-9fba-aad3a227ec09,False,100,227.0,22700.0,22700.0,50
+7895,,7398329,not_started,102020,B,"LEFT MOUNT, FOOT CONTROL, CART, OPTIMUS",manufactured,,Historical Part Requote,False,e7ad8085-137f-4487-8b62-ae00eea08036,False,100,86.16,8616.0,8616.0,50
+7895,,7398332,not_started,102021,B,"RIGHT MOUNT, FOOT CONTROL, CART, OPTIMUS",manufactured,,Historical Part Requote,False,39c3ca62-b752-4914-a02a-e335d26a698b,False,100,86.16,8616.0,8616.0,50
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,1,990.0,990.0,2090.0,65
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,10,127.0,1270.0,2370.0,66
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,20,78.45,1569.0,2669.0,66
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,40,55.6,2224.0,3324.0,66
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,60,49.78,2986.8,2986.8,67
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,80,46.87,3749.6,3749.6,67
+7896,,7398407,completed,0015-21400,02,"ROD, CIT, THREADED, PLAN1, STRAIGHT",manufactured,Copper Beryllium (C17200),MS - Mill Turn,True,ad98f2eb-4f06-4509-8f85-70f79186a2ab,False,100,45.51,4551.0,4551.0,68
+7897,,7408027,not_started,0041-60266,03,"RING- THICK, VIEWPORT PURGE, OLYMPIA",assembled,,,False,13c17955-b8bb-4aae-93e5-c88982afe22a,False,1,0.0,0.0,0.0,0
+7897,,7408027,not_started,0041-60266,03,"RING- THICK, VIEWPORT PURGE, OLYMPIA",assembled,,,False,13c17955-b8bb-4aae-93e5-c88982afe22a,False,2,0.0,0.0,0.0,0
+7897,,7408027,not_started,0041-60266,03,"RING- THICK, VIEWPORT PURGE, OLYMPIA",assembled,,,False,13c17955-b8bb-4aae-93e5-c88982afe22a,False,3,0.0,0.0,0.0,0
+7897,,7408027,not_started,0041-60266,03,"RING- THICK, VIEWPORT PURGE, OLYMPIA",assembled,,,False,13c17955-b8bb-4aae-93e5-c88982afe22a,False,5,0.0,0.0,0.0,0
+7897,,7408027,not_started,0041-60266,03,"RING- THICK, VIEWPORT PURGE, OLYMPIA",assembled,,,False,13c17955-b8bb-4aae-93e5-c88982afe22a,False,10,0.0,0.0,0.0,0
+7898,,7408069,not_started,0041-85113,03,"SLIDE BRACKET, PEDESTAL LIFT MECH, MDP",assembled,,,False,69607752-076c-4d81-828e-25748699e215,False,1,0.0,0.0,0.0,0
+7898,,7408069,not_started,0041-85113,03,"SLIDE BRACKET, PEDESTAL LIFT MECH, MDP",assembled,,,False,69607752-076c-4d81-828e-25748699e215,False,5,0.0,0.0,0.0,0
+7898,,7408069,not_started,0041-85113,03,"SLIDE BRACKET, PEDESTAL LIFT MECH, MDP",assembled,,,False,69607752-076c-4d81-828e-25748699e215,False,10,0.0,0.0,0.0,0
+7899,,7408589,not_started,74a120989-2002,A,FILLER,manufactured,,,False,76e03741-6625-45a3-b6c6-303b254b3eaf,True,6,0.0,0.0,0.0,0

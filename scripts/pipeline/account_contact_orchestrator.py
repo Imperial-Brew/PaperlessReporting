@@ -80,7 +80,7 @@ class AccountPipeline:
 
         # Wrap the transformed account in a list for the CSV loader
         pipeline.add_stage(WrapInList())
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -108,7 +108,7 @@ class AccountPipeline:
         pipeline.add_stage(BatchProcessor(AccountTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -179,7 +179,7 @@ class ContactPipeline:
 
         # Wrap the transformed contact in a list for the CSV loader
         pipeline.add_stage(WrapInList())
-        pipeline.add_stage(CSVLoader(output_path))
+        pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -207,7 +207,7 @@ class ContactPipeline:
         pipeline.add_stage(BatchProcessor(ContactTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline
 
@@ -235,6 +235,6 @@ class ContactPipeline:
         pipeline.add_stage(BatchProcessor(ContactTransformer()))
 
         if output_path:
-            pipeline.add_stage(CSVLoader(output_path))
+            pipeline.add_stage(CSVLoader(output_path, upload_to_s3=True))
 
         return pipeline

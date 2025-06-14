@@ -4,6 +4,20 @@
 
 This document provides comprehensive information about AWS S3 configuration for the PaperlessReporting project, including setup instructions, troubleshooting, and best practices for Python imports.
 
+## CSV Export to S3
+
+The pipeline framework now saves CSVs both locally and to S3 by default. This behavior is controlled by the `upload_to_s3` parameter in the `CSVLoader` class:
+
+```python
+# Save locally and upload to S3 (default behavior)
+csv_loader = CSVLoader(output_path="data_real/quotes.csv")
+
+# Save locally only (S3 upload disabled)
+csv_loader = CSVLoader(output_path="data_real/quotes.csv", upload_to_s3=False)
+```
+
+All pipeline factory methods have been updated to explicitly set `upload_to_s3=True` to ensure CSVs are saved both locally and to S3.
+
 ## AWS S3 Setup
 
 ### Creating an S3 Bucket and IAM User
@@ -81,12 +95,12 @@ There are several approaches to fix import issues:
    ```python
    import sys
    from pathlib import Path
-   
+
    # Add the parent directory to sys.path to allow imports from scripts.utils
    parent_dir = str(Path(__file__).parent.parent)
    if parent_dir not in sys.path:
        sys.path.append(parent_dir)
-   
+
    from scripts.utils.s3_helpers import upload_to_s3
    from scripts.utils.config_loader import get
    ```
