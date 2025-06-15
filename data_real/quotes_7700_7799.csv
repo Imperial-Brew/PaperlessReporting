@@ -1,0 +1,274 @@
+quote_number,revision_number,status,created,due_date,sent_date,expired_date,expired,rfq_number,priority,private_notes,authenticated_pdf_quote_url
+7700,0,outstanding,2025-05-12T14:47:36.190456+00:00,2025-05-16T17:00:00+00:00,2025-05-19T18:38:25.943158+00:00,2025-06-19T12:00:00+00:00,False,New Rev of HVPDU Panel & Bus BARS,1,G:\Hyliion\20250509 - New Rev of HVPDU Panel & Bus BARS,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/f6fe0f41-eb7a-49af-9c90-820d5d617b58/Quote7700.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=Xhmi%2Fd5%2BeJHJp2M6J4PcejcsCHw%3D&Expires=1750374256
+7701,0,expired,2025-05-12T14:58:20.709624+00:00,2025-05-16T17:00:00+00:00,2025-05-14T21:33:59.554377+00:00,2025-06-11T14:58:20.693653+00:00,True,Q08199,,G:\Projects Unlimited\20250509 - Q08199,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/e18d0479-aa64-4472-8da3-addd791a20b3/Quote7701.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=fdd9d65xCVXIcx0dCPio%2F%2Fbxlyw%3D&Expires=1750374254
+7702,0,expired,2025-05-12T15:18:13.952432+00:00,2025-05-23T17:00:00+00:00,2025-05-23T13:47:18.352211+00:00,2025-06-11T15:18:13.935086+00:00,True,CA-1349253,,G:\Boeing\20250509 - CA-1349253,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/51f0795d-2083-46d5-b4e8-ac0a1558e943/Quote7702.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=%2B2N0aQclOHMtW2WEHQrWmn32HM0%3D&Expires=1750374254
+7703,0,draft,2025-05-12T15:24:17.537727+00:00,2025-05-19T17:00:00+00:00,,2025-06-11T15:24:17.522212+00:00,True,BCA-2025-127898,3,"G:\Boeing\20250512 - BCA-2025-127898
+
+Total contract QTY displayed",
+7704,0,expired,2025-05-12T15:35:25.285193+00:00,2025-05-22T17:00:00+00:00,2025-05-22T14:21:03.070125+00:00,2025-06-11T15:35:25.270694+00:00,True,BID0030698,,"G:\Bell Helicopter\20250509 - BID0030698
+
+Quote submitted in S2B portal 05/22/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/c28e07cd-e3a6-4ef5-9122-a7c28dfa9415/Quote7704.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=JXHNQP5bWIhQq%2Be6dvvw8a9ggU8%3D&Expires=1750374254
+7705,0,expired,2025-05-12T15:35:55.034381+00:00,2025-05-22T17:00:00+00:00,2025-05-22T14:32:34.198995+00:00,2025-06-11T15:35:55.023016+00:00,True,BID0030699,,"G:\Bell Helicopter\20250509 -BID0030699
+
+No quote submitted in S2B portal 05/22/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/f511b80d-55de-484a-94fa-0c642c1aa3bd/Quote7705.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=hRy3BunEmSABi9Vgqqlp99vqyPM%3D&Expires=1750374254
+7706,0,expired,2025-05-12T15:36:34.887181+00:00,2025-05-22T17:00:00+00:00,2025-05-22T14:50:30.440777+00:00,2025-06-11T15:36:34.875231+00:00,True,BID0030702,,"G:\Bell Helicopter\20250509 - BID0030702
+
+No quote submitted in S2B portal 05/22/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/932852d5-8ad1-4cb9-a9cf-ea7cf129bf88/Quote7706.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=QkVRrDoZ0iB0BsHo%2Bp3GP2SWXJ4%3D&Expires=1750374261
+7707,0,trash,2025-05-12T23:14:51.494253+00:00,2025-05-15T23:14:51.485431+00:00,,2025-06-11T23:14:51.483986+00:00,True,,,"This is a request for info regarding our capabilities, not an RFQ.
+
+Contact name: HENRIETTE OSTRZEGA
+Contact email: HenrietteO@berkshireharthaway.com
+Contact business name: BERKSHIRE HATHAWAY INC
+Contact phone: (941) 381-2020
+Contact has requested the parts be delivered by 05/22/2025.
+Tell us how you found us (e.g. email, a colleague, Google search, etc.): Google
+Contact notes:
+ 	I am writing to inquire about your product\services offerings and manufacturing locations. Please provide relevant details.
+
+Upon receipt, I will forward our technical specifications and requirements.
+
+File Location here.",
+7708,0,expired,2025-05-13T12:50:37.867863+00:00,2025-05-23T17:00:00+00:00,2025-05-23T12:34:53.797058+00:00,2025-06-12T12:50:37.857228+00:00,True,BID0030758,9,"G:\Bell Helicopter\20250512 - BID0030758
+
+Quote entered in S2B portal on 05/20/25 -- used numbers from quote #7627",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/b8cf7400-f687-47e3-a080-8995436a5564/Quote7708.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=W4VHVvv%2BIf3B5WBMN8wmk8j2sa8%3D&Expires=1750374257
+7709,0,expired,2025-05-13T12:52:30.064391+00:00,2025-05-23T17:00:00+00:00,2025-05-23T14:31:25.872106+00:00,2025-06-12T12:52:30.052502+00:00,True,BID0030757,,"G:\Bell Helicopter\20250512 - BID0030757
+
+See quote 7624.
+Quote submitted in S2B portal 05/23/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/3fe3abd3-c1f7-4cd5-9e59-d924f27b42dd/Quote7709.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=W1RCLIkRgN7U5xmvQFZu09JzbGI%3D&Expires=1750374262
+7710,0,expired,2025-05-13T12:53:46.175152+00:00,2025-05-16T12:53:46.165338+00:00,2025-05-19T11:57:00.674068+00:00,2025-06-12T12:53:46.163421+00:00,True,,1,File Location here.,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d319b2fa-b6c7-4267-9fb8-411277c9e192/Quote7710.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=05lc0lFCtm4PEqiHW7erfcF2IP0%3D&Expires=1750374258
+7711,0,expired,2025-05-13T12:55:18.312735+00:00,2025-05-23T17:00:00+00:00,2025-05-23T15:47:40.425471+00:00,2025-06-12T12:55:18.300784+00:00,True,BID0030756,,"G:\Bell Helicopter\20250512 - BID0030756
+
+Quote submitted in S2B portal 05/23/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/0a80febc-ba22-4a9e-8182-daf3c2e48217/Quote7711.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=nbsRN9pKcOnKYHbVbl4kWxlvufo%3D&Expires=1750374259
+7712,0,expired,2025-05-13T12:59:59.769527+00:00,2025-05-28T17:00:00+00:00,2025-05-30T12:58:50.435792+00:00,2025-06-12T12:59:59.757947+00:00,True,BID0030764,9,"G:\Bell Helicopter\20250512 - BID0030764
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/622bc065-658a-443c-bb8a-c6d5c06c253b/Quote7712.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=sRHMXovhNPRK4nB%2FF%2FLMUYFGDFQ%3D&Expires=1750374257
+7713,0,expired,2025-05-13T13:08:47.195156+00:00,2025-05-16T13:08:47.183569+00:00,2025-05-13T13:16:54.132097+00:00,2025-06-12T13:08:47.181614+00:00,True,449-375-512-101--KIT,,File Location here.,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/fd0fab73-4086-4326-8916-1677599a1b3a/Quote7713.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=g%2B2Gaq0U6sElttIPQNWDpKN9pYM%3D&Expires=1750374254
+7714,0,expired,2025-05-13T13:12:33.841340+00:00,2025-05-23T17:00:00+00:00,2025-05-23T13:11:10.211035+00:00,2025-06-12T13:12:33.826723+00:00,True,BID0030751,,"G:\Bell Helicopter\20250512 - BID0030751
+
+No quote entered in S2B portal on 05/23/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/26509c6d-0bac-4be7-a1f0-97a80b9907cd/Quote7714.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ossGNazC5KRG6frx8uz9b0iH8p0%3D&Expires=1750374259
+7715,0,expired,2025-05-13T13:20:13.932655+00:00,2025-05-30T17:00:00+00:00,2025-05-30T13:14:26.893679+00:00,2025-06-12T13:20:13.920447+00:00,True,BID0030150,,"G:\Bell Helicopter\20250512 - BID0030150
+
+No quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/9c66530d-d35a-42c1-9f4f-6ffe71f8d3bc/Quote7715.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=p9owcQADYe3C5%2B6L9jDyl%2BVYKEA%3D&Expires=1750374256
+7716,0,outstanding,2025-05-13T19:39:55.021757+00:00,2025-05-22T17:00:00+00:00,2025-06-06T18:16:13.748457+00:00,2025-07-30T12:00:00+00:00,False,418601,2,"G:\Applied Materials\20250512 - 418601
+
+The EAU is x1 in 4070.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/df466d92-f0a7-47bc-a2fd-3f26204a82bf/Quote7716.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=LnEl%2B9j1bBbsw%2B9qqfwbOyRZjuo%3D&Expires=1750374261
+7717,0,outstanding,2025-05-13T19:47:44.609297+00:00,2025-05-22T17:00:00+00:00,2025-05-28T14:32:02.088010+00:00,2025-06-30T12:00:00+00:00,False,418605,9,"G:\Applied Materials\20250512 - 418605
+
+The EAU is x4 on 4070.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/493abb32-24ff-402d-90b3-6113d8e5751d/Quote7717.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=gZUBkE1KcPy3Efvl%2FD9iPA1fisQ%3D&Expires=1750374256
+7718,0,outstanding,2025-05-13T19:51:55.815690+00:00,2025-05-16T17:00:00+00:00,2025-05-15T16:32:04.723732+00:00,2025-06-30T12:00:00+00:00,False,RFQ # S1194295,9,"K:\UCT\0020-08344
+
+Last quoted in 2020",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/37f12025-2371-4397-9b33-d5f854bac429/Quote7718.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=HKbQVMf%2FFNHsghdIW2%2BWqDimZVc%3D&Expires=1750374258
+7719,0,outstanding,2025-05-13T20:20:09.540256+00:00,2025-05-21T17:00:00+00:00,2025-06-03T19:35:42.336179+00:00,2025-07-05T12:00:00+00:00,False,RFQ 6000128084,2,G:\Applied Materials\20250512 -  RFQ 6000128084,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/c9d6b5bb-ac84-410b-b7d1-b0b7fbd2579b/Quote7719.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=8Gf9EBmfI7Y6LE5oRSWAicsZ4NM%3D&Expires=1750374262
+7721,0,outstanding,2025-05-13T20:35:58.596429+00:00,2025-05-19T17:00:00+00:00,2025-06-03T19:32:24.888843+00:00,2025-07-05T12:00:00+00:00,False,Doc5162035725,2,"G:\Applied Materials\20250512 - Doc5162035725
+
+Contract Quote
+Target $93",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d2ced78f-3771-4efd-ae4a-8da271ab6556/Quote7721.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=M4SFcjbJPidlKsca9AvMyejYrow%3D&Expires=1750374264
+7722,0,outstanding,2025-05-13T20:36:24.413745+00:00,2025-05-19T17:00:00+00:00,2025-06-03T19:31:21.601996+00:00,2025-07-05T12:00:00+00:00,False,Doc5162310584,3,"G:\Applied Materials\20250512 - Doc5162310584
+
+Contract Quote
+Target $468",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/f8da9f3a-8441-4e17-a0e2-a9feae753382/Quote7722.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=JqmBOYDtpPeQLX7iq7basufR4mE%3D&Expires=1750374270
+7723,0,expired,2025-05-13T21:04:00.535539+00:00,2025-05-20T17:00:00+00:00,2025-05-20T17:13:50.967247+00:00,2025-06-12T21:04:00.511155+00:00,True,Q08195,,G:\Projects Unlimited\20250513 - Q08195,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/bf4e9f32-3e24-4b68-8836-90b3335706a3/Quote7723.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=TQcrfAZsA6C07IPwUCnpVVwbwkw%3D&Expires=1750374268
+7724,0,outstanding,2025-05-13T21:09:59.490253+00:00,2025-05-20T17:00:00+00:00,2025-05-27T16:22:48.841434+00:00,2025-06-27T12:00:00+00:00,False,417975,9,"G:\Applied Materials\20250508 - 417975
+
+Quote for Contract",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/59c1725c-701d-4bb6-8ca6-da1f8bfd8ea4/Quote7724.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=0G%2BMWWSDq45DCBiwv%2FIajiIVzk4%3D&Expires=1750374265
+7725,0,draft,2025-05-13T21:14:57.618575+00:00,2025-05-30T17:00:00+00:00,,2025-06-12T21:14:57.607182+00:00,True,418823,2,"G:\Applied Materials\20250513 - 418823
+
+Quote for Contract",
+7726,0,draft,2025-05-14T15:06:04.250077+00:00,2025-05-19T17:00:00+00:00,,2025-07-12T12:00:00+00:00,False,418919,1,"G:\Applied Materials\20250513 - 418919
+
+Almost exactly the same as quote #7694",
+7727,0,outstanding,2025-05-14T15:16:59.110903+00:00,2025-05-21T17:00:00+00:00,2025-05-28T14:35:50.539942+00:00,2025-06-30T12:00:00+00:00,False,418982,10,"G:\Applied Materials\20250514 - 418982
+
+QTY 6",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/3e12b251-4a34-456e-bf4b-208812c82c71/Quote7727.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=IOLR885f3UT37rw0K6pJSWjb6e4%3D&Expires=1750374273
+7728,0,expired,2025-05-14T15:30:45.077107+00:00,2025-05-26T17:00:00+00:00,2025-05-27T11:35:11.525539+00:00,2025-06-13T15:30:45.055111+00:00,True,BID0030776,9,"G:\Bell Helicopter\20250513 - BID0030776
+
+Quote entered in S2B portal on 05/20/25 -- used numbers from quote #7628",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/b98267f7-6531-4f8b-8452-2d72511affa5/Quote7728.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=lZOWwPnem4qlYr5smtysUuzZciI%3D&Expires=1750374270
+7729,0,expired,2025-05-14T15:31:16.916196+00:00,2025-05-26T17:00:00+00:00,2025-05-27T12:24:01.396975+00:00,2025-06-13T15:31:16.900976+00:00,True,BID0030777,,"G:\Bell Helicopter\20250513 -BID0030777
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/7d6ad63b-86e6-496b-8c93-f47f59648a41/Quote7729.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=EqXpLr8Z9lT0o9QgMXd3N3x%2Fdz0%3D&Expires=1750374272
+7730,0,draft,2025-05-14T19:11:45.147120+00:00,2025-06-13T17:00:00+00:00,,2025-06-13T19:11:45.131390+00:00,True,418842,,"G:\Applied Materials\20250514 - 418842
+
+Quote for Contract",
+7731,0,outstanding,2025-05-14T19:20:53.636664+00:00,2025-05-23T17:00:00+00:00,2025-06-12T19:13:43.725315+00:00,2025-07-30T12:00:00+00:00,False,419035,2,"G:\Applied Materials\20250514 - 419035
+
+Quote for Contract",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/7d621890-f347-4f91-bf6d-32af0b6ab171/Quote7731.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=sUWobLJ6WOpCDm99Q0bnEFUY4tY%3D&Expires=1750374265
+7732,0,outstanding,2025-05-14T19:29:23.435160+00:00,2025-05-27T17:00:00+00:00,2025-06-12T20:15:25.687838+00:00,2025-07-30T12:00:00+00:00,False,419057,1,"G:\Applied Materials\20250514 - 419057
+
+EAU 2500",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/66c72bd2-49c2-40f5-b173-dd483f7379d9/Quote7732.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=SN%2FLrBVjNwhz%2FPbRJbWd9cWTQKY%3D&Expires=1750374270
+7733,0,expired,2025-05-14T19:39:42.472427+00:00,2025-05-21T17:00:00+00:00,2025-05-20T18:07:29.729328+00:00,2025-06-13T19:39:42.431748+00:00,True,Q08208,9,G:\Projects Unlimited\20250514 - Q08208,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/fce3c62e-9b21-47f3-868b-954009c77793/Quote7733.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=JJOvkP%2Bhp%2BnIgtK80nmP%2Bt7cMBg%3D&Expires=1750374265
+7734,0,draft,2025-05-14T19:49:44.115232+00:00,2025-05-23T17:00:00+00:00,,2025-06-13T19:49:44.098146+00:00,True,419087,2,"G:\Applied Materials\20250514 - 419087
+
+Quote for Contract
+QTY  5",
+7735,0,outstanding,2025-05-14T19:52:38.616281+00:00,2025-05-20T17:00:00+00:00,2025-05-20T19:24:40.895436+00:00,2025-06-20T12:00:00+00:00,False,C410-00835,1,G:\CesiumAstro\20250514 - C410-00835,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/7dbcd714-1400-4009-b616-c1ab53ac2bb5/Quote7735.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=fzIO6AiR%2Bb9%2B%2F6T%2Bh4bdOeJOrmU%3D&Expires=1750374267
+7736,0,expired,2025-05-14T21:37:00.373804+00:00,2025-05-17T21:37:00.365098+00:00,2025-05-14T22:13:48.673529+00:00,2025-06-13T21:37:00.363574+00:00,True,901-005-680-121,,File Location here.,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/f50b67b6-03c9-47be-b4cb-3590c9e53392/Quote7736.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=GHTrRhCfTpry5s1kf7HqyP6ZiNw%3D&Expires=1750374272
+7737,0,outstanding,2025-05-15T12:55:49.938822+00:00,2025-05-18T12:55:49.928560+00:00,2025-05-27T19:07:38.071922+00:00,2025-06-30T12:00:00+00:00,False,V3 Starship Manifold,1,G:\SpaceX\20250515 - V3 Starship Manifold,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/7065d7e4-52ad-4fda-802a-b8be9c36f582/Quote7737.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=p%2FLdSpdz50cfqY0X6yTn3io7h8c%3D&Expires=1750374267
+7738,0,trash,2025-05-15T13:50:51.657137+00:00,2025-05-18T13:50:51.644378+00:00,,2025-06-14T13:50:51.641382+00:00,True,TEST #7730,,File Location here.,
+7740,0,draft,2025-05-15T20:12:46.363496+00:00,2025-05-23T17:00:00+00:00,,2025-06-14T20:12:46.347969+00:00,True,419176,3,"G:\Applied Materials\20250515 - 419176
+
+QTY 6, more forecast after they recieve the RFQ",
+7741,0,trash,2025-05-15T20:19:59.245951+00:00,2025-05-21T17:00:00+00:00,,2025-06-14T20:19:59.227590+00:00,True,V3 Starship Manifold RFQ,,"Duplicate of 7737, deleting - DWD
+
+G:\SpaceX\20250515 - V3 Starship Manifold RFQ
+
+PN	                                      Per Ship	Per Booster	Total / Mo.
+02096203-002	                        2       	   0	                        8
+02096208-051	                        2	           0	                         8
+02096203-052	                        11	           0	                       44
+02096207-001	                         1	           0	                        4
+02096207-051	                        1	           0	                        4
+02096140-018	                        0	            6                    	6
+
+Ordering ~4-6mo. of demand up-front, hence why the QTYs are larger.",
+7742,0,expired,2025-05-15T20:20:24.670664+00:00,2025-05-21T17:00:00+00:00,2025-05-27T13:46:42.677669+00:00,2025-06-14T20:20:24.658647+00:00,True,Bar quotes for Astrotech,,"G:\Astrotech Corp\20250515 - Bar quotes for Astrotech
+
+We will supply material.
+Material width .750+/-.002 and thickness .250+/-.002 from the vendor. (McMaster-Carr)",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/cbad3452-f1c0-45d6-b274-43abaa68f5c7/Quote7742.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=cQUB0UvKHlorgjtsWV6JYFKU2Ds%3D&Expires=1750366801
+7743,0,draft,2025-05-15T20:20:35.664699+00:00,2025-05-22T17:00:00+00:00,,2025-06-14T20:20:35.653845+00:00,True,Acutronic RFQ,1,"G:\Acutronic\20250515 - Acutronic RFQ
+
+• 50150013 REV A – Re-op of existing Rev3 part as shown in the redline, QTY 2 & 5
+50150058 REV A – Re-op of existing Rev1 part as shown in the redline (or this could be made new per the redline print if easier than a re-op), QTY 2 & 5
+• 50150051 REV A – Re-op of existing Rev3 part, but only re-op the .969 - .971 diameter as shown in the redline, QTY 2 & 5",
+7744,0,outstanding,2025-05-15T21:08:41.554337+00:00,2025-05-26T17:00:00+00:00,2025-06-13T14:07:49.656308+00:00,2025-07-30T12:00:00+00:00,False,419207,2,"G:\Applied Materials\20250515 - 419207
+
+Quote for Contract",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/69d37403-ba07-4984-9278-594d42243a93/Quote7744.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=PP9nX7bXq437KpSIcc88CIRewPo%3D&Expires=1750374299
+7745,0,outstanding,2025-05-16T12:44:20.691127+00:00,2025-05-22T17:00:00+00:00,2025-05-22T12:25:51.365619+00:00,2025-06-15T12:44:20.675715+00:00,False,Q08181,9,G:\Projects Unlimited\20250515 - Q08181,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d776f46a-fa41-4e6a-9e01-398167bcfa83/Quote7745.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=tT9cIFNH8126Dvl3tS80pQv%2BINo%3D&Expires=1750374298
+7746,0,outstanding,2025-05-16T13:03:15.421467+00:00,2025-05-20T17:00:00+00:00,2025-05-20T14:40:44.894908+00:00,2025-06-30T12:00:00+00:00,False,CA-1350538,,G:\Boeing\20250514 - CA-1350538,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/1c4e4bce-39a6-42a9-b279-72681a10cfd4/Quote7746.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=SVlvYActWiOa%2FE4YIVP9urRDV1E%3D&Expires=1750374305
+7747,0,outstanding,2025-05-16T13:20:57.171069+00:00,2025-05-20T17:00:00+00:00,2025-05-21T13:15:49.070149+00:00,2025-06-15T13:20:57.155110+00:00,False,BID0030611,,"G:\Bell Helicopter\20250514 - BID0030611
+
+Quote submitted in S2B portal 05/22/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/0b0e6a0a-1a8f-4f3b-bbae-2c7ce6929375/Quote7747.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=B8QLp8t8sdyFKs1Hw%2Fxx7HJcvEE%3D&Expires=1750374299
+7748,0,outstanding,2025-05-16T13:21:10.779975+00:00,2025-05-28T17:00:00+00:00,2025-05-29T17:28:52.900567+00:00,2025-06-15T13:21:10.766870+00:00,False,BID0030864,2,"G:\Bell Helicopter\20250515 - BID0030864
+
+RFQ was cancelled in the CLM portal before we could bid",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/fe0c3d79-008e-4b8c-b9ac-bb89a1fb423a/Quote7748.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ZZPM1p%2B79k%2FIKGDRktX6%2F6AY%2FQ8%3D&Expires=1750374303
+7749,0,draft,2025-05-16T17:52:09.248167+00:00,2025-05-19T17:52:09.235350+00:00,,2025-06-15T17:52:09.232448+00:00,False,ONPOWER,1,File Location here.,
+7750,0,trash,2025-05-18T18:12:23.723355+00:00,2025-05-21T18:12:23.713476+00:00,,2025-06-17T18:12:23.711046+00:00,False,TESTING,,File Location here.,
+7751,0,trash,2025-05-18T18:17:57.440832+00:00,2025-05-21T18:17:57.431634+00:00,,2025-06-17T18:17:57.429942+00:00,False,TESTING,,File Location here.,
+7752,0,outstanding,2025-05-20T12:58:33.267766+00:00,2025-05-28T17:00:00+00:00,2025-05-30T16:59:54.786133+00:00,2025-06-19T12:58:33.251819+00:00,False,BID0030896,,"G:\Bell Helicopter\20250516 - BID0030896
+
+RFQ closed before we could enter our no bid 05/30/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/c803e004-63da-4e75-a11c-e1dcc1d17bb3/Quote7752.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=mQsvXxbm3q5kR%2B6UBafD8cIv5xQ%3D&Expires=1750374301
+7753,0,outstanding,2025-05-20T13:00:19.595313+00:00,2025-05-28T17:00:00+00:00,2025-05-30T20:43:54.678639+00:00,2025-06-19T13:00:19.579368+00:00,False,BID0030878,9,"G:\Bell Helicopter\20250516 - BID0030878
+
+No quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/cb1cae17-d817-4d30-8d0e-d02455a7b156/Quote7753.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=7xDrVP4j7yrsucCKlFGG1igfgbM%3D&Expires=1750374303
+7754,0,outstanding,2025-05-20T13:02:26.245192+00:00,2025-05-28T17:00:00+00:00,2025-05-27T20:19:55.614820+00:00,2025-06-19T13:02:26.234065+00:00,False,BID0030876,9,"G:\Bell Helicopter\20250516 - BID0030876
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/4eabfd23-f79f-49b7-8e95-312fc5e22c74/Quote7754.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ilkBAVavvOX7w823rZJYNjuezDQ%3D&Expires=1750374304
+7755,0,outstanding,2025-05-20T13:05:28.154922+00:00,2025-05-28T17:00:00+00:00,2025-05-28T12:58:49.815003+00:00,2025-06-19T13:05:28.134371+00:00,False,BID0030895,,"G:\Bell Helicopter\20250516 - BID0030895
+
+No quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/1e3368f8-4d08-4211-8896-874f3860d79f/Quote7755.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=c4BVo9qonsStDM9upOa3MTGHB4I%3D&Expires=1750374306
+7756,0,outstanding,2025-05-20T13:07:47.545428+00:00,2025-05-28T17:00:00+00:00,2025-05-27T18:11:30.800683+00:00,2025-06-19T13:07:47.532965+00:00,False,BID0030874,9,"G:\Bell Helicopter\20250516 - BID0030874
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/865249ad-7395-450d-94ce-ff5d20284156/Quote7756.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=bxpPLbaoNdo9cs9dAr27voHASQk%3D&Expires=1750374300
+7757,0,outstanding,2025-05-20T13:10:00.755882+00:00,2025-05-28T17:00:00+00:00,2025-05-28T11:44:17.252711+00:00,2025-06-19T13:10:00.741433+00:00,False,BID0030893,,"G:\Bell Helicopter\20250516 - BID0030893
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/2a2319aa-fd0f-4a1d-b61f-a17e81a1660b/Quote7757.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=%2FrqYKU9kQHlu74132NTFNCL03rA%3D&Expires=1750374302
+7758,0,outstanding,2025-05-20T13:11:43.748017+00:00,2025-05-28T17:00:00+00:00,2025-05-27T19:47:18.419671+00:00,2025-06-19T13:11:43.738063+00:00,False,BID0030894,,"G:\Bell Helicopter\20250516 - BID0030894
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/e2c7c3b9-1f1c-43f5-bff6-5abdcc70f997/Quote7758.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=RQ60oznkprzM3dwTTAPyT%2BIW5lU%3D&Expires=1750374305
+7759,0,outstanding,2025-05-20T13:12:00.185307+00:00,2025-05-28T17:00:00+00:00,2025-05-27T15:05:03.629175+00:00,2025-06-19T13:12:00.172881+00:00,False,BID0030892,,"G:\Bell Helicopter\20250516 - BID0030892
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d9123794-a5cb-41d4-9886-2830dc29dcdd/Quote7759.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=7s5ZB2nhlTD%2FZ4AcurCe5yh2qI8%3D&Expires=1750374300
+7760,0,outstanding,2025-05-20T13:13:41.174760+00:00,2025-05-28T17:00:00+00:00,2025-06-02T14:28:04.842315+00:00,2025-06-19T13:13:41.161526+00:00,False,BID0030882,9,"G:\Bell Helicopter\20250516 - BID0030882
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/bc47c42e-f44b-4b4c-aa82-9afdacc49b1f/Quote7760.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=rutPIrC%2B08y1I4SaR4t%2BMtyMw1I%3D&Expires=1750374315
+7761,0,outstanding,2025-05-20T13:15:45.324207+00:00,2025-06-06T17:00:00+00:00,2025-06-06T20:20:31.757303+00:00,2025-06-19T13:15:45.312314+00:00,False,BID0030891,,"G:\Bell Helicopter\20250516 - BID0030891
+
+Quote entered in S2B portal on 06/09/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/46d1ffc0-9eb7-4828-aa68-aa0ed70c2ba7/Quote7761.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=jejXuppNbkh%2BrhI%2FRncO9r4YdjA%3D&Expires=1750374316
+7762,0,outstanding,2025-05-20T13:17:52.558217+00:00,2025-05-28T17:00:00+00:00,2025-06-03T15:01:10.990752+00:00,2025-06-19T13:17:52.542581+00:00,False,BID0030884,,"G:\Bell Helicopter\20250516 - BID0030884
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/8f09f757-bf67-420b-aa08-db3cd4116e80/Quote7762.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=%2F7H2vIMH2iRK6Sk7jXewHwiwusg%3D&Expires=1750374315
+7763,0,outstanding,2025-05-20T13:19:47.306327+00:00,2025-05-28T17:00:00+00:00,2025-06-02T20:20:38.637028+00:00,2025-06-19T13:19:47.292396+00:00,False,BID0030872,,"G:\Bell Helicopter\20250516 - BID0030872
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/f6937e23-e253-4a85-b5d3-6517ca33d5bf/Quote7763.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=d75XLTdWPlCWEds3TMGEZLY5%2FPs%3D&Expires=1750374315
+7764,0,outstanding,2025-05-20T13:22:20.560044+00:00,2025-05-28T17:00:00+00:00,2025-06-02T19:37:41.332541+00:00,2025-06-19T13:22:20.545200+00:00,False,BID0030879,9,"G:\Bell Helicopter\20250516 - BID0030879
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/1606a277-0b90-49bb-87a8-ca9d256a0406/Quote7764.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=x2gTQ2cwZsIrG0cwtNzsnwPVGgk%3D&Expires=1750374315
+7765,0,outstanding,2025-05-20T13:24:12.962304+00:00,2025-05-28T17:00:00+00:00,2025-06-02T19:18:58.944819+00:00,2025-06-19T13:24:12.950777+00:00,False,BID0030875,9,"G:\Bell Helicopter\20250516 - BID0030875
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/1e329661-7184-42bb-b431-7b40c90d706a/Quote7765.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=F4aV661oGXuDZZN2NYD%2Facp7enI%3D&Expires=1750374316
+7766,0,outstanding,2025-05-20T13:36:02.503841+00:00,2025-05-29T17:00:00+00:00,2025-06-04T15:41:17.518652+00:00,2025-07-05T12:00:00+00:00,False,419526,2,"G:\Applied Materials\20250516 - 419526
+
+Exact EAU is yet to be known. Please offer quote with tired price for the qty's x1, x3, x5,x10 and above x10.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/79859fa4-b8bd-4a3d-af4a-2108f86092c4/Quote7766.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=DJ2%2FZYPWqInWgc6mIM%2BCaC24paE%3D&Expires=1750374322
+7767,0,draft,2025-05-20T13:39:31.198224+00:00,2025-05-23T17:00:00+00:00,,2025-06-19T13:39:31.187814+00:00,False,HOT quote BMA ENZO,1,"G:\Benchmark Precision Technologies\20250516 - HOT quote BMA ENZO
+
+Note from customer
+""I am missing the drawings for the 0015-10531 but will send it as soon as possible""",
+7768,0,outstanding,2025-05-20T13:43:32.898745+00:00,2025-05-26T17:00:00+00:00,2025-05-28T14:35:16.587549+00:00,2025-06-30T12:00:00+00:00,False,419686,2,"G:\Applied Materials\20250519 - 419686
+
+Quote for Contract
+EAU 100",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/a19a715a-ee17-406e-a8e1-3f89013ddec5/Quote7768.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=IBUQqNdhlw4DM%2FvLbABljL6ZhIo%3D&Expires=1750374322
+7769,0,draft,2025-05-20T13:46:14.176340+00:00,2025-05-30T17:00:00+00:00,,2025-06-19T13:46:14.164323+00:00,False,419688,2,"G:\Applied Materials\20250519 - 419688
+
+Exact EAU is yet to be known. Please offer quote with tired price for the qty's x1, x3, x5,x10 and above x10.QTY/EAU requested",
+7770,0,outstanding,2025-05-20T13:49:27.656178+00:00,2025-05-26T17:00:00+00:00,2025-06-12T19:20:53.657965+00:00,2025-07-30T12:00:00+00:00,False,CesiumAstro Machined Parts,2,"G:\CesiumAstro\20250519 -  CesiumAstro Machined Parts
+
+Material would be copper 110. I’m hoping for a quick turn on these, 1-2 weeks after placing the PO. If that’s too soon, quoting at the quickest possible time.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/ed105edf-c1eb-4c42-bc2c-58aeeaa74ff8/Quote7770.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=jOvP%2Fp69mSaumY%2FDwJk4Augab5Y%3D&Expires=1750374319
+7771,0,outstanding,2025-05-20T13:49:37.977837+00:00,2025-05-23T13:49:37.963636+00:00,2025-05-20T19:44:51.322261+00:00,2025-06-30T12:00:00+00:00,False,S1205488_AMAT_RFQ(HOT),9,G:\UCT\20250519 - S1205488_AMAT_RFQ(HOT),https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/43c0d8fd-bc07-4c62-a9dd-421612243a97/Quote7771.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=b%2B2LeNzWsIjDhgYzHDpVwmsxp0I%3D&Expires=1750374316
+7772,0,draft,2025-05-20T13:50:23.517050+00:00,2025-05-23T13:50:23.508262+00:00,,2025-06-19T13:50:23.506441+00:00,False,419763,2,G:\Applied Materials\20250519 -  419763,
+7773,0,draft,2025-05-20T13:53:44.890080+00:00,2025-05-28T17:00:00+00:00,,2025-06-19T13:53:44.871999+00:00,False,419772,2,"G:\Applied Materials\20250519 - 419772
+
+QTY/EAU requested",
+7774,0,outstanding,2025-05-20T13:55:46.323393+00:00,2025-05-23T13:55:46.311454+00:00,2025-06-12T19:18:14.840021+00:00,2025-07-30T12:00:00+00:00,False,419788,2,G:\Applied Materials\20250519 - 419788,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/75b5b1d8-37be-45d2-a40c-bac9d9ccb5a1/Quote7774.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=Zrc%2BS3R5NwZ5Pog%2Bs3w37gzyB%2FA%3D&Expires=1750374323
+7775,0,draft,2025-05-20T14:12:14.421021+00:00,2025-06-10T17:00:00+00:00,,2025-06-19T14:12:13.695598+00:00,False,CA-1351405,3,G:\Boeing\20250519 -CA-1351405,
+7776,0,draft,2025-05-21T14:19:39.296538+00:00,2025-06-13T17:00:00+00:00,,2025-06-20T14:19:39.281979+00:00,False,BID0030870,,G:\Bell Helicopter\20250516 - BID0030870,
+7777,0,outstanding,2025-05-21T14:20:15.845465+00:00,2025-06-04T17:00:00+00:00,2025-06-06T19:47:58.276088+00:00,2025-06-20T14:20:15.829685+00:00,False,BID0030877,,"G:\Bell Helicopter\20250516 - BID0030877
+
+Quote entered in S2B portal on 06/09/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/59e237be-2936-4859-9bd4-df456e134ab3/Quote7777.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ZBcHl1XPcvJFVuoOvGaVZcTyVLc%3D&Expires=1750374322
+7778,0,draft,2025-05-21T14:21:40.782753+00:00,2025-06-06T17:00:00+00:00,,2025-06-20T14:21:40.767908+00:00,False,BID0030901,1,"G:\Bell Helicopter\20250516 - BID0030901
+
+Closed for response in the CLM portal 06/11/25",
+7779,0,trash,2025-05-21T14:39:18.897383+00:00,2025-07-02T17:00:00+00:00,,2025-06-20T14:39:18.881315+00:00,False,CA-1352047,,WAS A TEST (This was no quoted in the EPIC portal),
+7780,0,outstanding,2025-05-22T11:30:00.442780+00:00,2025-05-25T11:30:00.433435+00:00,2025-05-22T11:49:41.329060+00:00,2025-06-21T11:30:00.432040+00:00,False,K5M28819-Y,,File Location here.,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/dead0c1c-e84c-4870-bf0e-ac6fd05fb1ba/Quote7780.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=F6T3Q%2Frqw%2BakQTAO9AlPf41xwx0%3D&Expires=1750374324
+7781,0,outstanding,2025-05-22T14:14:05.052929+00:00,2025-06-02T17:00:00+00:00,2025-06-12T20:11:17.382373+00:00,2025-06-30T12:00:00+00:00,False,419957,3,"G:\Applied Materials\20250520 - 419957
+
+Quote for Contract",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d0819db1-9ea8-4b1b-92eb-4b0933bf12c8/Quote7781.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=UEB9Gs4nsWoZ8gEeZuXQPTtk%2Fo4%3D&Expires=1750374325
+7782,0,draft,2025-05-22T14:18:42.730847+00:00,2025-06-05T17:00:00+00:00,,2025-06-21T14:18:42.720927+00:00,False,420006,9,"G:\Applied Materials\20250520 - 420006
+
+We are looking into transition Zeus Endura 5 AC Rcks to HVM and the target is x400 units annually by Y28. Currently we are doing 10 per Qtr and 40 annually. Please provide a scale pricing for qty 40, 100, 200 and 400 for further analysis.
+
+Similar to quote 7720",
+7783,0,outstanding,2025-05-22T14:22:58.544601+00:00,2025-05-27T17:00:00+00:00,2025-06-11T14:28:11.176347+00:00,2025-07-30T12:00:00+00:00,False,420082,10,"G:\Applied Materials\20250520 - 420082
+
+No QTY or EAU. According to the customer - this is a FAI part,  and they are just quoting for review.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/cb06fe4a-def7-4087-a58e-78b1e1cfd465/Quote7783.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=yHuSV7D5x0iMzIvSr1wJEOa2aQY%3D&Expires=1750374329
+7784,0,outstanding,2025-05-22T16:17:22.979556+00:00,2025-05-30T17:00:00+00:00,2025-06-12T20:17:38.089188+00:00,2025-07-30T12:00:00+00:00,False,420111,2,"G:\Applied Materials\20250521 - 420111
+
+EAU 2300",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/bd4efbca-7dd9-45f8-9b1f-cfdd635931ee/Quote7784.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=MSAbkfICKSHZnrX7XttYVWfSZu4%3D&Expires=1750374335
+7785,0,draft,2025-05-22T16:20:22.090419+00:00,2025-06-10T17:00:00+00:00,,2025-06-21T16:20:22.038995+00:00,False,419981,3,"G:\Applied Materials\20250521 - 419981
+
+Quote for Contract
+Quoted a couple of these parts 5yrs ago on quote #230",
+7786,0,draft,2025-05-22T16:28:15.545802+00:00,2025-06-05T17:00:00+00:00,,2025-06-21T16:28:15.530416+00:00,False,H850U0327300 & H850U0327301,,G:\Airbus\20250521 - H850U0327300 & H850U0327301,
+7787,0,draft,2025-05-22T16:33:45.144604+00:00,2025-06-05T17:00:00+00:00,,2025-06-21T16:33:45.128358+00:00,False,420388,2,"G:\Applied Materials\20250522 - 420388
+
+Pending Spec request",
+7788,0,draft,2025-05-22T16:36:15.733640+00:00,2025-05-28T17:00:00+00:00,,2025-06-21T16:36:15.721285+00:00,False,420397,9,"G:\Applied Materials\20250522 - 420397
+
+No QTY or EAU. According to the customer - this is a FAI part,  and they are just quoting for review.
+Please make sure to look at the files, and quote REV 02",
+7789,0,draft,2025-05-22T16:42:31.331403+00:00,2025-06-04T17:00:00+00:00,,2025-07-12T12:00:00+00:00,False,420395,,G:\Applied Materials\20250522 - 420395,
+7790,0,outstanding,2025-05-22T16:45:20.882570+00:00,2025-05-28T17:00:00+00:00,2025-06-12T20:18:03.373896+00:00,2025-07-30T12:00:00+00:00,False,420399,2,"G:\Applied Materials\20250522 - 420399
+
+No QTY or EAU. According to the customer - this is a FAI part,  and they are just quoting for review.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/d1e866eb-a3d3-4a85-be37-49688c67e2ac/Quote7790.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=IjssPMWlKeYFgr3%2Fhs%2BNH4h%2Fvjo%3D&Expires=1750374327
+7791,0,draft,2025-05-22T16:48:13.599250+00:00,2025-06-05T17:00:00+00:00,,2025-06-21T16:48:13.581606+00:00,False,420421,1,"G:\Applied Materials\20250522 - 420421
+
+Customer asked if we could use the BOM to complete the quote, his team does not have any other drawings to provide.",
+7792,0,outstanding,2025-05-22T16:52:18.141462+00:00,2025-05-29T17:00:00+00:00,2025-06-03T19:41:44.684142+00:00,2025-07-05T12:00:00+00:00,False,MQ11606,2,G:\Ichor\20250522 - MQ11606,https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/fc648568-1382-424a-b8ae-4c76330e274b/Quote7792.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=%2BwF%2B2P4AHdjQSK38ZMTs8JDG4sk%3D&Expires=1750374334
+7793,0,outstanding,2025-05-22T16:55:55.874940+00:00,2025-05-29T17:00:00+00:00,2025-05-29T13:55:18.501990+00:00,2025-06-30T12:00:00+00:00,False,SO37129,10,"G:\F3 Engineering\20250522 - SO37129
+
+Requested files for line 11,12,13",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/fb78a587-c9d7-4b12-b86d-3cd457c4bc95/Quote7793.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=9ltRWtDzYQa7eNQDHi2SeWR4kM8%3D&Expires=1750374332
+7794,0,outstanding,2025-05-23T13:58:29.527974+00:00,2025-05-26T13:58:29.516188+00:00,2025-05-23T14:32:46.861341+00:00,2025-06-22T13:58:29.514045+00:00,False,,9,"K-drive, historical part",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/36826d0f-e6a6-46da-b245-970c06cdde7d/Quote7794.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=wTbax4QjX08MdwjaX88FI2l7UyA%3D&Expires=1750374331
+7795,0,outstanding,2025-05-23T16:29:47.674592+00:00,2025-06-04T17:00:00+00:00,2025-06-04T12:49:23.035960+00:00,2025-06-22T16:29:47.657482+00:00,False,BID0031029,,"G:\Bell Helicopter\20250522 - BID0031029
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/0abf0afd-ff75-47c5-98bd-0d77b362ceb5/Quote7795.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=HYM16RaTf3eF1mESzmoNxJMGXoA%3D&Expires=1750374329
+7796,0,outstanding,2025-05-23T16:30:00.266850+00:00,2025-06-04T17:00:00+00:00,2025-06-06T15:11:37.060221+00:00,2025-06-22T16:30:00.251723+00:00,False,BID0031030,,"G:\Bell Helicopter\20250522 - BID0031030
+
+Quote entered in S2B portal on 06/04/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/9eb2d3cc-bcb8-4b40-a9e6-00fa1499ce53/Quote7796.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=Y1fiBtKF9%2BpxVe2%2Fy5CBkpizL1U%3D&Expires=1750374328
+7797,0,outstanding,2025-05-23T16:30:12.167799+00:00,2025-06-02T17:00:00+00:00,2025-06-02T13:04:28.479626+00:00,2025-06-22T16:30:12.153383+00:00,False,BID0030998,,"G:\Bell Helicopter\20250521 - BID0030998
+
+No quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/31ee9f63-e0f0-457e-ade2-1dd94d29eec5/Quote7797.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=56CxrvZhm1QSBadTA9%2F5vlLSB5k%3D&Expires=1750374325
+7798,0,outstanding,2025-05-23T16:30:24.304754+00:00,2025-06-02T17:00:00+00:00,2025-06-02T12:59:57.076749+00:00,2025-06-22T16:30:24.289339+00:00,False,BID0030994,,"G:\Bell Helicopter\20250521 - BID0030994
+
+Quote entered in S2B portal on 05/28/25",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/9d3d07ac-f534-4b57-83be-1aab23822808/Quote7798.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=F%2Fa5Jvj34JJQbwhyum1dG7zu67E%3D&Expires=1750374327
+7799,0,trash,2025-05-23T17:25:49.946672+00:00,2025-05-28T17:00:00+00:00,,2025-06-22T17:25:49.935523+00:00,False,BID0030983,,File Location here.,
+7739,1,accepted,2025-06-03T18:08:03.721847+00:00,2025-06-06T18:08:03.710694+00:00,2025-06-03T18:16:24.172262+00:00,2025-07-03T18:08:03.707435+00:00,False,BID0030836,,"G:\Bell Helicopter\20250514 - BID0030836
+
+RFQ was cancelled in the CLM portal before we could bid",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/2b8e7b53-0498-4c62-a7c7-b612bac3f869/Quote7739-1.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ZsRaBciSO%2BlCTXvzixz04DoHutc%3D&Expires=1750374337

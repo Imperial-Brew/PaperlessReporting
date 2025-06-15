@@ -77,12 +77,12 @@ pytest tests/test_pull_users.py::test_fetch_users
 
 The project includes comprehensive documentation:
 
-- **[Webhook Server](docs/webhook.md)**: Documentation for the webhook server, including setup, configuration, and supported events
-- **[S3 Configuration](docs/s3_configuration.md)**: Guide for setting up and configuring AWS S3 integration
-- **[Testing](docs/testing.md)**: Detailed information about testing, including how to run tests and coverage reporting
-- **[Logging and Error Handling](docs/logging.md)**: Information about the logging and error handling system
+- **[Webhook Server](webhook.md)**: Documentation for the webhook server, including setup, configuration, and supported events
+- **[S3 Configuration](s3_configuration.md)**: Guide for setting up and configuring AWS S3 integration
+- **[Testing](testing.md)**: Detailed information about testing, including how to run tests and coverage reporting
+- **[Logging and Error Handling](logging.md)**: Information about the logging and error handling system
 - **[Changelog](CHANGELOG.md)**: Record of all notable changes to the project
-- **[Pipeline Framework](scripts/pipeline/README.md)**: Documentation for the data processing pipeline framework
+- **[Pipeline Framework](../scripts/pipeline/README.md)**: Documentation for the data processing pipeline framework
 
 ## Testing
 
@@ -98,7 +98,7 @@ The project includes a comprehensive test suite:
   - End-to-end tests for data pulling and CSV generation
   - Tests for webhook event handling
 
-See [Testing Documentation](docs/testing.md) for more details.
+See [Testing Documentation](testing.md) for more details.
 
 ## Security
 
@@ -163,7 +163,7 @@ The repository includes pre-commit hooks to prevent accidentally committing sens
 - **Encryption**: Enable server-side encryption for S3 buckets
 - **Access Logging**: Enable access logging for S3 buckets to track usage
 
-See [Security Documentation](docs/security.md) for more detailed information.
+See [Security Documentation](security.md) for more detailed information.
 
 ## Data Processing Pipeline Framework
 
@@ -221,11 +221,11 @@ from scripts.pipeline.processors import CSVLoader
 
 # Create a pipeline using the builder pattern
 pipeline = (PipelineBuilder("account_pipeline")
-           .add_acquisition(AccountsDataAcquisitionStage())
-           .add_batch_processor(AccountValidator())
-           .add_batch_processor(AccountTransformer())
-           .add_loading(CSVLoader("data_real/accounts.csv"))
-           .build())
+            .add_acquisition(AccountsDataAcquisitionStage())
+            .add_batch_processor(AccountValidator())
+            .add_batch_processor(AccountTransformer())
+            .add_loading(CSVLoader("../data_real/accounts.csv"))
+            .build())
 
 # Configure a longer timeout for the acquisition stage
 pipeline.stages[0].configure_timeout(timeout=1200.0)

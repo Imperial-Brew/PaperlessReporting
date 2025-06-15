@@ -1,0 +1,97 @@
+quote_number,revision_number,status,created,due_date,sent_date,expired_date,expired,rfq_number,priority,private_notes,authenticated_pdf_quote_url
+7900,0,draft,2025-06-10T14:23:56.378436+00:00,2025-06-18T17:00:00+00:00,,2025-07-10T14:23:56.362959+00:00,False,CA-1355842,,G:\Boeing\20250606 - CA-1355842,
+7901,0,draft,2025-06-10T14:37:37.933618+00:00,2025-06-20T17:00:00+00:00,,2025-07-10T14:37:37.917611+00:00,False,BID0031279,,G:\Bell Helicopter\20250609 - BID0031279,
+7902,0,draft,2025-06-10T14:48:15.328955+00:00,2025-06-20T17:00:00+00:00,,2025-07-10T14:48:15.311805+00:00,False,BID0031280,,G:\Bell Helicopter\20250609 - BID0031280,
+7903,0,draft,2025-06-10T14:55:39.594644+00:00,2025-06-20T17:00:00+00:00,,2025-07-10T14:55:39.576049+00:00,False,BID0031268,,G:\Bell Helicopter\20250609 - BID0031268,
+7904,0,draft,2025-06-10T15:18:43.537584+00:00,2025-06-20T17:00:00+00:00,,2025-07-10T15:18:43.522336+00:00,False,BID0031276,,G:\Bell Helicopter\20250609 - BID0031276,
+7905,0,draft,2025-06-10T15:29:50.120220+00:00,2025-06-24T17:00:00+00:00,,2025-07-10T15:29:50.108321+00:00,False,BID0031290,,G:\Bell Helicopter\20250610 - BID0031290,
+7906,0,draft,2025-06-10T15:36:09.030215+00:00,2025-06-24T17:00:00+00:00,,2025-07-10T15:36:09.015773+00:00,False,BID0031291,,G:\Bell Helicopter\20250610 - BID0031291,
+7907,0,draft,2025-06-10T15:42:44.667509+00:00,2025-06-13T15:42:44.653443+00:00,,2025-07-10T15:42:44.651120+00:00,False,X-Bow MK 290 Igniter RFQ,1,File Location here.,
+7908,0,draft,2025-06-10T16:17:40.876307+00:00,2025-06-13T17:00:00+00:00,,2025-07-10T16:17:40.861220+00:00,False,0011-03089,9,G:\Applied Materials\20240506 - 354921,
+7909,0,draft,2025-06-10T17:44:00.439427+00:00,2025-06-13T17:44:00.421666+00:00,,2025-07-10T17:44:00.418489+00:00,False,589797,,"G:\Applied Materials\20250609 - 589797
+
+Customer notes
+""We haven’t created the AMAT part number for the ACE Vistara frame yet, but I’ve attached the STP files for both the welded and riveted versions. 
+Could you please review the files and let us know if we can proceed with obtaining the HVM quote? 
+We need to present this to the BU along with all associated HVM costs. Please confirm if the attached STP files are sufficient or if you need any additional information. Also, let us know the estimated timeline for when we can expect to receive the quote. Thanks""",
+7910,0,draft,2025-06-11T14:59:30.345354+00:00,2025-06-16T17:00:00+00:00,,2025-07-11T14:59:30.331495+00:00,False,UCT RFQ - 0040-07101 - ITEM 1,,"G:\UCT\20250609 - UCT RFQ - 0040-07101 - ITEM 1
+
+0040-07101 detail item 1, no OSP cleaning needed",
+7911,0,draft,2025-06-11T15:21:41.892141+00:00,2025-06-23T17:00:00+00:00,,2025-07-11T15:21:41.877923+00:00,False,BID0031304,,G:\Bell Helicopter\20250610 - BID0031304,
+7912,0,draft,2025-06-11T15:27:56.351823+00:00,2025-06-25T17:00:00+00:00,,2025-07-11T15:27:56.337162+00:00,False,BID0031323,,G:\Bell Helicopter\20250610 - BID0031323,
+7913,0,draft,2025-06-11T15:48:49.186089+00:00,2025-06-18T17:00:00+00:00,,2025-07-11T15:48:49.174495+00:00,False,423409,2,"G:\Applied Materials\20250610 - 423409
+
+EAU 50",
+7914,0,draft,2025-06-11T15:52:25.406132+00:00,2025-06-20T17:00:00+00:00,,2025-07-11T15:52:25.390319+00:00,False,423410,9,G:\Applied Materials\20250610 - 423410,
+7915,0,draft,2025-06-11T15:55:47.843966+00:00,2025-06-20T17:00:00+00:00,,2025-07-11T15:55:47.830133+00:00,False,423412,,G:\Applied Materials\20250610 - 423412,
+7916,0,draft,2025-06-11T15:58:53.129145+00:00,2025-06-18T17:00:00+00:00,,2025-07-11T15:58:53.112621+00:00,False,Q08231-3,,G:\Projects Unlimited\20250610 - Q08231-3,
+7917,0,outstanding,2025-06-11T16:22:49.744779+00:00,2025-06-17T17:00:00+00:00,2025-06-13T14:07:29.026778+00:00,2025-07-30T12:00:00+00:00,False,88706,2,"G:\Jered Par\20250610 - 88706
+
+Please note the special requirement for bending and threading process per the drawing 20726GB031.",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/3bbe0eeb-a147-4f1c-933c-3680e8384661/Quote7917.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=ZNp%2FpHUkpBBVlQXIazNz2vMXFjk%3D&Expires=1750362594
+7918,0,draft,2025-06-11T16:30:34.202297+00:00,2025-06-17T17:00:00+00:00,,2025-07-11T16:30:34.188752+00:00,False,Doc5207335504,,"G:\Applied Materials\20250610 - Doc5207335504
+
+QTY 517, Target $235",
+7919,0,draft,2025-06-11T16:32:43.170534+00:00,2025-06-19T17:00:00+00:00,,2025-07-11T16:32:43.156747+00:00,False,423483,,"G:\Applied Materials\20250610 - 423483
+
+Quote for Contract
+EAU 60",
+7920,0,draft,2025-06-11T16:35:56.220920+00:00,2025-06-17T17:00:00+00:00,,2025-07-11T16:35:56.207065+00:00,False,423498,,"G:\Applied Materials\20250610 - 423498
+
+Please submit your best contract quote for 0010-93841 - EAU is 150.",
+7921,0,draft,2025-06-11T16:39:54.946756+00:00,2025-06-17T17:00:00+00:00,,2025-07-11T16:39:54.931095+00:00,False,5116T37P01,,"G:\Serbin Machining Inc\20250610 - 5116T37P01
+
+customer supplied material",
+7922,0,draft,2025-06-11T17:59:22.591133+00:00,2025-06-20T17:00:00+00:00,,2025-07-11T17:59:22.577054+00:00,False,423539,,G:\Applied Materials\20250610 - 423539,
+7923,0,outstanding,2025-06-11T18:02:35.160603+00:00,2025-06-14T18:02:35.148312+00:00,2025-06-12T18:56:19.983600+00:00,2025-07-30T12:00:00+00:00,False,423540,9,"G:\Applied Materials\20250610 - 423540
+
+Note from customer
+""I just sent over another hot RFQ. We will consume x3 of 0023-09253 a week. It’s my understanding that Athena is already building this part for use elsewhere. Or, if not this part, the part this was designed from (0021-60895). 
+Can you ask your team to bump this up and look at it please? Thanks. It’s coming over on SCV 423540.""",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/4ac48290-2eb4-47f4-bbce-34e0e3ec9acf/Quote7923.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=WpqZTab4QhJJhkc4ClBvTbFLgl8%3D&Expires=1750362603
+7924,0,outstanding,2025-06-11T18:08:58.721963+00:00,2025-06-16T17:00:00+00:00,2025-06-12T18:53:56.783953+00:00,2025-07-30T12:00:00+00:00,False,423533,9,"G:\Applied Materials\20250610 - 423533
+
+Quote for Contract",https://s3-fips.us-gov-west-1.amazonaws.com/pdfs.app.digitalmfg/quote-pdf/ef070813-bb5b-4fdc-9cb0-bf7275f461ab/Quote7924.pdf?AWSAccessKeyId=AKIAX6ZDWWYS27SJFGFZ&Signature=XYfZeiQLLhspsq4NCKfjTlJEUTY%3D&Expires=1750362598
+7925,0,draft,2025-06-11T23:13:43.297983+00:00,2025-06-14T23:13:43.287432+00:00,,2025-07-11T23:13:43.285894+00:00,False,GN23898,9,,
+7926,0,draft,2025-06-12T19:39:00.621278+00:00,2025-06-15T19:39:00.610766+00:00,,2025-07-12T19:39:00.609108+00:00,False,423549,,G:\Applied Materials\20250610 - 423549,
+7927,0,draft,2025-06-12T19:42:42.308180+00:00,2025-06-17T17:00:00+00:00,,2025-07-12T19:42:42.291703+00:00,False,423599,,"G:\Applied Materials\20250610 - 423599
+
+QTY and EAU 4",
+7928,0,draft,2025-06-12T19:46:18.605850+00:00,2025-06-23T17:00:00+00:00,,2025-07-12T19:46:18.593990+00:00,False,423649,,"G:\Applied Materials\20250611 - 423649
+
+QTY/EAU requested",
+7929,0,draft,2025-06-12T19:52:03.784825+00:00,2025-06-18T17:00:00+00:00,,2025-07-12T19:52:03.768682+00:00,False,423678,,"G:\Applied Materials\20250611 - 423678
+
+EAU 10",
+7930,0,draft,2025-06-12T19:58:00.050543+00:00,2025-06-20T17:00:00+00:00,,2025-07-12T19:58:00.032998+00:00,False,423726,,"G:\Applied Materials\20250611 - 423726
+
+Quote for Contract 
+Target $2000.00",
+7931,0,draft,2025-06-12T20:01:35.787745+00:00,2025-06-18T17:00:00+00:00,,2025-07-12T20:01:35.771464+00:00,False,Doc5210342219,,"G:\Applied Materials\20250611 - Doc5210342219
+
+Contract Quote
+Target $364.00",
+7932,0,trash,2025-06-13T12:06:59.371996+00:00,2025-06-16T12:06:59.360203+00:00,,2025-07-13T12:06:59.357355+00:00,False,RFQ,,"Contact name: Maurice Robinson
+Contact email: robinson@centralatlantatractor.us
+Contact business name: CENTRAL ATLANTA TRACTOR  SALES,Inc
+Contact phone: (404) 802-4534
+Contact has requested the parts be delivered by 06/18/2025.
+Tell us how you found us (e.g. email, a colleague, Google search, etc.): robinson@centralatlantatractor.us
+Contact notes:
+ 	Hello,
+
+I would like to be contacted with more information about your services.
+on your confirmation i will revert with our requirements
+
+File Location here.",
+7933,0,draft,2025-06-13T16:13:37.296900+00:00,2025-06-18T17:00:00+00:00,,2025-07-13T16:13:37.284246+00:00,False,449W7510-2033C,,"G:\Boeing\20250611 - 449W7510-2033C
+I added line 1 for your comparison - we are quoting line 2. (449W7510-2033C)
+
+Note from customer
+'The similar to part is the -2033B. Appears the engineering change is only the finish?
+I've attached a copy of the PL for reference. I believe you reference the -2033 for the drawing.
+Please provide an official quote to include price, lead time, NRE fees, etc.""
+
+Note from Eugenia (Boeing program manager)
+""The paint and processing are VERY EXPENSIVE. Also, raw material cost increased. 
+Currently no vendors will quote the -2033 and -2033B without us supplying the paint and we can only find it thru Boeing for about $6800.""",
+7934,0,draft,2025-06-13T16:27:23.338719+00:00,2025-07-30T17:00:00+00:00,,2025-07-13T16:27:23.324075+00:00,False,BCA-2025-128953,,G:\Boeing\20250611 - BCA-2025-128953,
+7935,0,draft,2025-06-13T16:45:56.555735+00:00,2025-06-25T17:00:00+00:00,,2025-07-13T16:45:56.539539+00:00,False,NVP WK 24,9,Repeats,
