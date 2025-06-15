@@ -95,7 +95,7 @@ async def test_parallel_processing_pipeline():
     order = TestDataGenerator.create_sample_order()
 
     # Extract order items
-    from scripts.pipeline.order_processors import OrderItemExtractor
+    from scripts.pipeline.processors import OrderItemExtractor
     extractor = OrderItemExtractor()
     order_items = await extractor.transform(order)
 
@@ -178,7 +178,7 @@ async def test_parallel_order_processor():
     )
 
     # Mock the OrdersDataAcquisitionStage to return sample orders
-    from scripts.pipeline.order_processors import OrdersDataAcquisitionStage
+    from scripts.pipeline.processors import OrdersDataAcquisitionStage
 
     # Save the original acquire method
     original_acquire = OrdersDataAcquisitionStage.acquire
@@ -191,7 +191,7 @@ async def test_parallel_order_processor():
         # Create sample order items
         order_items = []
         for order in orders:
-            from scripts.pipeline.order_processors import OrderItemExtractor
+            from scripts.pipeline.processors import OrderItemExtractor
             extractor = OrderItemExtractor()
             items = await extractor.transform(order)
             order_items.extend(items)

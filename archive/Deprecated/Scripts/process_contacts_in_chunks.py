@@ -15,8 +15,6 @@ configure_logging(level="INFO")
 logger = get_logger(__name__)
 
 # Import pipeline components
-from scripts.pipeline.account_contact_orchestrator import ContactPipeline
-from scripts.pipeline.exceptions import PipelineError
 from scripts.pull_contacts_async import ContactsPuller
 
 async def process_contact_chunk(start_id: int, end_id: int, output_dir: str, chunk_number: int):

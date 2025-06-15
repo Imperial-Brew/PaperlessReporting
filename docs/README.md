@@ -214,10 +214,10 @@ The PipelineBuilder class implements the builder pattern for creating pipelines 
 
 ```python
 from scripts.pipeline.builder import PipelineBuilder
-from scripts.pipeline.account_contact_processors import (
-    AccountsDataAcquisitionStage, AccountValidator, AccountTransformer
+from scripts.pipeline.processors import (
+    AccountsDataAcquisitionStage, AccountValidator, AccountTransformer,
+    CSVLoader
 )
-from scripts.pipeline.processors import CSVLoader
 
 # Create a pipeline using the builder pattern
 pipeline = (PipelineBuilder("account_pipeline")

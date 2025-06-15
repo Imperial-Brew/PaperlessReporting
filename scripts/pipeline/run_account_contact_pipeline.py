@@ -22,8 +22,7 @@ configure_logging(level="INFO")
 logger = get_logger(__name__)
 
 # Import pipeline components
-from scripts.pipeline.orchestrator import Pipeline
-from scripts.pipeline.account_contact_orchestrator import AccountPipeline, ContactPipeline
+from scripts.pipeline.orchestrator import Pipeline, AccountPipeline, ContactPipeline
 from scripts.pipeline.exceptions import PipelineError
 
 

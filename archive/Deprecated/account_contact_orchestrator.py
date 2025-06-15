@@ -5,8 +5,6 @@ This module provides orchestrators for creating pipelines for processing
 account and contact data from the Paperless Parts API.
 """
 
-from typing import Any, Dict, List, Optional, Union
-
 from scripts.pipeline.orchestrator import Pipeline, WrapInList
 from scripts.utils.logging_config import get_logger
 
@@ -33,7 +31,7 @@ class AccountPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import AccountValidator
+        from archive.Deprecated.account_contact_processors import AccountValidator
 
         pipeline = Pipeline(name)
         pipeline.add_stage(AccountValidator())
@@ -51,7 +49,7 @@ class AccountPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import AccountValidator, AccountTransformer
+        from archive.Deprecated.account_contact_processors import AccountValidator, AccountTransformer
 
         pipeline = Pipeline(name)
         pipeline.add_stage(AccountValidator())
@@ -71,7 +69,7 @@ class AccountPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import AccountValidator, AccountTransformer
+        from archive.Deprecated.account_contact_processors import AccountValidator, AccountTransformer
         from scripts.pipeline.processors import CSVLoader
 
         pipeline = Pipeline(name)
@@ -99,7 +97,7 @@ class AccountPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import AccountsDataAcquisitionStage, AccountValidator, AccountTransformer
+        from archive.Deprecated.account_contact_processors import AccountsDataAcquisitionStage, AccountValidator, AccountTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
 
         pipeline = Pipeline(name)
@@ -132,7 +130,7 @@ class ContactPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import ContactValidator
+        from archive.Deprecated.account_contact_processors import ContactValidator
 
         pipeline = Pipeline(name)
         pipeline.add_stage(ContactValidator())
@@ -150,7 +148,7 @@ class ContactPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import ContactValidator, ContactTransformer
+        from archive.Deprecated.account_contact_processors import ContactValidator, ContactTransformer
 
         pipeline = Pipeline(name)
         pipeline.add_stage(ContactValidator())
@@ -170,7 +168,7 @@ class ContactPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import ContactValidator, ContactTransformer
+        from archive.Deprecated.account_contact_processors import ContactValidator, ContactTransformer
         from scripts.pipeline.processors import CSVLoader
 
         pipeline = Pipeline(name)
@@ -198,7 +196,7 @@ class ContactPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import ContactsDataAcquisitionStage, ContactValidator, ContactTransformer
+        from archive.Deprecated.account_contact_processors import ContactsDataAcquisitionStage, ContactValidator, ContactTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
 
         pipeline = Pipeline(name)
@@ -226,7 +224,7 @@ class ContactPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.account_contact_processors import NewContactsDataAcquisitionStage, ContactValidator, ContactTransformer
+        from archive.Deprecated.account_contact_processors import NewContactsDataAcquisitionStage, ContactValidator, ContactTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
 
         pipeline = Pipeline(name)

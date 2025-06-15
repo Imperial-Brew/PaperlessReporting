@@ -5,7 +5,7 @@ This module provides factory classes for creating pipelines for processing
 order and order item data from the Paperless Parts API.
 """
 
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict
 
 from scripts.pipeline.orchestrator import Pipeline, WrapInList
 from scripts.utils.logging_config import get_logger
@@ -33,7 +33,7 @@ class OrderPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderValidator
+        from archive.Deprecated.order_processors import OrderValidator
 
         pipeline = Pipeline(name)
         pipeline.add_stage(OrderValidator())
@@ -51,7 +51,7 @@ class OrderPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderValidator, OrderTransformer
+        from archive.Deprecated.order_processors import OrderValidator, OrderTransformer
 
         pipeline = Pipeline(name)
         pipeline.add_stage(OrderValidator())
@@ -71,7 +71,7 @@ class OrderPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderValidator, OrderTransformer
+        from archive.Deprecated.order_processors import OrderValidator, OrderTransformer
         from scripts.pipeline.processors import CSVLoader
 
         pipeline = Pipeline(name)
@@ -98,7 +98,7 @@ class OrderPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrdersDataAcquisitionStage, OrderValidator, OrderTransformer
+        from archive.Deprecated.order_processors import OrdersDataAcquisitionStage, OrderValidator, OrderTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
 
         pipeline = Pipeline(name)
@@ -125,7 +125,7 @@ class OrderPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderItemValidator, OrderItemTransformer
+        from archive.Deprecated.order_processors import OrderItemValidator, OrderItemTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
         from scripts.pipeline.orchestrator import ContextExtractor
 
@@ -163,7 +163,7 @@ class OrderItemPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderItemValidator
+        from archive.Deprecated.order_processors import OrderItemValidator
 
         pipeline = Pipeline(name)
         pipeline.add_stage(OrderItemValidator())
@@ -181,7 +181,7 @@ class OrderItemPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderItemValidator, OrderItemTransformer
+        from archive.Deprecated.order_processors import OrderItemValidator, OrderItemTransformer
 
         pipeline = Pipeline(name)
         pipeline.add_stage(OrderItemValidator())
@@ -201,7 +201,7 @@ class OrderItemPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderItemValidator, OrderItemTransformer
+        from archive.Deprecated.order_processors import OrderItemValidator, OrderItemTransformer
         from scripts.pipeline.processors import CSVLoader
 
         pipeline = Pipeline(name)
@@ -227,7 +227,7 @@ class OrderItemPipeline:
         Returns:
             Pipeline instance
         """
-        from scripts.pipeline.order_processors import OrderItemExtractor, OrderItemValidator, OrderItemTransformer
+        from archive.Deprecated.order_processors import OrderItemExtractor, OrderItemValidator, OrderItemTransformer
         from scripts.pipeline.processors import BatchProcessor, CSVLoader
 
         pipeline = Pipeline(name)

@@ -23,7 +23,7 @@ configure_logging(level="INFO")
 logger = get_logger(__name__)
 
 # Import pipeline components
-from scripts.pipeline.order_orchestrator import OrderPipeline, OrderItemPipeline
+from scripts.pipeline.orchestrator import OrderPipeline, OrderItemPipeline
 from scripts.pipeline.exceptions import PipelineError
 
 
@@ -180,7 +180,7 @@ async def test_order_pipelines():
 
     # First, set up a context with order_items
     from scripts.pipeline.orchestrator import Pipeline, ContextExtractor
-    from scripts.pipeline.order_processors import OrderItemExtractor
+    from scripts.pipeline.processors import OrderItemExtractor
 
     # Extract order items
     extractor = OrderItemExtractor()
