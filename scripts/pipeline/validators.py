@@ -276,3 +276,188 @@ class QuoteItemValidator(ValidationStage[Dict[str, Any]]):
         self.record_metric("has_errors", len(errors) > 0)
 
         return errors
+
+
+class OrderValidator(ValidationStage[Dict[str, Any]]):
+    """
+    Validator for order data.
+
+    This validator checks that order data contains all required fields
+    and that the values are of the correct type and format.
+    """
+
+    def __init__(self, name: str = "order_validator"):
+        """
+        Initialize the order validator.
+
+        Args:
+            name: Name of the validator
+        """
+        super().__init__(name)
+
+        # Define required fields and their types
+        self.required_fields = {
+            "order_number": str,
+        }
+
+        # Define optional fields and their types
+        self.optional_fields = {
+            "quote_number": str,
+            "quote_revision_number": (str, int, type(None)),
+            "status": str,
+            "created": str,
+            "deliver_by": str,
+            "ships_on": str,
+            "payment_terms": str,
+            "purchase_order_number": str,
+            "salesperson_email": str,
+            "customer_name": str,
+        }
+
+    async def validate(self, data: Dict[str, Any]) -> List[str]:
+        """
+        Validate order data.
+
+        Args:
+            data: Order data to validate
+
+        Returns:
+            List of validation error messages (empty if valid)
+        """
+        errors = []
+
+        # Check if data is a dictionary, if not, return an error
+        if not isinstance(data, dict):
+            error_msg = f"Invalid data type: {type(data).__name__}, expected dict"
+            return [error_msg]
+
+        # Pre-process data to handle type conversions
+        processed_data = data.copy()
+
+        # Convert order_number to string if it's not already
+        if "order_number" in processed_data and processed_data["order_number"] is not None:
+            processed_data["order_number"] = str(processed_data["order_number"])
+
+        # Check for required fields
+        for field, field_type in self.required_fields.items():
+            if field not in processed_data:
+                errors.append(f"Missing required field: {field}")
+            elif not isinstance(processed_data[field], field_type):
+                if isinstance(field_type, tuple):
+                    if not any(isinstance(processed_data[field], t) for t in field_type):
+                        errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected one of {[t.__name__ for t in field_type]}")
+                else:
+                    errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected {field_type.__name__}")
+
+        # Check for optional fields with correct types
+        for field, field_type in self.optional_fields.items():
+            if field in processed_data and processed_data[field] is not None:
+                if not isinstance(processed_data[field], field_type):
+                    if isinstance(field_type, tuple):
+                        if not any(isinstance(processed_data[field], t) for t in field_type):
+                            errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected one of {[t.__name__ for t in field_type]}")
+                    else:
+                        errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected {field_type.__name__}")
+
+        # Record validation metrics
+        self.record_metric("validation_errors", len(errors))
+        self.record_metric("has_errors", len(errors) > 0)
+
+        return errors
+
+
+class OrderItemValidator(ValidationStage[Dict[str, Any]]):
+    """
+    Validator for order item data.
+
+    This validator checks that order item data contains all required fields
+    and that the values are of the correct type and format.
+    """
+
+    def __init__(self, name: str = "order_item_validator"):
+        """
+        Initialize the order item validator.
+
+        Args:
+            name: Name of the validator
+        """
+        super().__init__(name)
+
+        # Define required fields and their types
+        self.required_fields = {
+            "order_number": str,
+            "item_id": (str, int),
+        }
+
+        # Define optional fields and their types
+        self.optional_fields = {
+            "part_number": str,
+            "part_uuid": str,
+            "revision": str,
+            "description": str,
+            "quantity": (int, float),
+            "unit_price": (int, float),
+            "total_price": (int, float),
+            "material": str,
+            "process": str,
+            "export_controlled": bool,
+            "filename": str,
+            "lead_days": (int, str),
+            "quote_item_id": (str, int, type(None)),
+        }
+
+    async def validate(self, data: Dict[str, Any]) -> List[str]:
+        """
+        Validate order item data.
+
+        Args:
+            data: Order item data to validate
+
+        Returns:
+            List of validation error messages (empty if valid)
+        """
+        errors = []
+
+        # Check if data is a dictionary, if not, return an error
+        if not isinstance(data, dict):
+            error_msg = f"Invalid data type: {type(data).__name__}, expected dict"
+            return [error_msg]
+
+        # Pre-process data to handle type conversions
+        processed_data = data.copy()
+
+        # Convert order_number to string if it's not already
+        if "order_number" in processed_data and processed_data["order_number"] is not None:
+            processed_data["order_number"] = str(processed_data["order_number"])
+
+        # Convert item_id to string if it's not already
+        if "item_id" in processed_data and processed_data["item_id"] is not None:
+            if not isinstance(processed_data["item_id"], (str, int)):
+                processed_data["item_id"] = str(processed_data["item_id"])
+
+        # Check for required fields
+        for field, field_type in self.required_fields.items():
+            if field not in processed_data:
+                errors.append(f"Missing required field: {field}")
+            elif not isinstance(processed_data[field], field_type):
+                if isinstance(field_type, tuple):
+                    if not any(isinstance(processed_data[field], t) for t in field_type):
+                        errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected one of {[t.__name__ for t in field_type]}")
+                else:
+                    errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected {field_type.__name__}")
+
+        # Check for optional fields with correct types
+        for field, field_type in self.optional_fields.items():
+            if field in processed_data and processed_data[field] is not None:
+                if not isinstance(processed_data[field], field_type):
+                    if isinstance(field_type, tuple):
+                        if not any(isinstance(processed_data[field], t) for t in field_type):
+                            errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected one of {[t.__name__ for t in field_type]}")
+                    else:
+                        errors.append(f"Field {field} has invalid type: {type(processed_data[field]).__name__}, expected {field_type.__name__}")
+
+        # Record validation metrics
+        self.record_metric("validation_errors", len(errors))
+        self.record_metric("has_errors", len(errors) > 0)
+
+        return errors

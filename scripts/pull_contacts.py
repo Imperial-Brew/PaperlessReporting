@@ -21,15 +21,17 @@ sys.path.append(str(project_root))
 # Load environment variables from .env file
 load_dotenv(project_root / ".env")
 
-async def pull_contacts(fetch_all=False, output_format="json"):
+async def pull_contacts(fetch_all=False, output_format="json", max_retries=3):
     """
     Simple script to pull contacts from the Paperless Parts API.
 
     Uses the /contacts/public endpoint with API token authentication.
+    Includes retry mechanism with backoff for handling rate limiting errors.
 
     Args:
         fetch_all: If True, fetch all pages of contacts. If False, fetch only the first page.
         output_format: Format to save the data in. Options: "json" or "csv".
+        max_retries: Maximum number of retries for rate-limited requests (default: 3).
     """
     # Get API credentials from environment variables
     api_base_url = os.getenv("API_BASE_URL")
@@ -54,36 +56,95 @@ async def pull_contacts(fetch_all=False, output_format="json"):
             page_count += 1
             logger.info(f"Fetching page {page_count}...")
 
-            async with session.get(url, headers=headers) as response:
-                if response.status != 200:
-                    logger.error(f"Error {response.status} fetching contacts: {await response.text()}")
-                    return
+            # Initialize retry counter and backoff time
+            retry_count = 0
+            base_backoff = 1  # Start with 1 second
 
-                # Parse the JSON response
-                data = await response.json()
+            while True:
+                try:
+                    async with session.get(url, headers=headers) as response:
+                        if response.status == 200:
+                            # Success - parse the JSON response
+                            data = await response.json()
+                            break  # Exit the retry loop on success
+                        elif response.status == 429:
+                            # Rate limited - get retry-after time if available
+                            retry_after = response.headers.get('Retry-After')
+                            response_text = await response.text()
 
-                # Extract the results
-                contacts = data.get("results", [])
-                all_contacts.extend(contacts)
-                logger.info(f"Retrieved {len(contacts)} contacts from page {page_count}")
+                            # Try to extract retry time from response body if it's JSON
+                            retry_seconds = None
+                            try:
+                                error_data = json.loads(response_text)
+                                # Look for expected seconds in the message
+                                if 'message' in error_data and 'seconds' in error_data['message']:
+                                    import re
+                                    # Extract number from message like "Expected available in 19 seconds"
+                                    match = re.search(r'in (\d+) seconds', error_data['message'])
+                                    if match:
+                                        retry_seconds = int(match.group(1))
+                            except:
+                                pass
 
-                # Check if there are more pages
-                next_url = data.get("next")
+                            # Determine wait time (use retry-after header, extracted seconds, or exponential backoff)
+                            if retry_after and retry_after.isdigit():
+                                wait_time = int(retry_after)
+                                logger.warning(f"Rate limited. Retrying after {wait_time} seconds (from header)")
+                            elif retry_seconds:
+                                wait_time = retry_seconds
+                                logger.warning(f"Rate limited. Retrying after {wait_time} seconds (from response)")
+                            else:
+                                wait_time = base_backoff * (2 ** retry_count)  # Exponential backoff
+                                logger.warning(f"Rate limited. Retrying after {wait_time} seconds (exponential backoff)")
 
-                # If fetch_all is True and there's a next page, update the URL
-                if fetch_all and next_url:
-                    # Extract the path and query from the next URL
-                    from urllib.parse import urlparse
-                    parsed_url = urlparse(next_url)
-                    url = f"{api_base_url}{parsed_url.path}?{parsed_url.query}"
-                    logger.info(f"More contacts available, fetching next page...")
-                    # Add a small delay to avoid rate limiting
-                    await asyncio.sleep(0.2)
-                else:
-                    if next_url and not fetch_all:
-                        logger.info(f"More contacts available at: {next_url}")
-                        logger.info("Run with --fetch-all to retrieve all contacts")
-                    url = None
+                            # Check if we've exceeded max retries
+                            retry_count += 1
+                            if retry_count > max_retries:
+                                logger.error(f"Exceeded maximum retries ({max_retries}) for rate limiting")
+                                logger.error(f"Error {response.status} fetching contacts: {response_text}")
+                                return
+
+                            # Wait before retrying
+                            logger.info(f"Waiting {wait_time} seconds before retry {retry_count}/{max_retries}...")
+                            await asyncio.sleep(wait_time)
+                            # Continue to retry
+                        else:
+                            # Other error - log and return
+                            logger.error(f"Error {response.status} fetching contacts: {await response.text()}")
+                            return
+                except Exception as e:
+                    # Handle connection errors
+                    retry_count += 1
+                    if retry_count > max_retries:
+                        logger.error(f"Exceeded maximum retries ({max_retries}) due to error: {str(e)}")
+                        return
+
+                    wait_time = base_backoff * (2 ** retry_count)
+                    logger.warning(f"Connection error: {str(e)}. Retrying after {wait_time} seconds...")
+                    await asyncio.sleep(wait_time)
+
+            # Extract the results
+            contacts = data.get("results", [])
+            all_contacts.extend(contacts)
+            logger.info(f"Retrieved {len(contacts)} contacts from page {page_count}")
+
+            # Check if there are more pages
+            next_url = data.get("next")
+
+            # If fetch_all is True and there's a next page, update the URL
+            if fetch_all and next_url:
+                # Extract the path and query from the next URL
+                from urllib.parse import urlparse
+                parsed_url = urlparse(next_url)
+                url = f"{api_base_url}{parsed_url.path}?{parsed_url.query}"
+                logger.info(f"More contacts available, fetching next page...")
+                # Add a small delay to avoid rate limiting
+                await asyncio.sleep(0.2)
+            else:
+                if next_url and not fetch_all:
+                    logger.info(f"More contacts available at: {next_url}")
+                    logger.info("Run with --fetch-all to retrieve all contacts")
+                url = None
 
     # Print summary
     logger.info(f"Retrieved a total of {len(all_contacts)} contacts from {page_count} pages")

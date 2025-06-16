@@ -38,7 +38,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
     It supports fetching a specific range of quote IDs.
     """
 
-    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None, include_revisions: bool = True):
+    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None, include_revisions: bool = True, output_dir: str = "data_raw"):
         """
         Initialize the QuotesPuller.
 
@@ -46,6 +46,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
             start_id: Optional starting ID for range of quotes to fetch
             end_id: Optional ending ID for range of quotes to fetch
             include_revisions: Whether to include revised quotes (quotes with revision > 0)
+            output_dir: Directory to save output files (default: "data_raw")
         """
         super().__init__(
             endpoint="quotes/public",
@@ -59,6 +60,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         self.include_revisions = include_revisions
         self.current_revision = None  # For revised quotes
         self.quote_revision_pairs = []  # For storing quote/revision pairs
+        self.output_dir = output_dir  # Directory to save output files
 
     def transform_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -172,8 +174,8 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         # Use absolute path to project root directory
         project_root = Path(__file__).parent.parent
         if self.start_id is not None and self.end_id is not None:
-            return str(project_root / f"data_raw/quotes/quotes_{self.start_id}_{self.end_id}.csv")
-        return str(project_root / "data_raw/quotes/quotes_all.csv")
+            return str(project_root / f"{self.output_dir}/quotes/quotes_{self.start_id}_{self.end_id}.csv")
+        return str(project_root / f"{self.output_dir}/quotes/quotes_all.csv")
 
     def get_quote_items_output_path(self) -> str:
         """
@@ -187,8 +189,8 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         # Use absolute path to project root directory
         project_root = Path(__file__).parent.parent
         if self.start_id is not None and self.end_id is not None:
-            return str(project_root / f"data_raw/quote_items/quote_items_{self.start_id}_{self.end_id}.csv")
-        return str(project_root / "data_raw/quote_items/quote_items_all.csv")
+            return str(project_root / f"{self.output_dir}/quote_items/quote_items_{self.start_id}_{self.end_id}.csv")
+        return str(project_root / f"{self.output_dir}/quote_items/quote_items_all.csv")
 
     def get_output_path(self) -> str:
         """
@@ -474,7 +476,7 @@ async def main():
                 raise ValueError(f"Start ID ({start_id}) must be less than or equal to End ID ({end_id})")
 
             # Fetch quotes and extract quote items
-            quotes_puller = QuotesPuller(start_id, end_id, include_revisions)
+            quotes_puller = QuotesPuller(start_id, end_id, include_revisions, output_dir="data_raw")
             logger.info(f"Starting quote pull job: {start_id} to {end_id}, include_revisions={include_revisions}")
 
             try:

@@ -223,8 +223,9 @@ for stage_name, stage_metrics in metrics.get("stage_metrics", {}).items():
 
 The following example scripts demonstrate different aspects of the pipeline framework:
 
-- **[example.py](example.py)**: Basic example of using the pipeline framework with sample data
-- **[parallel_example.py](parallel_example.py)**: Demonstrates parallel processing capabilities
+- **[pipeline_example.py](../Examples/pipeline_example.py)**: Basic example of using the pipeline framework with sample data
+- **[pipeline_parallel_example.py](../Examples/pipeline_parallel_example.py)**: Demonstrates parallel processing capabilities
+- **[pipeline_builder_example.py](../Examples/pipeline_builder_example.py)**: Shows how to use the builder pattern to create pipelines
 - **[run_real_data_pipeline.py](run_real_data_pipeline.py)**: Shows how to use the pipeline with real data from the API
 - **[run_account_contact_pipeline.py](run_account_contact_pipeline.py)**: Example of fetching and processing account and contact data
 

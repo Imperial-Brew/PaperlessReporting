@@ -14,8 +14,8 @@ import csv
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
 
-from utils.async_puller import AsyncPuller
-from utils.utils import safe_get
+from scripts.utils.async_puller import AsyncPuller
+from scripts.utils.utils import safe_get
 
 # Configure logging
 logger = logging.getLogger(__name__)

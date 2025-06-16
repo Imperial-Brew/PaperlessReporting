@@ -5,6 +5,15 @@
       <excludeFolder url="file://$MODULE_DIR$/data_cleaned" />
       <excludeFolder url="file://$MODULE_DIR$/data_raw" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/OLD" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/accounts" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/contacts" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/order_items" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/orders" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/quote_items" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/quotes" />
+      <excludeFolder url="file://$MODULE_DIR$/data_real/users" />
+      <excludeFolder url="file://$MODULE_DIR$/scripts/data_raw" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

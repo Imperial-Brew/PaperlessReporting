@@ -12,6 +12,7 @@ import os
 import sys
 from pathlib import Path
 from typing import Dict, Any, List
+import pytest
 
 # Add the project root to the Python path
 project_root = Path(__file__).parent.parent.parent
@@ -27,6 +28,7 @@ from scripts.pipeline.orchestrator import OrderPipeline, OrderItemPipeline
 from scripts.pipeline.exceptions import PipelineError
 
 
+@pytest.mark.asyncio
 async def test_order_pipelines():
     """
     Test the order pipeline configurations.
@@ -221,6 +223,7 @@ async def test_order_pipelines():
         logger.error(f"Pipeline error: {e.message}")
 
 
+@pytest.mark.asyncio
 async def test_invalid_order():
     """
     Test validation with an invalid order.

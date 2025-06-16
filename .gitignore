@@ -23,4 +23,5 @@ env/
 
 # Data folders (adjust to your setup)
 data_raw/
+data_real/
 data_cleaned/

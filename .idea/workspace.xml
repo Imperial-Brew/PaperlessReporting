@@ -4,14 +4,107 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="Add `accounts.csv` file containing customer account and contact information for data processing pipeline.">
+    <list default="true" id="557c347f-59a5-40c5-b9b1-febb87453409" name="Changes" comment="refactor and minor cleanup">
+      <change afterPath="$PROJECT_DIR$/docs/pipeline_order_review.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/pipeline_summary.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/data_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pipeline/parallel_quote_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pipeline/run_orders_550_570_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pipeline/test_parallel_quote_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pull_accounts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PaperlessReporting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PaperlessReporting.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CURSOR_CONTEXT.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/pipeline/run_quotes_7900_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/run_quotes_7900_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution_summary.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/run_all_tests.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/tests/run_all_tests.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Webhook_S3_Setup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/accounts.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_real/contacts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_11.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_14.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_15.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_16.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_17.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_18.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_19.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_20.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_22.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_23.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_24.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_25.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_26.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_27.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_28.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_30.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_31.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_32.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_33.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_34.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_35.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_36.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_37.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_39.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_40.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_41.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_42.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_43.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_44.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_45.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_46.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_47.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_48.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_49.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_50.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_6.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_8.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_batch_9.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/contacts_subset_0_19.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quote_items.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_real/quote_items.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quote_pipeline_checkpoint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_real/quotes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7000_7099.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7100_7199.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7200_7299.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7300_7399.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7400_7499.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7500_7599.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7600_7699.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7700_7799.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7800_7899.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_7900_7950.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/quotes_complete.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/single_account_builder.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_real/test_acquisition.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data_real/test_acquisition.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/FINAL_REPORT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/SUMMARY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/context_usage.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/incremental.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/incremental.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/order_pipeline_findings.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/order_pipeline_review.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/parallel_example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/run_quotes_7900_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Deprecated/Scripts/run_quotes_7900_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/test_order_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/test_order_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pipeline/validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pipeline/validators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_contacts.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_contacts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_orders_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_orders_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_quotes_async.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_quotes_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/pull_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/pull_users.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,44 +156,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.pytest in test_s3_config.py.executor": "Run",
-    "Python.7900.executor": "Debug",
-    "Python.dump_one_quote_order.executor": "Run",
-    "Python.example.executor": "Debug",
-    "Python.orchestrator.executor": "Run",
-    "Python.pull_accounts_async.executor": "Run",
-    "Python.pull_orders.executor": "Run",
-    "Python.pull_orders_async.executor": "Run",
-    "Python.pull_quotes.executor": "Run",
-    "Python.pull_quotes_async.executor": "Run",
-    "Python.run_quotes_7900_pipeline.executor": "Run",
-    "Python.run_real_data_pipeline.executor": "Debug",
-    "Python.testing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/data-pipeline",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "F:/Dustin Drab/CURSOR/PaperlessReporting",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.pytest in test_order_pipeline.py.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.pytest in test_parallel_quote_processor.py.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.pytest in test_s3_config.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.7900.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.data_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.dump_one_quote_order.executor&quot;: &quot;Run&quot;,
+    &quot;Python.example.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.orchestrator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_accounts_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_orders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_orders_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_quotes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_quotes_async.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pull_users.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_accounts_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_contacts_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_orders_550_570_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_quotes_7900_7950_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_quotes_7900_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_real_data_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.run_users_pipeline.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/data-pipeline&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Dustin Drab/CURSOR/PaperlessReporting&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\docs" />
-      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\pipeline" />
-      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\utils" />
+      <recent name="F:\Dustin Drab\PythonProjects\PaperlessReporting\data_real" />
+      <recent name="F:\Dustin Drab\PythonProjects\PaperlessReporting" />
+      <recent name="F:\Dustin Drab\PyCharm" />
+      <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\archive\Deprecated\Scripts" />
       <recent name="F:\Dustin Drab\CURSOR\PaperlessReporting\archive\Deprecated" />
     </key>
   </component>
@@ -132,22 +235,8 @@
       <workItem from="1749673601392" duration="1501000" />
       <workItem from="1749676338579" duration="63125000" />
       <workItem from="1749930309726" duration="21215000" />
-    </task>
-    <task id="LOCAL-00004" summary="First Junie Update rollout">
-      <option name="closed" value="true" />
-      <created>1748552069627</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1748552069627</updated>
-    </task>
-    <task id="LOCAL-00005" summary="First Junie Update rollout">
-      <option name="closed" value="true" />
-      <created>1748552461215</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1748552461215</updated>
+      <workItem from="1749995730314" duration="39647000" />
+      <workItem from="1750082486572" duration="929000" />
     </task>
     <task id="LOCAL-00006" summary="First Junie Update rollout">
       <option name="closed" value="true" />
@@ -525,7 +614,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749940160142</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Refactor file structure and enhance documentation; add checkpointing and CSV loading for quote processing pipeline">
+      <option name="closed" value="true" />
+      <created>1749997128140</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1749997128140</updated>
+    </task>
+    <task id="LOCAL-00054" summary="minor updates">
+      <option name="closed" value="true" />
+      <created>1750000954172</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1750000954172</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +669,10 @@
     <MESSAGE value="Security improvements" />
     <MESSAGE value="Add comprehensive PowerShell test scripts for security and functionality validation&#10;&#10;- Introduce `test_webhook_auth.ps1` to validate webhook authentication mechanisms.&#10;- Add `test_s3_upload.ps1` for testing S3 upload capabilities.&#10;- Include `test_api_integration.ps1` for Paperless Parts API integration validation.&#10;- Implement `test_log_security.ps1` to ensure sensitive credentials are redacted in logs.&#10;- Create `test_error_handling.ps1` to verify error-handling with invalid credentials.&#10;- Update `.idea/workspace.xml` with task tracking adjustments." />
     <MESSAGE value="Add `accounts.csv` file containing customer account and contact information for data processing pipeline." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add `accounts.csv` file containing customer account and contact information for data processing pipeline." />
+    <MESSAGE value="Refactor file structure and enhance documentation; add checkpointing and CSV loading for quote processing pipeline" />
+    <MESSAGE value="minor updates" />
+    <MESSAGE value="refactor and minor cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor and minor cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -579,17 +687,26 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/setup_py$7900.coverage" NAME="7900 Coverage Results" MODIFIED="1749905531948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$pytest_in_test_order_pipeline_py.coverage" NAME="pytest in test_order_pipeline.py Coverage Results" MODIFIED="1750006146733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
+    <SUITE FILE_PATH="coverage/setup_py$run_accounts_pipeline.coverage" NAME="run_accounts_pipeline Coverage Results" MODIFIED="1750029518278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$orchestrator.coverage" NAME="orchestrator Coverage Results" MODIFIED="1749677194015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$pull_quotes_async.coverage" NAME="pull_quotes_async Coverage Results" MODIFIED="1748549667024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$pull_users.coverage" NAME="pull_users Coverage Results" MODIFIED="1750032202448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pull_orders.coverage" NAME="pull_orders Coverage Results" MODIFIED="1748909437814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
     <SUITE FILE_PATH="coverage/PaperlessReporting$testing.coverage" NAME="testing Coverage Results" MODIFIED="1748615752910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pull_orders_async.coverage" NAME="pull_orders_async Coverage Results" MODIFIED="1748727213646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/setup_py$run_quotes_7900_pipeline.coverage" NAME="run_quotes_7900_pipeline Coverage Results" MODIFIED="1749941619318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
+    <SUITE FILE_PATH="coverage/setup_py$run_quotes_7900_pipeline.coverage" NAME="run_quotes_7900_pipeline Coverage Results" MODIFIED="1750023464249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$pytest_in_test_s3_config_py.coverage" NAME="pytest in test_s3_config.py Coverage Results" MODIFIED="1748703348401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$dump_one_quote_order.coverage" NAME="dump_one_quote_order Coverage Results" MODIFIED="1748910762642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$data_pipeline.coverage" NAME="data_pipeline Coverage Results" MODIFIED="1750020195875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/setup_py$pull_quotes.coverage" NAME="pull_quotes Coverage Results" MODIFIED="1748909421264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/archive/Deprecated" />
+    <SUITE FILE_PATH="coverage/setup_py$run_contacts_pipeline.coverage" NAME="run_contacts_pipeline Coverage Results" MODIFIED="1750031168125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
+    <SUITE FILE_PATH="coverage/setup_py$run_quotes_7900_7950_pipeline.coverage" NAME="run_quotes_7900_7950_pipeline Coverage Results" MODIFIED="1750034435224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$pull_accounts_async.coverage" NAME="pull_accounts_async Coverage Results" MODIFIED="1748719795278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/setup_py$pytest_in_test_parallel_quote_processor_py.coverage" NAME="pytest in test_parallel_quote_processor.py Coverage Results" MODIFIED="1750008199536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$example.coverage" NAME="example Coverage Results" MODIFIED="1749678615004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
+    <SUITE FILE_PATH="coverage/setup_py$run_orders_550_570_pipeline.coverage" NAME="run_orders_550_570_pipeline Coverage Results" MODIFIED="1750027352399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
+    <SUITE FILE_PATH="coverage/setup_py$run_users_pipeline.coverage" NAME="run_users_pipeline Coverage Results" MODIFIED="1750031299165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
     <SUITE FILE_PATH="coverage/setup_py$run_real_data_pipeline.coverage" NAME="run_real_data_pipeline Coverage Results" MODIFIED="1749777224647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/pipeline" />
   </component>
 </project>

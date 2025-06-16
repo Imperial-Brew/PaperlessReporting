@@ -9,7 +9,7 @@ import json
 import time
 import csv
 from pathlib import Path
-from utils.config_loader import config_loader
+from scripts.utils.config_loader import config_loader
 
 API_TOKEN = config_loader["api_key"]
 BASE_URL = config_loader["api_base_url"]

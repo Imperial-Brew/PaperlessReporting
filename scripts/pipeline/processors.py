@@ -9,10 +9,16 @@ import csv
 import os
 import json
 import asyncio
+import time
 from typing import Any, Dict, List, Optional, Union, TypeVar, Generic, Tuple
 from pathlib import Path
-from scripts.pipeline.base import PipelineStage, DataAcquisitionStage, TransformationStage, LoadingStage
+from scripts.pipeline.base import PipelineStage, DataAcquisitionStage, TransformationStage, LoadingStage, ValidationStage
 from scripts.pipeline.exceptions import TransformationError, LoadingError, PipelineError
+from scripts.utils.utils import safe_get
+from scripts.utils.logging_config import get_logger
+
+# Get logger for this module
+logger = get_logger(__name__)
 
 # Type variables for generic stages
 T = TypeVar('T')
@@ -242,14 +248,48 @@ class CSVLoader(LoadingStage[List[Dict[str, Any]]]):
                 print("CSVLoader: Data is empty, no rows to write")
                 self.record_metric("rows_written", 0)
 
-                # Create an empty file anyway as a test
-                print(f"CSVLoader: Creating empty file as a test: {self.output_path}")
+                # Create an empty file with proper headers
+                print(f"CSVLoader: Creating empty file with headers: {self.output_path}")
                 output_dir = os.path.dirname(self.output_path)
                 os.makedirs(output_dir, exist_ok=True)
 
+                # Determine the expected headers based on the file path
+                fieldnames = []
+                if "quotes" in self.output_path:
+                    fieldnames = ["quote_number", "revision_number", "status", "created", "due_date", 
+                                 "sent_date", "expired_date", "expired", "rfq_number", "priority", 
+                                 "private_notes", "authenticated_pdf_quote_url", "contact_name", 
+                                 "contact_email", "customer_name", "estimator_email", "salesperson_email"]
+                elif "quote_items" in self.output_path:
+                    fieldnames = ["quote_number", "item_id", "part_number", "part_uuid", "revision", 
+                                 "description", "quantity", "unit_price", "total_price", "material", 
+                                 "process", "export_controlled", "filename", "lead_days"]
+                elif "orders" in self.output_path:
+                    fieldnames = ["order_number", "status", "created", "customer_name", "contact_name", 
+                                 "contact_email", "salesperson_email", "payment_terms", "shipping_terms", 
+                                 "shipping_method", "tax_rate", "tax_cost", "shipping_cost", "total_cost"]
+                elif "order_items" in self.output_path:
+                    fieldnames = ["order_number", "item_id", "part_number", "part_uuid", "revision", 
+                                 "description", "quantity", "unit_price", "total_price", "material", 
+                                 "process", "export_controlled", "filename", "lead_days"]
+                elif "accounts" in self.output_path:
+                    fieldnames = ["id", "name", "phone", "erp_code", "type", "url"]
+                elif "contacts" in self.output_path:
+                    fieldnames = ["id", "first_name", "last_name", "full_name", "email", "phone", 
+                                 "phone_ext", "notes", "account_id"]
+                elif "users" in self.output_path:
+                    fieldnames = ["user_id", "first_name", "last_name", "email", "role", "is_active"]
+
+                # Write the empty file with headers
                 with open(self.output_path, 'w', newline='', encoding='utf-8') as f:
-                    f.write("# Empty file created as a test\n")
-                print(f"CSVLoader: Created empty test file: {self.output_path}")
+                    if fieldnames:
+                        writer = csv.DictWriter(f, fieldnames=fieldnames)
+                        writer.writeheader()
+                        print(f"CSVLoader: Created empty file with {len(fieldnames)} headers: {self.output_path}")
+                    else:
+                        f.write("# Empty file created as a test\n")
+                        print(f"CSVLoader: Created empty test file: {self.output_path}")
+
                 # Add a prominent message about the output file location
                 print(f"\n>>> OUTPUT FILE SAVED TO: {os.path.abspath(self.output_path)} <<<\n")
 
@@ -394,12 +434,29 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
         Returns:
             List of processed items
         """
+        # Check for empty input data
+        if not data:
+            logger.warning(f"BatchProcessor {self.name} received empty data")
+            self.record_metric("empty_input", True)
+            return []
+
         results = []
         errors = []
+        input_data_sample = None
+
+        # Store a sample of the input data for diagnostic purposes
+        if data and isinstance(data[0], dict):
+            try:
+                # Store a sanitized version of the first item for diagnostics
+                input_data_sample = {k: str(v)[:100] for k, v in data[0].items()}
+                self.record_metric("input_data_sample", input_data_sample)
+            except Exception as e:
+                logger.debug(f"Could not sample input data: {e}")
 
         # Process items in batches with parallel execution
         for i in range(0, len(data), self._batch_size):
-            batch = data[i:i + self._batch_size]
+            end_idx = min(i + self._batch_size, len(data))
+            batch = data[i:end_idx]
 
             # Create tasks for parallel processing
             tasks = []
@@ -413,7 +470,10 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
             for j, result in enumerate(batch_results):
                 if isinstance(result, Exception):
                     item_index = i + j
-                    errors.append((item_index, batch[j], str(result)))
+                    # Store only the index and error message to avoid unhashable type issues
+                    error_info = {"index": item_index, "error": str(result)}
+                    errors.append(error_info)
+                    logger.debug(f"Item {item_index} failed in {self.name}: {str(result)}")
                 else:
                     results.append(result)
 
@@ -423,9 +483,15 @@ class BatchProcessor(PipelineStage[List[T], List[U]]):
         self.record_metric("failed_items", len(errors))
         self.record_metric("batch_size", self._batch_size)
         self.record_metric("max_concurrency", self._parallel_workers)
+        self.record_metric("all_items_failed", len(errors) == len(data) and len(data) > 0)
 
         if errors:
             self.record_metric("errors", errors)
+            error_percentage = (len(errors) / len(data)) * 100 if data else 0
+            logger.warning(f"{self.name}: {len(errors)}/{len(data)} items failed ({error_percentage:.1f}%)")
+
+        if not results and data:
+            logger.warning(f"{self.name}: All {len(data)} items failed processing")
 
         return results
 
@@ -557,11 +623,13 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
     """
 
     def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None,
-                 include_revisions: bool = True, name: str = "paperless_parts_acquisition"):
+                 include_revisions: bool = True, name: str = "paperless_parts_acquisition",
+                 output_dir: str = "data_real"):
         super().__init__(name)
         self.start_id = start_id
         self.end_id = end_id
         self.include_revisions = include_revisions
+        self.output_dir = output_dir
 
     async def acquire(self) -> List[Dict[str, Any]]:
         """
@@ -582,7 +650,8 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
             puller = QuotesPuller(
                 start_id=self.start_id,
                 end_id=self.end_id,
-                include_revisions=self.include_revisions
+                include_revisions=self.include_revisions,
+                output_dir=self.output_dir
             )
 
             # Run the puller
@@ -654,7 +723,6 @@ class AccountValidator(ValidationStage[Dict[str, Any]]):
             "phone": str,
             "erp_code": str,
             "type": str,
-            "url": str,
         }
 
         # Define valid account types
@@ -663,6 +731,7 @@ class AccountValidator(ValidationStage[Dict[str, Any]]):
             "supplier",
             "prospect",
             "other",
+            "vendor",
         ]
 
     async def validate(self, data: Dict[str, Any]) -> List[str]:
@@ -724,7 +793,7 @@ class AccountValidator(ValidationStage[Dict[str, Any]]):
             True if the string is a valid phone number, False otherwise
         """
         from scripts.utils.validation import is_valid_phone
-        return is_valid_phone(phone, strict=True)
+        return is_valid_phone(phone, strict=False)
 
 
 class ContactValidator(ValidationStage[Dict[str, Any]]):
@@ -996,8 +1065,17 @@ class NewContactsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]
     and has been tested to successfully fetch all contacts without timing out.
     """
 
-    def __init__(self, name: str = "new_contacts_acquisition"):
+    def __init__(self, name: str = "new_contacts_acquisition", timeout: int = 180):
+        """
+        Initialize the new contacts data acquisition stage.
+
+        Args:
+            name: Name of the stage
+            timeout: Timeout in seconds for the stage operation (default: 180)
+        """
         super().__init__(name)
+        # Configure stage-level timeout
+        self.configure_timeout(float(timeout))
 
     async def acquire(self) -> List[Dict[str, Any]]:
         """
@@ -1010,7 +1088,8 @@ class NewContactsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]
 
         # Call pull_contacts with fetch_all=True to get all contacts
         # Use json format since we just need the raw data, not a CSV file
-        contacts = await pull_contacts(fetch_all=True, output_format="json")
+        # Set max_retries to 5 to handle rate limiting errors
+        contacts = await pull_contacts(fetch_all=True, output_format="json", max_retries=5)
 
         if contacts:
             # Record metrics
@@ -1025,12 +1104,146 @@ class NewContactsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]
             return []
 
 
+class NewAccountsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
+    """
+    Data acquisition stage for fetching accounts with increased timeout.
+
+    This stage performs a full pull of all accounts with an increased timeout
+    to prevent timeout errors when fetching a large number of accounts.
+    """
+
+    def __init__(self, name: str = "new_accounts_acquisition", timeout: int = 120):
+        """
+        Initialize the new accounts data acquisition stage.
+
+        Args:
+            name: Name of the stage
+            timeout: Timeout in seconds for API requests (default: 120)
+        """
+        super().__init__(name)
+        self.timeout = timeout
+        # Configure stage-level timeout to match API timeout
+        self.configure_timeout(float(timeout))
+
+    async def acquire(self) -> List[Dict[str, Any]]:
+        """
+        Fetch accounts from the Paperless Parts API with increased timeout.
+
+        Returns:
+            List of account dictionaries
+        """
+        from scripts.pull_accounts_async import AccountsPuller
+        from scripts.utils.paperless_client import PaperlessPartsClient
+
+        # Create a client with increased timeout
+        client = PaperlessPartsClient(
+            rate=1.8,
+            capacity=5,
+            max_retries=3,
+            timeout=self.timeout
+        )
+
+        # Create a puller instance with the custom client
+        puller = AccountsPuller()
+
+        # Set the client with increased timeout
+        puller.client = client
+
+        # Override the save_to_csv method to return data instead of saving it
+        accounts = []
+
+        original_save_to_csv = puller.save_to_csv
+
+        def collect_accounts(items, _):
+            nonlocal accounts
+            accounts.extend(items)
+            self.record_metric("accounts_fetched", len(items))
+
+        puller.save_to_csv = collect_accounts
+
+        # Run the puller
+        await puller.run()
+
+        # Restore the original method
+        puller.save_to_csv = original_save_to_csv
+
+        # Record metrics
+        self.record_metric("total_accounts", len(accounts))
+
+        return accounts
+
+
+class ImprovedAccountsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
+    """
+    Data acquisition stage using the new pull_accounts script.
+
+    This stage uses the new pull_accounts.py script which correctly handles pagination
+    and has been tested to successfully fetch all accounts without timing out.
+    It also includes performance metrics and detailed logging.
+    """
+
+    def __init__(self, name: str = "improved_accounts_acquisition", timeout: int = 180):
+        """
+        Initialize the improved accounts data acquisition stage.
+
+        Args:
+            name: Name of the stage
+            timeout: Timeout in seconds for the stage operation (default: 180)
+        """
+        super().__init__(name)
+        # Configure stage-level timeout
+        self.configure_timeout(float(timeout))
+        self.start_time = None
+
+    async def acquire(self) -> List[Dict[str, Any]]:
+        """
+        Fetch accounts using the new pull_accounts script.
+
+        Returns:
+            List of account dictionaries
+        """
+        import time
+        from scripts.pull_accounts import pull_accounts
+
+        # Record start time for performance metrics
+        self.start_time = time.time()
+
+        # Call pull_accounts with fetch_all=True to get all accounts
+        # Use json format since we just need the raw data, not a CSV file
+        accounts = await pull_accounts(fetch_all=True, output_format="json")
+
+        # Calculate and record duration
+        duration = time.time() - self.start_time
+        self.record_metric("acquisition_duration", duration)
+
+        if accounts:
+            # Record metrics
+            self.record_metric("total_accounts", len(accounts))
+            self.record_metric("accounts_fetched", len(accounts))
+
+            # Log performance information
+            logger = get_logger(__name__)
+            logger.info(f"Fetched {len(accounts)} accounts in {duration:.2f} seconds")
+
+            # Alert on abnormal processing times (more than 5 minutes)
+            if duration > 300:
+                logger.warning(f"Account acquisition took {duration:.2f} seconds, which is longer than expected")
+
+            return accounts
+        else:
+            # If no accounts were returned, return an empty list
+            self.record_metric("total_accounts", 0)
+            self.record_metric("accounts_fetched", 0)
+            return []
+
+
 class AccountTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
     """
     Transformer for account data.
 
     This transformer processes raw account data from the API and transforms
     it into a standardized format for downstream processing.
+    It supports both individual and bulk transformations for better performance.
     """
 
     def __init__(self, name: str = "account_transformer"):
@@ -1041,6 +1254,7 @@ class AccountTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             name: Name of the transformer
         """
         super().__init__(name)
+        self.logger = get_logger(__name__)
 
     async def transform(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -1053,18 +1267,27 @@ class AccountTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             Transformed account data
         """
         try:
+            start_time = time.time()
+
             # Create a new dictionary with the transformed data
             transformed = {
                 "id": data.get("id", ""),
                 "name": data.get("name", ""),
                 "phone": data.get("phone", ""),
                 "erp_code": data.get("erp_code", ""),
-                "type": data.get("type", ""),
-                "url": data.get("url", "")
+                "type": data.get("type", "")
             }
 
             # Record metrics
             self.record_metric("transformation_success", True)
+
+            # Record transformation time
+            duration = time.time() - start_time
+            self.record_metric("transformation_time", duration)
+
+            # Log detailed performance information for slow transformations
+            if duration > 0.1:  # More than 100ms
+                self.logger.warning(f"Account transformation took {duration:.4f} seconds for account {data.get('id')}")
 
             return transformed
         except Exception as e:
@@ -1075,6 +1298,54 @@ class AccountTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             # Raise a TransformationError
             raise TransformationError(f"Error transforming account data: {str(e)}", data=data)
 
+    async def transform_bulk(self, data_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Transform multiple accounts in bulk for better performance.
+
+        This method processes multiple accounts at once, reducing overhead
+        compared to processing them individually.
+
+        Args:
+            data_list: List of raw account data to transform
+
+        Returns:
+            List of transformed account data
+        """
+        if not data_list:
+            return []
+
+        start_time = time.time()
+        self.logger.info(f"Starting bulk transformation of {len(data_list)} accounts")
+
+        transformed_list = []
+        errors = 0
+
+        for data in data_list:
+            try:
+                # Create a new dictionary with the transformed data
+                transformed = {
+                    "id": data.get("id", ""),
+                    "name": data.get("name", ""),
+                    "phone": data.get("phone", ""),
+                    "erp_code": data.get("erp_code", ""),
+                    "type": data.get("type", "")
+                }
+                transformed_list.append(transformed)
+            except Exception as e:
+                errors += 1
+                self.logger.error(f"Error transforming account {data.get('id')}: {str(e)}")
+
+        # Record metrics
+        duration = time.time() - start_time
+        self.record_metric("bulk_transformation_time", duration)
+        self.record_metric("bulk_transformation_count", len(data_list))
+        self.record_metric("bulk_transformation_errors", errors)
+        self.record_metric("bulk_transformation_success_rate", (len(data_list) - errors) / len(data_list) if data_list else 0)
+
+        self.logger.info(f"Completed bulk transformation of {len(data_list)} accounts in {duration:.2f} seconds with {errors} errors")
+
+        return transformed_list
+
 
 class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
     """
@@ -1082,6 +1353,7 @@ class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
 
     This transformer processes raw contact data from the API and transforms
     it into a standardized format for downstream processing.
+    It supports both individual and bulk transformations for better performance.
     """
 
     def __init__(self, name: str = "contact_transformer"):
@@ -1092,6 +1364,7 @@ class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             name: Name of the transformer
         """
         super().__init__(name)
+        self.logger = get_logger(__name__)
 
     async def transform(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -1104,6 +1377,8 @@ class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             Transformed contact data
         """
         try:
+            start_time = time.time()
+
             # Create a new dictionary with the transformed data
             transformed = {
                 "id": data.get("id", ""),
@@ -1120,6 +1395,14 @@ class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             # Record metrics
             self.record_metric("transformation_success", True)
 
+            # Record transformation time
+            duration = time.time() - start_time
+            self.record_metric("transformation_time", duration)
+
+            # Log detailed performance information for slow transformations
+            if duration > 0.1:  # More than 100ms
+                self.logger.warning(f"Contact transformation took {duration:.4f} seconds for contact {data.get('id')}")
+
             return transformed
         except Exception as e:
             # Record metrics
@@ -1128,6 +1411,58 @@ class ContactTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
 
             # Raise a TransformationError
             raise TransformationError(f"Error transforming contact data: {str(e)}", data=data)
+
+    async def transform_bulk(self, data_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Transform multiple contacts in bulk for better performance.
+
+        This method processes multiple contacts at once, reducing overhead
+        compared to processing them individually.
+
+        Args:
+            data_list: List of raw contact data to transform
+
+        Returns:
+            List of transformed contact data
+        """
+        if not data_list:
+            return []
+
+        start_time = time.time()
+        self.logger.info(f"Starting bulk transformation of {len(data_list)} contacts")
+
+        transformed_list = []
+        errors = 0
+
+        for data in data_list:
+            try:
+                # Create a new dictionary with the transformed data
+                transformed = {
+                    "id": data.get("id", ""),
+                    "first_name": data.get("first_name", ""),
+                    "last_name": data.get("last_name", ""),
+                    "full_name": f"{data.get('first_name', '')} {data.get('last_name', '')}".strip(),
+                    "email": data.get("email", ""),
+                    "phone": data.get("phone", ""),
+                    "phone_ext": data.get("phone_ext", ""),
+                    "notes": data.get("notes", ""),
+                    "account_id": data.get("account_id", "")
+                }
+                transformed_list.append(transformed)
+            except Exception as e:
+                errors += 1
+                self.logger.error(f"Error transforming contact {data.get('id')}: {str(e)}")
+
+        # Record metrics
+        duration = time.time() - start_time
+        self.record_metric("bulk_transformation_time", duration)
+        self.record_metric("bulk_transformation_count", len(data_list))
+        self.record_metric("bulk_transformation_errors", errors)
+        self.record_metric("bulk_transformation_success_rate", (len(data_list) - errors) / len(data_list) if data_list else 0)
+
+        self.logger.info(f"Completed bulk transformation of {len(data_list)} contacts in {duration:.2f} seconds with {errors} errors")
+
+        return transformed_list
 
 
 class OrderValidator(ValidationStage[Dict[str, Any]]):
@@ -1394,6 +1729,8 @@ class OrdersDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
         """
         from scripts.pull_orders_async import OrdersPuller
 
+        logger.info(f"Fetching orders from ID {self.start_id} to {self.end_id}")
+
         # Create a puller instance
         puller = OrdersPuller(
             start_id=self.start_id,
@@ -1409,6 +1746,7 @@ class OrdersDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
             nonlocal orders
             orders.extend(items)
             self.record_metric("orders_fetched", len(items))
+            logger.debug(f"Collected {len(items)} orders from puller")
 
         puller.save_to_csv = collect_orders
 
@@ -1421,9 +1759,36 @@ class OrdersDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
         # Record metrics
         self.record_metric("total_orders", len(orders))
         self.record_metric("order_items", len(puller.order_items))
+        self.record_metric("failed_ids", puller.failed_ids)
+
+        # Log detailed information about the results
+        if orders:
+            logger.info(f"Successfully fetched {len(orders)} orders")
+            # Log a sample of the first order for diagnostic purposes
+            if isinstance(orders[0], dict):
+                try:
+                    # Create a sanitized version with truncated values
+                    sample = {k: str(v)[:100] for k, v in orders[0].items()}
+                    self.record_metric("sample_order", sample)
+                    logger.debug(f"Sample order: {sample}")
+                except Exception as e:
+                    logger.debug(f"Could not log sample order: {e}")
+        else:
+            logger.warning(f"No orders fetched from ID range {self.start_id}-{self.end_id}")
+            self.record_metric("empty_result", True)
 
         # Store order items in context for later stages
-        self.set_context("order_items", puller.order_items)
+        if puller.order_items:
+            logger.info(f"Extracted {len(puller.order_items)} order items")
+            self.set_context("order_items", puller.order_items)
+        else:
+            logger.warning("No order items extracted from orders")
+            self.set_context("order_items", [])
+
+        # Log information about failed IDs
+        if puller.failed_ids:
+            logger.warning(f"Failed to fetch {len(puller.failed_ids)} orders: {puller.failed_ids[:10]}" + 
+                          ("..." if len(puller.failed_ids) > 10 else ""))
 
         return orders
 
@@ -1621,3 +1986,147 @@ class OrderItemExtractor(TransformationStage[Dict[str, Any], List[Dict[str, Any]
 
             # Raise a TransformationError
             raise TransformationError(f"Error extracting order items: {str(e)}", data=data)
+
+
+class QuoteItemExtractor(TransformationStage[Dict[str, Any], List[Dict[str, Any]]]):
+    """
+    Extractor for quote items from a quote.
+
+    This transformer extracts quote items from a quote and returns them
+    as a list for further processing.
+    """
+
+    def __init__(self, name: str = "quote_item_extractor"):
+        """
+        Initialize the quote item extractor.
+
+        Args:
+            name: Name of the extractor
+        """
+        super().__init__(name)
+
+    async def transform(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Extract quote items from a quote.
+
+        Args:
+            data: Quote data containing quote items
+
+        Returns:
+            List of quote items
+        """
+        try:
+            quote_items = []
+            quote_number = data.get("quote_number", "")
+            items = data.get("quote_items", [])
+
+            if not isinstance(items, list):
+                self.record_metric("quote_items_count", 0)
+                return quote_items
+
+            self.record_metric("quote_items_count", len(items))
+
+            for item in items:
+                # Extract the root component
+                root = {}
+                for c in item.get("components", []):
+                    if c.get("is_root_component"):
+                        root = c
+                        break
+
+                # Create item with extracted data
+                quote_item = {
+                    "quote_number": quote_number,
+                    "item_id": item.get("id", ""),
+                    "part_number": root.get("part_number", ""),
+                    "part_uuid": root.get("part_uuid", ""),
+                    "revision": root.get("revision", ""),
+                    "description": item.get("description", ""),
+                    "quantity": item.get("quantity", 0),
+                    "unit_price": item.get("unit_price", 0.0),
+                    "total_price": item.get("total_price", 0.0),
+                    "material": safe_get(root, "material", "name") or "",
+                    "process": safe_get(root, "process", "name") or "",
+                    "export_controlled": item.get("export_controlled", False),
+                    "filename": item.get("filename", ""),
+                    "lead_days": item.get("lead_days", ""),
+                }
+                quote_items.append(quote_item)
+
+            # Record metrics
+            self.record_metric("transformation_success", True)
+
+            return quote_items
+        except Exception as e:
+            # Record metrics
+            self.record_metric("transformation_success", False)
+            self.record_metric("transformation_error", str(e))
+
+            # Raise a TransformationError
+            raise TransformationError(f"Error extracting quote items: {str(e)}", data=data)
+
+
+class QuotesDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any]]]):
+    """
+    Data acquisition stage for fetching quotes from the Paperless Parts API.
+
+    This stage performs a full pull of all quotes or a specific range of quotes.
+    """
+
+    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None, name: str = "quotes_acquisition", output_dir: str = "data_real"):
+        """
+        Initialize the quotes data acquisition stage.
+
+        Args:
+            start_id: Optional starting ID for range of quotes to fetch
+            end_id: Optional ending ID for range of quotes to fetch
+            name: Name of the stage
+            output_dir: Directory to save output files (default: "data_real")
+        """
+        super().__init__(name)
+        self.start_id = start_id
+        self.end_id = end_id
+        self.output_dir = output_dir
+
+    async def acquire(self) -> List[Dict[str, Any]]:
+        """
+        Fetch quotes from the Paperless Parts API.
+
+        Returns:
+            List of quote dictionaries
+        """
+        from scripts.pull_quotes_async import QuotesPuller
+
+        # Create a puller instance
+        puller = QuotesPuller(
+            start_id=self.start_id,
+            end_id=self.end_id,
+            output_dir=self.output_dir
+        )
+
+        # Override the save_to_csv method to return data instead of saving it
+        quotes = []
+
+        original_save_to_csv = puller.save_to_csv
+
+        def collect_quotes(items, _):
+            nonlocal quotes
+            quotes.extend(items)
+            self.record_metric("quotes_fetched", len(items))
+
+        puller.save_to_csv = collect_quotes
+
+        # Run the puller
+        await puller.run()
+
+        # Restore the original method
+        puller.save_to_csv = original_save_to_csv
+
+        # Record metrics
+        self.record_metric("total_quotes", len(quotes))
+        self.record_metric("quote_items", len(puller.quote_items))
+
+        # Store quote items in context for later stages
+        self.set_context("quote_items", puller.quote_items)
+
+        return quotes

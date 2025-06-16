@@ -30,7 +30,8 @@ class IncrementalDataAcquisitionStage(PaperlessPartsDataAcquisitionStage):
                  end_id: Optional[int] = None,
                  include_revisions: bool = True, 
                  state_file: Optional[str] = None,
-                 name: str = "incremental_acquisition"):
+                 name: str = "incremental_acquisition",
+                 output_dir: str = "data_real"):
         """
         Initialize the incremental data acquisition stage.
 
@@ -40,12 +41,14 @@ class IncrementalDataAcquisitionStage(PaperlessPartsDataAcquisitionStage):
             include_revisions: Whether to include revised quotes
             state_file: Path to the state file for tracking processed quotes
             name: Name of the stage
+            output_dir: Directory to save output files (default: "data_real")
         """
         super().__init__(
             start_id=start_id,
             end_id=end_id,
             include_revisions=include_revisions,
-            name=name
+            name=name,
+            output_dir=output_dir
         )
         self.state_file = state_file or "pipeline_state.json"
         self.processed_quotes = set()
@@ -112,7 +115,8 @@ class IncrementalDataAcquisitionStage(PaperlessPartsDataAcquisitionStage):
         puller = QuotesPuller(
             start_id=self.start_id,
             end_id=self.end_id,
-            include_revisions=self.include_revisions
+            include_revisions=self.include_revisions,
+            output_dir=self.output_dir
         )
 
         # Override the save_to_csv method to return data instead of saving it

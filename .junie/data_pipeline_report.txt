@@ -1,0 +1,863 @@
+"C:\Program Files\Python310\python.exe" "C:/Program Files/JetBrains/PyCharm 2025.1.1.1/plugins/python-ce/helpers/pydev/pydevd.py" --multiprocess --qt-support=auto --client 127.0.0.1 --port 63879 --file "F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\data_pipeline.py" 
+Connected to pydev debugger (build 251.26094.141)
+2025-06-15 15:43:27,554 - INFO - [-] - root - Logging configured: level=INFO, json=False, file=None
+2025-06-15 15:43:30,213 - INFO - [-] - __main__ - Starting data pipeline
+2025-06-15 15:43:30,214 - INFO - [-] - __main__ - Starting quotes pipeline
+2025-06-15 15:43:30,214 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: quotes_pipeline
+2025-06-15 15:43:30,214 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: quotes_acquisition (QuotesDataAcquisitionStage)
+2025-06-15 15:43:34,239 - INFO - [-] - scripts.utils.config_loader - Loaded config from F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\config.json
+2025-06-15 15:43:34,239 - INFO - [-] - scripts.pull_quotes_async - Processing regular quotes from 7900 to 7935
+2025-06-15 15:43:34,239 - INFO - [-] - scripts.utils.async_puller - Processing items 7900 to 7935
+2025-06-15 15:43:34,239 - INFO - [-] - scripts.utils.async_puller - Processing batch 1/2, items 0 to 19
+2025-06-15 15:43:43,094 - INFO - [-] - scripts.utils.async_puller - Batch 1/2 complete. Processed 20/36 items (55.6%)
+2025-06-15 15:43:43,094 - INFO - [-] - scripts.utils.async_puller - Processing batch 2/2, items 20 to 35
+2025-06-15 15:43:52,284 - INFO - [-] - scripts.utils.async_puller - Batch 2/2 complete. Processed 36/36 items (100.0%)
+2025-06-15 15:43:52,284 - INFO - [-] - scripts.pull_quotes_async - Collected 36 regular quotes
+2025-06-15 15:43:52,284 - INFO - [-] - scripts.utils.async_puller - Pull complete. Processed 36 items, failed 0 items.
+2025-06-15 15:43:52,284 - INFO - [-] - scripts.pull_quotes_async - Processing revised quotes
+2025-06-15 15:43:52,564 - INFO - [-] - scripts.utils.paperless_client - PaperlessPartsClient initialized with base_url: https://api.paperlessparts.com, api_key: ****0e63
+PaperlessPartsClient initialized with base_url: https://api.paperlessparts.com, api_key: ****0e63
+2025-06-15 15:43:52,564 - INFO - [-] - scripts.utils.paperless_client - Making GET request to https://api.paperlessparts.com/quotes/public/new with params: None
+Making GET request to https://api.paperlessparts.com/quotes/public/new with params: None
+Attempt 1/3 for https://api.paperlessparts.com/quotes/public/new
+Response status: 200 for https://api.paperlessparts.com/quotes/public/new
+2025-06-15 15:43:53,442 - INFO - [-] - scripts.utils.paperless_client - Successfully fetched data from https://api.paperlessparts.com/quotes/public/new: [{'quote': 5, 'revision': None}, {'quote': 6, 'revision': None}, {'quote': 23, 'revision': None}, {'...
+Successfully fetched data from https://api.paperlessparts.com/quotes/public/new
+2025-06-15 15:43:53,445 - INFO - [-] - scripts.pull_quotes_async - Found 0 revised quotes in range
+2025-06-15 15:43:53,445 - WARNING - [-] - scripts.pull_quotes_async - No revised quotes found
+2025-06-15 15:43:53,975 - INFO - [-] - scripts.pull_quotes_async - Saved 36 quotes to F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quotes\quotes_7900_7935.csv
+2025-06-15 15:43:54,481 - INFO - [-] - scripts.pull_quotes_async - Saved 138 quote items to F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quote_items\quote_items_7900_7935.csv
+2025-06-15 15:43:54,482 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: quotes_acquisition in 24.27s
+2025-06-15 15:43:54,482 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: batch_batch_quote_transformer (BatchProcessor)
+2025-06-15 15:43:54,482 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: batch_batch_quote_transformer in 0.00s
+2025-06-15 15:43:54,482 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: csv_loader (CSVLoader)
+CSVLoader: Starting load method with data type: <class 'list'>
+CSVLoader: Data is empty, no rows to write
+CSVLoader: Creating empty file with headers: data_raw/quotes/quotes_7900_7935.csv
+CSVLoader: Created empty file with 17 headers: data_raw/quotes/quotes_7900_7935.csv
+
+>>> OUTPUT FILE SAVED TO: F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\data_raw\quotes\quotes_7900_7935.csv <<<
+
+2025-06-15 15:43:54,716 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: csv_loader in 0.23s
+2025-06-15 15:43:54,717 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: quotes_pipeline in 24.50s
+2025-06-15 15:43:54,717 - INFO - [-] - __main__ - Pipeline quotes_pipeline completed successfully
+2025-06-15 15:43:54,717 - INFO - [-] - __main__ - Quote items not found in context, attempting to retrieve from QuotesPuller
+2025-06-15 15:43:54,717 - INFO - [-] - scripts.pull_quotes_async - Processing regular quotes from 7900 to 7935
+2025-06-15 15:43:54,717 - INFO - [-] - scripts.utils.async_puller - Processing items 7900 to 7935
+2025-06-15 15:43:54,717 - INFO - [-] - scripts.utils.async_puller - Processing batch 1/2, items 0 to 19
+2025-06-15 15:44:03,951 - INFO - [-] - scripts.utils.async_puller - Batch 1/2 complete. Processed 20/36 items (55.6%)
+2025-06-15 15:44:03,951 - INFO - [-] - scripts.utils.async_puller - Processing batch 2/2, items 20 to 35
+2025-06-15 15:44:12,820 - INFO - [-] - scripts.utils.async_puller - Batch 2/2 complete. Processed 36/36 items (100.0%)
+2025-06-15 15:44:12,821 - INFO - [-] - scripts.pull_quotes_async - Collected 36 regular quotes
+2025-06-15 15:44:12,821 - INFO - [-] - scripts.utils.async_puller - Pull complete. Processed 36 items, failed 0 items.
+2025-06-15 15:44:12,821 - INFO - [-] - scripts.pull_quotes_async - Processing revised quotes
+2025-06-15 15:44:12,821 - INFO - [-] - scripts.utils.paperless_client - PaperlessPartsClient initialized with base_url: https://api.paperlessparts.com, api_key: ****0e63
+PaperlessPartsClient initialized with base_url: https://api.paperlessparts.com, api_key: ****0e63
+2025-06-15 15:44:12,821 - INFO - [-] - scripts.utils.paperless_client - Making GET request to https://api.paperlessparts.com/quotes/public/new with params: None
+Making GET request to https://api.paperlessparts.com/quotes/public/new with params: None
+Attempt 1/3 for https://api.paperlessparts.com/quotes/public/new
+Response status: 200 for https://api.paperlessparts.com/quotes/public/new
+2025-06-15 15:44:13,735 - INFO - [-] - scripts.utils.paperless_client - Successfully fetched data from https://api.paperlessparts.com/quotes/public/new: [{'quote': 5, 'revision': None}, {'quote': 6, 'revision': None}, {'quote': 23, 'revision': None}, {'...
+Successfully fetched data from https://api.paperlessparts.com/quotes/public/new
+2025-06-15 15:44:13,737 - INFO - [-] - scripts.pull_quotes_async - Found 0 revised quotes in range
+2025-06-15 15:44:13,738 - WARNING - [-] - scripts.pull_quotes_async - No revised quotes found
+2025-06-15 15:44:14,237 - INFO - [-] - scripts.pull_quotes_async - Saved 36 quotes to F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quotes\quotes_7900_7935.csv
+2025-06-15 15:44:14,815 - INFO - [-] - scripts.pull_quotes_async - Saved 138 quote items to F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\quote_items\quote_items_7900_7935.csv
+2025-06-15 15:44:14,815 - INFO - [-] - __main__ - Retrieved 138 quote items directly from QuotesPuller
+2025-06-15 15:44:14,917 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: quote_items_pipeline
+2025-06-15 15:44:14,917 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: batch_batch_quote_item_extractor (BatchProcessor)
+2025-06-15 15:44:14,932 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,933 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.10s: unhashable type: 'slice'
+2025-06-15 15:44:14,933 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,933 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,933 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,933 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,934 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,935 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,935 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,935 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,935 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,935 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.02s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.10s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,936 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.02s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,937 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.02s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.07s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.10s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,938 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.07s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,939 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,940 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,940 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,940 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,940 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,940 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.08s: unhashable type: 'slice'
+2025-06-15 15:44:14,941 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,941 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,941 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,941 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,941 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:14,942 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.05s: unhashable type: 'slice'
+2025-06-15 15:44:14,943 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.07s: unhashable type: 'slice'
+2025-06-15 15:44:14,943 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,943 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,943 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:14,943 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,944 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.08s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:14,945 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,946 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.05s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,947 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.98s: unhashable type: 'slice'
+2025-06-15 15:44:14,948 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:14,949 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_quote_item_extractor after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:15,856 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.06s: unhashable type: 'slice'
+2025-06-15 15:44:15,856 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:15,856 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:15,856 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.18s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.83s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.81s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:15,857 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.91s: unhashable type: 'slice'
+2025-06-15 15:44:15,858 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.81s: unhashable type: 'slice'
+2025-06-15 15:44:15,858 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.85s: unhashable type: 'slice'
+2025-06-15 15:44:15,872 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:15,872 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.12s: unhashable type: 'slice'
+2025-06-15 15:44:15,872 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.89s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.82s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.88s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.13s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.90s: unhashable type: 'slice'
+2025-06-15 15:44:15,873 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.06s: unhashable type: 'slice'
+2025-06-15 15:44:15,874 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.95s: unhashable type: 'slice'
+2025-06-15 15:44:15,874 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.09s: unhashable type: 'slice'
+2025-06-15 15:44:15,887 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:15,887 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.15s: unhashable type: 'slice'
+2025-06-15 15:44:15,887 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.82s: unhashable type: 'slice'
+2025-06-15 15:44:15,887 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.92s: unhashable type: 'slice'
+2025-06-15 15:44:15,887 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:15,888 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:15,888 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.15s: unhashable type: 'slice'
+2025-06-15 15:44:15,888 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.93s: unhashable type: 'slice'
+2025-06-15 15:44:15,888 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.04s: unhashable type: 'slice'
+2025-06-15 15:44:15,888 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.89s: unhashable type: 'slice'
+2025-06-15 15:44:15,919 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.15s: unhashable type: 'slice'
+2025-06-15 15:44:15,919 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:15,919 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.07s: unhashable type: 'slice'
+2025-06-15 15:44:15,919 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.09s: unhashable type: 'slice'
+2025-06-15 15:44:15,919 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.93s: unhashable type: 'slice'
+2025-06-15 15:44:15,920 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.11s: unhashable type: 'slice'
+2025-06-15 15:44:15,920 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.86s: unhashable type: 'slice'
+2025-06-15 15:44:15,920 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.90s: unhashable type: 'slice'
+2025-06-15 15:44:15,920 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.17s: unhashable type: 'slice'
+2025-06-15 15:44:15,920 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.16s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.20s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.93s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.14s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.11s: unhashable type: 'slice'
+2025-06-15 15:44:15,921 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:15,922 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.05s: unhashable type: 'slice'
+2025-06-15 15:44:15,922 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.85s: unhashable type: 'slice'
+2025-06-15 15:44:15,932 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.14s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.92s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.15s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.09s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.82s: unhashable type: 'slice'
+2025-06-15 15:44:15,933 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.06s: unhashable type: 'slice'
+2025-06-15 15:44:15,934 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.83s: unhashable type: 'slice'
+2025-06-15 15:44:15,934 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:15,965 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.14s: unhashable type: 'slice'
+2025-06-15 15:44:15,965 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.12s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.05s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.96s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.06s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.16s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:15,966 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.81s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.00s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.82s: unhashable type: 'slice'
+2025-06-15 15:44:15,967 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.89s: unhashable type: 'slice'
+2025-06-15 15:44:15,968 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.18s: unhashable type: 'slice'
+2025-06-15 15:44:15,968 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:15,982 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.09s: unhashable type: 'slice'
+2025-06-15 15:44:15,982 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.12s: unhashable type: 'slice'
+2025-06-15 15:44:15,982 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:15,983 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:15,983 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.11s: unhashable type: 'slice'
+2025-06-15 15:44:15,995 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.19s: unhashable type: 'slice'
+2025-06-15 15:44:15,995 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.99s: unhashable type: 'slice'
+2025-06-15 15:44:15,995 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.00s: unhashable type: 'slice'
+2025-06-15 15:44:15,995 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.19s: unhashable type: 'slice'
+2025-06-15 15:44:16,039 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.00s: unhashable type: 'slice'
+2025-06-15 15:44:16,040 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.13s: unhashable type: 'slice'
+2025-06-15 15:44:16,041 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:16,042 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.92s: unhashable type: 'slice'
+2025-06-15 15:44:16,043 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.04s: unhashable type: 'slice'
+2025-06-15 15:44:16,043 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.17s: unhashable type: 'slice'
+2025-06-15 15:44:16,044 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.89s: unhashable type: 'slice'
+2025-06-15 15:44:16,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:16,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:16,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.93s: unhashable type: 'slice'
+2025-06-15 15:44:16,046 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.02s: unhashable type: 'slice'
+2025-06-15 15:44:16,048 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.81s: unhashable type: 'slice'
+2025-06-15 15:44:16,048 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:16,049 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_quote_item_extractor after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:17,673 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.78s: unhashable type: 'slice'
+2025-06-15 15:44:17,674 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.34s: unhashable type: 'slice'
+2025-06-15 15:44:17,674 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.03s: unhashable type: 'slice'
+2025-06-15 15:44:17,701 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.64s: unhashable type: 'slice'
+2025-06-15 15:44:17,702 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.03s: unhashable type: 'slice'
+2025-06-15 15:44:17,702 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.29s: unhashable type: 'slice'
+2025-06-15 15:44:17,719 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.92s: unhashable type: 'slice'
+2025-06-15 15:44:17,719 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.01s: unhashable type: 'slice'
+2025-06-15 15:44:17,719 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.31s: unhashable type: 'slice'
+2025-06-15 15:44:17,720 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.67s: unhashable type: 'slice'
+2025-06-15 15:44:17,749 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.90s: unhashable type: 'slice'
+2025-06-15 15:44:17,749 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.86s: unhashable type: 'slice'
+2025-06-15 15:44:17,750 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.90s: unhashable type: 'slice'
+2025-06-15 15:44:17,751 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.96s: unhashable type: 'slice'
+2025-06-15 15:44:17,751 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.38s: unhashable type: 'slice'
+2025-06-15 15:44:17,782 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.71s: unhashable type: 'slice'
+2025-06-15 15:44:17,782 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.92s: unhashable type: 'slice'
+2025-06-15 15:44:17,783 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.80s: unhashable type: 'slice'
+2025-06-15 15:44:17,783 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.23s: unhashable type: 'slice'
+2025-06-15 15:44:17,784 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.13s: unhashable type: 'slice'
+2025-06-15 15:44:17,785 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.81s: unhashable type: 'slice'
+2025-06-15 15:44:17,785 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.89s: unhashable type: 'slice'
+2025-06-15 15:44:17,785 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.79s: unhashable type: 'slice'
+2025-06-15 15:44:17,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.74s: unhashable type: 'slice'
+2025-06-15 15:44:17,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.73s: unhashable type: 'slice'
+2025-06-15 15:44:17,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.90s: unhashable type: 'slice'
+2025-06-15 15:44:17,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.98s: unhashable type: 'slice'
+2025-06-15 15:44:17,855 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.12s: unhashable type: 'slice'
+2025-06-15 15:44:17,855 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.35s: unhashable type: 'slice'
+2025-06-15 15:44:17,855 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.77s: unhashable type: 'slice'
+2025-06-15 15:44:17,856 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.79s: unhashable type: 'slice'
+2025-06-15 15:44:17,856 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.07s: unhashable type: 'slice'
+2025-06-15 15:44:17,856 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.04s: unhashable type: 'slice'
+2025-06-15 15:44:17,891 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.21s: unhashable type: 'slice'
+2025-06-15 15:44:17,892 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.81s: unhashable type: 'slice'
+2025-06-15 15:44:17,893 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.02s: unhashable type: 'slice'
+2025-06-15 15:44:17,919 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.12s: unhashable type: 'slice'
+2025-06-15 15:44:17,919 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.10s: unhashable type: 'slice'
+2025-06-15 15:44:17,919 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.71s: unhashable type: 'slice'
+2025-06-15 15:44:17,920 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.86s: unhashable type: 'slice'
+2025-06-15 15:44:17,949 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.75s: unhashable type: 'slice'
+2025-06-15 15:44:17,949 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.38s: unhashable type: 'slice'
+2025-06-15 15:44:17,950 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.34s: unhashable type: 'slice'
+2025-06-15 15:44:17,950 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.14s: unhashable type: 'slice'
+2025-06-15 15:44:17,950 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.60s: unhashable type: 'slice'
+2025-06-15 15:44:17,950 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.29s: unhashable type: 'slice'
+2025-06-15 15:44:17,950 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.90s: unhashable type: 'slice'
+2025-06-15 15:44:17,951 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.12s: unhashable type: 'slice'
+2025-06-15 15:44:17,990 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.91s: unhashable type: 'slice'
+2025-06-15 15:44:17,991 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.20s: unhashable type: 'slice'
+2025-06-15 15:44:17,991 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.26s: unhashable type: 'slice'
+2025-06-15 15:44:17,991 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.03s: unhashable type: 'slice'
+2025-06-15 15:44:17,991 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.23s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.13s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.61s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.62s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.01s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.25s: unhashable type: 'slice'
+2025-06-15 15:44:17,992 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.66s: unhashable type: 'slice'
+2025-06-15 15:44:17,993 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.00s: unhashable type: 'slice'
+2025-06-15 15:44:17,993 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.76s: unhashable type: 'slice'
+2025-06-15 15:44:17,993 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.75s: unhashable type: 'slice'
+2025-06-15 15:44:18,013 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.61s: unhashable type: 'slice'
+2025-06-15 15:44:18,013 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.16s: unhashable type: 'slice'
+2025-06-15 15:44:18,013 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.36s: unhashable type: 'slice'
+2025-06-15 15:44:18,013 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.64s: unhashable type: 'slice'
+2025-06-15 15:44:18,014 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.64s: unhashable type: 'slice'
+2025-06-15 15:44:18,014 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.81s: unhashable type: 'slice'
+2025-06-15 15:44:18,014 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.69s: unhashable type: 'slice'
+2025-06-15 15:44:18,033 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.08s: unhashable type: 'slice'
+2025-06-15 15:44:18,034 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.64s: unhashable type: 'slice'
+2025-06-15 15:44:18,034 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.33s: unhashable type: 'slice'
+2025-06-15 15:44:18,034 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.37s: unhashable type: 'slice'
+2025-06-15 15:44:18,034 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.62s: unhashable type: 'slice'
+2025-06-15 15:44:18,034 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.73s: unhashable type: 'slice'
+2025-06-15 15:44:18,035 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.98s: unhashable type: 'slice'
+2025-06-15 15:44:18,035 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.06s: unhashable type: 'slice'
+2025-06-15 15:44:18,058 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.20s: unhashable type: 'slice'
+2025-06-15 15:44:18,058 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.89s: unhashable type: 'slice'
+2025-06-15 15:44:18,058 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.70s: unhashable type: 'slice'
+2025-06-15 15:44:18,058 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.25s: unhashable type: 'slice'
+2025-06-15 15:44:18,097 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.31s: unhashable type: 'slice'
+2025-06-15 15:44:18,098 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.23s: unhashable type: 'slice'
+2025-06-15 15:44:18,098 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.74s: unhashable type: 'slice'
+2025-06-15 15:44:18,098 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.71s: unhashable type: 'slice'
+2025-06-15 15:44:18,098 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.69s: unhashable type: 'slice'
+2025-06-15 15:44:18,098 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.95s: unhashable type: 'slice'
+2025-06-15 15:44:18,099 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.76s: unhashable type: 'slice'
+2025-06-15 15:44:18,099 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.93s: unhashable type: 'slice'
+2025-06-15 15:44:18,099 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.96s: unhashable type: 'slice'
+2025-06-15 15:44:18,099 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.65s: unhashable type: 'slice'
+2025-06-15 15:44:18,100 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.21s: unhashable type: 'slice'
+2025-06-15 15:44:18,134 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.85s: unhashable type: 'slice'
+2025-06-15 15:44:18,135 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.63s: unhashable type: 'slice'
+2025-06-15 15:44:18,135 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.96s: unhashable type: 'slice'
+2025-06-15 15:44:18,166 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.61s: unhashable type: 'slice'
+2025-06-15 15:44:18,166 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.63s: unhashable type: 'slice'
+2025-06-15 15:44:18,197 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.22s: unhashable type: 'slice'
+2025-06-15 15:44:18,197 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 3.72s: unhashable type: 'slice'
+2025-06-15 15:44:18,197 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_quote_item_extractor after 4.07s: unhashable type: 'slice'
+2025-06-15 15:44:21,546 - WARNING - [-] - scripts.pipeline.base - Circuit opened for stage batch_quote_item_extractor after 5 failures
+2025-06-15 15:44:22,410 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: batch_batch_quote_item_extractor in 7.49s
+2025-06-15 15:44:22,410 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: csv_loader (CSVLoader)
+CSVLoader: Starting load method with data type: <class 'list'>
+CSVLoader: Data is empty, no rows to write
+CSVLoader: Creating empty file with headers: data_raw/quote_items/quote_items_7900_7935.csv
+CSVLoader: Created empty file with 14 headers: data_raw/quote_items/quote_items_7900_7935.csv
+
+>>> OUTPUT FILE SAVED TO: F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\data_raw\quote_items\quote_items_7900_7935.csv <<<
+
+2025-06-15 15:44:22,621 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: csv_loader in 0.21s
+2025-06-15 15:44:22,621 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: quote_items_pipeline in 7.70s
+2025-06-15 15:44:22,621 - INFO - [-] - __main__ - Pipeline quote_items_pipeline completed successfully
+2025-06-15 15:44:22,621 - INFO - [-] - __main__ - Quote items pipeline completed successfully
+2025-06-15 15:44:22,621 - INFO - [-] - __main__ - Quotes pipeline completed
+2025-06-15 15:44:22,622 - INFO - [-] - __main__ - Starting orders pipeline
+2025-06-15 15:44:22,622 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: orders_pipeline
+2025-06-15 15:44:22,622 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: orders_acquisition (OrdersDataAcquisitionStage)
+2025-06-15 15:44:24,747 - INFO - [-] - utils.config_loader - Loaded config from \\ATH-FILE01\Common\Dustin Drab\CURSOR\PaperlessReporting\scripts\config.json
+2025-06-15 15:44:24,747 - INFO - [-] - utils.async_puller - Processing items 550 to 571
+2025-06-15 15:44:24,747 - INFO - [-] - utils.async_puller - Processing batch 1/2, items 0 to 19
+2025-06-15 15:44:33,505 - INFO - [-] - utils.async_puller - Batch 1/2 complete. Processed 20/22 items (90.9%)
+2025-06-15 15:44:33,505 - INFO - [-] - utils.async_puller - Processing batch 2/2, items 20 to 21
+2025-06-15 15:44:34,646 - INFO - [-] - utils.async_puller - Batch 2/2 complete. Processed 22/22 items (100.0%)
+2025-06-15 15:44:34,647 - INFO - [-] - utils.async_puller - Pull complete. Processed 22 items, failed 0 items.
+2025-06-15 15:44:35,048 - INFO - [-] - scripts.pull_orders_async - Saved 38 order items to F:\Dustin Drab\CURSOR\PaperlessReporting\data_raw\order_items\order_items_550_571.csv
+2025-06-15 15:44:35,048 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: orders_acquisition in 12.43s
+2025-06-15 15:44:35,048 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: batch_batch_order_transformer (BatchProcessor)
+2025-06-15 15:44:35,052 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:35,052 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:35,053 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:35,053 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:35,053 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:35,053 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:35,053 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:35,054 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:35,055 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:35,055 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:35,055 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:35,055 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.08s: unhashable type: 'slice'
+2025-06-15 15:44:35,055 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 0.90s: unhashable type: 'slice'
+2025-06-15 15:44:35,056 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.05s: unhashable type: 'slice'
+2025-06-15 15:44:35,056 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:35,056 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.10s: unhashable type: 'slice'
+2025-06-15 15:44:35,056 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_order_transformer after 1.00s: unhashable type: 'slice'
+2025-06-15 15:44:35,970 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.11s: unhashable type: 'slice'
+2025-06-15 15:44:35,970 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:35,970 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.91s: unhashable type: 'slice'
+2025-06-15 15:44:35,971 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.88s: unhashable type: 'slice'
+2025-06-15 15:44:36,014 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:36,015 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:36,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.83s: unhashable type: 'slice'
+2025-06-15 15:44:36,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.12s: unhashable type: 'slice'
+2025-06-15 15:44:36,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.11s: unhashable type: 'slice'
+2025-06-15 15:44:36,045 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.03s: unhashable type: 'slice'
+2025-06-15 15:44:36,060 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.91s: unhashable type: 'slice'
+2025-06-15 15:44:36,092 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.03s: unhashable type: 'slice'
+2025-06-15 15:44:36,092 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.17s: unhashable type: 'slice'
+2025-06-15 15:44:36,092 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.14s: unhashable type: 'slice'
+2025-06-15 15:44:36,092 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:36,093 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.83s: unhashable type: 'slice'
+2025-06-15 15:44:36,093 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.08s: unhashable type: 'slice'
+2025-06-15 15:44:36,094 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.04s: unhashable type: 'slice'
+2025-06-15 15:44:36,094 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.96s: unhashable type: 'slice'
+2025-06-15 15:44:36,138 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 2.06s: unhashable type: 'slice'
+2025-06-15 15:44:36,139 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:36,168 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_order_transformer after 1.92s: unhashable type: 'slice'
+2025-06-15 15:44:37,866 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.77s: unhashable type: 'slice'
+2025-06-15 15:44:37,867 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.17s: unhashable type: 'slice'
+2025-06-15 15:44:37,867 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.67s: unhashable type: 'slice'
+2025-06-15 15:44:37,896 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.96s: unhashable type: 'slice'
+2025-06-15 15:44:37,942 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.90s: unhashable type: 'slice'
+2025-06-15 15:44:37,974 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.23s: unhashable type: 'slice'
+2025-06-15 15:44:37,974 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.71s: unhashable type: 'slice'
+2025-06-15 15:44:38,002 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.93s: unhashable type: 'slice'
+2025-06-15 15:44:38,066 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.72s: unhashable type: 'slice'
+2025-06-15 15:44:38,066 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.15s: unhashable type: 'slice'
+2025-06-15 15:44:38,066 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.77s: unhashable type: 'slice'
+2025-06-15 15:44:38,066 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.80s: unhashable type: 'slice'
+2025-06-15 15:44:38,067 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.61s: unhashable type: 'slice'
+2025-06-15 15:44:38,126 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.70s: unhashable type: 'slice'
+2025-06-15 15:44:38,127 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.35s: unhashable type: 'slice'
+2025-06-15 15:44:38,127 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.68s: unhashable type: 'slice'
+2025-06-15 15:44:38,173 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.10s: unhashable type: 'slice'
+2025-06-15 15:44:38,173 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 4.07s: unhashable type: 'slice'
+2025-06-15 15:44:38,173 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.69s: unhashable type: 'slice'
+2025-06-15 15:44:38,173 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.65s: unhashable type: 'slice'
+2025-06-15 15:44:38,233 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.78s: unhashable type: 'slice'
+2025-06-15 15:44:38,265 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_order_transformer after 3.72s: unhashable type: 'slice'
+2025-06-15 15:44:41,797 - WARNING - [-] - scripts.pipeline.base - Circuit opened for stage batch_order_transformer after 5 failures
+2025-06-15 15:44:42,487 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: batch_batch_order_transformer in 7.44s
+2025-06-15 15:44:42,487 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: csv_loader (CSVLoader)
+CSVLoader: Starting load method with data type: <class 'list'>
+CSVLoader: Data is empty, no rows to write
+CSVLoader: Creating empty file with headers: data_raw/orders/orders_550_571.csv
+CSVLoader: Created empty file with 14 headers: data_raw/orders/orders_550_571.csv
+
+>>> OUTPUT FILE SAVED TO: F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\data_raw\orders\orders_550_571.csv <<<
+
+2025-06-15 15:44:42,717 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: csv_loader in 0.23s
+2025-06-15 15:44:42,717 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: orders_pipeline in 20.09s
+2025-06-15 15:44:42,717 - INFO - [-] - __main__ - Pipeline orders_pipeline completed successfully
+2025-06-15 15:44:42,718 - WARNING - [-] - __main__ - No order items found in context
+2025-06-15 15:44:42,718 - INFO - [-] - __main__ - Orders pipeline completed
+2025-06-15 15:44:42,718 - INFO - [-] - __main__ - Starting parallel accounts and contacts pipeline
+2025-06-15 15:44:42,718 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: accounts_contacts_parallel_pipeline
+2025-06-15 15:44:42,718 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: accounts_contacts_parallel (ParallelStage)
+2025-06-15 15:44:43,056 - INFO - [-] - scripts.pull_accounts - Pulling accounts from https://api.paperlessparts.com/accounts/public
+2025-06-15 15:44:43,057 - INFO - [-] - scripts.pull_accounts - Fetching page 1...
+2025-06-15 15:44:43,346 - INFO - [-] - scripts.pull_contacts - Pulling contacts from https://api.paperlessparts.com/contacts/public
+2025-06-15 15:44:43,347 - INFO - [-] - scripts.pull_contacts - Fetching page 1...
+2025-06-15 15:44:43,685 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 1 in 0.63 seconds
+2025-06-15 15:44:43,685 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:43,704 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 1
+2025-06-15 15:44:43,704 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:43,884 - INFO - [-] - scripts.pull_accounts - Fetching page 2...
+2025-06-15 15:44:43,915 - INFO - [-] - scripts.pull_contacts - Fetching page 2...
+2025-06-15 15:44:44,016 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 2 in 0.13 seconds
+2025-06-15 15:44:44,017 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:44,041 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 2
+2025-06-15 15:44:44,041 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:44,238 - INFO - [-] - scripts.pull_accounts - Fetching page 3...
+2025-06-15 15:44:44,239 - INFO - [-] - scripts.pull_contacts - Fetching page 3...
+2025-06-15 15:44:44,364 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 3
+2025-06-15 15:44:44,364 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:44,378 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 3 in 0.14 seconds
+2025-06-15 15:44:44,378 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:44,576 - INFO - [-] - scripts.pull_contacts - Fetching page 4...
+2025-06-15 15:44:44,577 - INFO - [-] - scripts.pull_accounts - Fetching page 4...
+2025-06-15 15:44:44,700 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 4
+2025-06-15 15:44:44,700 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:44,710 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 4 in 0.13 seconds
+2025-06-15 15:44:44,710 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:44,899 - INFO - [-] - scripts.pull_contacts - Fetching page 5...
+2025-06-15 15:44:44,900 - INFO - [-] - scripts.pull_accounts - Fetching page 5...
+2025-06-15 15:44:45,031 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 5 in 0.13 seconds
+2025-06-15 15:44:45,031 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:45,042 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 5
+2025-06-15 15:44:45,043 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:45,254 - INFO - [-] - scripts.pull_accounts - Fetching page 6...
+2025-06-15 15:44:45,258 - INFO - [-] - scripts.pull_contacts - Fetching page 6...
+2025-06-15 15:44:45,388 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 6
+2025-06-15 15:44:45,388 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:45,395 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 6 in 0.14 seconds
+2025-06-15 15:44:45,395 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:45,594 - INFO - [-] - scripts.pull_contacts - Fetching page 7...
+2025-06-15 15:44:45,595 - INFO - [-] - scripts.pull_accounts - Fetching page 7...
+2025-06-15 15:44:45,719 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 7
+2025-06-15 15:44:45,719 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:45,722 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 7 in 0.13 seconds
+2025-06-15 15:44:45,722 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:45,932 - INFO - [-] - scripts.pull_contacts - Fetching page 8...
+2025-06-15 15:44:45,933 - INFO - [-] - scripts.pull_accounts - Fetching page 8...
+2025-06-15 15:44:46,068 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 8
+2025-06-15 15:44:46,068 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:46,073 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 8 in 0.14 seconds
+2025-06-15 15:44:46,074 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:46,288 - INFO - [-] - scripts.pull_contacts - Fetching page 9...
+2025-06-15 15:44:46,289 - INFO - [-] - scripts.pull_accounts - Fetching page 9...
+2025-06-15 15:44:46,415 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 9
+2025-06-15 15:44:46,415 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:46,417 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 9 in 0.13 seconds
+2025-06-15 15:44:46,417 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:46,631 - INFO - [-] - scripts.pull_contacts - Fetching page 10...
+2025-06-15 15:44:46,632 - INFO - [-] - scripts.pull_accounts - Fetching page 10...
+2025-06-15 15:44:46,754 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 10
+2025-06-15 15:44:46,754 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:46,772 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 10 in 0.14 seconds
+2025-06-15 15:44:46,772 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:46,971 - INFO - [-] - scripts.pull_contacts - Fetching page 11...
+2025-06-15 15:44:46,973 - INFO - [-] - scripts.pull_accounts - Fetching page 11...
+2025-06-15 15:44:47,097 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 11
+2025-06-15 15:44:47,098 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:47,100 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 11 in 0.13 seconds
+2025-06-15 15:44:47,100 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:47,309 - INFO - [-] - scripts.pull_contacts - Fetching page 12...
+2025-06-15 15:44:47,310 - INFO - [-] - scripts.pull_accounts - Fetching page 12...
+2025-06-15 15:44:47,447 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 12 in 0.14 seconds
+2025-06-15 15:44:47,448 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:47,454 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 12
+2025-06-15 15:44:47,455 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:47,646 - INFO - [-] - scripts.pull_accounts - Fetching page 13...
+2025-06-15 15:44:47,647 - INFO - [-] - scripts.pull_contacts - Fetching page 13...
+2025-06-15 15:44:47,789 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 13 in 0.14 seconds
+2025-06-15 15:44:47,789 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:47,792 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 13
+2025-06-15 15:44:47,792 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:48,000 - INFO - [-] - scripts.pull_accounts - Fetching page 14...
+2025-06-15 15:44:48,001 - INFO - [-] - scripts.pull_contacts - Fetching page 14...
+2025-06-15 15:44:48,128 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 14
+2025-06-15 15:44:48,128 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:48,137 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 14 in 0.14 seconds
+2025-06-15 15:44:48,138 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:48,355 - INFO - [-] - scripts.pull_contacts - Fetching page 15...
+2025-06-15 15:44:48,356 - INFO - [-] - scripts.pull_accounts - Fetching page 15...
+2025-06-15 15:44:48,495 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 15
+2025-06-15 15:44:48,497 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:48,499 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 15 in 0.14 seconds
+2025-06-15 15:44:48,499 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:48,693 - INFO - [-] - scripts.pull_contacts - Fetching page 16...
+2025-06-15 15:44:48,694 - INFO - [-] - scripts.pull_accounts - Fetching page 16...
+2025-06-15 15:44:48,818 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 16 in 0.12 seconds
+2025-06-15 15:44:48,818 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:48,829 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 16
+2025-06-15 15:44:48,830 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:49,015 - INFO - [-] - scripts.pull_accounts - Fetching page 17...
+2025-06-15 15:44:49,016 - INFO - [-] - scripts.pull_contacts - Fetching page 17...
+2025-06-15 15:44:49,145 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 17
+2025-06-15 15:44:49,145 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:49,155 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 17 in 0.14 seconds
+2025-06-15 15:44:49,155 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:49,355 - INFO - [-] - scripts.pull_contacts - Fetching page 18...
+2025-06-15 15:44:49,356 - INFO - [-] - scripts.pull_accounts - Fetching page 18...
+2025-06-15 15:44:49,477 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 18
+2025-06-15 15:44:49,478 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:49,488 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 18 in 0.13 seconds
+2025-06-15 15:44:49,488 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:49,676 - INFO - [-] - scripts.pull_contacts - Fetching page 19...
+2025-06-15 15:44:49,677 - INFO - [-] - scripts.pull_accounts - Fetching page 19...
+2025-06-15 15:44:49,811 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 19
+2025-06-15 15:44:49,812 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:49,814 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 19 in 0.14 seconds
+2025-06-15 15:44:49,814 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:50,016 - INFO - [-] - scripts.pull_contacts - Fetching page 20...
+2025-06-15 15:44:50,017 - INFO - [-] - scripts.pull_accounts - Fetching page 20...
+2025-06-15 15:44:50,139 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 20
+2025-06-15 15:44:50,141 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:50,146 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 20 in 0.13 seconds
+2025-06-15 15:44:50,146 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:50,354 - INFO - [-] - scripts.pull_contacts - Fetching page 21...
+2025-06-15 15:44:50,355 - INFO - [-] - scripts.pull_accounts - Fetching page 21...
+2025-06-15 15:44:50,478 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 21
+2025-06-15 15:44:50,479 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:50,497 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 21 in 0.14 seconds
+2025-06-15 15:44:50,497 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:50,692 - INFO - [-] - scripts.pull_contacts - Fetching page 22...
+2025-06-15 15:44:50,695 - INFO - [-] - scripts.pull_accounts - Fetching page 22...
+2025-06-15 15:44:50,824 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 22 in 0.13 seconds
+2025-06-15 15:44:50,825 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:50,836 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 22
+2025-06-15 15:44:50,837 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:51,028 - INFO - [-] - scripts.pull_accounts - Fetching page 23...
+2025-06-15 15:44:51,029 - INFO - [-] - scripts.pull_contacts - Fetching page 23...
+2025-06-15 15:44:51,155 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 23
+2025-06-15 15:44:51,155 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:51,172 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 23 in 0.14 seconds
+2025-06-15 15:44:51,172 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:51,369 - INFO - [-] - scripts.pull_contacts - Fetching page 24...
+2025-06-15 15:44:51,371 - INFO - [-] - scripts.pull_accounts - Fetching page 24...
+2025-06-15 15:44:51,491 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 24
+2025-06-15 15:44:51,491 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:51,499 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 24 in 0.13 seconds
+2025-06-15 15:44:51,499 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:51,689 - INFO - [-] - scripts.pull_contacts - Fetching page 25...
+2025-06-15 15:44:51,690 - INFO - [-] - scripts.pull_accounts - Fetching page 25...
+2025-06-15 15:44:51,816 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 25 in 0.13 seconds
+2025-06-15 15:44:51,816 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:51,829 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 25
+2025-06-15 15:44:51,830 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:52,027 - INFO - [-] - scripts.pull_accounts - Fetching page 26...
+2025-06-15 15:44:52,031 - INFO - [-] - scripts.pull_contacts - Fetching page 26...
+2025-06-15 15:44:52,161 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 26
+2025-06-15 15:44:52,161 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:52,163 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 26 in 0.14 seconds
+2025-06-15 15:44:52,163 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:52,381 - INFO - [-] - scripts.pull_contacts - Fetching page 27...
+2025-06-15 15:44:52,384 - INFO - [-] - scripts.pull_accounts - Fetching page 27...
+2025-06-15 15:44:52,515 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 27 in 0.13 seconds
+2025-06-15 15:44:52,516 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:52,521 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 27
+2025-06-15 15:44:52,522 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:52,735 - INFO - [-] - scripts.pull_accounts - Fetching page 28...
+2025-06-15 15:44:52,738 - INFO - [-] - scripts.pull_contacts - Fetching page 28...
+2025-06-15 15:44:52,862 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 28
+2025-06-15 15:44:52,862 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:52,877 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 28 in 0.14 seconds
+2025-06-15 15:44:52,877 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:53,073 - INFO - [-] - scripts.pull_contacts - Fetching page 29...
+2025-06-15 15:44:53,076 - INFO - [-] - scripts.pull_accounts - Fetching page 29...
+2025-06-15 15:44:53,195 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 29
+2025-06-15 15:44:53,195 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:53,206 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 29 in 0.13 seconds
+2025-06-15 15:44:53,207 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:53,393 - INFO - [-] - scripts.pull_contacts - Fetching page 30...
+2025-06-15 15:44:53,394 - INFO - [-] - scripts.pull_accounts - Fetching page 30...
+2025-06-15 15:44:53,534 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 30
+2025-06-15 15:44:53,534 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:53,544 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 30 in 0.15 seconds
+2025-06-15 15:44:53,544 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:53,749 - INFO - [-] - scripts.pull_contacts - Fetching page 31...
+2025-06-15 15:44:53,750 - INFO - [-] - scripts.pull_accounts - Fetching page 31...
+2025-06-15 15:44:53,874 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 31
+2025-06-15 15:44:53,875 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:53,893 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 31 in 0.14 seconds
+2025-06-15 15:44:53,893 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:54,091 - INFO - [-] - scripts.pull_contacts - Fetching page 32...
+2025-06-15 15:44:54,092 - INFO - [-] - scripts.pull_accounts - Fetching page 32...
+2025-06-15 15:44:54,227 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 32
+2025-06-15 15:44:54,227 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:54,235 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 32 in 0.14 seconds
+2025-06-15 15:44:54,235 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:54,431 - INFO - [-] - scripts.pull_contacts - Fetching page 33...
+2025-06-15 15:44:54,432 - INFO - [-] - scripts.pull_accounts - Fetching page 33...
+2025-06-15 15:44:54,558 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 33
+2025-06-15 15:44:54,558 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:54,565 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 33 in 0.13 seconds
+2025-06-15 15:44:54,565 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:54,756 - INFO - [-] - scripts.pull_contacts - Fetching page 34...
+2025-06-15 15:44:54,757 - INFO - [-] - scripts.pull_accounts - Fetching page 34...
+2025-06-15 15:44:54,894 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 34
+2025-06-15 15:44:54,894 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:54,896 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 34 in 0.14 seconds
+2025-06-15 15:44:54,896 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:55,112 - INFO - [-] - scripts.pull_contacts - Fetching page 35...
+2025-06-15 15:44:55,113 - INFO - [-] - scripts.pull_accounts - Fetching page 35...
+2025-06-15 15:44:55,237 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 35
+2025-06-15 15:44:55,237 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:55,243 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 35 in 0.13 seconds
+2025-06-15 15:44:55,243 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:55,452 - INFO - [-] - scripts.pull_contacts - Fetching page 36...
+2025-06-15 15:44:55,454 - INFO - [-] - scripts.pull_accounts - Fetching page 36...
+2025-06-15 15:44:55,579 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 36 in 0.13 seconds
+2025-06-15 15:44:55,580 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:55,588 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 36
+2025-06-15 15:44:55,588 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:55,805 - INFO - [-] - scripts.pull_accounts - Fetching page 37...
+2025-06-15 15:44:55,806 - INFO - [-] - scripts.pull_contacts - Fetching page 37...
+2025-06-15 15:44:55,938 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 37 in 0.13 seconds
+2025-06-15 15:44:55,939 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:55,946 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 37
+2025-06-15 15:44:55,946 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:56,160 - INFO - [-] - scripts.pull_accounts - Fetching page 38...
+2025-06-15 15:44:56,161 - INFO - [-] - scripts.pull_contacts - Fetching page 38...
+2025-06-15 15:44:56,286 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 38 in 0.13 seconds
+2025-06-15 15:44:56,287 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:56,294 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 38
+2025-06-15 15:44:56,294 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:56,502 - INFO - [-] - scripts.pull_accounts - Fetching page 39...
+2025-06-15 15:44:56,503 - INFO - [-] - scripts.pull_contacts - Fetching page 39...
+2025-06-15 15:44:56,634 - INFO - [-] - scripts.pull_contacts - Retrieved 20 contacts from page 39
+2025-06-15 15:44:56,634 - INFO - [-] - scripts.pull_contacts - More contacts available, fetching next page...
+2025-06-15 15:44:56,636 - INFO - [-] - scripts.pull_accounts - Retrieved 20 accounts from page 39 in 0.13 seconds
+2025-06-15 15:44:56,636 - INFO - [-] - scripts.pull_accounts - More accounts available, fetching next page...
+2025-06-15 15:44:56,842 - INFO - [-] - scripts.pull_contacts - Fetching page 40...
+2025-06-15 15:44:56,843 - INFO - [-] - scripts.pull_accounts - Fetching page 40...
+2025-06-15 15:44:56,956 - ERROR - [-] - scripts.pull_accounts - Error 429 fetching accounts: {"error":true,"code":"throttled","message":"Request was throttled. Expected available in 1 second.","extra":null}
+2025-06-15 15:44:56,957 - ERROR - [-] - scripts.pull_contacts - Error 429 fetching contacts: {"error":true,"code":"throttled","message":"Request was throttled. Expected available in 1 second.","extra":null}
+2025-06-15 15:44:56,957 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: accounts_contacts_parallel in 14.24s
+2025-06-15 15:44:56,958 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: accounts_contacts_parallel_pipeline in 14.24s
+2025-06-15 15:44:56,958 - INFO - [-] - __main__ - Parallel acquisition completed: 0 accounts and 0 contacts
+2025-06-15 15:44:56,958 - INFO - [-] - __main__ - Parallel accounts and contacts pipeline completed in 14.24 seconds
+2025-06-15 15:44:56,958 - INFO - [-] - __main__ - Starting users pipeline
+2025-06-15 15:44:56,958 - INFO - [-] - scripts.pipeline.orchestrator - Starting pipeline: users_pipeline
+2025-06-15 15:44:56,958 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: users_acquisition (UsersDataAcquisitionStage)
+Fetching users from https://api.paperlessparts.com/users/public...
+2025-06-15 15:44:57,799 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: users_acquisition in 0.84s
+2025-06-15 15:44:57,799 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: batch_batch_user_transformer (BatchProcessor)
+2025-06-15 15:44:57,805 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.92s: unhashable type: 'slice'
+2025-06-15 15:44:57,805 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.01s: unhashable type: 'slice'
+2025-06-15 15:44:57,805 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.08s: unhashable type: 'slice'
+2025-06-15 15:44:57,805 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:57,805 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:57,806 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:57,806 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:57,806 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:57,806 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:57,806 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.02s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.05s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.09s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.08s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.99s: unhashable type: 'slice'
+2025-06-15 15:44:57,807 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.07s: unhashable type: 'slice'
+2025-06-15 15:44:57,808 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:57,808 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.96s: unhashable type: 'slice'
+2025-06-15 15:44:57,808 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:57,808 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.04s: unhashable type: 'slice'
+2025-06-15 15:44:57,808 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.94s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.91s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.06s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:57,809 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.97s: unhashable type: 'slice'
+2025-06-15 15:44:57,810 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.95s: unhashable type: 'slice'
+2025-06-15 15:44:57,810 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.05s: unhashable type: 'slice'
+2025-06-15 15:44:57,810 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 0.93s: unhashable type: 'slice'
+2025-06-15 15:44:57,810 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.10s: unhashable type: 'slice'
+2025-06-15 15:44:57,810 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.03s: unhashable type: 'slice'
+2025-06-15 15:44:57,811 - WARNING - [-] - scripts.pipeline.base - Retry 1/3 for stage batch_user_transformer after 1.02s: unhashable type: 'slice'
+2025-06-15 15:44:58,719 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:58,720 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.90s: unhashable type: 'slice'
+2025-06-15 15:44:58,720 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.12s: unhashable type: 'slice'
+2025-06-15 15:44:58,720 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.18s: unhashable type: 'slice'
+2025-06-15 15:44:58,720 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.88s: unhashable type: 'slice'
+2025-06-15 15:44:58,755 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.00s: unhashable type: 'slice'
+2025-06-15 15:44:58,756 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.83s: unhashable type: 'slice'
+2025-06-15 15:44:58,756 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.88s: unhashable type: 'slice'
+2025-06-15 15:44:58,756 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.87s: unhashable type: 'slice'
+2025-06-15 15:44:58,756 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.15s: unhashable type: 'slice'
+2025-06-15 15:44:58,757 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.99s: unhashable type: 'slice'
+2025-06-15 15:44:58,757 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.16s: unhashable type: 'slice'
+2025-06-15 15:44:58,781 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.00s: unhashable type: 'slice'
+2025-06-15 15:44:58,781 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.82s: unhashable type: 'slice'
+2025-06-15 15:44:58,781 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:58,814 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.81s: unhashable type: 'slice'
+2025-06-15 15:44:58,815 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.02s: unhashable type: 'slice'
+2025-06-15 15:44:58,816 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.10s: unhashable type: 'slice'
+2025-06-15 15:44:58,817 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.96s: unhashable type: 'slice'
+2025-06-15 15:44:58,843 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.84s: unhashable type: 'slice'
+2025-06-15 15:44:58,843 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:58,843 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.97s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.16s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.94s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.93s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.91s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.05s: unhashable type: 'slice'
+2025-06-15 15:44:58,844 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.99s: unhashable type: 'slice'
+2025-06-15 15:44:58,872 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.94s: unhashable type: 'slice'
+2025-06-15 15:44:58,903 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:58,903 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.01s: unhashable type: 'slice'
+2025-06-15 15:44:58,903 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 1.98s: unhashable type: 'slice'
+2025-06-15 15:44:58,903 - WARNING - [-] - scripts.pipeline.base - Retry 2/3 for stage batch_user_transformer after 2.04s: unhashable type: 'slice'
+2025-06-15 15:45:00,564 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.37s: unhashable type: 'slice'
+2025-06-15 15:45:00,593 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.14s: unhashable type: 'slice'
+2025-06-15 15:45:00,594 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.23s: unhashable type: 'slice'
+2025-06-15 15:45:00,594 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.14s: unhashable type: 'slice'
+2025-06-15 15:45:00,625 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.15s: unhashable type: 'slice'
+2025-06-15 15:45:00,625 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.80s: unhashable type: 'slice'
+2025-06-15 15:45:00,625 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.40s: unhashable type: 'slice'
+2025-06-15 15:45:00,626 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.65s: unhashable type: 'slice'
+2025-06-15 15:45:00,700 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.15s: unhashable type: 'slice'
+2025-06-15 15:45:00,760 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.14s: unhashable type: 'slice'
+2025-06-15 15:45:00,761 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.78s: unhashable type: 'slice'
+2025-06-15 15:45:00,762 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.77s: unhashable type: 'slice'
+2025-06-15 15:45:00,793 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.95s: unhashable type: 'slice'
+2025-06-15 15:45:00,793 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.75s: unhashable type: 'slice'
+2025-06-15 15:45:00,793 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.82s: unhashable type: 'slice'
+2025-06-15 15:45:00,793 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.77s: unhashable type: 'slice'
+2025-06-15 15:45:00,793 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.13s: unhashable type: 'slice'
+2025-06-15 15:45:00,823 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.23s: unhashable type: 'slice'
+2025-06-15 15:45:00,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.29s: unhashable type: 'slice'
+2025-06-15 15:45:00,824 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.86s: unhashable type: 'slice'
+2025-06-15 15:45:00,853 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.76s: unhashable type: 'slice'
+2025-06-15 15:45:00,854 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.17s: unhashable type: 'slice'
+2025-06-15 15:45:00,854 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.62s: unhashable type: 'slice'
+2025-06-15 15:45:00,884 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.12s: unhashable type: 'slice'
+2025-06-15 15:45:00,885 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.69s: unhashable type: 'slice'
+2025-06-15 15:45:00,915 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.77s: unhashable type: 'slice'
+2025-06-15 15:45:00,915 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.90s: unhashable type: 'slice'
+2025-06-15 15:45:00,915 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.93s: unhashable type: 'slice'
+2025-06-15 15:45:00,915 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.17s: unhashable type: 'slice'
+2025-06-15 15:45:00,915 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.27s: unhashable type: 'slice'
+2025-06-15 15:45:00,916 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 4.02s: unhashable type: 'slice'
+2025-06-15 15:45:00,945 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.84s: unhashable type: 'slice'
+2025-06-15 15:45:01,022 - WARNING - [-] - scripts.pipeline.base - Retry 3/3 for stage batch_user_transformer after 3.76s: unhashable type: 'slice'
+2025-06-15 15:45:04,533 - WARNING - [-] - scripts.pipeline.base - Circuit opened for stage batch_user_transformer after 5 failures
+2025-06-15 15:45:05,194 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: batch_batch_user_transformer in 7.39s
+2025-06-15 15:45:05,194 - INFO - [-] - scripts.pipeline.orchestrator - Running stage: csv_loader (CSVLoader)
+CSVLoader: Starting load method with data type: <class 'list'>
+CSVLoader: Data is empty, no rows to write
+CSVLoader: Creating empty file with headers: data_raw/users/users_all.csv
+CSVLoader: Created empty file with 6 headers: data_raw/users/users_all.csv
+
+>>> OUTPUT FILE SAVED TO: F:\Dustin Drab\CURSOR\PaperlessReporting\scripts\data_raw\users\users_all.csv <<<
+
+2025-06-15 15:45:05,432 - INFO - [-] - scripts.pipeline.orchestrator - Stage completed: csv_loader in 0.24s
+2025-06-15 15:45:05,433 - INFO - [-] - scripts.pipeline.orchestrator - Pipeline completed: users_pipeline in 8.47s
+2025-06-15 15:45:05,433 - INFO - [-] - __main__ - Pipeline users_pipeline completed successfully
+2025-06-15 15:45:05,433 - INFO - [-] - __main__ - Users pipeline completed successfully
+2025-06-15 15:45:05,433 - INFO - [-] - __main__ - Users pipeline completed
+2025-06-15 15:45:05,433 - INFO - [-] - __main__ - Starting merged data pipeline
+2025-06-15 15:45:05,784 - INFO - [-] - __main__ - Copied data_raw/quotes/quotes_7900_7935.csv to data_real/quotes.csv
+2025-06-15 15:45:05,839 - INFO - [-] - botocore.credentials - Found credentials in environment variables.
+2025-06-15 15:45:06,246 - INFO - [-] - __main__ - Uploaded data_raw/quotes/quotes_7900_7935.csv to S3 as quotes/quotes_7900_7935.csv
+2025-06-15 15:45:06,710 - INFO - [-] - __main__ - Copied data_raw/quote_items/quote_items_7900_7935.csv to data_real/quote_items.csv
+2025-06-15 15:45:06,751 - INFO - [-] - __main__ - Uploaded data_raw/quote_items/quote_items_7900_7935.csv to S3 as quote_items/quote_items_7900_7935.csv
+2025-06-15 15:45:07,226 - INFO - [-] - __main__ - Copied data_raw/orders/orders_550_571.csv to data_real/orders.csv
+2025-06-15 15:45:07,266 - INFO - [-] - __main__ - Uploaded data_raw/orders/orders_550_571.csv to S3 as orders/orders_550_571.csv
+2025-06-15 15:45:07,293 - WARNING - [-] - __main__ - Source file data_raw/order_items/order_items_550_571.csv does not exist, skipping
+2025-06-15 15:45:07,319 - WARNING - [-] - __main__ - Source file data_raw/accounts/accounts_all.csv does not exist, skipping
+2025-06-15 15:45:07,649 - INFO - [-] - __main__ - Copied data_raw/contacts/contacts_all.csv to data_real/contacts.csv
+2025-06-15 15:45:07,688 - INFO - [-] - __main__ - Uploaded data_raw/contacts/contacts_all.csv to S3 as contacts/contacts_all.csv
+2025-06-15 15:45:08,102 - INFO - [-] - __main__ - Copied data_raw/users/users_all.csv to data_real/users.csv
+2025-06-15 15:45:08,141 - INFO - [-] - __main__ - Uploaded data_raw/users/users_all.csv to S3 as users/users_all.csv
+2025-06-15 15:45:08,141 - INFO - [-] - __main__ - Merged data pipeline completed successfully
+2025-06-15 15:45:08,141 - INFO - [-] - __main__ - All pipelines completed successfully
+2025-06-15 15:45:08,142 - INFO - [-] - __main__ - Data pipeline completed
+
+Process finished with exit code 0
