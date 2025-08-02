@@ -4,53 +4,124 @@ Script to pull users (salespeople/estimators) from Paperless API.
 This script fetches user data from the API and displays the first 5 responses in full detail.
 """
 
-import requests
+import asyncio
 import json
-import time
 import csv
 from pathlib import Path
+from typing import Dict, Any, Optional, List, Tuple
+
+from scripts.utils.async_puller import AsyncPuller
 from scripts.utils.config_loader import config_loader
+from scripts.utils.logging_config import get_logger
 
-API_TOKEN = config_loader["api_key"]
-BASE_URL = config_loader["api_base_url"]
-HEADERS = {"Authorization": f"API-Token {API_TOKEN}"}
+logger = get_logger(__name__)
 
-def fetch_users():
-    users = []
-    url = f"{BASE_URL}/users/public"
+class UsersPuller(AsyncPuller[Dict[str, Any]]):
+    """
+    Asynchronous puller for user data.
 
-    while url:
-        print(f"Fetching users from {url}...")
-        res = requests.get(url, headers=HEADERS, timeout=10)
-        res.raise_for_status()
-        data = res.json()
+    This class extends AsyncPuller to fetch user data from the API.
+    """
 
-        # Check if the response is a list or has a 'results' field
-        if isinstance(data, list):
-            users.extend(data)
-            url = None  # No pagination for list responses
-        else:
-            users.extend(data.get("results", []))
-            url = data.get("next")  # Get the next page URL if available
+    def __init__(self, output_dir: str = "data_raw"):
+        """
+        Initialize the UsersPuller.
 
-        # Add a small delay to avoid rate limiting
-        if url:
-            time.sleep(0.2)
+        Args:
+            output_dir: Directory to save output files
+        """
+        super().__init__(
+            endpoint="users/public",
+            rate=1.0,  # Requests per second
+            capacity=5  # Maximum burst capacity
+        )
+        self.output_dir = output_dir
 
-    return users
+    def transform_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Transform raw user data into the desired format.
 
-def main():
+        Args:
+            data: Raw user data from the API
+
+        Returns:
+            Transformed user data
+        """
+        # Return the data as is, or transform it as needed
+        return data
+
+    def get_output_path(self) -> str:
+        """
+        Get the path to save the output CSV file.
+
+        Returns:
+            Path to the output CSV file
+        """
+        output_dir = Path(self.output_dir) / "users" / "public"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        return str(output_dir / "users_all.csv")
+
+    def get_item_range(self) -> List[int]:
+        """
+        Get the range of item IDs to fetch.
+
+        For users, we don't use IDs, so we return an empty list.
+        The run method will be overridden to fetch all users.
+
+        Returns:
+            Empty list
+        """
+        return []
+
+    async def run(self):
+        """
+        Run the puller to fetch all users.
+
+        This overrides the base class method to fetch all users at once
+        instead of by ID.
+
+        Returns:
+            List of user data
+        """
+        url = f"{self.base_url}/{self.endpoint}"
+        logger.info(f"Fetching users from {url}")
+
+        async with self.session_factory() as session:
+            async with session.get(url, headers=self.headers) as response:
+                response.raise_for_status()
+                data = await response.json()
+
+                # Check if the response is a list or has a 'results' field
+                if isinstance(data, list):
+                    users = data
+                else:
+                    users = data.get("results", [])
+
+                # Transform each user
+                transformed_users = [self.transform_data(user) for user in users]
+
+                # Save to CSV
+                self.save_to_csv(transformed_users, self.get_output_path())
+
+                # Display summary
+                logger.info(f"✅ Found {len(transformed_users)} users")
+
+                return transformed_users
+
+async def main():
+    """
+    Main entry point for the script.
+
+    Creates a UsersPuller instance and runs it to fetch user data from the API.
+    """
     try:
-        users = fetch_users()
-
-        # Get the total number of users
-        total_users = len(users)
-        print(f"✅ Found {total_users} users")
+        users_puller = UsersPuller()
+        users = await users_puller.run()
 
         # Display the first 5 users in full detail
         print("\n=== First 5 Users (Full Data) ===")
         for i, user in enumerate(users[:5], 1):
-            print(f"\n--- User {i}/{min(5, total_users)} ---")
+            print(f"\n--- User {i}/{min(5, len(users))} ---")
             print(json.dumps(user, indent=2))
 
         # Display a summary of all users
@@ -61,22 +132,9 @@ def main():
             role = user.get('role', 'Unknown role')
             print(f"{i}. {name} ({email}) - {role}")
 
-        # Save users to CSV
-        output_dir = Path("data_raw/users/public")
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = output_dir / "users_all.csv"
-
-        with open(output_path, "w", newline="", encoding="utf-8") as f:
-            if users:
-                writer = csv.DictWriter(f, fieldnames=users[0].keys())
-                writer.writeheader()
-                writer.writerows(users)
-                print(f"✅ Wrote {len(users)} users to {output_path}")
-            else:
-                print("⚠️ No users to write to CSV")
-
     except Exception as e:
-        print(f"❌ Failed to fetch users: {e}")
+        logger.error(f"❌ Failed to fetch users: {e}")
+        raise
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

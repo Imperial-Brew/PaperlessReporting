@@ -84,7 +84,14 @@ class QuoteTransformer(TransformationStage[Dict[str, Any], Dict[str, Any]]):
             # Extract estimator information
             estimator = data.get("estimator", {})
             if estimator:
-                transformed["estimator_email"] = estimator.get("email", "")
+                if isinstance(estimator, dict):
+                    # Handle estimator as an object with properties
+                    transformed["estimator_email"] = estimator.get("email", "")
+                    transformed["estimator_name"] = f"{estimator.get('first_name', '')} {estimator.get('last_name', '')}".strip()
+                elif isinstance(estimator, str):
+                    # Handle estimator as a string UUID
+                    transformed["estimator_email"] = ""  # We don't have the email when estimator is a UUID
+                    transformed["estimator_name"] = estimator  # Store the UUID as the estimator name
 
             # Extract salesperson information
             salesperson = data.get("salesperson", {})
@@ -624,12 +631,13 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
 
     def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None,
                  include_revisions: bool = True, name: str = "paperless_parts_acquisition",
-                 output_dir: str = "data_real"):
+                 output_dir: str = "data_real", status_filter: Optional[str] = None):
         super().__init__(name)
         self.start_id = start_id
         self.end_id = end_id
         self.include_revisions = include_revisions
         self.output_dir = output_dir
+        self.status_filter = status_filter
 
     async def acquire(self) -> List[Dict[str, Any]]:
         """
@@ -651,7 +659,8 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
                 start_id=self.start_id,
                 end_id=self.end_id,
                 include_revisions=self.include_revisions,
-                output_dir=self.output_dir
+                output_dir=self.output_dir,
+                status_filter=self.status_filter
             )
 
             # Run the puller
@@ -673,6 +682,21 @@ class PaperlessPartsDataAcquisitionStage(DataAcquisitionStage[List[Dict[str, Any
             # Debug: Print the first quote if available
             if quotes:
                 print(f"PaperlessPartsDataAcquisitionStage: First quote sample: {list(quotes[0].keys())[:5]}...")
+
+                # Debug: Check estimator data in the first few quotes
+                for i, quote in enumerate(quotes[:5]):
+                    print(f"PaperlessPartsDataAcquisitionStage: Quote {i} estimator data:")
+                    if 'estimator' in quote:
+                        estimator = quote['estimator']
+                        print(f"  - estimator: {estimator}")
+                        print(f"  - estimator_name: {quote.get('estimator_name', 'NOT PRESENT')}")
+                        if isinstance(estimator, dict):
+                            print(f"  - first_name: {estimator.get('first_name', 'NOT PRESENT')}")
+                            print(f"  - last_name: {estimator.get('last_name', 'NOT PRESENT')}")
+                        elif isinstance(estimator, str):
+                            print(f"  - estimator is a UUID: {estimator}")
+                    else:
+                        print("  - No estimator data found")
             else:
                 print("PaperlessPartsDataAcquisitionStage: No quotes were fetched")
 

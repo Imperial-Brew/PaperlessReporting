@@ -1,4 +1,5 @@
 # Data Processing Pipeline Framework - Summary
+*Last updated: 7/2/2025*
 
 ## Overview
 
@@ -13,9 +14,10 @@ This document summarizes the implementation of a data processing pipeline framew
 
 2. **Implemented Core Components**
    - **Base Classes**: `PipelineStage`, `DataAcquisitionStage`, `ValidationStage`, `TransformationStage`, `LoadingStage`
-   - **Orchestrator**: `Pipeline`, `QuotePipeline`, `QuoteItemPipeline`
-   - **Validators**: `QuoteValidator`, `QuoteItemValidator`
-   - **Processors**: `QuoteTransformer`, `QuoteItemTransformer`, `CSVLoader`, `JSONLoader`
+   - **Orchestrator**: `Pipeline`, `QuotePipeline`, `QuoteItemPipeline`, `AccountPipeline`, `ContactPipeline`
+   - **Validators**: `QuoteValidator`, `QuoteItemValidator`, `AccountValidator`, `ContactValidator`
+   - **Processors**: `QuoteTransformer`, `QuoteItemTransformer`, `AccountTransformer`, `ContactTransformer`, `CSVLoader`, `JSONLoader`, `S3Loader`, `BatchProcessor`, `ParallelStage`
+   - **Builder**: `PipelineBuilder` for simplified pipeline creation with a fluent interface
    - **Exceptions**: `PipelineError`, `ValidationError`, `TransformationError`, `LoadingError`, `DataAcquisitionError`
 
 3. **Added Monitoring and Error Handling**
@@ -30,6 +32,10 @@ This document summarizes the implementation of a data processing pipeline framew
    - Extracting and validating quote items
    - Exporting quote items to CSV
    - Error handling with invalid data
+   - Parallel processing with BatchProcessor and ParallelStage
+   - Pipeline creation using the builder pattern
+   - Account and contact data acquisition and processing
+   - S3 integration for data storage
 
 5. **Documented the Framework**
    - A comprehensive README file with usage examples
@@ -49,21 +55,21 @@ The pipeline framework provides several benefits over the previous approach:
 
 ## Next Steps
 
-The current implementation demonstrates the core functionality of the pipeline framework. Here are the recommended next steps:
+The pipeline framework has been significantly enhanced since its initial implementation. Here are the recommended next steps:
 
 ### Short-term (1-2 months)
 
-1. **Integrate with Existing Scripts**: Refactor the existing data pulling scripts to use the pipeline framework.
-2. **Add Data Acquisition Stages**: Implement stages for fetching data from the Paperless Parts API.
-3. **Add More Validators and Transformers**: Implement validators and transformers for other data types (orders, accounts, etc.).
-4. **Add S3 Integration**: Implement a loader for uploading data to AWS S3.
+1. **Integrate with Existing Scripts**: Continue refactoring the existing data pulling scripts to use the pipeline framework.
+2. **Add More Validators and Transformers**: Implement validators and transformers for other data types (orders, users, etc.).
+3. **Enhance Retry Mechanisms**: Expand the configurable retry mechanisms for failed stages.
+4. **Refactor Factory Methods**: Update factory methods to use the new builder pattern for consistency.
 
 ### Medium-term (3-6 months)
 
-5. **Add Retry Mechanisms**: Implement configurable retry mechanisms for failed stages.
-6. **Add Dead Letter Queues**: Add support for storing failed records for later processing.
-7. **Implement Parallel Processing**: Add support for processing data in parallel.
-8. **Add Pipeline Visualization**: Implement tools for visualizing pipeline execution and metrics.
+5. **Add Dead Letter Queues**: Add support for storing failed records for later processing.
+6. **Add Pipeline Visualization**: Implement tools for visualizing pipeline execution and metrics.
+7. **Expand Parallel Processing**: Enhance parallel processing capabilities for better performance.
+8. **Improve Incremental Processing**: Enhance support for processing only new or changed data.
 
 ### Long-term (6+ months)
 

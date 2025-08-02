@@ -40,9 +40,11 @@ class PaperlessPartsClient:
     ENDPOINT_QUOTE_BY_ID = "quotes/public/{quote_id}"
     ENDPOINT_QUOTE_ITEMS = "quotes/public/{quote_id}/quote-items"
     ENDPOINT_QUOTE_REVISIONS = "quotes/public/new"
+    ENDPOINT_NEW_QUOTES = "quotes/public/new"
     ENDPOINT_ORDERS = "orders/public"
     ENDPOINT_ORDER_BY_ID = "orders/public/{order_id}"
     ENDPOINT_ORDER_ITEMS = "orders/public/{order_id}/order-items"
+    ENDPOINT_NEW_ORDERS = "orders/public/new"
 
     def __init__(
         self,
@@ -445,3 +447,41 @@ class PaperlessPartsClient:
         """
         endpoint = self.ENDPOINT_ORDER_ITEMS.format(order_id=order_id)
         return await self.get_paginated(endpoint)
+
+    async def get_new_quotes(self, last_quote: Optional[Union[int, str]] = None) -> List[Dict[str, Any]]:
+        """
+        Get new quotes that have been sent.
+
+        If last_quote is provided, returns quotes sent after the specified quote.
+        If no last_quote is provided, returns all sent quotes.
+
+        Args:
+            last_quote: Optional ID of the last known quote
+
+        Returns:
+            List of new quote data
+        """
+        params = {}
+        if last_quote is not None:
+            params["last_quote"] = last_quote
+
+        return await self.get(self.ENDPOINT_NEW_QUOTES, params=params) or []
+
+    async def get_new_orders(self, last_order: Optional[Union[int, str]] = None) -> List[Dict[str, Any]]:
+        """
+        Get new orders that have been created.
+
+        If last_order is provided, returns orders created after the specified order.
+        If no last_order is provided, returns all available orders.
+
+        Args:
+            last_order: Optional ID of the last known order
+
+        Returns:
+            List of new order data
+        """
+        params = {}
+        if last_order is not None:
+            params["last_order"] = last_order
+
+        return await self.get(self.ENDPOINT_NEW_ORDERS, params=params) or []

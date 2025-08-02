@@ -13,6 +13,8 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 
 ## Key Scripts
 
+- `scripts/run_pull.py`
+  → unified interactive CLI for all pullers with support for different range types
 - `scripts/pull_quotes.py`, `pull_orders.py`, `pull_quote_items.py`, `pull_contacts_async.py`  
   → each uses the same API-Token header, paginates/rate-limits, writes CSVs under `data_raw/`
 - `scripts/utils/merge_*.py`  
@@ -38,7 +40,7 @@ A Python-based tool for pulling, processing, and reporting data from the Paperle
 ## Workflow
 
 1. `git pull` latest  
-2. `python scripts/pull_quotes.py` (etc.) to regenerate raw CSVs  
+2. `python scripts/run_pull.py` to interactively pull data, or `python scripts/pull_quotes.py` (etc.) to regenerate raw CSVs  
 3. `python scripts/utils/merge_all_batches.py` to consolidate  
 4. Commit CSVs, push → CI runs and validates formatting + simple smoke tests
 
@@ -83,6 +85,113 @@ The project includes comprehensive documentation:
 - **[Logging and Error Handling](logging.md)**: Information about the logging and error handling system
 - **[Changelog](CHANGELOG.md)**: Record of all notable changes to the project
 - **[Pipeline Framework](../scripts/pipeline/README.md)**: Documentation for the data processing pipeline framework
+
+## Unified CLI Runner
+
+The project includes a unified interactive CLI for all pullers, which provides a single interface to run any of the available pullers with interactive configuration of parameters.
+
+### Features
+
+- **Unified Interface**: A single CLI for all pullers (quotes, orders, accounts, contacts, users)
+- **Interactive Range Selection**: Three options for selecting ranges:
+  - Last N items: Pulls the most recent N items
+  - Start-Stop range: Pulls items within a specific ID range
+  - All items: Pulls all available items
+- **Entity-Specific Parameters**: Support for entity-specific parameters like:
+  - Include revisions for quotes
+  - Status filter for quotes
+- **Process Management**: Ability to:
+  - Start pullers
+  - Stop running pullers
+  - Check puller status
+- **Configurable Settings**: Interactive menus to configure:
+  - Puller type
+  - Range settings
+  - Log level
+  - Output directory
+  - Entity-specific settings
+
+### Usage
+
+To start the unified CLI runner:
+
+```bash
+python scripts/run_pull.py
+```
+
+This will display an interactive menu with the following options:
+
+1. **Change settings**: Configure the puller type, range type, range settings, log level, and entity-specific settings
+2. **Start puller**: Start the puller with the current settings
+3. **Stop running puller**: Stop a currently running puller
+4. **Check puller status**: Check if a puller is currently running
+5. **Exit**: Exit the CLI
+
+### Range Types
+
+The unified CLI runner supports three range types:
+
+#### Last N Items
+
+This range type pulls the most recent N items. It works by:
+1. Determining the current maximum ID for the entity type
+2. Calculating the start ID based on the maximum ID and the requested number of items
+3. Pulling all items between the start ID and the maximum ID
+
+Example:
+```
+Range: Last 50 items
+```
+
+This will pull the 50 most recent items of the selected entity type.
+
+#### Start-Stop Range
+
+This range type pulls items within a specific ID range. It works by:
+1. Using the specified start ID and end ID
+2. Pulling all items between the start ID and the end ID
+
+Example:
+```
+ID Range: 7500 - 7550
+```
+
+This will pull all items with IDs between 7500 and 7550, inclusive.
+
+#### All Items
+
+This range type pulls all available items. It works by:
+1. Using the puller's built-in functionality to fetch all items
+2. This may not be implemented for all entity types
+
+Example:
+```
+Range: All items
+```
+
+This will attempt to pull all items of the selected entity type.
+
+### Entity-Specific Settings
+
+#### Quotes
+
+- **Include Revisions**: Whether to include revised quotes (quotes with revision > 0)
+- **Status Filter**: Filter quotes by status (draft, outstanding, cancelled, lost, trash)
+
+### Testing
+
+To test the unified CLI runner:
+
+1. Run the CLI with different range types and settings
+2. Verify that the correct data is pulled
+3. Test the process management features (start, stop, check status)
+
+Example test cases:
+- Pull quotes with the "Last N" range type
+- Pull orders with the "Start-Stop" range type
+- Pull accounts with the "All" range type
+- Test stopping a running puller
+- Test checking the status of a running puller
 
 ## Testing
 

@@ -27,7 +27,7 @@ logger = get_logger(__name__)
 
 # Get the project root directory
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-CHECKPOINT_FILE = os.path.join(PROJECT_ROOT, "data_real", "quote_pipeline_7900_7950_checkpoint.json")
+CHECKPOINT_FILE = os.path.join(PROJECT_ROOT, "data_real", "quote_pipeline_checkpoint.json")
 
 
 def load_checkpoint():
@@ -43,7 +43,7 @@ def load_checkpoint():
                 return json.load(f)
     except Exception as e:
         logger.error(f"Error loading checkpoint: {e}")
-    return {"last_processed_id": 7000}  # Default to starting ID if no checkpoint exists
+    return {"last_processed_id": 1}  # Default to a low ID if no checkpoint exists
 
 
 def save_checkpoint(last_id):
@@ -106,6 +106,18 @@ class QuoteSplittingCSVLoader(CSVLoader):
             # Remove quote-item specific fields from quote
             quote.pop('authenticated_pdf_quote_url', None)
 
+            # Ensure estimator_name is included
+            if 'estimator' in quote:
+                if isinstance(quote['estimator'], dict):
+                    # Handle estimator as an object with properties
+                    estimator = quote['estimator']
+                    if 'estimator_name' not in quote:
+                        quote['estimator_name'] = f"{estimator.get('first_name', '')} {estimator.get('last_name', '')}".strip()
+                elif isinstance(quote['estimator'], str):
+                    # Handle estimator as a string UUID
+                    if 'estimator_name' not in quote:
+                        quote['estimator_name'] = quote['estimator']  # Store the UUID as the estimator name
+
             quotes_data.append(quote)
 
             if quote_items:
@@ -122,9 +134,25 @@ class QuoteSplittingCSVLoader(CSVLoader):
         self.record_metric("quotes_count", len(quotes_data))
         self.record_metric("items_count", len(items_data))
 
+        # Ensure all quotes have the same fields
+        all_fields = set()
+        for quote in quotes_data:
+            all_fields.update(quote.keys())
+
+        # Add missing fields with empty values
+        for quote in quotes_data:
+            for field in all_fields:
+                if field not in quote:
+                    quote[field] = ""
+
         # Save quotes to quotes CSV
         try:
             quotes_df = pd.DataFrame(quotes_data)
+
+            # Ensure estimator_name is included in the columns
+            if 'estimator_name' not in quotes_df.columns:
+                quotes_df['estimator_name'] = ""
+
             quotes_df.to_csv(self.file_path, index=False)
             self.logger.info(f"Saved {len(quotes_data)} quotes to {self.file_path}")
 
@@ -156,25 +184,35 @@ class QuoteSplittingCSVLoader(CSVLoader):
         return data
 
 
-async def run_pipeline():
+async def run_pipeline(start_id=None, end_id=None):
     """
-    Run the quote pipeline for quotes 7900-7950.
+    Run the quote pipeline.
 
     This function processes quotes in chunks to avoid timeouts and includes
     checkpoint functionality to resume processing if interrupted. It fetches
     quotes from the Paperless Parts API, validates and transforms them, and
     saves them to CSV files.
 
+    Args:
+        start_id (int, optional): Starting quote ID. If None, uses checkpoint.
+        end_id (int, optional): Ending quote ID. If None, uses default.
+
     Returns:
         bool: True if pipeline executed successfully, False otherwise
     """
-    logger.info("Running Quote Pipeline (7900-7950)")
+    logger.info("Running Quote Pipeline")
 
     checkpoint = load_checkpoint()
-    start_id = checkpoint["last_processed_id"]
-    end_id = 8070  # Set the end ID for the pipeline
 
-    logger.info(f"Resuming from ID {start_id}")
+    # Use provided start_id if available, otherwise use checkpoint
+    if start_id is None:
+        start_id = checkpoint["last_processed_id"]
+
+    # Use provided end_id if available, otherwise use default
+    if end_id is None:
+        end_id = 8070  # Default end ID
+
+    logger.info(f"Processing quotes from ID {start_id} to {end_id}")
 
     # Process in smaller chunks to avoid timeouts
     CHUNK_SIZE = 50
@@ -277,7 +315,7 @@ def merge_chunk_files(start_id, end_id):
     # Merge and save quotes
     if quotes_dfs:
         combined_quotes = pd.concat(quotes_dfs, ignore_index=True)
-        output_file = os.path.join(data_real_dir, "quotes", "quotes_7900_7950_complete.csv")
+        output_file = os.path.join(data_real_dir, "quotes", f"quotes_{start_id}_{end_id}_complete.csv")
         combined_quotes.to_csv(output_file, index=False)
         logger.info(f"Created combined quotes file with {len(combined_quotes)} records at {output_file}")
     else:
@@ -287,13 +325,13 @@ def merge_chunk_files(start_id, end_id):
     logger.info(f"Found {len(items_dfs)} quote item files to merge")
     if items_dfs:
         combined_items = pd.concat(items_dfs, ignore_index=True)
-        output_file = os.path.join(data_real_dir, "quote_items", "quote_items_7900_7950_complete.csv")
+        output_file = os.path.join(data_real_dir, "quote_items", f"quote_items_{start_id}_{end_id}_complete.csv")
         combined_items.to_csv(output_file, index=False)
         logger.info(f"Created combined quote items file with {len(combined_items)} records at {output_file}")
     else:
         logger.warning("No quote item files found to merge")
         # Create an empty file to ensure it exists
-        output_file = os.path.join(data_real_dir, "quote_items", "quote_items_7900_7950_complete.csv")
+        output_file = os.path.join(data_real_dir, "quote_items", f"quote_items_{start_id}_{end_id}_complete.csv")
         pd.DataFrame().to_csv(output_file, index=False)
         logger.info(f"Created empty quote items file at {output_file}")
 
@@ -311,6 +349,14 @@ async def main():
     Returns:
         int: 0 for success, 1 for failure
     """
+    import argparse
+
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Run the quote pipeline")
+    parser.add_argument("--start-id", type=int, help="Starting quote ID")
+    parser.add_argument("--end-id", type=int, help="Ending quote ID")
+    args = parser.parse_args()
+
     try:
         # Ensure data_real directory and subdirectories exist
         data_real_dir = os.path.join(PROJECT_ROOT, "data_real")
@@ -322,29 +368,7 @@ async def main():
         os.makedirs(quote_items_dir, exist_ok=True)
         logger.info(f"Ensured data directories exist: {data_real_dir}, {quotes_dir}, {quote_items_dir}")
 
-        # Clean up old files in data_real directory if they exist
-        # Remove complete files
-        old_quotes_file = os.path.join(data_real_dir, "quotes_7900_7950_complete.csv")
-        old_items_file = os.path.join(data_real_dir, "quote_items_7900_7950_complete.csv")
-
-        if os.path.exists(old_quotes_file):
-            os.remove(old_quotes_file)
-            logger.info(f"Removed old quotes file from data_real directory: {old_quotes_file}")
-
-        if os.path.exists(old_items_file):
-            os.remove(old_items_file)
-            logger.info(f"Removed old items file from data_real directory: {old_items_file}")
-
-        # Remove chunk files
-        for file in os.listdir(data_real_dir):
-            if file.startswith("quotes_") and file.endswith(".csv") and not os.path.isdir(os.path.join(data_real_dir, file)):
-                os.remove(os.path.join(data_real_dir, file))
-                logger.info(f"Removed old quotes chunk file from data_real directory: {file}")
-            elif file.startswith("quote_items_") and file.endswith(".csv") and not os.path.isdir(os.path.join(data_real_dir, file)):
-                os.remove(os.path.join(data_real_dir, file))
-                logger.info(f"Removed old quote items chunk file from data_real directory: {file}")
-
-        success = await run_pipeline()
+        success = await run_pipeline(start_id=args.start_id, end_id=args.end_id)
         return 0 if success else 1
 
     except asyncio.CancelledError:

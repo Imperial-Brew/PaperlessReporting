@@ -64,6 +64,66 @@ with LogContext(operation="process_data", user_id=123):
     logger.info("Processing data")  # This log message will include the context information
 ```
 
+## Enhanced Error Logging
+
+The enhanced error logging system is implemented in `scripts/utils/enhanced_error_logging.py`. It provides:
+
+- Functions for logging errors with detailed context information
+- Support for writing structured error logs to JSON files
+- Backward compatibility with existing text-based error logs
+- Functions for retrieving and clearing error logs
+
+### Usage
+
+To use the enhanced error logging:
+
+```python
+from scripts.utils.enhanced_error_logging import log_entity_error, log_batch_errors
+
+# Log an error for a specific entity
+error_info = log_entity_error(
+    entity_type="quote",
+    entity_id=7500,
+    error_type="validation",
+    error_message="Missing required field 'customer_name'",
+    details={"fields": ["customer_name"]},
+    source="QuoteValidator.validate"
+)
+
+# Log a batch of errors
+errors = [
+    {
+        "entity_type": "quote",
+        "entity_id": 7501,
+        "error_type": "api",
+        "error_message": "API request failed",
+        "details": {"status_code": 404},
+        "source": "QuotesPuller.get_quote"
+    },
+    {
+        "entity_type": "quote",
+        "entity_id": 7502,
+        "error_type": "transformation",
+        "error_message": "Failed to transform quote data",
+        "details": {"field": "delivery_date"},
+        "source": "QuoteTransformer.transform"
+    }
+]
+log_batch_errors("quote", errors)
+
+# Get all errors for a specific entity type
+from scripts.utils.enhanced_error_logging import get_entity_errors
+quote_errors = get_entity_errors("quote")
+
+# Get IDs of all entities with errors
+from scripts.utils.enhanced_error_logging import get_entity_error_ids
+failed_quote_ids = get_entity_error_ids("quote")
+
+# Clear all errors for a specific entity type
+from scripts.utils.enhanced_error_logging import clear_entity_errors
+clear_entity_errors("quote")
+```
+
 ## Custom Exception Hierarchy
 
 The custom exception hierarchy is implemented in `scripts/utils/exceptions.py`. It provides:

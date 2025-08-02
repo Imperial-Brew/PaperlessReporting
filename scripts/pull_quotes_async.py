@@ -11,9 +11,13 @@ import asyncio
 import argparse
 import csv
 import os
+import sys
 import traceback
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
+
+# Add the project root to the Python path
+sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
 import aiohttp
 
@@ -38,7 +42,9 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
     It supports fetching a specific range of quote IDs.
     """
 
-    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None, include_revisions: bool = True, output_dir: str = "data_raw"):
+    def __init__(self, start_id: Optional[int] = None, end_id: Optional[int] = None, 
+             include_revisions: bool = True, output_dir: str = "data_raw",
+             status_filter: Optional[str] = None):
         """
         Initialize the QuotesPuller.
 
@@ -47,6 +53,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
             end_id: Optional ending ID for range of quotes to fetch
             include_revisions: Whether to include revised quotes (quotes with revision > 0)
             output_dir: Directory to save output files (default: "data_raw")
+            status_filter: Optional status to filter quotes by (e.g., "draft", "outstanding", "cancelled", "lost", "trash")
         """
         super().__init__(
             endpoint="quotes/public",
@@ -61,6 +68,7 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
         self.current_revision = None  # For revised quotes
         self.quote_revision_pairs = []  # For storing quote/revision pairs
         self.output_dir = output_dir  # Directory to save output files
+        self.status_filter = status_filter  # Status filter
 
     def transform_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -156,10 +164,12 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
             "authenticated_pdf_quote_url": data.get("authenticated_pdf_quote_url"),
             "contact_name": (safe_get(data, "contact", "first_name") or "") + " " + (
                     safe_get(data, "contact", "last_name") or ""),
-            "contact_email": safe_get(data, "contact", "email"),
-            "customer_name": safe_get(data, "contact", "account", "name"),
-            "estimator_email": safe_get(data, "estimator", "email"),
-            "salesperson_email": safe_get(data, "salesperson", "email")
+            "contact_email": safe_get(data, "contact", "email") or "",
+            "customer_name": safe_get(data, "contact", "account", "name") or "",
+            "estimator_email": safe_get(data, "estimator", "email") if isinstance(data.get("estimator"), dict) else "",
+            "estimator_name": ((safe_get(data, "estimator", "first_name") or "") + " " + 
+                    (safe_get(data, "estimator", "last_name") or "")).strip() if isinstance(data.get("estimator"), dict) else data.get("estimator") or "",
+            "salesperson_email": safe_get(data, "salesperson", "email") or ""
         }
 
     def get_quotes_output_path(self) -> str:
@@ -405,6 +415,20 @@ class QuotesPuller(AsyncPuller[Dict[str, Any]]):
             revised_quotes = await self.process_revised_quotes()
             all_quotes.extend(revised_quotes)
 
+        # Apply status filter if specified
+        if self.status_filter:
+            original_count = len(all_quotes)
+            all_quotes = [q for q in all_quotes if q.get("status") == self.status_filter]
+            filtered_count = len(all_quotes)
+            logger.info(f"Filtered quotes by status '{self.status_filter}': {filtered_count} of {original_count} quotes retained")
+
+            # Also filter quote items to match filtered quotes
+            if self.quote_items:
+                quote_numbers = {str(q.get("quote_number")) for q in all_quotes}
+                original_items_count = len(self.quote_items)
+                self.quote_items = [item for item in self.quote_items if item.get("quote_number") in quote_numbers]
+                logger.info(f"Filtered quote items: {len(self.quote_items)} of {original_items_count} items retained")
+
         # Save all quotes to CSV
         if all_quotes:
             quotes_path = self.get_quotes_output_path()
@@ -459,6 +483,9 @@ async def main():
         parser.add_argument("--start-id", type=int, help="Starting quote ID", default=7500)
         parser.add_argument("--end-id", type=int, help="Ending quote ID", default=7550)
         parser.add_argument("--no-revisions", action="store_true", help="Exclude revised quotes")
+        parser.add_argument("--status-filter", type=str, 
+                           choices=["draft", "outstanding", "cancelled", "lost", "trash"],
+                           help="Filter quotes by status")
         parser.add_argument("--log-level", type=str, choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
                            help="Logging level", default=os.getenv("LOG_LEVEL", "INFO"))
         parser.add_argument("--log-file", type=str, help="Log file path", default=os.getenv("LOG_FILE"))
@@ -468,16 +495,22 @@ async def main():
         start_id = args.start_id
         end_id = args.end_id
         include_revisions = not args.no_revisions
+        status_filter = args.status_filter
 
         # Add context information to logs
-        with LogContext(operation="pull_quotes", start_id=start_id, end_id=end_id, include_revisions=include_revisions):
+        with LogContext(operation="pull_quotes", start_id=start_id, end_id=end_id, 
+                       include_revisions=include_revisions, status_filter=status_filter):
             # Validate arguments
             if start_id > end_id:
                 raise ValueError(f"Start ID ({start_id}) must be less than or equal to End ID ({end_id})")
 
             # Fetch quotes and extract quote items
-            quotes_puller = QuotesPuller(start_id, end_id, include_revisions, output_dir="data_raw")
-            logger.info(f"Starting quote pull job: {start_id} to {end_id}, include_revisions={include_revisions}")
+            quotes_puller = QuotesPuller(
+                start_id, end_id, include_revisions, 
+                output_dir="data_raw", status_filter=status_filter
+            )
+            logger.info(f"Starting quote pull job: {start_id} to {end_id}, "
+                       f"include_revisions={include_revisions}, status_filter={status_filter}")
 
             try:
                 await quotes_puller.run()

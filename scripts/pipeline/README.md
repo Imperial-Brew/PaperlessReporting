@@ -228,6 +228,7 @@ The following example scripts demonstrate different aspects of the pipeline fram
 - **[pipeline_builder_example.py](../Examples/pipeline_builder_example.py)**: Shows how to use the builder pattern to create pipelines
 - **[run_real_data_pipeline.py](run_real_data_pipeline.py)**: Shows how to use the pipeline with real data from the API
 - **[run_account_contact_pipeline.py](run_account_contact_pipeline.py)**: Example of fetching and processing account and contact data
+- **[run_quotes_7900_7950_pipeline.py](run_quotes_7900_7950_pipeline.py)**: Example of processing quotes in a specific ID range
 
 ## Next Steps
 

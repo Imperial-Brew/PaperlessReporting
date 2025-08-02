@@ -5,6 +5,25 @@ All notable changes to the PaperlessReporting project will be documented in this
 ## [Unreleased]
 
 ### Added
+- Unified interactive CLI for all pullers
+  - Created `scripts/run_pull.py` for a single interface to all pullers
+  - Added support for three range types: "last-n", "start-stop", and "all"
+  - Implemented "Last N" functionality to pull the most recent N items
+  - Added process management features (start, stop, check status)
+  - Added interactive configuration of puller settings
+  - Added entity-specific parameters (include revisions, status filter)
+  - Updated documentation in `docs/README.md`
+- New methods in PaperlessPartsClient for "Last N" functionality
+  - Added `get_new_quotes` method to get the latest quotes
+  - Added `get_new_orders` method to get the latest orders
+  - Used the /quotes/public/new and /orders/public/new endpoints
+- Enhanced error logging system
+  - Added `scripts/utils/enhanced_error_logging.py` for structured error logging
+  - Added functions for logging errors with detailed context information
+  - Added support for writing structured error logs to JSON files
+  - Maintained backward compatibility with existing text-based error logs
+  - Added functions for retrieving and clearing error logs
+  - Updated documentation in `docs/logging.md`
 - Parallel processing capabilities to the pipeline framework
   - Enhanced `BatchProcessor` to support true parallel processing using asyncio
   - Added `ParallelStage` for running multiple stages concurrently
